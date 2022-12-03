@@ -5,43 +5,43 @@
   "env": {
     "BOT_TOKEN": {
       "description": "bot token girin.",
-      "value": "5740066159:AAFFvQW5B6f2mZ7XIdB4ar86LWdp7qkQogc"
+      "value": ""
     },
     "API_ID": {
       "description": "@otomytelegrambot dan api hash api id alınız.",
-      "value": "15954332"
+      "value": ""
     },
     "API_HASH": {
       "description": "@otomytelegrambot dan api hash api id alınız.",
-      "value": "85adea6f1eaf068b707703b4846a9ced"
+      "value": ""
     },
     "BOT_NAME": {
       "description": "botun adını girin.",
-      "value": "O L D TAGGER 🇦🇿 V1.2.0"
+      "value": ""
     },
     "BOT_USERNAME": {
       "description": "botun adresini girin.",
-      "value": "oldtaggerbot"
+      "value": ""
     },
     "BOT_ID": {
       "description": "botun id'sini girin.",
-      "value": "5740066159"
+      "value": ""
     },
     "SUDO_USERS": {
       "description": "botun sahibini girin.",
-      "value": "5508658149"
+      "value": ""
     },
     "SUPPORT_CHAT": {
       "description": "botun destek grubunu girin.",
-      "value": "oldsupport"
+      "value": ""
     },
     "OWNER_ID": {
       "description": "botun sahibinin id'sini girin.",
-      "value": "1980683964"
+      "value": ""
     },
     "OWNER_USERNAME": {
       "description": "botun sahibinin adresini girin.",
-      "value": "oldteamabasof"
+      "value": ""
     }
   },
   "buildpacks": [{
