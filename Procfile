@@ -1,1 +1,1 @@
-worker: oldtagger
+bot: oldtagger
