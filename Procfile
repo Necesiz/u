@@ -1,2 +1,1 @@
-worker: python3 oldtagger
-
+bot: bash start
