@@ -1,7 +1,4 @@
+# repodan adimi silme peyser.
+
 telethon
-cryptg
-requests
-tgcrypto
-pymongo[srv]
-aiofiles
-psutil
+tglogging
