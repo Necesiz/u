@@ -1,1 +1,2 @@
-worker: oldtagger
+worker: python3 oldtagger
+
