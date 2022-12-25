@@ -104,6 +104,16 @@ ad = ( "🐰 Dovşan","🦁 Şir","💍 Evli","🐶 İT","🐻 Ayı","🐭 Siça
 
 fedler = "LC","DTÖ","GOLD","XAOS","KARONA","FC","ASO","STFU","KARABAKH","TTK","GGT","TAO","DEV","FM","DAB","BQB","ATOM","ELİT","BTO","CRAZY","BTB","ALPHA","FELLİX","QANUN","RCI","SO","XTQ","BT","DTB","KİNG","HOST","AMON","DTX","TAD","KOBRA".split(" ")
 
+salam = (
+"Salam",
+"Salam Kişi",
+"Salam Balam",
+"Salamdaa",
+"Uşş balama salam",
+"Salam Cənab 🫶",
+"Salam Lələ 🔥",
+)
+
 
 
 @client.on(events.NewMessage(pattern="^/fdtag ?(.*)"))
@@ -1358,15 +1368,21 @@ async def event(ups):
 @client.on(events.NewMessage(pattern='/sahib'))
 async def handler(event):	
      await event.reply('🇦🇿 sahiblər**\n**@AnonyumAz**\n**@SatisAzOwner.')
-     
-     
-  
+    
+
+ 
 @client.on(events.ChatAction)   
 async def handler(event):
     if event.user_joined:
         await event.reply("Salam Xow geldin")
           
           
-          
+ 
+@client.on(events.NewMessage(pattern='(?i)salam+'))
+async def yeni_mesaj(event: events.NewMessage.Event):
+    await event.reply(f"{random.choice(salam)}") 
+
+
+        
 print(">> Bot işləyir narahat olmayın. @AnonyumAz Məlumat almaq üçün <<")
 client.run_until_disconnected()
