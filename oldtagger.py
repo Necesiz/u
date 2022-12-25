@@ -1364,7 +1364,7 @@ async def handler(event):
  @client.on(events.ChatAction)   
  async def handler(event):
      if event.user_joined:
-        await event.reply("Salam Xow geldin")
+        await event.reply('Salam Xow geldin')
           
           
           
