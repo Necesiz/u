@@ -1361,10 +1361,10 @@ async def handler(event):
      
      
   
-@client.on(events.ChatAction)   
-async def handler(event):
-    if event.user_joined:
-        await event.reply("{random.choice(joinchat)}")
+ @client.on(events.ChatAction)   
+ async def handler(event):
+     if event.user_joined:
+        await event.reply("Salam Xow geldin")
           
           
           
