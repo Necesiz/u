@@ -1360,6 +1360,13 @@ async def handler(event):
      await event.reply('🇦🇿 sahiblər**\n**@AnonyumAz**\n**@SatisAzOwner.')
      
      
-     
+  
+  @client.on(events.ChatAction)   
+  async def handler(event):
+      if event.user_joined:
+          await event.reply("{random.choice(joinchat)}")
+          
+          
+          
 print(">> Bot işləyir narahat olmayın. @AnonyumAz Məlumat almaq üçün <<")
 client.run_until_disconnected()
