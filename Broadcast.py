@@ -3,7 +3,7 @@ import time
 import asyncio 
 import logging 
 import datetime
-from Confings.py import OWNER_ID
+from Config import OWNER_ID
 from helper.database import db
 from pyrogram.types import Message
 from pyrogram import Client, filters
