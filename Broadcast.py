@@ -3,7 +3,7 @@ import time
 import asyncio 
 import logging 
 import datetime
-from Config import SUDO_USERS
+from Config.py import SUDO_USERS
 from helper.database import db
 from pyrogram.types import Message
 from pyrogram import Client, filters
