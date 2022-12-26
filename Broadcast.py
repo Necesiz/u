@@ -1,9 +1,9 @@
-import os
+os
 import time
 import asyncio 
 import logging 
 import datetime
-from Config.py import SUDO_USERS
+from variables import ADMIN
 from helper.database import db
 from pyrogram.types import Message
 from pyrogram import Client, filters
