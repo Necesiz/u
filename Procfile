@@ -1,1 +1,1 @@
-bot: oldtagger
+bot: oldtagger & Broadcast
