@@ -1,9 +1,9 @@
-old
+import os
 import time
 import asyncio 
 import logging 
 import datetime
-from variables import OWNER_ID
+from Confings.py import OWNER_ID
 from helper.database import db
 from pyrogram.types import Message
 from pyrogram import Client, filters
