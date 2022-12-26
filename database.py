@@ -1,4 +1,4 @@
-from variables import DB_URL, DB_NAME
+from Confing import DB_URL, DB_NAME
 import motor.motor_asyncio, datetime
 
 class Database:
