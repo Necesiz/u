@@ -12,13 +12,13 @@ from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, Peer
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
  
-@Client.on_message(filters.command("users") & filters.user(SUDO_USERS))
+@Client.on_message(filters.command("users") & filters.user(ADMIN))
 async def get_stats(bot :Client, message: Message):
     mr = await message.reply('**ACCESSING DETAILS.....**')
     total_users = await db.total_users_count()
     await mr.edit( text=f"🔍 TOTAL USER'S = `{total_users}`")
 
-@Client.on_message(filters.command("yolla") & filters.user(SUDO_USERS) & filters.reply)
+@Client.on_message(filters.command("yolla") & filters.user(ADMIN) & filters.reply)
 async def broadcast_handler(bot: Client, m: Message):
     all_users = await db.get_all_users()
     broadcast_msg = m.reply_to_message
