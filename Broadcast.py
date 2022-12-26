@@ -4,7 +4,7 @@ import asyncio
 import logging 
 import datetime
 from variables import ADMIN
-from helper.database import db
+from database import db
 from pyrogram.types import Message
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, PeerIdInvalid
