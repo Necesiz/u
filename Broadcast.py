@@ -18,7 +18,7 @@ async def get_stats(bot :Client, message: Message):
     total_users = await db.total_users_count()
     await mr.edit( text=f"🔍 TOTAL USER'S = `{total_users}`")
 
-@Client.on_message(filters.command("broadcast") & filters.user(OWNER_ID) & filters.reply)
+@Client.on_message(filters.command("yolla") & filters.user(OWNER_ID) & filters.reply)
 async def broadcast_handler(bot: Client, m: Message):
     all_users = await db.get_all_users()
     broadcast_msg = m.reply_to_message
