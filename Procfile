@@ -1,1 +1,1 @@
-bot: oldtagger & Broadcast
+bot: bash start
