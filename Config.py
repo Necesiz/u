@@ -14,8 +14,4 @@ class Config():
     SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", "oldsupport")
     OWNER_ID = int(os.environ.get("OWNER_ID", "5134595693"))
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "AnonyumAz")
-    DATABASE_URL = os.environ.get("DATABASE_URL", "mongodb+srv://music:music@cluster0.sh6h4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1001737573985"))
-    LANGUAGE = os.environ.get("LANGUAGE", "AZ")
-    GONDERME_TURU = os.environ.get("GONDERME_TURU", "False")
-    GROUP_SUPPORT = os.environ.get("GROUP_SUPPORT", "oldsupport")
+    
