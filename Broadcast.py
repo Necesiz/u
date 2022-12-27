@@ -13,12 +13,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-app = Client(
-    "OLD-TAGGER-BOT",
-    api_id=Confing.API_ID,
-    api_hash=Confing.API_HASH,
-    bot_token=Confing.BOT_TOKEN,
-)
+client = TelegramClient('client', api_id, apiclient = TelegramClient('client', api_id, api_hash)_hash).start(bot_token=bot_token)
  
 @Client.on_message(filters.command("users") & filters.user(ADMIN))
 async def get_stats(bot :Client, message: Message):
