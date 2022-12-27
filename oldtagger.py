@@ -1363,13 +1363,13 @@ async def event(ups):
   else:
     await ups.reply("**Sən pro user deyilsən. 💎**")
 
-
+#sahib
 
 @client.on(events.NewMessage(pattern='/sahib'))
 async def handler(event):	
      await event.reply('🇦🇿 sahiblər**\n**@AnonyumAz**\n**@SatisAzOwner.')
     
-
+#xoş geldin
  
 @client.on(events.ChatAction)   
 async def handler(event):
