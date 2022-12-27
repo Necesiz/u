@@ -54,14 +54,14 @@ async def start(event):
 
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "** [𝕆𝕃𝔻 TAGGER](http://t.me/oldtaggerbot)-un Kömək Əmrlər Bunlardır...💭,⤵**\n\n**🤖➪ /sehid <səbəb> - Şəhid adı ilə tag edir.**\n**🤖➪ /tag <səbəb> - 5-li Tag Atışları.**\n**🤖➪ /etag <səbəb> - Emoji ilə etiketlər.**\n**🤖➪ /stag <səbəb> - Söz'lü Tag etiketlər.**\n**🤖➪ /tektag <səbəb> - Üzvləri Tək-Tək etiketlər.**\n**🤖➪ /old <səbəb> - old Tag Bot'una aid Tag etiketlər.**\n**🤖➪ /admins <səbəb> - İdarəçilər Tək-Tək etiketlər.**\n**🤖➪ /cancel - Tag Ələməyi Dayandır.**\n**🤖➪ /start - Botu işə salır**\n**🤖➪ /rtag - Rənglə tag edir**\n**🤖➪ /utag - ürəklə tag edir**\n**🤖➪ /futag - Futbolçu adları ilə tag edir**\n**🤖➪ /mtag <səbəb> - Mafia rolları ilə tag edir**\n**🤖➪ /atag <səbəb> - Maraqlı adla tag edir**\n**🤖➪ /seher <səbəb> - Şəhər adları ilə tag edir**\n**🤖➪ /btag <səbəb> - Bayrag ilətagedir**\n**🤖➪ /fdtag <səbəb> - federasiya adları ilə tag edit**\n**🤖➪ /sahib - Botun sahiblərinin siyahısını gətirir**\n**🤖➪ /reklam - Reklam və ya əməkdaşlıq üçün bu əmrdən istifadə edin.**"
+  helptext = "** [𝕆𝕃𝔻 TAGGER](http://t.me/oldtaggerbot)-un Kömək Əmrlər üçün Əmirlər buttonuna vurun.**"
   await event.reply(helptext,
                     buttons=(
                       [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/oldtaggerBot?startgroup=a')],
-                      [Button.url('Söhbət Qurupu', 'https://t.me/TacikistanOdlarYurdu')],
-                      [Button.url('Duyru Kanal📢', 'https://t.me/updatechanelold')],
+                      [Button.url('Əmirlər', 'https://t.me/oldtaggerhelp')],
+                      [Button.url(' Söhbət Qrupu', 'https://t.me/TacikistanOdlarYurdu')],
 		      [Button.url('🎉 Sahib', 'https://t.me/AnonyumAz'),
-                      Button.url(' BLOG', 'https://t.me/teamabasofblog')],
+                      Button.url(' Duyru Kanal', 'https://t.me/updatechanelold')],
                       [Button.url('AnonyumAz Bot','http://t.me/AnonyumAzBot')],
                       [Button.url('TikTok Bot','http://t.me/TikTokDowlandBot')],
                     ),
