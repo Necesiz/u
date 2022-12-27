@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 app = Client(
-    "MentionAll",
+    "OLD-TAGGER-BOT",
     api_id=Config.API_ID,
     api_hash=Config.API_HASH,
     bot_token=Config.BOT_TOKEN,
