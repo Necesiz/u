@@ -3,3 +3,8 @@
 telethon
 tglogging
 asyncio
+pyrogram
+tgcrypto
+aiofiles
+motor
+dnspython
