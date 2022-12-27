@@ -2,7 +2,7 @@ import re
 import os
 from os import environ
 
-import Config
+import config
 
 id_pattern = re.compile(r'^.\d+$')
 
