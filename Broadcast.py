@@ -15,13 +15,13 @@ logger.setLevel(logging.INFO)
 
 client = TelegramClient('client', api_id, apiclient = TelegramClient('client', api_id, api_hash)_hash).start(bot_token=bot_token)
  
-@Client.on_message(filters.command("users") & filters.user(ADMIN))
+@client.on_message(filters.command("users") & filters.user(ADMIN))
 async def get_stats(bot :Client, message: Message):
     mr = await message.reply('**ACCESSING DETAILS.....**')
     total_users = await db.total_users_count()
     await mr.edit( text=f"🔍 TOTAL USER'S = `{total_users}`")
 
-@Client.on_message(filters.command("yolla") & filters.user(ADMIN) & filters.reply)
+@client.on_message(filters.command("yolla") & filters.user(ADMIN) & filters.reply)
 async def broadcast_handler(bot: Client, m: Message):
     all_users = await db.get_all_users()
     broadcast_msg = m.reply_to_message
