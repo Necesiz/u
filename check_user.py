@@ -6,7 +6,7 @@ import datetime
 from Config import Config
 import logging
 
-from handlers.database import Database
+from database import Database
 
 DB_URL = Config.DB_URL
 DB_NAME = Config.DB_NAME
@@ -14,7 +14,7 @@ LOG_CHANNEL = Config.LOG_CHANNEL
 
 db = Database(DB_URL, DB_NAME)
 
-async def handle_user_status(bot, cmd):
+async def user_status(bot, cmd):
     chat_id = cmd.from_user.id
     if not await db.is_user_exist(chat_id):
         data = await bot.get_me()
