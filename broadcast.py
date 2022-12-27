@@ -16,7 +16,7 @@ from pyrogram.errors import (
     UserIsBlocked,
 )
 
-import config
+from Config import Config
 
 broadcast_ids = {}
 
