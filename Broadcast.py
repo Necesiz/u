@@ -15,9 +15,9 @@ logger.setLevel(logging.INFO)
 
 app = Client(
     "OLD TAGGER BOT",
-    api_id=Config.API_ID,
-    api_hash=Config.API_HASH,
-    bot_token=Config.BOT_TOKEN,
+    api_id=variables.API_ID,
+    api_hash=variables.API_HASH,
+    bot_token=variables.BOT_TOKEN,
 )
  
 @Client.on_message(filters.command("users") & filters.user(ADMIN))
