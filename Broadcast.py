@@ -3,13 +3,13 @@ import time
 import asyncio 
 import logging 
 import datetime
-from Confing import OWNER_ID
+from confing import OWNER_ID
 from database import db
 from pyrogram.types import Message
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, PeerIdInvalid
 
-import Confing
+import confing
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
