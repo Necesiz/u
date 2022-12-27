@@ -9,15 +9,17 @@ from pyrogram.types import Message
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, PeerIdInvalid
 
+import variables
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
 app = client(
     "OLD-TAGGER-BOT",
-    "api_id=variables.API_ID",
-    "api_hash=variables.API_HASH",
-    "bot_token=variables.BOT_TOKEN",
+    api_id=variables.API_ID,
+    api_hash=variables.API_HASH,
+    bot_token=variables.BOT_TOKEN,
 )
  
 @client.on_message(filters.command("users") & filters.user(ADMIN))
