@@ -61,5 +61,7 @@ async def pingy(client, message):
         f"█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄\n**Ping: {round(ms)}**")
     
 app.start()
+
 print(f"Bot pyrogram ( {pyrogram.__version__} sürümü ile başlatıldı. ")
+
 idle()
