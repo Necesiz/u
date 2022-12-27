@@ -204,4 +204,4 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
         await cb.message.delete(True)
 
 
-Bot.run()
+Client.run()
