@@ -11,19 +11,19 @@ from handlers.broadcast import broadcast
 from handlers.check_user import handle_user_status
 from handlers.database import Database
 
-LOG_CHANNEL = config.LOG_CHANNEL
-AUTH_USERS = config.AUTH_USERS
-DB_URL = config.DB_URL
-DB_NAME = config.DB_NAME
+LOG_CHANNEL = Config.LOG_CHANNEL
+AUTH_USERS = Config.AUTH_USERS
+DB_URL = Config.DB_URL
+DB_NAME = Config.DB_NAME
 
 db = Database(DB_URL, DB_NAME)
 
 
 Bot = Client(
     "OLD-TAGGER-BOT",
-    bot_token=config.BOT_TOKEN,
-    api_id=config.API_ID,
-    api_hash=config.API_HASH,
+    bot_token=Config.BOT_TOKEN,
+    api_id=Config.API_ID,
+    api_hash=Config.API_HASH,
 )
 
 @Client.on_message(filters.private)
