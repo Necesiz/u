@@ -1316,32 +1316,32 @@ async def mentionalladmin(event):
     else:
       grup_sayi.append(event.chat_id)
 
-@client.on(events.NewMessage(pattern='^/statik ?(.*)'))
-async def son_durum(event):
-    global anlik_calisan,grup_sayi,özel_list
-    sender = await event.get_sender()
-    if sender.id not in ozel_list:
-      return
-    await event.respond(f"**O L D TAGGER BOT Statikaları ⚛**\n\nToplam Grup: `{len(grup_sayi)}`\nAnlıq Aktiv Grup: `{len(anlik_calisan)}`")
+#@client.on(events.NewMessage(pattern='^/statik ?(.*)'))
+#async def son_durum(event):
+ #   global anlik_calisan,grup_sayi,özel_list
+ #   sender = await event.get_sender()
+  #  if sender.id not in ozel_list:
+   #   return
+ #   await event.respond(f"**O L D TAGGER BOT Statikaları ⚛**\n\nToplam Grup: `{len(grup_sayi)}`\nAnlıq Aktiv Grup: `{len(anlik_calisan)}`")
 	
 	
 	
 
-@client.on(events.NewMessage(pattern='^/broadcast ?(.*)'))
-async def duyuru(event):
+#@client.on(events.NewMessage(pattern='^/broadcast ?(.*)'))
+#async def duyuru(event):
 	
-  global grup_sayi,ozel_list
-  sender = await event.get_sender()
-  if sender.id not in ozel_list:
-    return
-  reply = await event.get_reply_message()
-  await event.respond(f"Toplam {len(grup_sayi)} Gruba'a mesaj gönderiliyor...")
-  for x in grup_sayi:
-    try:
-      await client.send_message(x,f"**Reklam**\n\n{reply.message}")
-    except:
-      pass
-  await event.respond(f"Gönderildi.")
+#  global grup_sayi,ozel_list
+#  sender = await event.get_sender()
+#  if sender.id not in ozel_list:
+ #   return
+#  reply = await event.get_reply_message()
+#  await event.respond(f"Toplam {len(grup_sayi)} Gruba'a mesaj gönderiliyor...")
+#  for x in grup_sayi:
+#    try:
+ #     await client.send_message(x,f"**Reklam**\n\n{reply.message}")
+#    except:
+#      pass
+#  await event.respond(f"Gönderildi.")
 	
 	
 	
