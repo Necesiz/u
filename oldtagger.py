@@ -16,7 +16,7 @@ api_id = config.API_ID
 api_hash = config.API_HASH
 bot_token = config.BOT_TOKEN
 bot_username = config.BOT_USERNAME
-support = Config.SUPPORT_CHAT
+support = config.SUPPORT_CHAT
 owner = config.OWNER_USERNAME
 bot_name = config.BOT_NAME
 
