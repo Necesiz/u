@@ -4,24 +4,24 @@ from telethon import TelegramClient, events
 from telethon.sessions import StringSession
 from telethon.tl.types import ChannelParticipantsAdmins
 from asyncio import sleep
-from config import config
+from Config import Config
 
-logging.basicconfig(
+logging.basicConfig(
     level=logging.INFO,
     format='%(name)s - [%(levelname)s] - %(message)s'
 )
 LOGGER = logging.getLogger(__name__)
 
-api_id = config.API_ID
-api_hash = config.API_HASH
-bot_token = config.BOT_TOKEN
-bot_username = config.BOT_USERNAME
-support = config.SUPPORT_CHAT
-owner = config.OWNER_USERNAME
-bot_name = config.BOT_NAME
+api_id = Config.API_ID
+api_hash = Config.API_HASH
+bot_token = Config.BOT_TOKEN
+bot_username = Config.BOT_USERNAME
+support = Config.SUPPORT_CHAT
+owner = Config.OWNER_USERNAME
+bot_name = Config.BOT_NAME
 
 
-SUDO_USERS = config.SUDO_USERS
+SUDO_USERS = Config.SUDO_USERS
 
 client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 
