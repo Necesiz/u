@@ -6,14 +6,14 @@ import datetime
 from variables import ADMIN
 from database import db
 from pyrogram.types import Message
-from pyrogram import Client, filters
+from pyrogram import TelegramClient, filters
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, PeerIdInvalid
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-Client = Client('client', api_id, apiclient = Client('client', api_id, api_hash)_hash).start(bot_token=bot_token)
+client = TelegramClient('client', api_id, apiclient = TelegramClient('client', api_id, api_hash)_hash).start(bot_token=bot_token)
  
 @Client.on_message(filters.command("users") & filters.user(ADMIN))
 async def get_stats(bot :Client, message: Message):
