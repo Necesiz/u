@@ -43,7 +43,7 @@ async def _id(_, message: Message):
     out_str += f" 💬 __Mesaj İd'si__ : `{msg.forward_from_message_id or msg.message_id}`\n"
     if msg.from_user:
         out_str += f" 🙋🏻‍♂️ __Cavab verən İstifadəçi İd'si__ : `{msg.from_user.id}`\n"
- 
+
     await message.reply(out_str)
     
 @app.on_message(filters.command("ping"))
