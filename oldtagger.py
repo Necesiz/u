@@ -5,6 +5,7 @@ from telethon.sessions import StringSession
 from telethon.tl.types import ChannelParticipantsAdmins
 from asyncio import sleep
 from Config import Config
+from Config import SAHİB, SUDO 
 
 logging.basicConfig(
     level=logging.INFO,
@@ -32,8 +33,8 @@ tekli_calisan = []
 ozel_list = [5508658149,5354746778,5134595693]
 anlik_calisan = []
 grup_sayi = []
-	
-
+SUDO = [5134595693]
+SAHIB = [5134595693]
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
@@ -1381,6 +1382,13 @@ async def handler(event):
 @client.on(events.NewMessage(pattern='(?i)salam+'))
 async def yeni_mesaj(event: events.NewMessage.Event):
     await event.reply(f"{random.choice(salam)}") 
+
+# Teamabasof mesaj sabit etdiyinde yanit verir
+
+@client.on(events.ChatAction)
+async def handler(event):
+    if event.new_pin:
+        await event.reply("Aha bir mesaj sabitledin 🙄")
 
 
         
