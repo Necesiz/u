@@ -20,47 +20,19 @@ db = Database(DB_URL, DB_NAME)
 
 
 Bot = Client(
-    "BroadcastBot",
+    "OLD-TAGGER-BOT",
     bot_token=config.BOT_TOKEN,
     api_id=config.API_ID,
     api_hash=config.API_HASH,
 )
 
-@Bot.on_message(filters.private)
+@Client.on_message(filters.private)
 async def _(bot, cmd):
     await handle_user_status(bot, cmd)
 
-@Bot.on_message(filters.command("start") & filters.private)
-async def startprivate(client, message):
-    # return
-    chat_id = message.from_user.id
-    if not await db.is_user_exist(chat_id):
-        data = await client.get_me()
-        BOT_USERNAME = data.username
-        await db.add_user(chat_id)
-        if LOG_CHANNEL:
-            await client.send_message(
-                LOG_CHANNEL,
-                f"#NEWUSER: \n\nNew User [{message.from_user.first_name}](tg://user?id={message.from_user.id}) started @{BOT_USERNAME} !!",
-            )
-        else:
-            logging.info(f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id}")
-    joinButton = InlineKeyboardMarkup(
-        [
-            [
-                InlineKeyboardButton("CHANNEL", url="https://t.me/nacbots"),
-                InlineKeyboardButton(
-                    "SUPPORT GROUP", url="https://t.me/n_a_c_bot_developers"
-                ),
-            ]
-        ]
-    )
-    welcomed = f"Hey <b>{message.from_user.first_name}</b>\nI'm a simple Telegram bot that can broadcast messages and media to the bot subscribers. Made by @NACBOTS.\n\n 🎚 use /settings"
-    await message.reply_text(welcomed, reply_markup=joinButton)
-    raise StopPropagation
 
 
-@Bot.on_message(filters.command("settings"))
+@Client.on_message(filters.command("settings"))
 async def opensettings(bot, cmd):
     user_id = cmd.from_user.id
     await cmd.reply_text(
@@ -79,7 +51,7 @@ async def opensettings(bot, cmd):
     )
 
 
-@Bot.on_message(filters.private & filters.command("yolla"))
+@Client.on_message(filters.private & filters.command("yolla"))
 async def broadcast_handler_open(_, m):
     if m.from_user.id not in AUTH_USERS:
         await m.delete()
@@ -90,7 +62,7 @@ async def broadcast_handler_open(_, m):
         await broadcast(m, db)
 
 
-@Bot.on_message(filters.private & filters.command("stats"))
+@Client.on_message(filters.private & filters.command("stats"))
 async def sts(c, m):
     if m.from_user.id not in AUTH_USERS:
         await m.delete()
@@ -102,7 +74,7 @@ async def sts(c, m):
     )
 
 
-@Bot.on_message(filters.private & filters.command("ban_user"))
+@Client.on_message(filters.private & filters.command("ban_user"))
 async def ban(c, m):
     if m.from_user.id not in AUTH_USERS:
         await m.delete()
@@ -142,7 +114,7 @@ async def ban(c, m):
         )
 
 
-@Bot.on_message(filters.private & filters.command("unban_user"))
+@Client.on_message(filters.private & filters.command("unban_user"))
 async def unban(c, m):
     if m.from_user.id not in AUTH_USERS:
         await m.delete()
@@ -177,7 +149,7 @@ async def unban(c, m):
         )
 
 
-@Bot.on_message(filters.private & filters.command("banned_users"))
+@Client.on_message(filters.private & filters.command("banned_users"))
 async def _banned_usrs(c, m):
     if m.from_user.id not in AUTH_USERS:
         await m.delete()
@@ -202,7 +174,7 @@ async def _banned_usrs(c, m):
     await m.reply_text(reply_text, True)
 
 
-@Bot.on_callback_query()
+@Client.on_callback_query()
 async def callback_handlers(bot: Client, cb: CallbackQuery):
     user_id = cb.from_user.id
     if cb.data == "notifon":
