@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-app = client(
+app = Client(
     "OLD-TAGGER-BOT",
     api_id=variables.API_ID,
     api_hash=variables.API_HASH,
