@@ -9,7 +9,7 @@ from pyrogram.types import Message
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, PeerIdInvalid
 
-import confing
+import variables
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
