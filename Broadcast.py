@@ -3,13 +3,13 @@ import time
 import asyncio 
 import logging 
 import datetime
-from variables import ADMIN
+from Confing import OWNER_ID
 from database import db
 from pyrogram.types import Message
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, PeerIdInvalid
 
-import variables
+import Confing
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -17,18 +17,18 @@ logger.setLevel(logging.INFO)
 
 app = Client(
     "OLD-TAGGER-BOT",
-    api_id=variables.API_ID,
-    api_hash=variables.API_HASH,
-    bot_token=variables.BOT_TOKEN,
+    api_id=Confing.API_ID,
+    api_hash=Confing.API_HASH,
+    bot_token=Confing.BOT_TOKEN,
 )
  
-@Client.on_message(filters.command("users") & filters.user(ADMIN))
+@Client.on_message(filters.command("users") & filters.user(OWNER_ID))
 async def get_stats(bot :Client, message: Message):
     mr = await message.reply('**ACCESSING DETAILS.....**')
     total_users = await db.total_users_count()
     await mr.edit( text=f"🔍 TOTAL USER'S = `{total_users}`")
 
-@Client.on_message(filters.command("yolla") & filters.user(ADMIN) & filters.reply)
+@Client.on_message(filters.command("yolla") & filters.user(OWNER_ID) & filters.reply)
 async def broadcast_handler(bot: Client, m: Message):
     all_users = await db.get_all_users()
     broadcast_msg = m.reply_to_message
