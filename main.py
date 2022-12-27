@@ -8,7 +8,7 @@ from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMa
 from Config import Config
 
 from broadcast import broadcast
-from check_user import handle_user_status
+from check_user import user_status
 from database import Database
 
 LOG_CHANNEL = Config.LOG_CHANNEL
