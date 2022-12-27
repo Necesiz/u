@@ -3,7 +3,7 @@ import time
 import asyncio 
 import logging 
 import datetime
-from confing import OWNER_ID
+from variables import OWNER_ID
 from database import db
 from pyrogram.types import Message
 from pyrogram import Client, filters
@@ -17,9 +17,9 @@ logger.setLevel(logging.INFO)
 
 app = Client(
     "OLD-TAGGER-BOT",
-    api_id=Confing.API_ID,
-    api_hash=Confing.API_HASH,
-    bot_token=Confing.BOT_TOKEN,
+    api_id=variables.API_ID,
+    api_hash=variables.API_HASH,
+    bot_token=variables.BOT_TOKEN,
 )
  
 @Client.on_message(filters.command("users") & filters.user(OWNER_ID))
