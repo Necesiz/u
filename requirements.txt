@@ -3,8 +3,6 @@
 telethon
 tglogging
 asyncio
-pyrogram
-tgcrypto
+pymongo[srv]
 aiofiles
-motor
-dnspython
+psutil
