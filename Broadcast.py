@@ -6,19 +6,19 @@ import datetime
 from variables import ADMIN
 from database import db
 from pyrogram.types import Message
-from pyrogram import TelegramClient, filters
+from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, PeerIdInvalid
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
  
-@client.on_message(filters.command("users") & filters.user(ADMIN))
+@Client.on_message(filters.command("users") & filters.user(ADMIN))
 async def get_stats(bot :Client, message: Message):
     mr = await message.reply('**ACCESSING DETAILS.....**')
     total_users = await db.total_users_count()
     await mr.edit( text=f"🔍 TOTAL USER'S = `{total_users}`")
 
-@client.on_message(filters.command("yolla") & filters.user(ADMIN) & filters.reply)
+@Client.on_message(filters.command("yolla") & filters.user(ADMIN) & filters.reply)
 async def broadcast_handler(bot: Client, m: Message):
     all_users = await db.get_all_users()
     broadcast_msg = m.reply_to_message
