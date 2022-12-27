@@ -11,6 +11,14 @@ from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, Peer
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
+
+
+app = Client(
+    "OLD TAGGER BOT",
+    api_id=Config.API_ID,
+    api_hash=Config.API_HASH,
+    bot_token=Config.BOT_TOKEN,
+)
  
 @Client.on_message(filters.command("users") & filters.user(ADMIN))
 async def get_stats(bot :Client, message: Message):
