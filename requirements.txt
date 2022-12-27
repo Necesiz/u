@@ -8,3 +8,4 @@ aiofiles
 psutil
 motor
 pyrogram
+TgCrypto
