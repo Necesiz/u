@@ -21,3 +21,6 @@ class Config():
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "AnonyumAz")
     DB_URL = os.environ.get("DB_URL", "mongodb+srv://music:music@cluster0.sh6h4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
     DB_NAME = os.environ.get("DB_NAME", "music")
+    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1001737573985"))
+    AUTH_USERS = set(int(x) for x in os.environ.get("AUTH_USERS", "5134595693").split())
+    BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", False))
