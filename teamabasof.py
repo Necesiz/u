@@ -34,7 +34,7 @@ async def hg(bot: Client, msg: Message):
 
 
 
-@app.on_message(filters.command("id"))
+@app.on_message(filters.command("info"))
 async def _id(_, message: Message):
     msg = message.reply_to_message or message
     out_str = "**İsdifadəçi İd'si:**\n"
