@@ -5,7 +5,6 @@ from telethon.sessions import StringSession
 from telethon.tl.types import ChannelParticipantsAdmins
 from asyncio import sleep
 from Config import Config
-from Config import SAHİB, SUDO 
 
 logging.basicConfig(
     level=logging.INFO,
@@ -1390,7 +1389,23 @@ async def handler(event):
     if event.new_pin:
         await event.reply("Aha bir mesaj sabitledin 🙄")
 
+	
 
-        
+client.on(events.NewMessage(incoming=True, from_users=SUDO, pattern="^/sil ?(.*)|^/del ?(.*)"))
+async def sil(event):
+    mesaj = await event.get_reply_message()
+    if not mesaj:
+        await event.reply("🤔 **Nəyi siləcəyimi demədin**")
+    if mesaj.sender_id in SAHIB:
+        await event.reply("🚷 **Mal O Mənim Sahibimdir**")
+    if not mesaj.sender_id in SAHIB:
+        await event.delete()
+        await mesaj.delete()
+        silindi = await event.reply("✅ **Uğurla silindi**")
+        await asyncio.sleep(2)
+        await silindi.delete()
+
+
+	
 print(">> Bot işləyir narahat olmayın. @AnonyumAz Məlumat almaq üçün <<")
 client.run_until_disconnected()
