@@ -3,7 +3,7 @@
 
 import datetime
 
-import config
+from Config import Config
 import logging
 
 from handlers.database import Database
