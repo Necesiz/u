@@ -6,7 +6,7 @@ import datetime
 from variables import ADMIN
 from database import db
 from pyrogram.types import Message
-from pyrogram import TelegramClient, filters
+from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, PeerIdInvalid
 
 logger = logging.getLogger(__name__)
