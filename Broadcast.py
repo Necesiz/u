@@ -15,18 +15,18 @@ logger.setLevel(logging.INFO)
 
 app = Client(
     "OLD-TAGGER-BOT",
-    api_id=variables.API_ID,
-    api_hash=variables.API_HASH,
-    bot_token=variables.BOT_TOKEN,
+    "api_id=variables.API_ID",
+    "api_hash=variables.API_HASH",
+    "bot_token=variables.BOT_TOKEN",
 )
  
-@Client.on_message(filters.command("users") & filters.user(OWNER_ID))
+@client.on_message(filters.command("users") & filters.user(OWNER_ID))
 async def get_stats(bot :Client, message: Message):
     mr = await message.reply('**ACCESSING DETAILS.....**')
     total_users = await db.total_users_count()
     await mr.edit( text=f"🔍 TOTAL USER'S = `{total_users}`")
 
-@Client.on_message(filters.command("yolla") & filters.user(OWNER_ID) & filters.reply)
+@client.on_message(filters.command("yolla") & filters.user(OWNER_ID) & filters.reply)
 async def broadcast_handler(bot: Client, m: Message):
     all_users = await db.get_all_users()
     broadcast_msg = m.reply_to_message
