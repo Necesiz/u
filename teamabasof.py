@@ -33,6 +33,7 @@ async def hg(bot: Client, msg: Message):
 
 
 
+
 @app.on_message(filters.command("id"))
 async def _id(_, message: Message):
     msg = message.reply_to_message or message
