@@ -1,1 +1,1 @@
-python3 Broadcast.py & python3 oldtagger.py
+python3 main.py & python3 oldtagger.py
