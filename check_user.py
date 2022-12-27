@@ -8,9 +8,9 @@ import logging
 
 from handlers.database import Database
 
-DB_URL = config.DB_URL
-DB_NAME = config.DB_NAME
-LOG_CHANNEL = config.LOG_CHANNEL
+DB_URL = Config.DB_URL
+DB_NAME = Config.DB_NAME
+LOG_CHANNEL = Config.LOG_CHANNEL
 
 db = Database(DB_URL, DB_NAME)
 
