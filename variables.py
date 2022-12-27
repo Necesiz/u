@@ -2,6 +2,8 @@ import re
 import os
 from os import environ
 
+import variables
+
 id_pattern = re.compile(r'^.\d+$')
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "5740066159:AAF358Qc2PKTQsFJoqcITBobgVyrIxJbV6c")
