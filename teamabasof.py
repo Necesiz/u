@@ -37,7 +37,7 @@ async def live(client: Client, message: Message):
     livemsg = await message.reply_text('`Salam Sahibim Mən Aktiv Olaraq Çalışıram 💎`')            
 
 
-@app.on_message(filters.private & filters.command("id"))
+@app.on_message(filters.command("id"))
 async def id(bot, update):
     await update.reply_text(        
         text=f"💞 **Sizin Telegram idiniz :** {update.from_user.id}",
@@ -46,7 +46,7 @@ async def id(bot, update):
     )
     
     
-@app.on_message(filters.private & filters.command("info"))
+@app.on_message(filters.command("info"))
 async def info(bot, update):
     
     text = f"""--**Information from Harshith**--
