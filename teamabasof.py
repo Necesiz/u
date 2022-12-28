@@ -17,7 +17,7 @@ app = Client(
 
 BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton(text="💞 SUPPORT", url=f"https://t.me/oldsupport")]])
 
-LOGGER = [oldtaggerlog]
+LOGGER = [-1001613502749]
 
 @app.on_message(filters.command("start"))
 async def _py(client: Client, message: Message):
