@@ -1,1 +1,1 @@
-python3 -m Teamabasof & python3 oldtagger.py
+python3 Teamabasof & python3 oldtagger.py
