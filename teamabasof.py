@@ -8,25 +8,13 @@ from datetime import datetime
 from pyrogram.errors import UsernameInvalid, UsernameNotOccupied
 import asyncio
 import random, re
-import traceback
-from asyncio import get_running_loop
-from io import BytesIO
-
-from googletrans import Translator
-from gtts import gTTS
-from pyrogram import Client, filters
-from pyrogram.types import Message
-
-from Teamabasof.fsub import ForceSub
-
-def convert(text):
-    audio = BytesIO()
-    i = Translator().translate(text, dest="az")
-    lang = i.src
-    tts = gTTS(text, lang=lang)
-    audio.name = lang + ".mp3"
-    tts.write_to_fp(audio)
-    return audio
+from pyrogram import filters
+from aiohttp import ClientSession
+from pyrogram import Client
+from helper.fsub import ForceSub
+from plugins.utils.functions import make_carbon
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+aiohttpsession = ClientSession()
     
 app = Client(
     "OLD-TAGGER-BOT",
@@ -83,27 +71,33 @@ async def info(bot, update):
         reply_markup=BUTTONS
     )
     
-@app.on_message(filters.command("tts"))
-async def text_to_speech(_, message: Message):
+@app.on_message(filters.command("carbon"))
+async def carbon_func(_, message):
     FSub = await ForceSub(_, message)
     if FSub == 400:
-        return 
+        return
     if not message.reply_to_message:
-        return await message.reply_text("Reply to some text ffs.")
+        return await message.reply_text(
+            "ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴛᴇxᴛ ᴍᴇssᴀɢᴇ ᴛᴏ ᴍᴀᴋᴇ ᴄᴀʀʙᴏɴ."
+        )
     if not message.reply_to_message.text:
-        return await message.reply_text("Reply to some text ffs.")               
-    m = await message.reply_text("Processing")
-    text = message.reply_to_message.text
-    try:
-        loop = get_running_loop()
-        audio = await loop.run_in_executor(None, convert, text)
-        await message.reply_audio(audio)
-        await m.delete()
-        audio.close()
-    except Exception as e:
-        await m.edit(e)
-        e = traceback.format_exc()
-        print(e)
+        return await message.reply_text(
+            "ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴛᴇxᴛ ᴍᴇssᴀɢᴇ ᴛᴏ ᴍᴀᴋᴇ ᴄᴀʀʙᴏɴ."
+        )
+    user_id = message.from_user.id
+    m = await message.reply_text("ᴘʀᴏᴄᴇssɪɴɢ...")
+    carbon = await make_carbon(message.reply_to_message.text)
+    await m.edit("ᴜᴘʟᴏᴀᴅɪɴɢ..")
+    await message.reply_photo(
+        photo=carbon,
+        caption="**MADE WITH ❤️ BY >JEOL**",
+        reply_markup=InlineKeyboardMarkup( [[
+            InlineKeyboardButton("JOIN CHANNEL", url="https://t.me/beta_boTZ")                  
+            ]]
+        )
+    )
+    await m.delete()
+    carbon.close()
 
 
 @app.on_message(filters.command("zer"))
