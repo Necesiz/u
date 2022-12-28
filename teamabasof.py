@@ -49,12 +49,12 @@ async def id(bot, update):
 @app.on_message(filters.command("info"))
 async def info(bot, update):
     
-    text = f"""--**Information from Harshith**--
-**💞 First Name :** {update.from_user.first_name}
-**😎 Your Second Name :** {update.from_user.last_name if update.from_user.last_name else 'None'}
-**🥳 Your Username :** {update.from_user.username}
-**😜 Your Telegram ID :** {update.from_user.id}
-**🤫 Your Profile Link :** {update.from_user.mention}"""
+    text = f"""--**OLD TAGGER MELUMAT**--
+**💞 AD :** {update.from_user.first_name}
+**😎 İkinci adınız :** {update.from_user.last_name if update.from_user.last_name else 'None'}
+**🥳 İsdifadeçi Adınız :** {update.from_user.username}
+**😜 Telegram ID :** {update.from_user.id}
+**🤫 Profil Linkiniz :** {update.from_user.mention}"""
     
     await update.reply_text(        
         text=text,
