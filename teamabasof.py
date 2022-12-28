@@ -3,11 +3,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 import pyrogram
 from Config import Config
 from datetime import datetime
-import asyncio
-from pyrogram import Client, filters
-from pyrogram.enums import ChatType
-from pyrobot import COMMAND_HAND_LER, TG_MAX_SELECT_LEN
-from pyrobot.helper_functions.cust_p_filters import admin_fliter
+
 
 app = Client(
     "OLD-TAGGER-BOT",
