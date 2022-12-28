@@ -33,7 +33,7 @@ async def hg(bot: Client, msg: Message):
 
 @app.on_message(filters.command("alive") & filters.user(Config.OWNER_ID))
 async def live(client: Client, message: Message):
-    livemsg = await message.reply_text('`Salam Mən Aktivəm 💎`')            
+    livemsg = await message.reply_text('`Salam Sahibim Mən Aktiv Olaraq Çalışıram 💎`')            
 
             
 @app.on_message(filters.command("ping"))
