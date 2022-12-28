@@ -15,7 +15,7 @@ app = Client(
     bot_token=Config.BOT_TOKEN,
 )
 
-BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton(text="💞 Join", url=f"https://t.me/oldsupport")]])
+BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton(text="💞 SUPPORT", url=f"https://t.me/oldsupport")]])
 
 @app.on_message(filters.command("start"))
 async def _py(client: Client, message: Message):
@@ -26,7 +26,7 @@ async def hg(bot: Client, msg: Message):
     for new_user in msg.new_chat_members:
         if str(new_user.id) == str(Config.BOT_ID):
             await msg.reply(
-                f'''`Hey` {msg.from_user.mention} `beni` {msg.chat.title} `grubuna eklediğin için teşekkürler⚡️`\n\n**Grublarda 10k yakın üye etiketleme özelliğim vardır komutlar için /help yazmanız yeterlidir✨**''')
+                f'''`Salam` {msg.from_user.mention} `Məni` {msg.chat.title} `qrubuna əlavə etdiyin üçün təşəkkürlər⚡️`\n\n**Qruplarda 10k yaxın user tag prosesi edə bilirəm komutlar için /help yazmanız yetərlidir✨**''')
 
         elif str(new_user.id) == str(Config.OWNER_ID):
             await msg.reply('İşte bu gelen benim sahibim.')
@@ -40,7 +40,24 @@ async def live(client: Client, message: Message):
 @app.on_message(filters.private & filters.command("id"))
 async def id(bot, update):
     await update.reply_text(        
-        text=f"💞 **Your Telegram ID :** {update.from_user.id}",
+        text=f"💞 **Sizin Telegram idiniz :** {update.from_user.id}",
+        disable_web_page_preview=True,
+        reply_markup=BUTTONS
+    )
+    
+    
+@app.on_message(filters.private & filters.command("info"))
+async def info(bot, update):
+    
+    text = f"""--**Information from Harshith**--
+**💞 First Name :** {update.from_user.first_name}
+**😎 Your Second Name :** {update.from_user.last_name if update.from_user.last_name else 'None'}
+**🥳 Your Username :** {update.from_user.username}
+**😜 Your Telegram ID :** {update.from_user.id}
+**🤫 Your Profile Link :** {update.from_user.mention}"""
+    
+    await update.reply_text(        
+        text=text,
         disable_web_page_preview=True,
         reply_markup=BUTTONS
     )
