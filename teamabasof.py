@@ -8,6 +8,13 @@ from datetime import datetime
 from pyrogram.errors import UsernameInvalid, UsernameNotOccupied
 import asyncio
 import random, re
+from pyrogram import filters
+from aiohttp import ClientSession
+from pyrogram import Client
+from Teamabasof.fsub import ForceSub
+from Teamabasof.functions import make_carbon
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+aiohttpsession = ClientSession()
 
 app = Client(
     "OLD-TAGGER-BOT",
@@ -46,8 +53,8 @@ async def id(bot, update):
         disable_web_page_preview=True,
         reply_markup=BUTTONS
     )
-
     
+
 @app.on_message(filters.command("info"))
 async def info(bot, update):
     
@@ -64,6 +71,35 @@ async def info(bot, update):
         reply_markup=BUTTONS
     )
     
+ 
+@app.on_message(filters.command("carbon"))
+async def carbon_func(_, message):
+    FSub = await ForceSub(_, message)
+    if FSub == 400:
+        return
+    if not message.reply_to_message:
+        return await message.reply_text(
+            "ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴛᴇxᴛ ᴍᴇssᴀɢᴇ ᴛᴏ ᴍᴀᴋᴇ ᴄᴀʀʙᴏɴ."
+        )
+    if not message.reply_to_message.text:
+        return await message.reply_text(
+            "ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴛᴇxᴛ ᴍᴇssᴀɢᴇ ᴛᴏ ᴍᴀᴋᴇ ᴄᴀʀʙᴏɴ."
+        )
+    user_id = message.from_user.id
+    m = await message.reply_text("ᴘʀᴏᴄᴇssɪɴɢ...")
+    carbon = await make_carbon(message.reply_to_message.text)
+    await m.edit("ᴜᴘʟᴏᴀᴅɪɴɢ..")
+    await message.reply_photo(
+        photo=carbon,
+        caption="**MADE WITH ❤️ BY >JEOL**",
+        reply_markup=InlineKeyboardMarkup( [[
+            InlineKeyboardButton("JOIN CHANNEL", url="https://t.me/updatechanelold")                  
+            ]]
+        )
+    )
+    await m.delete()
+    carbon.close()
+
     
 @app.on_message(filters.command("zer"))
 async def roll_dice(bot, message):
