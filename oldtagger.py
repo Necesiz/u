@@ -58,12 +58,11 @@ async def help(event):
   await event.reply(helptext,
                     buttons=(
                       [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/oldtaggerBot?startgroup=a')],
-                      [Button.url('Əmirlər', 'https://t.me/oldtaggerhelp')],
-                      [Button.url(' Söhbət Qrupu', 'https://t.me/TacikistanOdlarYurdu')],
-		      [Button.url('🎉 Sahib', 'https://t.me/AnonyumAz'),
+                      [Button.url('Tag Əmirləri', 'https://t.me/oldtaggerhelp')],
+                      [Button.url(' User Əmirləri', 'https://t.me/oldmultiuseryardim')],
+		      [Button.url(' DİGƏR KOMUTLAR', 'https://t.me/oldmultidigeryardim'),
                       Button.url(' Duyru Kanal', 'https://t.me/updatechanelold')],
-                      [Button.url('AnonyumAz Bot','http://t.me/AnonyumAzBot')],
-                      [Button.url('TikTok Bot','http://t.me/TikTokDowlandBot')],
+                      [Button.url('Owner','http://t.me/AnonyumAz')],
                     ),
                     link_preview=False
                    )
