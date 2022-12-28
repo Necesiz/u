@@ -10,7 +10,7 @@ import asyncio
 import random, re
 from pyrogram.types import ChatPermissions
 from pyrogram.types.messages_and_media import message
-from  import Teamabsof get_user
+import Teamabsof get_user
 
 from teamabasof import app
 
