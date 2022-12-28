@@ -15,6 +15,8 @@ app = Client(
     bot_token=Config.BOT_TOKEN,
 )
 
+BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton(text="💞 Join", url=f"https://t.me/oldsupport")]])
+
 @app.on_message(filters.command("start"))
 async def _py(client: Client, message: Message):
     await message.reply_text('Pyrogram is a Python library for Telegram bots.')
@@ -35,39 +37,13 @@ async def live(client: Client, message: Message):
     livemsg = await message.reply_text('`Salam Sahibim Mən Aktiv Olaraq Çalışıram 💎`')            
 
 
-@app.on_message(filters.command("id"))
-async def id(bot, msg):
-	if not msg.chat.type == "private":
-		await msg.reply(f"This {msg.chat.type}'s ID is `{msg.chat.id}`")
-	else:
-		if len(msg.command) == 1:
-			await msg.reply(f"Your Telegram ID is: `{msg.from_user.id}`", quote=True)
-		if len(msg.command) == 2:
-			try:
-				uname = msg.command[1]
-				if uname.startswith("@"):
-					check = uname[1:]
-				else:
-					await msg.reply("Username should start with '@'", quote=True)
-					return
-				try:
-					user = await bot.get_users(check)
-					name = user["first_name"]
-				except:
-					user = await bot.get_chat(check)
-					name = user["title"]
-				if len(name) <= 20:
-					pass
-				elif user["is_bot"]:
-					name = "This Bot"
-				else:
-					name = "This User"
-				id = user["id"]
-				await msg.reply(f"{name}'s id is `{id}`", quote=True)
-			except UsernameInvalid:
-				await msg.reply("Invalid Username.", quote=True)
-			except UsernameNotOccupied:
-				await msg.reply("This username is not occupied by anyone", quote=True)
+@app.on_message(filters.private & filters.command("id"))
+async def id(bot, update):
+    await update.reply_text(        
+        text=f"💞 **Your Telegram ID :** {update.from_user.id}",
+        disable_web_page_preview=True,
+        reply_markup=BUTTONS
+    )
 
 
 @app.on_message(filters.command("ping"))
