@@ -65,11 +65,11 @@ async def info(bot, update):
     )
     
     
-@app.on_message(filters.command("dice"))
+@app.on_message(filters.command("zer"))
 async def roll_dice(bot, message):
     await bot.send_dice(message.chat.id, "🎲")
 
-@app.on_message(filters.command("arrow"))                                      
+@app.on_message(filters.command("ox"))                                      
 async def roll_arrow(bot, message):
     await bot.send_dice(message.chat.id, "🎯")
 
@@ -81,7 +81,7 @@ async def roll_goal(bot, message):
 async def roll_luck(bot, message):
     await bot.send_dice(message.chat.id, "🎰")
 
-@app.on_message(filters.command("throw"))
+@app.on_message(filters.command("pota"))
 async def roll_throw(bot, message):
     await bot.send_dice(message.chat.id, "🏀")
 
