@@ -52,7 +52,7 @@ async def restart_bot(_, message: Message):
         msg = await message.reply_text("`Bot yeniden basladilir...`")
         LOGGER(__name__).info("BOT serverde yeniden basladildi !!")
     except BaseException as err:
-        LOGGER(__name__).info(f"{err}")
+        LOGGER(oldtaggerlog).info(f"{err}")
         return
     await msg.edit_text("✅ Bot has restarted !\n\n")
     os.system(f"kill -9 {os.getpid()} && bash start")
