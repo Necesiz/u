@@ -150,9 +150,9 @@ async def pingy(client, message):
     
 ############## DEĞİŞKENLER ##############
 
-DATABASE_URL = os.environ.get("DATABASE_URL", "") # MongoDB veritabanınızın url'si. Nasıl alacağınızı bilmiyorsanız destek grubu @RepoHaneX'e gelin.
-BOT_USERNAME = os.environ.get("BOT_USERNAME") # Botunuzun kullanıcı adı.
-LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL")) # Botunuzun eylemleri kaydedeceği kayıt grubunun id'si.
+DATABASE_URL = os.environ.get("DATABASE_URL", "mongodb+srv://music:music@cluster0.sh6h4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority") # MongoDB veritabanınızın url'si. Nasıl alacağınızı bilmiyorsanız destek grubu @RepoHaneX'e gelin.
+BOT_USERNAME = os.environ.get("BOT_USERNAME", "OldMultiBot") # Botunuzun kullanıcı adı.
+LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "")) # Botunuzun eylemleri kaydedeceği kayıt grubunun id'si.
 GROUP_SUPPORT = os.environ.get("GROUP_SUPPORT", "oldsupport") # Botunuzdan yasaklanan kullanıcıların itiraz işlemleri için başvuracağı grup, kanal veya kullanıcı. Boş bırakırsanız otomatik olarak OWNER_ID kimliğine yönlendirecektir.
 GONDERME_TURU = os.environ.get("GONDERME_TURU", False) # Botunuzun yanıtladığınız mesajı gönderme türü. Eğer direkt iletmek isterseniz False, kopyasını göndermek isterseniz True olarak ayarlayın.
 OWNER_ID = int(os.environ.get("OWNER_ID")) # Sahip hesabın id'si
