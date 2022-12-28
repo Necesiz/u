@@ -68,11 +68,7 @@ async def help(event):
                    )
 	
 	
-	
-	
-	
-	
-    
+
 @client.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event):
   global anlik_calisan
