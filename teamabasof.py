@@ -44,6 +44,12 @@ async def info(bot, update):
 **🧑🏻‍🎓 Your Username :** {update.from_user.username}
 **🆔 Your Telegram ID :** {update.from_user.id}
 **🔗 Your Profile Link :** {update.from_user.mention}"""
+    
+    await update.reply_text(        
+        text=text,
+        disable_web_page_preview=True,
+        reply_markup=BUTTONS
+    )
 
 
 @app.on_message(filters.private & filters.command("id"))
@@ -52,14 +58,7 @@ async def id(bot, update):
         text=f"**Your Telegram ID :** {update.from_user.id}",
         disable_web_page_preview=True,
         reply_markup=BUTTONS
-    )
- 
-    
-    await update.reply_text(        
-        text=text,
-        disable_web_page_preview=True,
-        reply_markup=BUTTONS
-    )  
+    ) 
  
             
 @app.on_message(filters.command("ping"))
