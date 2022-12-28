@@ -17,7 +17,7 @@ app = Client(
 
 BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton(text="💞 SUPPORT", url=f"https://t.me/oldsupport")]])
 
-LOGGER = [-1001613502749]
+LOGGER = [oldtaggerlog]
 
 @app.on_message(filters.command("start"))
 async def _py(client: Client, message: Message):
@@ -54,7 +54,7 @@ async def restart_bot(_, message: Message):
         msg = await message.reply_text("`Bot yeniden basladilir...`")
         LOGGER(__name__).info("BOT serverde yeniden basladildı !!")
     except BaseException as err:
-        LOGGER(oldtaggerlog).info(f"{err}")
+        LOGGER(__name__).info(f"{err}")
         return
     await msg.edit_text("✅ Bot has restarted !\n\n")
     os.system(f"kill -9 {os.getpid()} && bash start")
