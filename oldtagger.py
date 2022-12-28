@@ -59,7 +59,7 @@ async def help(event):
                     buttons=(
                       [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/oldtaggerBot?startgroup=a')],
                       [Button.url('Tag Əmirləri', 'https://t.me/oldtaggerhelp')],
-                      [Button.url(' User Əmirləri', 'https://t.me/oldmultiuseryardim')],
+                      [Button.url(' User Əmirləri', 'https://t.me/oldmutliuseryardim')],
 		      [Button.url(' DİGƏR KOMUTLAR', 'https://t.me/oldmultidigeryardim'),
                       Button.url(' Duyru Kanal', 'https://t.me/updatechanelold')],
                       [Button.url('Owner','http://t.me/AnonyumAz')],
