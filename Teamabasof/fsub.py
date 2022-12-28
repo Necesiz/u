@@ -1,9 +1,10 @@
 import asyncio
-from Config import FORCE_SUB
+from import FORCE_SUB
 from pyrogram import Client
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 
+FORCE_SUB = [Nine]
 
 async def ForceSub(bot: Client, event: Message):
     try:
