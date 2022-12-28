@@ -12,7 +12,7 @@ from pyrogram import filters
 from aiohttp import ClientSession
 from pyrogram import Client
 from helper.fsub import ForceSub
-from plugins.utils.functions import make_carbon
+from Teamabasof.utils.functions import make_carbon
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 aiohttpsession = ClientSession()
     
