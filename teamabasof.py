@@ -31,6 +31,11 @@ async def hg(bot: Client, msg: Message):
             await msg.reply('İşte bu gelen benim sahibim.')
 
 
+@app.on_message(filters.command("alive") & filters.user(Config.OWNER_ID))
+async def live(client: Client, message: Message):
+    livemsg = await message.reply_text('`Salam Mən Aktivəm 💎`')            
+
+            
 @app.on_message(filters.command("ping"))
 async def pingy(client, message):
     start = datetime.now()
