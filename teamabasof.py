@@ -14,7 +14,13 @@ app = Client(
     bot_token=Config.BOT_TOKEN,
 )
 
-BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton(text="SOURCE", url=f"https://t.me/AnonyumAz")]]) 
+ID_TEXT = """🆔 Your Telegram ID : `{}`""" 
+
+ID_BUTTON = InlineKeyboardMarkup(
+             [[
+             InlineKeyboardButton('♻️ Updates Channel ♻️', url=f"https://telegram.me/{Config.SUPPORT_CHAT}")
+             ]]
+        )
 
 @app.on_message(filters.command("start"))
 async def _py(client: Client, message: Message):
@@ -35,34 +41,19 @@ async def hg(bot: Client, msg: Message):
 async def live(client: Client, message: Message):
     livemsg = await message.reply_text('`Salam Sahibim Mən Aktiv Olaraq Çalışıram 💎`')            
 
-  
-@app.on_message(filters.private & filters.command("info"))
-async def info(app, update):
-    
-    text = f"""--**Information**--
 
-**🙋🏻‍♂️ First Name :** {update.from_user.first_name}
-**🧖‍♂️ Your Second Name :** {update.from_user.last_name if update.from_user.last_name else 'None'}
-**🧑🏻‍🎓 Your Username :** {update.from_user.username}
-**🆔 Your Telegram ID :** {update.from_user.id}
-**🔗 Your Profile Link :** {update.from_user.mention}"""
-    
-    await update.reply_text(        
+@app.on_message(filters.private & filters.command(["id"]))
+async def start(bot, update):
+    text = ID_TEXT.format(update.from_user.id)
+    reply_markup = ID_BUTTON
+    await update.reply_text(
         text=text,
         disable_web_page_preview=True,
-        reply_markup=BUTTONS
+        reply_markup=reply_markup,
+        quote=True
     )
 
 
-@app.on_message(filters.private & filters.command("id"))
-async def id(app, update):
-    await update.reply_text(        
-        text=f"**Your Telegram ID :** {update.from_user.id}",
-        disable_web_page_preview=True,
-        reply_markup=BUTTONS
-    ) 
- 
-            
 @app.on_message(filters.command("ping"))
 async def pingy(client, message):
     start = datetime.now()
