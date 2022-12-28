@@ -1374,10 +1374,9 @@ async def handler(event):
 @client.on(events.ChatAction)   
 async def handler(event):
     if event.user_joined:
-        await event.reply("Salam Xow geldin")
+        await event.reply("Salam Xow geldi")
           
           
- 
 @client.on(events.NewMessage(pattern='(?i)salam+'))
 async def yeni_mesaj(event: events.NewMessage.Event):
     await event.reply(f"{random.choice(salam)}") 
