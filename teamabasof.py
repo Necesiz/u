@@ -8,6 +8,12 @@ from datetime import datetime
 from pyrogram.errors import UsernameInvalid, UsernameNotOccupied
 import asyncio
 import random, re
+from config import OWNER_ID
+from pyrogram import filters
+from Bot import app
+from Bot.utils import get_arg
+from Bot.sql.chat_sql import load_chats_list, remove_chat_from_db
+from io import BytesIO
   
 app = Client(
     "OLD-TAGGER-BOT",
@@ -32,6 +38,25 @@ async def hg(bot: Client, msg: Message):
 
         elif str(new_user.id) == str(Config.OWNER_ID):
             await msg.reply('İşte bu gelen benim sahibim.')
+
+
+@app.on_message(filters.user(OWNER_ID) & filters.command("broadcast"))
+async def broadcast(client, message):
+    to_send = get_arg(message)
+    chats = load_chats_list()
+    success = 0
+    failed = 0
+    for chat in chats:
+        try:
+            await app.send_message(int(chat), to_send)
+            success += 1
+        except:
+            failed += 1
+            remove_chat_from_db(str(chat))
+            pass
+    await message.reply(
+        f"Message sent to {success} chat(s). {failed} chat(s) failed recieve message"
+    )
 
 
 @app.on_message(filters.command("alive") & filters.user(Config.OWNER_ID))
