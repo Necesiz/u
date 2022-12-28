@@ -8,12 +8,26 @@ from datetime import datetime
 from pyrogram.errors import UsernameInvalid, UsernameNotOccupied
 import asyncio
 import random, re
-from pyrogram.types import ChatPermissions
-from pyrogram.types.messages_and_media import message
-import Teamabsof get_user
+import traceback
+from asyncio import get_running_loop
+from io import BytesIO
 
-from teamabasof import app
+from googletrans import Translator
+from gtts import gTTS
+from pyrogram import Client, filters
+from pyrogram.types import Message
 
+from Teamabasof.fsub import ForceSub
+
+def convert(text):
+    audio = BytesIO()
+    i = Translator().translate(text, dest="az")
+    lang = i.src
+    tts = gTTS(text, lang=lang)
+    audio.name = lang + ".mp3"
+    tts.write_to_fp(audio)
+    return audio
+    
 app = Client(
     "OLD-TAGGER-BOT",
     api_id=Config.API_ID,
@@ -23,7 +37,6 @@ app = Client(
 
 BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton(text="💞 SUPPORT", url=f"https://t.me/oldsupport")]])
 
-FORCE_SUB = [None]
 
 @app.on_message(filters.command("start"))
 async def _py(client: Client, message: Message):
@@ -70,43 +83,27 @@ async def info(bot, update):
         reply_markup=BUTTONS
     )
     
- 
-
-@app.command("promote", group_only=True, self_admin=True)
-@app.adminsOnly(permission="can_promote_members")
-async def promote(client, message):
-    user = await get_user(message)
-    if not user:
-        return
-    if await is_admin(message.chat.id, user.id, client):
-        return
+@app.on_message(filters.command("tts"))
+async def text_to_speech(_, message: Message):
+    FSub = await ForceSub(_, message)
+    if FSub == 400:
+        return 
+    if not message.reply_to_message:
+        return await message.reply_text("Reply to some text ffs.")
+    if not message.reply_to_message.text:
+        return await message.reply_text("Reply to some text ffs.")               
+    m = await message.reply_text("Processing")
+    text = message.reply_to_message.text
     try:
-        await message.chat.promote_member(
-            user.id,
-            can_change_info=True,
-            can_restrict_members=True,
-            can_invite_users=True,
-            can_pin_messages=True,
-            can_promote_members=False,
-        )
-        await message.reply_text(f"{user.mention} has been Promoted")
-    except:
-        return
-
-
-@app.command("demote", group_only=True, self_admin=True)
-@app.adminsOnly(permission="can_promote_members")
-async def demote(client, message):
-    user = await get_user(message)
-    if not user:
-        return
-    if not await is_admin(message.chat.id, user.id, client):
-        return
-    try:
-        await message.chat.demote_member(user.id)
-        await message.reply_text(f"{user.mention} has been Demoted")
-    except:
-        pass
+        loop = get_running_loop()
+        audio = await loop.run_in_executor(None, convert, text)
+        await message.reply_audio(audio)
+        await m.delete()
+        audio.close()
+    except Exception as e:
+        await m.edit(e)
+        e = traceback.format_exc()
+        print(e)
 
 
 @app.on_message(filters.command("zer"))
