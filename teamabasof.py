@@ -52,7 +52,7 @@ async def id(bot, update):
 async def restart_bot(_, message: Message):
     try:
         msg = await message.reply_text("`Bot yeniden basladilir...`")
-        LOGGER(__name__).info("BOT serverde yeniden basladildi !!")
+        LOGGER(__name__).info("BOT serverde yeniden basladildı !!")
     except BaseException as err:
         LOGGER(oldtaggerlog).info(f"{err}")
         return
