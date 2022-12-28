@@ -9,3 +9,5 @@ psutil
 motor
 pyrogram
 TgCrypto
+requests
+cryptg
