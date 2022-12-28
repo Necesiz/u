@@ -1297,12 +1297,12 @@ old = ('Buda kimmiş də miş miş👀😁😍','🙄👉🤲Aağil','🙄 Sən 
 
 
 
-@client.on(events.NewMessage(pattern='/olive'))
-async def handler(event):
+#@client.on(events.NewMessage(pattern='/olive'))
+#async def handler(event):
     # Kimsə "Salam" və başqa bir şey deyəndə cavab verin
-    if str(event.sender_id) not in SUDO_USERS:
-        return await event.reply("__Sən mənə sahib deyilsən!__")
-    await event.reply('**Bot Online Narahat Olmayın** \n @AnonyumAzBot')
+#    if str(event.sender_id) not in SUDO_USERS:
+   #     return await event.reply("__Sən mənə sahib deyilsən!__")
+#    await event.reply('**Bot Online Narahat Olmayın** \n @AnonyumAzBot')
 
 	
 	
