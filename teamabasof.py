@@ -42,7 +42,7 @@ async def live(client: Client, message: Message):
     livemsg = await message.reply_text('`Salam Sahibim Mən Aktiv Olaraq Çalışıram 💎`')            
 
 
-@app.on_message(filters.private & filters.command(["id"]))
+@app.on_message(filters.command(["id"]))
 async def start(bot, update):
     text = ID_TEXT.format(update.from_user.id)
     reply_markup = ID_BUTTON
