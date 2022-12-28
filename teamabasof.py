@@ -8,13 +8,6 @@ from datetime import datetime
 from pyrogram.errors import UsernameInvalid, UsernameNotOccupied
 import asyncio
 import random, re
-from pyrogram import filters
-from aiohttp import ClientSession
-from pyrogram import Client
-from Teamabasof.fsub import ForceSub
-from Teamabasof.functions import make_carbon
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-aiohttpsession = ClientSession()
 
 app = Client(
     "OLD-TAGGER-BOT",
