@@ -25,6 +25,7 @@ app = Client(
 
 BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton(text="💞 SUPPORT", url=f"https://t.me/oldsupport")]])
 
+FORCE_SUB = [None]
 
 @app.on_message(filters.command("start"))
 async def _py(client: Client, message: Message):
