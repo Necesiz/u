@@ -46,7 +46,7 @@ async def id(bot, update):
     )
     
     
-@app.on_message(filters.command("restart") & filters.user(OWNER_ID))
+@app.on_message(filters.command("restart") & filters.user(Config.OWNER_ID))
 async def restart_bot(_, message: Message):
     try:
         msg = await message.reply_text("`Bot yeniden basladilir...`")
