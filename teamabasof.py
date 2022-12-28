@@ -14,14 +14,6 @@ app = Client(
     bot_token=Config.BOT_TOKEN,
 )
 
-ID_TEXT = """🆔 Your Telegram ID : `{}`""" 
-
-ID_BUTTON = InlineKeyboardMarkup(
-             [[
-             InlineKeyboardButton('♻️ Updates Channel ♻️', url=f"https://telegram.me/{Config.SUPPORT_CHAT}")
-             ]]
-        )
-
 @app.on_message(filters.command("start"))
 async def _py(client: Client, message: Message):
     await message.reply_text('Pyrogram is a Python library for Telegram bots.')
@@ -42,18 +34,7 @@ async def live(client: Client, message: Message):
     livemsg = await message.reply_text('`Salam Sahibim Mən Aktiv Olaraq Çalışıram 💎`')            
 
 
-@app.on_message(filters.command(["id"]))
-async def start(bot, update):
-    text = ID_TEXT.format(update.from_user.id)
-    reply_markup = ID_BUTTON
-    await update.reply_text(
-        text=text,
-        disable_web_page_preview=True,
-        reply_markup=reply_markup,
-        quote=True
-    )
-
-
+    
 @app.on_message(filters.command("ping"))
 async def pingy(client, message):
     start = datetime.now()
