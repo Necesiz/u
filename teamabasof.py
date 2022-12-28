@@ -54,7 +54,7 @@ async def info(app, update):
     )
 
 
-@Bot.on_message(filters.private & filters.command("id"))
+@app.on_message(filters.private & filters.command("id"))
 async def id(app, update):
     await update.reply_text(        
         text=f"**Your Telegram ID :** {update.from_user.id}",
