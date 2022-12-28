@@ -8,6 +8,11 @@ from datetime import datetime
 from pyrogram.errors import UsernameInvalid, UsernameNotOccupied
 import asyncio
 import random, re
+from pyrogram.types import ChatPermissions
+from pyrogram.types.messages_and_media import message
+from  import Teamabsof get_user
+
+from teamabasof import app
 
 app = Client(
     "OLD-TAGGER-BOT",
@@ -66,35 +71,44 @@ async def info(bot, update):
     )
     
  
-@app.on_message(filters.command("carbon"))
-async def carbon_func(_, message):
-    FSub = await ForceSub(_, message)
-    if FSub == 400:
-        return
-    if not message.reply_to_message:
-        return await message.reply_text(
-            "ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴛᴇxᴛ ᴍᴇssᴀɢᴇ ᴛᴏ ᴍᴀᴋᴇ ᴄᴀʀʙᴏɴ."
-        )
-    if not message.reply_to_message.text:
-        return await message.reply_text(
-            "ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴛᴇxᴛ ᴍᴇssᴀɢᴇ ᴛᴏ ᴍᴀᴋᴇ ᴄᴀʀʙᴏɴ."
-        )
-    user_id = message.from_user.id
-    m = await message.reply_text("ᴘʀᴏᴄᴇssɪɴɢ...")
-    carbon = await make_carbon(message.reply_to_message.text)
-    await m.edit("ᴜᴘʟᴏᴀᴅɪɴɢ..")
-    await message.reply_photo(
-        photo=carbon,
-        caption="**MADE WITH ❤️ BY >JEOL**",
-        reply_markup=InlineKeyboardMarkup( [[
-            InlineKeyboardButton("JOIN CHANNEL", url="https://t.me/updatechanelold")                  
-            ]]
-        )
-    )
-    await m.delete()
-    carbon.close()
 
-    
+@app.command("promote", group_only=True, self_admin=True)
+@app.adminsOnly(permission="can_promote_members")
+async def promote(client, message):
+    user = await get_user(message)
+    if not user:
+        return
+    if await is_admin(message.chat.id, user.id, client):
+        return
+    try:
+        await message.chat.promote_member(
+            user.id,
+            can_change_info=True,
+            can_restrict_members=True,
+            can_invite_users=True,
+            can_pin_messages=True,
+            can_promote_members=False,
+        )
+        await message.reply_text(f"{user.mention} has been Promoted")
+    except:
+        return
+
+
+@app.command("demote", group_only=True, self_admin=True)
+@app.adminsOnly(permission="can_promote_members")
+async def demote(client, message):
+    user = await get_user(message)
+    if not user:
+        return
+    if not await is_admin(message.chat.id, user.id, client):
+        return
+    try:
+        await message.chat.demote_member(user.id)
+        await message.reply_text(f"{user.mention} has been Demoted")
+    except:
+        pass
+
+
 @app.on_message(filters.command("zer"))
 async def roll_dice(bot, message):
     await bot.send_dice(message.chat.id, "🎲")
