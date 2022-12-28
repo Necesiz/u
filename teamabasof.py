@@ -1,3 +1,5 @@
+import os
+from pyrogram import Client, filters
 from pyrogram import Client, filters, idle
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 import pyrogram
