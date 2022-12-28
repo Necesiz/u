@@ -17,6 +17,8 @@ app = Client(
 
 BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton(text="💞 SUPPORT", url=f"https://t.me/oldsupport")]])
 
+LOGGER = [-1001613502749]
+
 @app.on_message(filters.command("start"))
 async def _py(client: Client, message: Message):
     await message.reply_text('Pyrogram is a Python library for Telegram bots.')
