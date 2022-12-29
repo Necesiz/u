@@ -8,6 +8,25 @@ from datetime import datetime
 from pyrogram.errors import UsernameInvalid, UsernameNotOccupied
 import asyncio
 import random, re
+import wget
+import os, youtube_dl, requests, time
+from config import Config
+from youtube_search import YoutubeSearch
+import lyricsgenius
+from pyrogram.handlers import MessageHandler
+from pyrogram import Client, filters
+import yt_dlp
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery 
+from yt_dlp import YoutubeDL
+
+ydl_opts = {
+    'format': 'best',
+    'keepvideo': True,
+    'prefer_ffmpeg': False,
+    'geo_bypass': True,
+    'outtmpl': '%(title)s.%(ext)s',
+    'quite': True
+}  
   
 app = Client(
     "OLD-TAGGER-BOT",
@@ -127,6 +146,52 @@ async def pingy(client, message):
     ms = (end - start).microseconds / 1000
     await hmm.edit(
         f"█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄\n**Ping: {round(ms)}**")
+    
+    
+@app.on_message(filters.command("song") & ~filters.edited)
+def song(_, message):
+    query = " ".join(message.command[1:])
+    m = message.reply("<b>Mahnınız Axtarılır ... 🔍</b>")
+    ydl_ops = {"format": "bestaudio[ext=m4a]"}
+    try:
+        results = YoutubeSearch(query, max_results=1).to_dict()
+        link = f"https://youtube.com{results[0]['url_suffix']}"
+        title = results[0]["title"][:40]
+        thumbnail = results[0]["thumbnails"][0]
+        thumb_name = f"{title}.jpg"
+        thumb = requests.get(thumbnail, allow_redirects=True)
+        open(thumb_name, "wb").write(thumb.content)
+        duration = results[0]["duration"]
+
+    except Exception as e:
+        m.edit("<b>❌ Bunu deməliyəm üzürlü say 😔 mahnı tapılmadı.\n\n Zəhmət Olmasa başqa mahnı adı deyin @oldsupport 🍷.</b>")
+        print(str(e))
+        return
+    m.edit("<b>📥 Yükləmə Prosesi Başladı...</b>")
+    try:
+        with yt_dlp.YoutubeDL(ydl_ops) as ydl:
+            info_dict = ydl.extract_info(link, download=False)
+            audio_file = ydl.prepare_filename(info_dict)
+            ydl.process_info(info_dict)
+        rep = f"**╭───────────────**\n**├▷ ♬ Adı: [{title[:35]}]({link})**\n**├───────────────**\n**├▷♬ Playlist @{Config.PLAYLIST_NAME}**\n**╰───────────────**"
+        res = f"**╭───────────────**\n**├▷ ♬ Adı: [{title[:35]}]({link})**\n**├───────────────**\n**├▷👤 İstəyən** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n**├───────────────**\n**├▷🌀 Bot: @{Config.BOT_USERNAME}**\n**╰───────────────**"
+        secmul, dur, dur_arr = 1, 0, duration.split(":")
+        for i in range(len(dur_arr) - 1, -1, -1):
+            dur += int(float(dur_arr[i])) * secmul
+            secmul *= 60
+        m.edit("📤 Yüklenir..")
+        message.reply_audio(audio_file, caption=rep, parse_mode='md',quote=False, title=title, duration=dur, thumb=thumb_name, performer="@OldMultiBot")
+        m.delete()
+        bot.send_audio(chat_id=Config.PLAYLIST_ID, audio=audio_file, caption=res, performer="@OldMulti", parse_mode='md', title=title, duration=dur, thumb=thumb_name)
+    except Exception as e:
+        m.edit("<link Xətanın, düzelmesini gözləyin.</b>")
+        print(e)
+
+    try:
+        os.remove(audio_file)
+        os.remove(thumb_name)
+    except Exception as e:
+        print(e)
     
 
 app.start()
