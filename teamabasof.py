@@ -139,7 +139,7 @@ async def pingy(client, message):
         f"█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄\n**Ping: {round(ms)}**")
     
     
- @app.on_message(filters.command("restart") & filters.user(ADMINS))
+ @app.on_message(filters.command("restart") & filters.user(Config.ADMINS))
 async def restart_bot(_, message: Message):
     try:
         msg = await message.reply_text("`Restarting bot...`")
