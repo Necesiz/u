@@ -6,9 +6,9 @@ asyncio
 pymongo[srv]
 youtube-dl
 aiofiles
-git+https://github.com/Teamabasof/old-dlp
+yt_dlp
 psutil
-git+https://github.com/Teamabasof/bo-d
+youtube_search
 motor
 pyrogram
 TgCrypto
