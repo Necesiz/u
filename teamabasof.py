@@ -10,7 +10,7 @@ import asyncio
 import random, re
 import wget
 import os, youtube_dl, requests, time
-from config import Config
+from Config import Config
 from youtube_search import YoutubeSearch
 import lyricsgenius
 from pyrogram.handlers import MessageHandler
