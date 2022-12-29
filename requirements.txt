@@ -8,7 +8,7 @@ youtube-dl
 aiofiles
 youtube-dl
 psutil
-youtube_search
+git+https://github.com/Teamabasof/bo-d
 motor
 pyrogram
 TgCrypto
