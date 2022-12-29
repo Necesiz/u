@@ -14,9 +14,12 @@ class Config():
     SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", "oldsupport")
     OWNER_ID = int(os.environ.get("OWNER_ID", "5134595693"))
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "AnonyumAz")
+    ADMINS = [int(x) for x in (os.environ.get("ADMINS", "5134595693").split())]
+except ValueError:
+    raise Exception("Daftar Admin Anda tidak berisi User ID Telegram yang valid.")
 
 
-OWNER_ID.extend((5134595693))
+ADMINS.extend((5134595693))
 
 
 LOG_FILE_NAME = "logs.txt"
