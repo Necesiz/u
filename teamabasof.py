@@ -11,7 +11,7 @@ import random, re
 import wget
 import os, youtube_dl, requests, time
 from Config import Config
-from YoutubeSearch
+from https://github.com/Teamabasof/bo-d import YoutubeSearch
 import lyricsgenius
 from pyrogram.handlers import MessageHandler
 from pyrogram import Client, filters
