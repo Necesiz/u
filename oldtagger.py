@@ -109,7 +109,13 @@ salam = (
 "Salam Lələ 🔥",
 )
 
+ban = (
+"Ban 🤔 "  
+  )
 
+Necəsən = (
+"yaxşıyam,bəs sən necəsən"  
+  )
 
 @client.on(events.NewMessage(pattern="^/fdtag ?(.*)"))
 async def mentionall(event):
@@ -1384,12 +1390,12 @@ async def yeni_mesaj(event: events.NewMessage.Event):
     
 @client.on(events.NewMessage(pattern='(?i)ban+'))
 async def yeni_mesaj(event: events.NewMessage.Event):
-    await event.reply(f"{random.choice(onsuzda xosuma gelmirdi düz etdin 🤨)}") 
+    await event.reply(f"{random.choice(ban)}") 
     
 
-@client.on(events.NewMessage(pattern='(?i)Necesen+'))
+@client.on(events.NewMessage(pattern='(?i)Necəsən+'))
 async def yeni_mesaj(event: events.NewMessage.Event):
-    await event.reply(f"{random.choice(şükür siz necəsiz)}") 
+    await event.reply(f"{random.choice(Necəsən)}") 
     
 # Teamabasof mesaj sabit etdiyinde yanit verir
 
