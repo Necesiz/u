@@ -14,7 +14,9 @@ class Config():
     SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", "oldsupport")
     OWNER_ID = int(os.environ.get("OWNER_ID", "5134595693"))
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "AnonyumAz")
-    ADMINS.extend((5134595693))
+
+
+OWNER_ID.extend((5134595693))
 
 
 LOG_FILE_NAME = "logs.txt"
@@ -32,3 +34,4 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 def LOGGER(name: str) -> logging.Logger:
     return logging.getLogger(name)
+
