@@ -17,9 +17,6 @@ class Config():
     ADMINS = [int(x) for x in (os.environ.get("ADMINS", "5134595693").split())]
 
 
-ADMINS.extend((5134595693))
-
-
 LOG_FILE_NAME = "logs.txt"
 logging.basicConfig(
     level=logging.INFO,
