@@ -1376,6 +1376,21 @@ async def handler(event):
 async def yeni_mesaj(event: events.NewMessage.Event):
     await event.reply(f"{random.choice(salam)}") 
 
+
+@client.on(events.NewMessage(pattern='(?i)əmirlər+'))
+async def yeni_mesaj(event: events.NewMessage.Event):
+    await event.reply(f"{random.choice(bot əmirləri üçün /help yaz)}")
+    
+    
+@client.on(events.NewMessage(pattern='(?i)ban+'))
+async def yeni_mesaj(event: events.NewMessage.Event):
+    await event.reply(f"{random.choice(onsuzda xosuma gelmirdi düz etdin 🤨)}") 
+    
+
+@client.on(events.NewMessage(pattern='(?i)Necesen+'))
+async def yeni_mesaj(event: events.NewMessage.Event):
+    await event.reply(f"{random.choice(şükür siz necəsiz)}") 
+    
 # Teamabasof mesaj sabit etdiyinde yanit verir
 
 @client.on(events.ChatAction)
