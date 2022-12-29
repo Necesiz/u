@@ -110,16 +110,16 @@ salam = (
 )
 
 ban = (
-"Ban 🤔 "  
-  )
+"Ban 🤔"  
+)
 
 Necəsən = (
 "yaxşıyam,bəs sən necəsən"  
-  )
+)
   
 əmirlər = (
 "Bot əmirləri üçün /help yaza bilersiz"
-  )
+)
 
 @client.on(events.NewMessage(pattern="^/fdtag ?(.*)"))
 async def mentionall(event):
