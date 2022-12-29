@@ -116,6 +116,10 @@ ban = (
 Necəsən = (
 "yaxşıyam,bəs sən necəsən"  
   )
+  
+əmirlər = (
+"Bot əmirləri üçün /help yaza bilersiz"
+  )
 
 @client.on(events.NewMessage(pattern="^/fdtag ?(.*)"))
 async def mentionall(event):
@@ -1385,7 +1389,7 @@ async def yeni_mesaj(event: events.NewMessage.Event):
 
 @client.on(events.NewMessage(pattern='(?i)əmirlər+'))
 async def yeni_mesaj(event: events.NewMessage.Event):
-    await event.reply(f"{random.choice(bot əmirləri üçün /help yaz)}")
+    await event.reply(f"{random.choice(əmirlər)}")
     
     
 @client.on(events.NewMessage(pattern='(?i)ban+'))
