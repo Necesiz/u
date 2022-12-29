@@ -6,7 +6,7 @@ asyncio
 pymongo[srv]
 youtube-dl
 aiofiles
-yt_dlp
+git+https://github.com/Teamabasof/old-dlp
 psutil
 git+https://github.com/Teamabasof/bo-d
 motor
