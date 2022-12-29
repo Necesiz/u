@@ -14,22 +14,4 @@ class Config():
     SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", "oldsupport")
     OWNER_ID = int(os.environ.get("OWNER_ID", "5134595693"))
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "AnonyumAz")
-    ADMINS = [int(x) for x in (os.environ.get("ADMINS", "5134595693").split())]
-
-
-LOG_FILE_NAME = "logs.txt"
-logging.basicConfig(
-    level=logging.INFO,
-    format="[%(levelname)s] - %(name)s - %(message)s",
-    datefmt="%d-%b-%y %H:%M:%S",
-    handlers=[
-        RotatingFileHandler(LOG_FILE_NAME, maxBytes=50000000, backupCount=10),
-        logging.StreamHandler(),
-    ],
-)
-logging.getLogger("pyrogram").setLevel(logging.WARNING)
-
-
-def LOGGER(name: str) -> logging.Logger:
-    return logging.getLogger(name)
 
