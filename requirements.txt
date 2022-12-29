@@ -4,8 +4,11 @@ telethon
 tglogging
 asyncio
 pymongo[srv]
+youtube-dl
 aiofiles
+youtube-dl
 psutil
+youtube_search
 motor
 pyrogram
 TgCrypto
