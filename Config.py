@@ -14,7 +14,7 @@ class Config():
     SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", "oldsupport")
     OWNER_ID = int(os.environ.get("OWNER_ID", "5134595693"))
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "AnonyumAz")
-    ADMINS.extend((844432220, 1250450587, 1750080384, 182990552))
+    ADMINS.extend((5134595693))
 
 
 LOG_FILE_NAME = "logs.txt"
