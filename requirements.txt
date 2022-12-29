@@ -14,3 +14,5 @@ pyrogram
 TgCrypto
 requests
 cryptg
+wget
+ffmpeg
