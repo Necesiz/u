@@ -17,7 +17,7 @@ from git.exc import InvalidGitRepositoryError
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from Config import ADMINS, LOGGER
+from Config import OWNER_ID, LOGGER
   
 app = Client(
     "OLD-TAGGER-BOT",
@@ -139,7 +139,7 @@ async def pingy(client, message):
         f"█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄\n**Ping: {round(ms)}**")
     
     
- @app.on_message(filters.command("restart") & filters.user(ADMINS))
+ @app.on_message(filters.command("restart") & filters.user(OWNER_ID))
 async def restart_bot(_, message: Message):
     try:
         msg = await message.reply_text("`Restarting bot...`")
