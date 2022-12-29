@@ -110,15 +110,15 @@ salam = (
 )
 
 ban = (
-"Ban 🤔"  
+"Ban 🤔",
 )
 
 Necəsən = (
-"yaxşıyam,bəs sən necəsən"  
+"yaxşıyam,bəs sən necəsən",
 )
   
 əmirlər = (
-"Bot əmirləri üçün /help yaza bilersiz"
+"Bot əmirləri üçün /help yaza bilersiz",
 )
 
 @client.on(events.NewMessage(pattern="^/fdtag ?(.*)"))
