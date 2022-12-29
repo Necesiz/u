@@ -8,16 +8,6 @@ from datetime import datetime
 from pyrogram.errors import UsernameInvalid, UsernameNotOccupied
 import asyncio
 import random, re
-import sys
-from os import environ, execle, system
-
-from bot import Bot
-from git import Repo
-from git.exc import InvalidGitRepositoryError
-from pyrogram import Client, filters
-from pyrogram.types import Message
-
-from Config import ADMINS, LOGGER
   
 app = Client(
     "OLD-TAGGER-BOT",
@@ -138,19 +128,7 @@ async def pingy(client, message):
     await hmm.edit(
         f"█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄\n**Ping: {round(ms)}**")
     
-    
-@app.on_message(filters.command("restart") & filters.user(Config.ADMINS))
-async def restart_bot(_, message: Message):
-    try:
-        msg = await message.reply_text("`Restarting bot...`")
-        LOGGER(__name__).info("BOT SERVER RESTARTED !!")
-    except BaseException as err:
-        LOGGER(__name__).info(f"{err}")
-        return
-    await msg.edit_text("✅ Bot has restarted !\n\n")
-    os.system(f"kill -9 {os.getpid()} && bash start")
-   
-    
+
 app.start()
 print(f"Bot pyrogram ( {pyrogram.__version__} sürümü ile başlatıldı. ")
 idle()
