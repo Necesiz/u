@@ -12,7 +12,6 @@ import wget
 import os, youtube_dl, requests, time
 from Config import Config
 from youtube_search import YoutubeSearch
-import lyricsgenius
 from pyrogram.handlers import MessageHandler
 from pyrogram import Client, filters
 import yt_dlp
