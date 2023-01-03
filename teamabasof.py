@@ -1,4 +1,5 @@
 import os
+import sys
 from pyrogram import Client, filters
 from pyrogram import Client, filters, idle
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
@@ -8,6 +9,14 @@ from datetime import datetime
 from pyrogram.errors import UsernameInvalid, UsernameNotOccupied
 import asyncio
 import random, re
+from git import Repo
+from pyrogram.types import Message
+from driver.filters import command
+from pyrogram import Client, filters
+from os import system, execle, environ
+from Teamabasof.decorators import sudo_users_only
+from git.exc import InvalidGitRepositoryError
+from Config import UPSTREAM_REPO, BOT_USERNAME
 
 ydl_opts = {
     'format': 'best',
@@ -136,7 +145,17 @@ async def pingy(client, message):
     ms = (end - start).microseconds / 1000
     await hmm.edit(
         f"█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄\n**Ping: {round(ms)}**")
-    
+ 
+
+@app.on_message(command(["restart", f"restart@OldMultiBot"]) & ~filters.edited)
+@sudo_users_only
+async def restart_bot(_, message: Message):
+    msg = await message.reply("`bot yeniden basladilir...`")
+    args = [sys.executable, "main.py"]
+    await msg.edit("✅ bot yeniden basladılır\n\n• indi bu botu yenidən istifadə edə bilərsiniz.")
+    execle(sys.executable, *args, environ)
+    return
+   
     
 
 app.start()
