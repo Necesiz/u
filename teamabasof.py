@@ -10,7 +10,7 @@ from pyrogram.errors import UsernameInvalid, UsernameNotOccupied
 import asyncio
 import random, re
 from pyrogram.types import Message
-from driver.filters import command
+from Teamabasof.filters import command
 from pyrogram import Client, filters
 from os import system, execle, environ
 from Teamabasof.decorators import sudo_users_only
