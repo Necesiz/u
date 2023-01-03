@@ -1,4 +1,4 @@
-from Config import admins
+from varabiles import admins
 from typing import Dict, List
 
 
