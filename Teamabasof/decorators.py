@@ -1,7 +1,7 @@
 from typing import Callable
 from pyrogram import Client
 from pyrogram.types import Message
-from Config import SUDO_USERS
+from varabiles import SUDO_USERS
 from Teamabasof.admins import get_administrators
 
 
