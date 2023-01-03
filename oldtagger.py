@@ -5,6 +5,13 @@ from telethon.sessions import StringSession
 from telethon.tl.types import ChannelParticipantsAdmins
 from asyncio import sleep
 from Config import Config
+from pyrogram import filters
+from aiohttp import ClientSession
+from pyrogram import Client
+from Teamabasof.fsub import ForceSub
+from Teamabasof.utils.functions import make_carbon
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+aiohttpsession = ClientSession()
 
 logging.basicConfig(
     level=logging.INFO,
@@ -1423,6 +1430,37 @@ async def sil(event):
         silindi = await event.reply("✅ **Uğurla silindi**")
         await asyncio.sleep(2)
         await silindi.delete()
+
+
+
+@client.on_message(filters.command("carbon"))
+async def carbon_func(_, message):
+    FSub = await ForceSub(_, message)
+    if FSub == 400:
+        return
+    if not message.reply_to_message:
+        return await message.reply_text(
+            "ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴛᴇxᴛ ᴍᴇssᴀɢᴇ ᴛᴏ ᴍᴀᴋᴇ ᴄᴀʀʙᴏɴ."
+        )
+    if not message.reply_to_message.text:
+        return await message.reply_text(
+            "ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴛᴇxᴛ ᴍᴇssᴀɢᴇ ᴛᴏ ᴍᴀᴋᴇ ᴄᴀʀʙᴏɴ."
+        )
+    user_id = message.from_user.id
+    m = await message.reply_text("ᴘʀᴏᴄᴇssɪɴɢ...")
+    carbon = await make_carbon(message.reply_to_message.text)
+    await m.edit("ᴜᴘʟᴏᴀᴅɪɴɢ..")
+    await message.reply_photo(
+        photo=carbon,
+        caption="**MADE WITH ❤️ BY >JEOL**",
+        reply_markup=InlineKeyboardMarkup( [[
+            InlineKeyboardButton("JOIN CHANNEL", url="https://t.me/beta_boTZ")                  
+            ]]
+        )
+    )
+    await m.delete()
+    carbon.close()
+
 
 
 	
