@@ -17,3 +17,4 @@ class Config():
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "AnonyumAz")
     PLAYLIST_NAME = os.environ.get("PLAYLIST_NAME","azesongplaylist")
     PLAYLIST_ID = int(os.environ.get("PLAYLIST_ID",-1001852777229))
+    UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/Teamabasof/OLD-TAGGER-BOT")
