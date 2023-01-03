@@ -16,7 +16,7 @@ from pyrogram import Client, filters
 from os import system, execle, environ
 from Teamabasof.decorators import sudo_users_only
 from git.exc import InvalidGitRepositoryError
-from Config import UPSTREAM_REPO, BOT_USERNAME
+from varabiles import UPSTREAM_REPO, BOT_USERNAME
 
 ydl_opts = {
     'format': 'best',
