@@ -13,5 +13,3 @@ requests
 cryptg
 wget
 ffmpeg
-aiohttp
-PIL
