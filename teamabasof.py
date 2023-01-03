@@ -151,7 +151,7 @@ async def pingy(client, message):
 @sudo_users_only
 async def restart_bot(_, message: Message):
     msg = await message.reply("`bot yeniden basladilir...`")
-    args = [sys.executable, "main.py"]
+    args = [sys.executable, "start"]
     await msg.edit("✅ bot yeniden basladılır\n\n• indi bu botu yenidən istifadə edə bilərsiniz.")
     execle(sys.executable, *args, environ)
     return
