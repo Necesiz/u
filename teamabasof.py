@@ -9,23 +9,7 @@ from datetime import datetime
 from pyrogram.errors import UsernameInvalid, UsernameNotOccupied
 import asyncio
 import random, re
-from pyrogram.types import Message
-from Teamabasof.filters import command
-from pyrogram import Client, filters
-from os import system, execle, environ
-from Teamabasof.decorators import sudo_users_only
-from git.exc import InvalidGitRepositoryError
-from varabiles import UPSTREAM_REPO, BOT_USERNAME
 
-ydl_opts = {
-    'format': 'best',
-    'keepvideo': True,
-    'prefer_ffmpeg': False,
-    'geo_bypass': True,
-    'outtmpl': '%(title)s.%(ext)s',
-    'quite': True
-}  
-  
 app = Client(
     "OLD-TAGGER-BOT",
     api_id=Config.API_ID,
@@ -144,17 +128,7 @@ async def pingy(client, message):
     ms = (end - start).microseconds / 1000
     await hmm.edit(
         f"█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄\n**Ping: {round(ms)}**")
- 
 
-@app.on_message(command(["restart", f"restart@OldMultiBot"]) & ~filters.edited)
-@sudo_users_only
-async def restart_bot(_, message: Message):
-    msg = await message.reply("`bot yeniden basladilir...`")
-    args = [sys.executable, "start"]
-    await msg.edit("✅ bot yeniden basladılır\n\n• indi bu botu yenidən istifadə edə bilərsiniz.")
-    execle(sys.executable, *args, environ)
-    return
-   
     
 
 app.start()
