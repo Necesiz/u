@@ -66,59 +66,6 @@ async def info(bot, update):
     )
     
 
-@app.on_message(filters.command("zer"))
-async def roll_dice(bot, message):
-    await bot.send_dice(message.chat.id, "🎲")
-
-@app.on_message(filters.command("ox"))                                      
-async def roll_arrow(bot, message):
-    await bot.send_dice(message.chat.id, "🎯")
-
-@app.on_message(filters.command("goal"))
-async def roll_goal(bot, message):
-    await bot.send_dice(message.chat.id, "⚽️")
-
-@app.on_message(filters.command("luck"))
-async def roll_luck(bot, message):
-    await bot.send_dice(message.chat.id, "🎰")
-
-@app.on_message(filters.command("pota"))
-async def roll_throw(bot, message):
-    await bot.send_dice(message.chat.id, "🏀")
-
-@app.on_message(filters.command(["bowling", "tenpins"]))
-async def roll_bowling(bot, message):
-    await bot.send_dice(message.chat.id, "🎳")
-
-
-@app.on_message(filters.command("brain", ".") & filters.me)
-async def pijtau(client: Client, message: Message):
-    if message.forward_from:
-        return
-    animation_interval = 1
-    animation_ttl = range(0, 14)
-    await message.edit("brain")
-    animation_chars = [          
-              "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n🧠         <(^_^ <)🗑",
-              "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n🧠       <(^_^ <)  🗑",
-              "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n🧠     <(^_^ <)    🗑",
-              "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n🧠   <(^_^ <)      🗑",
-              "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n🧠 <(^_^ <)        🗑",
-              "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n🧠<(^_^ <)         🗑",
-              "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n(> ^_^)>🧠         🗑",
-              "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n  (> ^_^)>🧠       🗑",
-              "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n    (> ^_^)>🧠     🗑",
-              "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n      (> ^_^)>🧠   🗑",
-              "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n        (> ^_^)>🧠 🗑",
-              "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n          (> ^_^)>🧠🗑",
-              "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n           (> ^_^)>🗑",
-              "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n           <(^_^ <)🗑",
-          ]
-    for i in animation_ttl:
-        	
-            await asyncio.sleep(animation_interval)
-            await message.edit(animation_chars[i %14 ])
-
 
 @app.on_message(filters.command("ping"))
 async def pingy(client, message):
