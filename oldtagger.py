@@ -29,7 +29,7 @@ anlik_calisan = []
 
 tekli_calisan = []
 
-ozel_list = [5508658149,5354746778]
+ozel_list = [5508658149,5354746778,5134595693]
 anlik_calisan = []
 grup_sayi = []
 	
@@ -42,12 +42,12 @@ async def start(event):
 		    buttons=(
                
 		      [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/oldtaggerbot?startgroup=a')],
-                      [Button.url('Söhbət Qurupu', 'https://t.me/oldchatresmi')],
+                      [Button.url('Söhbət Qurupu', 'https://t.me/TacikstanOdlarYurdu')],
                       [Button.url('Kanal📢', 'https://t.me/oldresmiold')],
-		      [Button.url('🎉 Sahib', 'https://t.me/oldteamabasof'),
-                      Button.url(' SAHİB BLOG', 'https://t.me/oldteamabasoff')],
-                      [Button.url('ᴼ ᴸ ᴰ BOTS','http://t.me/oldbotsold')],
-                      [Button.url('LORD GAME','http://t.me/lorddgame_bot?startgroup=a')],
+		      [Button.url('🎉 Sahib', 'https://t.me/AnonyumAz'),
+                      Button.url(' SAHİB BLOG', 'https://t.me/TEAMABASOFcom')],
+                      [Button.url('MUSİQİ GROUPU','http://t.me/musiqidiyari')],
+                      [Button.url('ANONYUM AZ BOT','http://t.me/AnonyumAzBot')],
                      ),
                     link_preview=False
                    )
@@ -58,12 +58,12 @@ async def help(event):
   await event.reply(helptext,
                     buttons=(
                       [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/oldtaggerBot?startgroup=a')],
-                      [Button.url('Söhbət Qurupu', 'https://t.me/oldchatresmi')],
+                      [Button.url('Söhbət Qurupu', 'https://t.me/TacikstanOdlarYurdu')],
                       [Button.url('Kanal📢', 'https://t.me/oldresmiold')],
-		      [Button.url('🎉 Sahib', 'https://t.me/oldteamabasof'),
-                      Button.url(' BLOG', 'https://t.me/oldteamabasoff')],
-                      [Button.url('ᴼ ᴸ ᴰ BOTS','http://t.me/oldbotsold')],
-                      [Button.url('LORD GAME','http://t.me/lorddgame_bot?startgroup=a')],
+		      [Button.url('🎉 Sahib', 'https://t.me/AnonyumAz'),
+                      Button.url(' BLOG', 'https://t.me/TEAMABASOFcom')],
+                      [Button.url('MUSİQİ GROUPU','http://t.me/musiqidiyari')],
+                      [Button.url('ANONYUM AZ BOT','http://t.me/AnonyumAzBot')],
                     ),
                     link_preview=False
                    )
@@ -1292,7 +1292,7 @@ async def handler(event):
     # Kimsə "Salam" və başqa bir şey deyəndə cavab verin
     if str(event.sender_id) not in SUDO_USERS:
         return await event.reply("__Sən mənə sahib deyilsən!__")
-    await event.reply('**Bot Online Narahat Olmayın** \n @oldteamabasof')
+    await event.reply('**Bot Online Narahat Olmayın** \n @AnonyumAz')
 
 	
 	
@@ -1338,7 +1338,7 @@ async def duyuru(event):
 	
 @client.on(events.NewMessage(pattern='/reklam'))
 async def handler(event):	
-     await event.reply('🤖 [ 𝕆𝕃𝔻 TAGGER BOT](http://t.me/oldtaggerBot)-unda Reklam Almaq Üzçün [sahibim ¦ 💎](https://t.me/oldteamabasof)-ilə Әlaqә Saxlayın.')
+     await event.reply('🤖 [ 𝕆𝕃𝔻 TAGGER BOT](http://t.me/oldtaggerBot)-unda Reklam Almaq Üzçün [sahibim ¦ 💎](https://t.me/AnonyumAz)-ilə Әlaqә Saxlayın.')
     
 
 
@@ -1348,8 +1348,8 @@ async def event(ups):
     await ups.reply("**Salam ᴀʙᴀᴤᴏᴠ! O L D TAGGER hizmətindədir. ☯️**")
   elif ups.sender_id == 5354746778:
     await ups.reply("**Salam Afk! O L D TAGGER hizmətindədir. ☯️**")
-  elif ups.sender_id == 5450528348:
-    await ups.reply("**Salam <•••>! O L D TAGGER hizmətindədir. ☯️**")
+  elif ups.sender_id == 5134595693:
+    await ups.reply("**Salam TEAMABASOF! O L D TAGGER hizmətindədir. ☯️**")
   else:
     await ups.reply("**Sən pro user deyilsən. 💎**")
 
@@ -1357,9 +1357,9 @@ async def event(ups):
 
 @client.on(events.NewMessage(pattern='/sahib'))
 async def handler(event):	
-     await event.reply('🇦🇿 sahiblər**\n**@OLDTEAMABASOF**\n**@TTOWNERTT.')
+     await event.reply('🇦🇿 sahiblər**\n**@AnonyumAz**\n**@SatisAz.')
      
      
      
-print(">> Bot işləyir narahat olmayın. @OLDTEAMABASOF Məlumat almaq üçün <<")
+print(">> Bot işləyir narahat olmayın. @AnonyumAz Məlumat almaq üçün <<")
 client.run_until_disconnected()
