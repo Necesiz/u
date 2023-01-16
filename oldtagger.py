@@ -29,7 +29,7 @@ anlik_calisan = []
 
 tekli_calisan = []
 
-ozel_list = [5508658149,5354746778,5134595693]
+ozel_list = [5134595693]
 anlik_calisan = []
 grup_sayi = []
 	
