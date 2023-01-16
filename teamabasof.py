@@ -28,7 +28,7 @@ async def hg(bot: Client, msg: Message):
                 f'''`Salam` {msg.from_user.mention} `Məni` {msg.chat.title} `qrubuna əlavə etdiyin üçün təşəkkürlər⚡️`\n\n**Qruplarda 10k yaxın user tag prosesi edə bilirəm komutlar için /help yazmanız yetərlidir✨**''')
 
         elif str(new_user.id) == str(Config.OWNER_ID):
-            await msg.reply('İşte bu gelen benim sahibim.')
+            await msg.reply('İşte bu gelen benim sahibim🎉.')
 
 
 @app.on_message(filters.command("alive") & filters.user(Config.OWNER_ID))
