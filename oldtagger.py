@@ -27,15 +27,20 @@ from pyrogram.errors import (
 )
 
 
+*-*-*-* Hyrogram dalang --- 
+app - Client("memory:", api_id, api hash, pot_token-bot_token)
+
+
+
 ############## DEĞİŞKENLER ##############
 
-DATABASE_URL = os.environ.get("DATABASE_URL") # MongoDB veritabanınızın url'si. Nasıl alacağınızı bilmiyorsanız destek grubu @RepoHaneX'e gelin.
-BOT_USERNAME = os.environ.get("BOT_USERNAME") # Botunuzun kullanıcı adı.
-LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL")) # Botunuzun eylemleri kaydedeceği kayıt grubunun id'si.
-GROUP_SUPPORT = os.environ.get("GROUP_SUPPORT", "RepoHaneX") # Botunuzdan yasaklanan kullanıcıların itiraz işlemleri için başvuracağı grup, kanal veya kullanıcı. Boş bırakırsanız otomatik olarak OWNER_ID kimliğine yönlendirecektir.
-GONDERME_TURU = os.environ.get("GONDERME_TURU", False) # Botunuzun yanıtladığınız mesajı gönderme türü. Eğer direkt iletmek isterseniz False, kopyasını göndermek isterseniz True olarak ayarlayın.
-OWNER_ID = int(os.environ.get("OWNER_ID")) # Sahip hesabın id'si
-LANGAUGE = os.environ.get("LANGAUGE", "TR")
+DATABASE_URL = "sh"
+BOT_USERNAME = "oldtaggerbot"
+LOG_CHANNEL =  ""
+GROUP_SUPPORT = ""
+GONDERME_TURU = "False"
+OWNER_ID = ""
+LANGAUGE = "AZ"
 
 
 
