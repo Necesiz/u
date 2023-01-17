@@ -58,12 +58,12 @@ app = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 ############## DEĞİŞKENLER ##############
 
-DATABASE_URL = "mongodb+srv://Rahidtagbot:Rahidtagbot31@cluster0.m3kqvyk.mongodb.net/?retryWrites=true&w=majority"
-BOT_USERNAME = "Rahid_Tag_Bot"
-LOG_CHANNEL = -1001864613336
-GROUP_SUPPORT = "Rahid_44"
+DATABASE_URL = "mongodb+srv://music:music@cluster0.sh6h4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+BOT_USERNAME = "oldtaggerBot"
+LOG_CHANNEL = -1001737573985
+GROUP_SUPPORT = "TEAMABASOFcom"
 GONDERME_TURU = False
-OWNER_ID = [571698989]
+OWNER_ID = [5134595693,5540993505]
 LANGAUGE = "AZ"
 
 
