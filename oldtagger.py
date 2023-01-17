@@ -21,11 +21,21 @@ import aiofiles
 from pyrogram import Client, filters, __version__
 from pyrogram.types import Message
 from pyrogram.errors import (
+
     FloodWait,
+
     InputUserDeactivated,
+
     PeerIdInvalid,
+
     UserIsBlocked,
+
 )
+   
+    
+  
+
+
 
 
 
