@@ -4,7 +4,7 @@ from telethon import TelegramClient, events
 from telethon.sessions import StringSession
 from telethon.tl.types import ChannelParticipantsAdmins
 from asyncio import sleep
-from Config import Config
+from Config import Config 
 # Pyrogram----------------------------------------------------------------------------------------------------
 import datetime
 import motor.motor_asyncio
@@ -17,21 +17,23 @@ import string
 import time
 import traceback
 import aiofiles
-from pyrogram import Client, filters, version
+from pyrogram import Client, filters, __version__
 from pyrogram.types import Message
 from pyrogram.errors import (
-     FloodWait,
+    FloodWait,
     InputUserDeactivated,
     PeerIdInvalid,
     UserIsBlocked,
 )
 
+
+
 logging.basicConfig(
     level=logging.INFO,
     format='%(name)s - [%(levelname)s] - %(message)s'
 )
+LOGGER = logging.getLogger(__name__)
 
-LOGGER = logging.getLogger(name)
 api_id = Config.API_ID
 api_hash = Config.API_HASH
 bot_token = Config.BOT_TOKEN
@@ -46,7 +48,12 @@ SUDO_USERS = Config.SUDO_USERS
 #-#-#-# Pyrogram Başlanğıc #-#-#-#
 app = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
+
+
 # Qruplara yayım mesajı
+
+
+
 
 ############## DEĞİŞKENLER ##############
 
@@ -55,13 +62,29 @@ BOT_USERNAME = "oldtaggerbot"
 LOG_CHANNEL = -1001737573985
 GROUP_SUPPORT = "oldsupport"
 GONDERME_TURU = False
-OWNER_ID = [5134595693, 1727079853]
+OWNER_ID = [5134595693,5540993505]
 LANGAUGE = "AZ"
 
+#---------------------------------------------------------------GROUP GIREKEN SALAMLAMA MSJ------------------------------------------------------------------------------#
+@app.on_message(filters.new_chat_members, group=1)
+async def hg(bot: Client, msg: Message):
+    for new_user in msg.new_chat_members:
+        if str(new_user.id) == str(Config.BOT_ID):
+            await msg.reply(
+                f'''`Salam` {msg.from_user.mention} `Məni` {msg.chat.title} `Qrupa əlavə etdiyiniz üçün təşəkkürlər⚡️` \n\n **🤖Qruplardakı userləri tag Edmə üçün Yaradıldım.\n🤖Kömək üçün /start yazmaq kifayətdir.✨**''')
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------#
 
 
+#-------------------------------------------------------------OWNERS SALAMLAMA MSJ---------------------------------------------------------------------------------------#
+      
+#	elif str(new_user.id) == str(Config.OWNER_ID):
+#           await msg.reply('🤖 [Ədalət 𝗧𝗮𝗴𝗴𝗲𝗿](https://t.me/EdaletSup)-un Sahibi, Qrupa Qatıldı.\n Xoş Gəldin  Aramıza Sahib, Necəsən?🥰.')
 
-################### VERİTABANI VERİ GİRİŞ ÇIKIŞI #########################
+	
+	
+	
+#-------------------------------------------------------------VERİTABANI VERİ GİRİŞ ÇIKIŞI---------------------------------------------------------------------------------------#
+ 
 class Database: 
     def __init__(self, uri, database_name):
         self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
@@ -266,7 +289,7 @@ async def delcmd_off(chat_id: int): # Grup için mesaj silme özeliğini kapatı
 ################# SAHİP KOMUTLARI #############
 
 # Verileri listeleme komutu
-@Client.on_message(filters.command("stats") & filters.user(OWNER_ID))
+@app.on_message(filters.command("stats") & filters.user(OWNER_ID))
 async def botstats(bot: Client, message: Message):
     g4rip = await bot.send_message(message.chat.id, LAN.STATS_STARTED.format(message.from_user.mention))
     all_users = await db.get_all_users()
@@ -290,21 +313,21 @@ async def botstats(bot: Client, message: Message):
 
 
 # Botu ilk başlatan kullanıcıların kontrolünü sağlar.
-@Client.on_message()
+@app.on_message()
 async def G4RIP(bot: Client, cmd: Message):
     await handle_user_status(bot, cmd)
 
 
 
 # Broadcast komutu
-@Client.on_message(filters.command("broadcast") & filters.user(OWNER_ID) & filters.reply)
+@app.on_message(filters.command("yolla") & filters.user(OWNER_ID) & filters.reply)
 async def broadcast_handler_open(_, m: Message):
     await main_broadcast_handler(m, db)
 
 
 
 # Bir kullanıcı yasaklama komutu
-@Client.on_message(filters.command("block") & filters.user(OWNER_ID))
+@app.on_message(filters.command("block") & filters.user(OWNER_ID))
 async def ban(c: Client, m: Message):
     if m.reply_to_message:
         user_id = m.reply_to_message.from_user.id
@@ -350,7 +373,7 @@ async def ban(c: Client, m: Message):
 
 
 # Bir kullanıcın yasağını kaldırmak komutu
-@Client.on_message(filters.command("unblock") & filters.user(OWNER_ID))
+@app.on_message(filters.command("unblock") & filters.user(OWNER_ID))
 async def unban(c: Client, m: Message):
         if m.reply_to_message:
             user_id = m.reply_to_message.from_user.id
@@ -374,7 +397,7 @@ async def unban(c: Client, m: Message):
 
 
 # Yasaklı listesini görme komutu
-@Client.on_message(filters.command("blocklist") & filters.user(OWNER_ID))
+@app.on_message(filters.command("blocklist") & filters.user(OWNER_ID))
 async def _banned_usrs(_, m: Message):
     all_banned_users = await db.get_all_banned_users()
     banned_usr_count = 0
@@ -471,47 +494,19 @@ class LAN(object):
         USER_UNBAN_NOTIFY = "🎊 Sizə gözəl bir xəbərim var! Artıq əngəliniz qaldırıldı!"
         BLOCKS = "🆔 **İstifadəçi ID**: `{}`\n⏱ **Vaxt**: `{}`\n🗓 **Qadağan edildiyi tarix**: `{}`\n💬 **Səbəb**: `{}`\n\n"
         TOTAL_BLOCK = "🚷 **Ümumi əngəllənən:** `{}`\n\n{}"
-
-
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(name)s - [%(levelname)s] - %(message)s'
-)
-LOGGER = logging.getLogger(__name__)
-
-api_id = Config.API_ID
-api_hash = Config.API_HASH
-bot_token = Config.BOT_TOKEN
-bot_username = Config.BOT_USERNAME
-support = Config.SUPPORT_CHAT
-owner = Config.OWNER_USERNAME
-bot_name = Config.BOT_NAME
-
-
-SUDO_USERS = Config.SUDO_USERS
-
-client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
-
-anlik_calisan = []
-
-tekli_calisan = []
-
-ozel_list = [5134595693]
-anlik_calisan = []
-grup_sayi = []
-	
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------#
 
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
   await event.reply("**🤖Salam...💭,\n**Mənim Adım [𝕆 𝕃 𝔻  Tag Bot](http://t.me/oldtaggerbot)-u.\n**Qurupunuz'daki  bütün üzvləri tağ etmək səlahiyyətinə sahibəm.\n\n🤖Əmrlər üçün /help yazıb məndən kömək ala bilərsiniz.**",
-		   
-		    buttons=(
+           
+            buttons=(
                
-		      [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/oldtaggerbot?startgroup=a')],
+              [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/oldtaggerbot?startgroup=a')],
                       [Button.url('Söhbət Qurupu', 'https://t.me/TacikstanOdlarYurdu')],
                       [Button.url('Kanal📢', 'https://t.me/oldresmiold')],
-		      [Button.url('🎉 Sahib', 'https://t.me/AnonyumAz'),
+              [Button.url('🎉 Sahib', 'https://t.me/AnonyumAz'),
                       Button.url(' SAHİB BLOG', 'https://t.me/TEAMABASOFcom')],
                       [Button.url('MUSİQİ GROUPU','http://t.me/musiqidiyari')],
                       [Button.url('ANONYUM AZ BOT','http://t.me/AnonyumAzBot')],
@@ -527,19 +522,19 @@ async def help(event):
                       [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/oldtaggerBot?startgroup=a')],
                       [Button.url('Söhbət Qurupu', 'https://t.me/TacikstanOdlarYurdu')],
                       [Button.url('Kanal📢', 'https://t.me/oldresmiold')],
-		      [Button.url('🎉 Sahib', 'https://t.me/AnonyumAz'),
+              [Button.url('🎉 Sahib', 'https://t.me/AnonyumAz'),
                       Button.url(' BLOG', 'https://t.me/TEAMABASOFcom')],
                       [Button.url('MUSİQİ GROUPU','http://t.me/musiqidiyari')],
                       [Button.url('ANONYUM AZ BOT','http://t.me/AnonyumAzBot')],
                     ),
                     link_preview=False
                    )
-	
-	
-	
-	
-	
-	
+    
+    
+    
+    
+    
+    
     
 @client.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event):
@@ -1004,7 +999,7 @@ async def mentionall(event):
         await asyncio.sleep(2)
         usrnum = 0
         usrtxt = ""
-	
+    
   if mode == "text_on_reply":
     anlik_calisan.append(event.chat_id)
 
@@ -1021,13 +1016,13 @@ async def mentionall(event):
         await asyncio.sleep(2)
         usrnum = 0
         usrtxt = ""
-	
-	
+    
+    
 @client.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def mentionall(event):
   global anlik_calisan 
   anlik_calisan.remove(event.chat_id)
-	
+    
 
 @client.on(events.NewMessage(pattern="^/utag ?(.*)"))
 async def mentionall(event):
@@ -1133,7 +1128,7 @@ async def mentionall(event):
         await asyncio.sleep(2)
         usrnum = 0
         usrtxt = ""
-	
+    
   if mode == "text_on_reply":
     anlik_calisan.append(event.chat_id)
 
@@ -1150,14 +1145,14 @@ async def mentionall(event):
         await asyncio.sleep(2)
         usrnum = 0
         usrtxt = ""
-	
-	
+    
+    
 @client.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event):
   global anlik_calisan
   anlik_calisan.remove(event.chat_id)
-	
-	
+    
+    
 @client.on(events.NewMessage(pattern="^/etag ?(.*)"))
 async def mentionall(event):
   global anlik_calisan
@@ -1287,7 +1282,7 @@ async def mentionall(event):
 async def cancel(event):
   global anlik_calisan
   anlik_calisan.remove(event.chat_id)
-	
+    
 
 @client.on(events.NewMessage(pattern="^/tektag ?(.*)"))
 async def mentionall(event):
@@ -1352,7 +1347,7 @@ async def mentionall(event):
 async def cancel(event):
   global tekli_calisan
   tekli_calisan.remove(event.chat_id)
-	
+    
 
 stag = (
 "Bəzi insanlar yağışı hiss edər, digərləri isə sadəcə islanar",
@@ -1453,7 +1448,7 @@ stag = (
 "𝐺ü𝑐𝑙ü 𝑔ö𝑟ü𝑛ə 𝑏𝑖𝑙ə𝑟ə𝑚 𝑎𝑚𝑎 𝑖𝑛𝑎𝑛           𝑦𝑜𝑟𝑔̆𝑢𝑛𝑎𝑚",
 "𝐻ə𝑦𝑎𝑡 𝑛ə 𝑔𝑒𝑑ə𝑛𝑖 𝑔𝑒𝑟𝑖 𝑔ə𝑡𝑖𝑟𝑖𝑟 𝑛ə𝑑ə 𝑖𝑡𝑖𝑟𝑑𝑖𝑦𝑖𝑛𝑖𝑧 𝑧𝑎𝑚𝑎𝑛ı 𝑔𝑒𝑟𝑖 𝑔ə𝑡𝑖𝑟𝑖𝑟",                   
 "𝐸𝑘𝑚𝑒𝑘 𝑝𝑎ℎ𝑎𝑙ı 𝑒𝑚𝑒𝑘 𝑢𝑐𝑢𝑧𝑑𝑢."
-)	
+)   
 
 @client.on(events.NewMessage(pattern="^/stag ?(.*)"))
 
@@ -1516,7 +1511,7 @@ async def mentionall(event):
         usrnum = 0
         usrtxt = ""
     
-			    			     
+                                 
 @client.on(events.NewMessage(pattern="^/admins ?(.*)"))
 async def tag_admin(event):
     chat = await event.get_input_chat()
@@ -1638,7 +1633,7 @@ async def cancel(event):
   global tekli_calisan
   tekli_calisan.remove(event.chat_id)
 
-	
+    
 @client.on(events.NewMessage(pattern="^/old ?(.*)"))
 
 async def mentionall(event):
@@ -1761,8 +1756,8 @@ async def handler(event):
         return await event.reply("__Sən mənə sahib deyilsən!__")
     await event.reply('**Bot Online Narahat Olmayın** \n @AnonyumAz')
 
-	
-	
+    
+    
 
 @client.on(events.NewMessage())
 async def mentionalladmin(event):
@@ -1780,13 +1775,13 @@ async def son_durum(event):
     if sender.id not in ozel_list:
       return
     await event.respond(f"**O L D TAGGER BOT Statikaları ⚛**\n\nToplam Grup: `{len(grup_sayi)}`\nAnlıq Aktiv Grup: `{len(anlik_calisan)}`")
-	
-	
-	
+    
+    
+    
 
 @client.on(events.NewMessage(pattern='^/broadcast ?(.*)'))
 async def duyuru(event):
-	
+    
   global grup_sayi,ozel_list
   sender = await event.get_sender()
   if sender.id not in ozel_list:
@@ -1799,12 +1794,12 @@ async def duyuru(event):
     except:
       pass
   await event.respond(f"Gönderildi.")
-	
-	
-	
-	
+    
+    
+    
+    
 @client.on(events.NewMessage(pattern='/reklam'))
-async def handler(event):	
+async def handler(event):   
      await event.reply('🤖 [ 𝕆𝕃𝔻 TAGGER BOT](http://t.me/oldtaggerBot)-unda Reklam Almaq Üzçün [sahibim ¦ 💎](https://t.me/AnonyumAz)-ilə Әlaqә Saxlayın.')
     
 
@@ -1823,10 +1818,29 @@ async def event(ups):
 
 
 @client.on(events.NewMessage(pattern='/sahib'))
-async def handler(event):	
+async def handler(event):   
      await event.reply('🇦🇿 sahiblər**\n**@AnonyumAz**\n**@SatisAz.')
      
      
      
 print(">> Bot işləyir narahat olmayın. @AnonyumAz Məlumat almaq üçün <<")
 client.run_until_disconnected()
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+OLD-TAGGER-BOT/oldtagger.py at main · Teamabasof/OLD-TAGGER-BOT
+
+
+
+ 
