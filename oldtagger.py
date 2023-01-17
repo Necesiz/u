@@ -34,12 +34,12 @@ app - Client("memory:", api_id, api hash, pot_token-bot_token)
 
 ############## DEĞİŞKENLER ##############
 
-DATABASE_URL = "sh"
+DATABASE_URL = "mongodb+srv://music:music@cluster0.sh6h4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 BOT_USERNAME = "oldtaggerbot"
-LOG_CHANNEL =  ""
-GROUP_SUPPORT = ""
-GONDERME_TURU = "False"
-OWNER_ID = ""
+LOG_CHANNEL = -1001737573985
+GROUP_SUPPORT = "oldsuppot"
+GONDERME_TURU = False
+OWNER_ID = [5134595693]
 LANGAUGE = "AZ"
 
 
