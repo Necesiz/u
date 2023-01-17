@@ -1,15 +1,10 @@
 # repodan adimi silme peyser.
-
 telethon
-tglogging
-asyncio
+cryptg
+requests
+Pyrogram==1.4.9
+tgcrypto
 pymongo[srv]
 aiofiles
 psutil
 motor
-pyrogram
-TgCrypto
-requests
-cryptg
-wget
-ffmpeg
