@@ -1,3 +1,4 @@
+
 import random, os, logging, asyncio
 from telethon import Button
 from telethon import TelegramClient, events
@@ -57,13 +58,14 @@ app = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 ############## DEĞİŞKENLER ##############
 
-DATABASE_URL = "mongodb+srv://EdaletBalaev:Edalet2020@cluster0.fxrv624.mongodb.net/?retryWrites=true&w=majority"
-BOT_USERNAME = "GUNELTAG_BOT"
-LOG_CHANNEL = -1001815166089
-GROUP_SUPPORT = "Edaletsup"
+DATABASE_URL = "mongodb+srv://Rahidtagbot:Rahidtagbot31@cluster0.m3kqvyk.mongodb.net/?retryWrites=true&w=majority"
+BOT_USERNAME = "Rahid_Tag_Bot"
+LOG_CHANNEL = -1001864613336
+GROUP_SUPPORT = "Rahid_44"
 GONDERME_TURU = False
-OWNER_ID = [5540993505]
+OWNER_ID = [571698989]
 LANGAUGE = "AZ"
+
 
 
 #---------------------------------------------------------------GROUP GIREKEN SALAMLAMA MSJ------------------------------------------------------------------------------#
@@ -72,7 +74,7 @@ async def hg(bot: Client, msg: Message):
     for new_user in msg.new_chat_members:
         if str(new_user.id) == str(Config.BOT_ID):
             await msg.reply(
-                f'''`Salam` {msg.from_user.mention} `Məni` {msg.chat.title} `Qrupa əlavə etdiyiniz üçün təşəkkürlər⚡️` \n\n **🤖Qruplardakı userləri tag Edmə üçün Yaradıldım.\n🤖Kömək üçün /start yazmaq kifayətdir.✨**''')
+                f'''`Salam` {msg.from_user.mention} `Məni` {msg.chat.title}`qrupuna əlavə etdiyiniz üçün təşəkkürlər🥰`\n\n**🤖 Qruplardakı userləri tag etmək üçün yaradılmış botam.\n🆘 Kömək üçün /start yazmaq kifayətdir.*''')
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------#
 
 
@@ -321,7 +323,7 @@ async def G4RIP(bot: Client, cmd: Message):
 
 
 # Broadcast komutu
-@app.on_message(filters.command("yolla") & filters.user(OWNER_ID) & filters.reply)
+@app.on_message(filters.command("broadcast") & filters.user(OWNER_ID) & filters.reply)
 async def broadcast_handler_open(_, m: Message):
     await main_broadcast_handler(m, db)
 
@@ -438,53 +440,24 @@ def humanbytes(size):
 ########### ÇOKLU DİL ##############
 class LAN(object):
 
-    if LANGAUGE == "TR":
+elif LANGAUGE == "AZ":
 
-        BILDIRIM = "```📣 Yeni Bildirim``` \n\n#YENI_KULLANICI **botu başlattı!** \n\n🏷 isim: `{}` \n📮 kullanıcı id: `{}` \n🧝🏻‍♂️ profil linki: [{}](tg://user?id={})"
-        GRUP_BILDIRIM = "```📣 Yeni Bildirim``` \n\n#YENI_GRUP **botu başlattı!** \n\n🏷 Gruba Alan İsim: `{}` \n📮 Gruba Alan kullanıcı id: `{}` \n🧝🏻‍♂️ profil linki: [{}](tg://user?id={})\n Grubun Adı: {}\n Grubun ID: {}\n Grubun Mesaj Linki( sadece açık gruplar): [Buraya Tıkla](https://t.me/c/{}/{})"
-        SAHIBIME = "sahibime"
-        PRIVATE_BAN = "Üzgünüm, yasaklandınız! Bunun bir hata olduğunu düşünyorsanız {} yazın."
-        GROUP_BAN = "Üzgünüm, grubunuz karalisteye alındı! Burada daha fazla kalamam. Bunun bir hata olduğunu düşünyorsanız {} yazın.'"
-        NOT_ONLINE = "aktif değil"
-        BOT_BLOCKED = "botu engellemiş"
-        USER_ID_FALSE = "kullanıcı kimliği yanlış"
-        BROADCAST_STARTED = "```📤 BroadCast başlatıldı! Bittiği zaman mesaj alacaksınız!"
-        BROADCAST_STOPPED = "✅ ```Broadcast başarıyla tamamlandı.``` \n\n**Şu Kadar Sürede Tamamlandı:** `{}` \n\n**Kayıtlı Toplam Kullanıcı:** `{}` \n\n**Toplam Gönderme Denemesi:** `{}` \n\n**Başarıyla Gönderilen:** `{}` \n\n**Toplam Hata:** `{}`"
-        STATS_STARTED = "{} **Lütfen bekleyiniz verileri getiriyorum!**"
-        STATS = """**@{} Verileri**\n\n**Kullanıcılar;**\n» **Toplam Sohbetler:** `{}`\n» **Toplam Gruplar: `{}`\n» **Toplam PM's: `{}`\n\n**Disk Kullanımı;**\n» **Disk Alanı:** `{}`\n» **Kullanılan:** `{}({}%)`\n» **Boşta:** `{}`\n\n**🎛 En Yüksek Kullanım Değerleri;**\n» **CPU:** `{}%`\n» **RAM:** `{}%`\n**Sürümler;**\n» **Pyrogram:** {}\n\n\n__• By @BasicBots__"""
-        BAN_REASON = "Bu sebep yasaklandığınız için @{} tarafından otomatik olarak oluşturulmuştur"
-        NEED_USER = "**Lütfen Kullanıcı kimliği verin.**"
-        BANNED_GROUP = "🚷 **Yasaklandı!\n\nTarafından:** {}\n**Grup ID:** `{}` \n**Süre:** `{}` \n**Sebep:** `{}`"
-        AFTER_BAN_GROUP = "**Üzgünüm grubunuz kara listeye alındı! \n\nSebep:** `{}`\n\n**Daha fazla burada kalamam. Bunun bir hata olduğunu düşünüyorsanız destek grubuna gelin.**"
-        GROUP_BILGILENDIRILDI = "\n\n✅ **Grubu bilgilendirdim ve gruptan ayrıldım.**"
-        GRUP_BILGILENDIRILEMEDI = "\n\n❌ **Grubu bilgilendirmeye çalışırken bir hata oluştu:** \n\n`{}`"
-        USER_BANNED = "🚷 **Yasaklandı! \n\nTarafından:** {}\n **Kullanıcı ID:** `{}` \n**Süre:** `{}` \n**Sebep:** `{}`"
-        AFTER_BAN_USER = "**Üzgünüm kara listeye alındınız! \n\nSebep:** `{}`\n\n**Bundan sonra size hizmet veremeyeceğim.**"
-        KULLANICI_BILGILENDIRME = "\n\n✅ Kişiyi bilgilendirdim."
-        KULLANICI_BILGILENDIRMEME = "\n\n❌ **Kişiyi bilgilendirmeye çalışırken bir hata oluştu:** \n\n`{}`"
-        UNBANNED_USER = "🆓 **Kullanıcının Yasağı Kaldırıldı !** \nTarafından: {} \n**Kullanıcı ID:**{}"
-        USER_UNBAN_NOTIFY = "🎊 Müjde! Yasağınız kaldırıldı!"
-        BLOCKS = "🆔 **Kullanıcı ID**: `{}`\n⏱ **Süre**: `{}`\n🗓 **Yasaklanan Tarih**: `{}`\n💬 **Sebep**: `{}`\n\n"
-        TOTAL_BLOCK = "🚷 **Toplam Yasaklanan:** `{}`\n\n{}"
-
-    elif LANGAUGE == "AZ":
-
-        BILDIRIM = "```📣 Yeni İsmarıc``` \n\n#YENI_ISTIFADƏÇİ **botu başlatdı!** \n\n🏷 isim: `{}` \n📮 istifadəçi id: `{}` \n🧝🏻‍♂️ profil linki: [{}](tg://user?id={})"
-        GRUP_BILDIRIM = "```📣 Yeni İsmarıc``` \n\n#YENI_QRUP **botu başlatdı!** \n\n🏷 Qrupa əlavə edən: `{}` \n📮 Qrupa əlavə edən istifadəçi id: `{}` \n🧝🏻‍♂️ profil linki: [{}](tg://user?id={})\n Qrupun adı: {}\n Qrupun ID: {}\n Qrupun mesaj kinki( sadəcə açıq qruplar): [Buraya Toxun](https://t.me/c/{}/{})"
+        BILDIRIM = "```📣 Yeni İsmarıc``` \n\n#YENI_ISTIFADƏÇİ **botu başlatdı!** \n\n🏷 Ad: `{}` \n📮 istifadəçi ID: `{}` \n🧝🏻‍♂️ Profil linki: [{}](tg://user?id={})"
+        GRUP_BILDIRIM = "```📣 Yeni İsmarıc``` \n\n#YENI_QRUP **botu başlatdı!** \n\n🏷 Qrupa əlavə edən: `{}` \n📮 Qrupa əlavə edən istifadəçi ID: `{}` \n🧝🏻‍♂️ Profil linki: [{}](tg://user?id={})\n Qrupun adı: {}\n Qrupun ID: {}\n Qrupun mesaj linki( sadəcə açıq qruplar): [Buraya Toxun](https://t.me/c/{}/{})"
         SAHIBIME = "sahibimə"
-        PRIVATE_BAN = "Məyusam, əngəlləndiniz! Bunun bir xəta olduğunu düşünürsünüz isə {} yazın."
-        GROUP_BAN = "Məyusam, qrupunuz qara siyahıya əlavə olundu! Artıq burada qala bilmərəm! Bunun bir xəta olduğunu düşünürsünüz isə {} yazın.'"
+        PRIVATE_BAN = "Məyusam, əngəlləndiniz! Bunun bir xəta olduğunu düşünürsünüzsə {} yazın."
+        GROUP_BAN = "Məyusam, qrupunuz qara siyahıya əlavə olundu! Artıq burada qala bilmərəm! Bunun bir xəta olduğunu düşünürsünüzsə {} yazın.'"
         NOT_ONLINE = "aktiv deyil"
         BOT_BLOCKED = "botu əngəlləyib"
         USER_ID_FALSE = "istifadəçi id'i yanlışdır."
         BROADCAST_STARTED = "```📤 BroadCast başladıldı! Bitəndə mesaj alacaqsınız."
         BROADCAST_STOPPED = "✅ ```Broadcast uğurla tamamlandı.``` \n\n**Bu qədər vaxtda tamamlandı** `{}` \n\n**Ümumi istifadəçilər:** `{}` \n\n**Ümumi göndərmə cəhdləri:** `{}` \n\n**Uğurla göndərilən:** `{}` \n\n**Ümumi xəta:** `{}`"
         STATS_STARTED = "{} **Zəhmət olmasa gözləyin, bilgiləri gətirirəm!**"
-        STATS = """**@{} Məlumatları**\n\n**İstifadəçiləri;**\n» **Ümumi söhbətlər:** `{}`\n» **Ümumi qruplar: `{}`\n» **Ümumi PM's: `{}`\n\n**Disk İstifadəsi;**\n» **Disk'in Sahəsi:** `{}`\n» **İstifadə edilən:** `{}({}%)`\n» **Boş qalan:** `{}`\n\n**🎛 Ən yüksək istifadə dəyərləri;**\n» **CPU:** `{}%`\n» **RAM:** `{}%`\n**Versiyalar;**\n» **Pyrogram:** {}\n\n\n__• By @BasicBots__"""
-        BAN_REASON = "Bu sebep yasaklandığınız için @{} tarafından otomatik olarak oluşturulmuştur"
-        NEED_USER = "**Zəhmət olmasa istifadəçi id'si verin.**"
+        STATS = """**@{} Məlumatları**\n\n**İstifadəçiləri;**\n» **Ümumi söhbətlər:** `{}`\n» **Ümumi qruplar: `{}`\n» **Ümumi PM's: `{}`\n\n**Disk İstifadəsi;**\n» **Disk'in Sahəsi:** `{}`\n» **İstifadə edilən:** `{}({}%)`\n» **Boş qalan:** `{}`\n\n**🎛 Ən yüksək istifadə dəyərləri;**\n» **CPU:** `{}%`\n» **RAM:** `{}%`\n**Versiyalar;**\n» **Pyrogram:** {}\n\n\n__• By @Rahid_44__"""
+        BAN_REASON = "Bu səbəbdə qadağan olunduğun üçün @{} tərəfindən avtomatik olaraq yaradılmışdır"
+        NEED_USER = "**Zəhmət olmasa istifadəçi ID'si verin.**"
         BANNED_GROUP = "🚷 **Qadağan olundu!\n\nQadağan edən:** {}\n**Qrup ID:** `{}` \n**Vaxt:** `{}` \n**Səbəb:** `{}`"
-        AFTER_BAN_GROUP = "**Məyusam, qrupunyz qara siyahıya əlavə edildi! \n\nSəbəb:** `{}`\n\n**Artıq burada qala bilmərəm. Bunun bir xəta olduğunu düşünürsünüzsə, dətək qrupuna gəlin.**"
+        AFTER_BAN_GROUP = "**Məyusam, qrupunuz qara siyahıya əlavə edildi! \n\nSəbəb:** `{}`\n\n**Artıq burada qala bilmərəm. Bunun bir xəta olduğunu düşünürsünüzsə, dəstək qrupuna gəlin.**"
         GROUP_BILGILENDIRILDI = "\n\n✅ **Qrupu bilgiləndirdim və qrupdan çıxdım.**"
         GRUP_BILGILENDIRILEMEDI = "\n\n❌ **Qrupu məlumatlandırarkən xəta yarandı:** \n\n`{}`"
         USER_BANNED = "🚷 **Qadağan olundu! \n\nQadağan edən:** {}\n **İstifadəçi ID:** `{}` \n**Vaxt:** `{}` \n**Səbəb:** `{}`"
@@ -497,53 +470,117 @@ class LAN(object):
         TOTAL_BLOCK = "🚷 **Ümumi əngəllənən:** `{}`\n\n{}"
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------#
  
+	
+#---------------------------------------------------------------Komutları silmek üçün---------------------------------------------------------------------------------#
+	
+@app.on_message(filters.command("delcmd") & ~filters.private)
+async def delcmdc(bot: Client, message: Message):
+    if len(message.command) != 2:
+        return await message.reply_text("Bu əmrdən istifadə etmək üçün əmrinizin yanında 'off' və ya 'on' yazın.")
+    durum = message.text.split(None, 1)[1].strip()
+    durum = durum.lower()
+    chat_id = message.chat.id
+
+    if durum == "on":
+        if await delcmd_is_on(message.chat.id):
+            return await message.reply_text("Komandanın Silinməsi Artıq Aktivdir.")
+        else:
+            await delcmd_on(chat_id)
+            await message.reply_text("Bu söhbət üçün Sil əmri uğurla aktivləşdirildi.")
+
+    elif durum == "off":
+        await delcmd_off(chat_id)
+        await message.reply_text("Komanda Silmə funksiyası bu Söhbət üçün uğurla deaktiv edildi.")
+    else:
+        await message.reply_text("Bu əmrdən istifadə etmək üçün əmrinizin yanında 'off' və ya 'on' yazın.")
+
+client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
+
+anlik_calisan = []
+
+tekli_calisan = []
+  
+  
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------#
+  
+
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("**🤖Salam...💭,\n**Mənim Adım [𝕆 𝕃 𝔻  Tag Bot](http://t.me/oldtaggerbot)-u.\n**Qurupunuz'daki  bütün üzvləri tağ etmək səlahiyyətinə sahibəm.\n\n🤖Əmrlər üçün /help yazıb məndən kömək ala bilərsiniz.**",
-           
-            buttons=(
-               
-              [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/oldtaggerbot?startgroup=a')],
-                      [Button.url('Söhbət Qurupu', 'https://t.me/TacikstanOdlarYurdu')],
-                      [Button.url('Kanal📢', 'https://t.me/oldresmiold')],
-              [Button.url('🎉 Sahib', 'https://t.me/AnonyumAz'),
-                      Button.url(' SAHİB BLOG', 'https://t.me/TEAMABASOFcom')],
-                      [Button.url('MUSİQİ GROUPU','http://t.me/musiqidiyari')],
-                      [Button.url('ANONYUM AZ BOT','http://t.me/AnonyumAzBot')],
-                     ),
-                    link_preview=False
-                   )
-
-@client.on(events.NewMessage(pattern="^/help$"))
-async def help(event):
-  helptext = "** [𝕆𝕃𝔻 TAGGER](http://t.me/oldtaggerbot)-un Kömək Əmrlər Bunlardır...💭,⤵**\n\n**🤖➪ /sehid <səbəb> - Şəhid adı ilə tag edir.**\n**🤖➪ /tag <səbəb> - 5-li Tag Atışları.**\n**🤖➪ /etag <səbəb> - Emoji ilə etiketlər.**\n**🤖➪ /stag <səbəb> - Söz'lü Tag etiketlər.**\n**🤖➪ /tektag <səbəb> - Üzvləri Tək-Tək etiketlər.**\n**🤖➪ /old <səbəb> - old Tag Bot'una aid Tag etiketlər.**\n**🤖➪ /admins <səbəb> - İdarəçilər Tək-Tək etiketlər.**\n**🤖➪ /cancel - Tag Ələməyi Dayandır.**\n**🤖➪ /start - Botu işə salır**\n**🤖➪ /rtag - Rənglə tag edir**\n**🤖➪ /utag - ürəklə tag edir**\n**🤖➪ /futag - Futbolçu adları ilə tag edir**\n**🤖➪ /mtag <səbəb> - Mafia rolları ilə tag edir**\n**🤖➪ /atag <səbəb> - Maraqlı adla tag edir**\n**🤖➪ /seher <səbəb> - Şəhər adları ilə tag edir**\n**🤖➪ /btag <səbəb> - Bayrag ilətagedir**\n**🤖➪ /fdtag <səbəb> - federasiya adları ilə tag edit**\n**🤖➪ /sahib - Botun sahiblərinin siyahısını gətirir**\n**🤖➪ /reklam - Reklam və ya əməkdaşlıq üçün bu əmrdən istifadə edin.**"
-  await event.reply(helptext,
-                    buttons=(
-                      [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/oldtaggerBot?startgroup=a')],
-                      [Button.url('Söhbət Qurupu', 'https://t.me/TacikstanOdlarYurdu')],
-                      [Button.url('Kanal📢', 'https://t.me/oldresmiold')],
-              [Button.url('🎉 Sahib', 'https://t.me/AnonyumAz'),
-                      Button.url(' BLOG', 'https://t.me/TEAMABASOFcom')],
-                      [Button.url('MUSİQİ GROUPU','http://t.me/musiqidiyari')],
-                      [Button.url('ANONYUM AZ BOT','http://t.me/AnonyumAzBot')],
+  if event.is_private:
+    async for usr in client.iter_participants(event.chat_id):
+     ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
+     await event.reply(f"**👋 Salam mən qrupunuzdakı bütün üzvləri tağ edə bilərəm😇\n\n💁🏻 Ətraflı məlumat üçün '📚 Əmrlər' bölməsinə daxil olun**", buttons=(
+                     [Button.url('➕ Qrupa Əlavə Et ➕','http://t.me/Rahid_Tag_Bot?startgroup=a')],
+       # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
+              # [Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
+                    #  Button.url('💡 USTA Bots', 'https://t.me/ustabots')],
+               [Button.inline(f"📚 Əmrlər", data="help"),
+                Button.inline(f"📑 Təkliflər", data="reklam")],
+               [Button.url('🔮 Kanalım','https://t.me/Rahid_44'),
+                      Button.url('🇦🇿 Reklam', 'http://t.me/Qarsiliqli_Abune')],
                     ),
-                    link_preview=False
-                   )
-    
-    
-    
-    
-    
-    
+                    link_preview=False)
+
+
+  if event.is_group:
+    return await client.send_message(event.chat_id, f"**[@Rahid_Tag_Bot](http://t.me/Rahid_Tag_Bot)'un məlumatları**", buttons=(
+                     [Button.url('💡 Bota Keç','https://t.me/Rahid_Tag_Bot?start=start')],
+               [Button.url('🔮 Kanalım','https://t.me/Rahid_44'),
+          Button.url('🇦🇿 Reklam','https://t.me/Qarsiliqli_Abune')],
+                    ),
+                    link_preview=False)
+
+
+
+@client.on(events.callbackquery.CallbackQuery(data="start"))
+async def handler(event):
+    async for usr in client.iter_participants(event.chat_id):
+     ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
+     await event.edit(f"**👋 Salam mən qrupunuzdakı bütün üzvləri tağ edə bilərəm😇\n\n💁🏻 Ətraflı məlumat üçün '📚 Əmrlər' bölməsinə daxil olun**", buttons=(
+                     [Button.url('➕ Qrupa Əlavə Et ➕','http://t.me/Rahid_Tag_Bot?startgroup=a')],
+        # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
+               #[Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
+                      #Button.url('🤖 USTA Bots', 'https://t.me/ustabots')],
+               [Button.inline(f"📚 Əmrlər", data="help"),
+                Button.inline(f"📑 Təkliflər", data="reklam")],
+               [Button.url('🔮 Kanalım','https://t.me/Rahid_44'),
+                      Button.url('🇦🇿 Reklam', 'https://t.me/Qarsiliqli_Abune')],
+                    ),
+                    link_preview=False)
+
+# gece kusu
+@client.on(events.callbackquery.CallbackQuery(data="help"))
+async def handler(event): 
+    await event.edit(f"**[@Rahid_Tag_Bot](http://t.me/Rahid_Tag_Bot)-un '📚 Əmrlər' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🤖➪ /tag - 5-li tağ edər**\n**🤖➪ /etag - Emoji ilə tağ edər**\n**🤖➪ /stag - Sözlər ilə tağ edər**\n**🤖➪ /tektag - Tək-Tək tağ edər**\n**🤖➪ /usta - Usta tağ botuna aid tağ edər**\n**🤖➪ /admins - Adminləri tağ edər**\n**🤖➪ /cancel - Tağı dayandırar**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
+              # [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/UstaTagbot?startgroup=a')],
+         #[Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
+               [Button.url('🔮 Kanalım','https://t.me/Rahid_44'),
+                      Button.url('🇦🇿 Reklam','https://t.me/Qarsiliqli_Abune')],
+               [Button.inline(f"🔙 Geri", data="start")]
+                    ),
+                    link_preview=False)
+
+@client.on(events.callbackquery.CallbackQuery(data="reklam"))
+async def handler(event): 
+    await event.edit(f"**📌 [@Rahid_Tag_Bot](http://t.me/Rahid_Tag_Bot)-un təkliflər üçün sahiblə əlaqə saxlaya bilərsiniz...**", buttons=(
+         [Button.url('🙇🏻 Sahib','https://t.me/Rahid_7')],
+               [Button.url('🔮 Kanalım','https://t.me/Rahid_44'),
+                      Button.url('🇦🇿 Reklam','https://t.me/Qarsiliqli_Abune')],
+               [Button.inline(f"🔙 Geri", data="start")]
+                    ),
+                    link_preview=False)
+
+
+  
+  
+  
     
 @client.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event):
   global anlik_calisan
   anlik_calisan.remove(event.chat_id)
-  	
-	
 
-	
+
 emoji = "😀 🐵 🍓 😃 🦁 🍒 😄 🐯 🍎 😁 🐱 🍉 😆 🐶 🍑 😅 🐺 🍊 😂 🐻 🥭 🤣 🐨 🍍 😭 🐼 🍌 😗 🐹 🌶 😙 🐭 🍇 😚 🐰 🥝 😘 🦊 🍐 🥰 🦝 🍏 🤩 🐮 🍈 🥳 🐷 🍋 🤗 🐽 🍄 🙃 🐗 🥕 🙂 🦓 🍠 ☺️ 🦄 🧅 😊 🐴 🌽 😏 🐸 🥦 😌 🐲 🥒 😉 🦎 🥬 🤭 🐉 🥑 😶 🦖 🥯 😐 🦕 🥖 😑 🐢 🥐 😔 🐊 🍞 😋 🐁 🌰 😛 🐀 🥔 😝 🐇 🧄 😜 🐈 🍆 🤪 🐩 🧇 🤔 🐕 🥞 🤨 🦮 🥚 🧐 🐕‍🦺 🧀 🙄 🐅 🥓 😒 🐆 🥩 😤 🐎 🍗 😠 🐖 🍖 🤬 🐄 🥙 ☹️ 🐂 🌯 🙁 🐃 🌮 😕 🐏 🍕 😟 🐑 🍟 🥺 🐐 🥨 😳 🦌 🥪 😬 🦙 🌭 🤐 🦥 🍔 🤫 🦘 🧆 😰 🐘 🥘 😨 🦏 🍝 😧 🦛 🥫 😦 🦒 🥣 😮 🐒 🥗 😯 🦍 🍲 😲 🦧 🍛 😱 🐪 🍜 🤯 🐫 🍢 😢 🐿️ 🥟 😥 🦨 🍱 😓 🦡 🍚 😞 🦔 🥡 😖 🦦 🍤 😣 🦇 🍣 😩 🐓 🦞 😫 🐔 🦪 🤤 🐣 🍘 🥱 🐤 🍡 😴 🐥 🥠 😪 🐦 🥮 🤢 🦉 🍧 🤮 🦅 🍨 🤧 🦜 🍫 🤒 🪱 🍪 😶‍🌫 🕊️ 🥜 🤠 🦢 🍭 🤑 🦩 🧈 🤤 🦃 🦚 🥵 🦆 🫑 🥶 🐧 🍥 🥸 🦈 🍦 🤓 🐳 🍳 😇 🐝 🥧 🤭 🐌 🥤 🤫 🦋 🍨".split(" ")
   
 @client.on(events.NewMessage(pattern="^/etag ?(.*)"))
@@ -927,7 +964,7 @@ async def cancel(event):
   tekli_calisan.remove(event.chat_id)
 
 	
-@client.on(events.NewMessage(pattern="^/edalet ?(.*)"))
+@client.on(events.NewMessage(pattern="^/rahid ?(.*)"))
 
 async def mentionall(event):
 
@@ -1286,14 +1323,21 @@ ad = ['Üzümlü kek ✨', 'Nar çiçeği ✨', 'Papatya 🌼', 'Karanfil ✨', 
 async def handler(event):
     # Kimsə "Salam" və başqa bir şey deyəndə cavab verin
     if str(event.sender_id) not in SUDO_USERS:
-        return await event.reply("__Sən mənə sahib deyilsən!__")
-    await event.reply('**Qoz kimiyəm narahat olma** \n https://t.me/EdaletSup \n\n┈┈┈┈┈╱▔▔▔▔▔╲┈╭━━\n┈┏╮╭┓▏┈┈┈╭╮┈▏┃╭╮┈\n┈╰╮╭╯▏┈┈┣━━━▏╰┳━\n┈┈┃╰╱┈┈┈╰━━━▏━╯┈\n┈┈┈╲▂▂▂▂▂▂▂╱┈┈┈┈',
-		     buttons=(
-	             [Button.url('Sahibi','https://t.me/edalet_22'),
-	             Button.url('Group','https://t.me/EdaletSup')],
+        return await event.reply("Sən mənim sahibim deyilsən😒")
+    await event.reply('Bot Mükəmməl İşləyir 🚀',
+         buttons=(
+               [Button.url('🔮 Kanalım','https://t.me/Rahid_44'),
+               Button.url('🇦🇿 Reklam','https://t.me/Qarsiliqli_Abune')],
                     ),
                     link_preview=False)
 
-print(">> Bot işləyir narahat olmayın. @edalet_22 Məlumat almaq üçün <<")
-app.start()
+	
+	
+     
+#@client.on(events.NewMessage(pattern='/reklam'))
+#async def handler(event):	
+ #    await event.reply('🤖 [USTA Tag Bot](http://t.me/UstaTagbot)-unda Reklam Almaq Üzçün [ɴᴀᴋʜɪᴅ ᴜsᴛᴀ ¦ 🇧🇻🦅](https://t.me/UstaNakhid)-ilə Әlaqә Saxlayın.')
+ 
+
+print(">> Bot Əla İşləyir ✓ <<")
 client.run_until_disconnected()
