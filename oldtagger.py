@@ -49,7 +49,11 @@ SUDO_USERS = Config.SUDO_USERS
 #-#-#-# Pyrogram Başlanğıc #-#-#-#
 app = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
+client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 
+anlik_calisan = []
+
+tekli_calisan = []
 
 # Qruplara yayım mesajı
 
@@ -494,11 +498,11 @@ async def delcmdc(bot: Client, message: Message):
     else:
         await message.reply_text("Bu əmrdən istifadə etmək üçün əmrinizin yanında 'off' və ya 'on' yazın.")
 
-client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 
-anlik_calisan = []
 
-tekli_calisan = []
+
+
+
   
   
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------#
