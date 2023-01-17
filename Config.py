@@ -7,7 +7,7 @@ class Config():
     admins = {}
     API_ID = int(os.environ.get("API_ID","15954332"))
     API_HASH = os.environ.get("API_HASH","85adea6f1eaf068b707703b4846a9ced")
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "5740066159:AAFbrC3QufKk2SpgMmmJgYocXBEugzWQ-QY")
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "5740066159:AAHfcRYqDQAIQjoCX4kkTXgdsP06AED2E14")
     BOT_USERNAME = os.environ.get("BOT_USERNAME", "oldtaggerBot")
     BOT_NAME = os.environ.get("BOT_NAME", "OLD TAGGER")
     BOT_ID = int(os.environ.get("BOT_ID", "5964973513"))
