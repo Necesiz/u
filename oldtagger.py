@@ -58,7 +58,7 @@ app = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 ############## DEĞİŞKENLER ##############
 
-DATABASE_URL = "mongodb+srv://music:music@cluster0.sh6h4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+DATABASE_URL = "mongodb+srv://Teamabasof1:<Teamabasof1>@cluster0.2xfi5qe.mongodb.net/?retryWrites=true&w=majority"
 BOT_USERNAME = "oldtaggerBot"
 LOG_CHANNEL = -1001737573985
 GROUP_SUPPORT = "TEAMABASOFcom"
