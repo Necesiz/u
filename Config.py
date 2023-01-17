@@ -15,5 +15,4 @@ class Config():
     SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", "oldsupport")
     OWNER_ID = int(os.environ.get("OWNER_ID", "5134595693"))
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "AnonyumAz")
-    PLAYLIST_NAME = os.environ.get("PLAYLIST_NAME","azesongplaylist")
-    PLAYLIST_ID = int(os.environ.get("PLAYLIST_ID",-1001852777229))
+    
