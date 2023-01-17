@@ -20,8 +20,7 @@ import aiofiles
 from pyrogram import Client, filters, version
 from pyrogram.types import Message
 from pyrogram.errors import (
- 
-    FloodWait,
+     FloodWait,
     InputUserDeactivated,
     PeerIdInvalid,
     UserIsBlocked,
