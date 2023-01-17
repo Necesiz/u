@@ -4,8 +4,8 @@ from telethon import TelegramClient, events
 from telethon.sessions import StringSession
 from telethon.tl.types import ChannelParticipantsAdmins
 from asyncio import sleep
-from Config import Config
-#pyrogram
+from Config import Config 
+# Pyrogram----------------------------------------------------------------------------------------------------
 import datetime
 import motor.motor_asyncio
 from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
@@ -17,29 +17,46 @@ import string
 import time
 import traceback
 import aiofiles
-from pyrogram import Client, filters, __version__
+from pyrogram import Client, filters, version
 from pyrogram.types import Message
 from pyrogram.errors import (
+ 
     FloodWait,
     InputUserDeactivated,
     PeerIdInvalid,
     UserIsBlocked,
 )
 
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(name)s - [%(levelname)s] - %(message)s'
+)
 
-*-*-*-* Hyrogram dalang --- 
-app - Client("memory:", api_id, api hash, pot_token-bot_token)
+LOGGER = logging.getLogger(name)
+api_id = Config.API_ID
+api_hash = Config.API_HASH
+bot_token = Config.BOT_TOKEN
+bot_username = Config.BOT_USERNAME
+support = Config.SUPPORT_CHAT
+owner = Config.OWNER_USERNAME
+bot_name = Config.BOT_NAME
 
 
+SUDO_USERS = Config.SUDO_USERS
+
+#-#-#-# Pyrogram Başlanğıc #-#-#-#
+app = Client(":memory:", api_id, api_hash, bot_token=bot_token)
+
+# Qruplara yayım mesajı
 
 ############## DEĞİŞKENLER ##############
 
 DATABASE_URL = "mongodb+srv://music:music@cluster0.sh6h4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 BOT_USERNAME = "oldtaggerbot"
 LOG_CHANNEL = -1001737573985
-GROUP_SUPPORT = "oldsuppot"
+GROUP_SUPPORT = "oldsupport"
 GONDERME_TURU = False
-OWNER_ID = [5134595693]
+OWNER_ID = [5134595693, 1727079853]
 LANGAUGE = "AZ"
 
 
