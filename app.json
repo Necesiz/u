@@ -1,0 +1,50 @@
+{
+  "name": "Telegram Tag Botu",
+  "logo":"https://te.legra.ph/file/6d467d87d4b65fc483097.jpg",
+  "description": "İstifadəçi tagger botu pulsuz üzvlərinizi etiketləyən bir botdur",
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Botun tokeni yasın.",
+      "value": "5394785524:AAEozSRqSyD2vVtvVPgGgYr8ffj9PwReL2E"
+    },
+    "API_ID": {
+      "description": "Api-İd yazın.",
+      "value": "19485442"
+    },
+    "API_HASH": {
+      "description": "Api-Hash yazın",
+      "value": "a03fcb372b3ec4e406b5d52f84b02e53"
+    },
+    "BOT_NAME": {
+      "description": "Botun adı yazın",
+      "value": "Rahid Tag"
+    },
+    "BOT_USERNAME": {
+      "description": "Botun tag adını @ olmadan yazın",
+      "value": "Rahid_Tag_Bot"
+    },
+    "BOT_ID": {
+      "description": "Botun ID-si yazın",
+      "value": "5394785524"
+    },
+    "SUDO_USERS": {
+      "description": "Öz ID-ni yazın",
+      "value": "571698989"
+    },
+    "SUPPORT_CHAT": {
+      "description": "Dəstək qrupun tag adı @ olmadan yazın",
+      "value": "BBZ_Team"
+    },
+    "OWNER_ID": {
+      "description": "Öz ID-ni yazın",
+      "value": "571698989"
+    },
+    "OWNER_USERNAME": {
+      "description": "Öz tag adını @ olmadan yazın",
+      "value": "Rahid_7"
+    }
+  },
+  "buildpacks": [{
+    "url": "https://github.com/heroku/heroku-buildpack-python.git"
+  }]
+}
