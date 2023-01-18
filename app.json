@@ -5,43 +5,43 @@
   "env": {
     "BOT_TOKEN": {
       "description": "Botun tokeni yasın.",
-      "value": "5394785524:AAEozSRqSyD2vVtvVPgGgYr8ffj9PwReL2E"
+      "value": "5740066159:AAFi9y9SVjZGDWzNxUfCKzdVW75Dhc4iMYw"
     },
     "API_ID": {
       "description": "Api-İd yazın.",
-      "value": "19485442"
+      "value": "15954332"
     },
     "API_HASH": {
       "description": "Api-Hash yazın",
-      "value": "a03fcb372b3ec4e406b5d52f84b02e53"
+      "value": "85adea6f1eaf068b707703b4846a9ced"
     },
     "BOT_NAME": {
-      "description": "Botun adı yazın",
-      "value": "Rahid Tag"
+      "description": "OLD TAGGER",
+      "value": "OLD TAGGER"
     },
     "BOT_USERNAME": {
-      "description": "Botun tag adını @ olmadan yazın",
-      "value": "Rahid_Tag_Bot"
+      "description": "oldtaggerBot",
+      "value": "oldtaggerBot"
     },
     "BOT_ID": {
       "description": "Botun ID-si yazın",
-      "value": "5394785524"
+      "value": "5740066159"
     },
     "SUDO_USERS": {
       "description": "Öz ID-ni yazın",
-      "value": "571698989"
+      "value": "5134595693"
     },
     "SUPPORT_CHAT": {
       "description": "Dəstək qrupun tag adı @ olmadan yazın",
-      "value": "BBZ_Team"
+      "value": "TEAMABASOFcom"
     },
     "OWNER_ID": {
       "description": "Öz ID-ni yazın",
-      "value": "571698989"
+      "value": "5134595693"
     },
     "OWNER_USERNAME": {
       "description": "Öz tag adını @ olmadan yazın",
-      "value": "Rahid_7"
+      "value": "AnonyumAz"
     }
   },
   "buildpacks": [{
