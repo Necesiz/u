@@ -17,6 +17,6 @@ class Config():
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "AnonyumAz")
     GONDERME_TURU = os.environ.get("GONDERME_TURU","False")
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL",-1001737573985))
-    DATABASE_URL = os.environ.get("DATABASE_URL", "mongodb+srv://Teamabasof1:<Teamabasof1>@cluster0.2xfi5qe.mongodb.net/?retryWrites=true&w=majority")
+    DATABASE_URL = os.environ.get("DATABASE_URL", "mongodb+srv://Teamabasof1:Teamabasof1@cluster0.2xfi5qe.mongodb.net/?retryWrites=true&w=majority")
     LANGAUGE = os.environ.get("LANGAUGE", "AZ")
     GROUP_SUPPORT = os.environ.get("GROUP_SUPPORT", "TEAMABASOFcom")
