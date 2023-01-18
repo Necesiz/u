@@ -1,1 +1,1 @@
-worker: bash oldtagger.py
+worker: python3 oldtagger.py
