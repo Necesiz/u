@@ -1,9 +1,9 @@
-
 import random, os, logging, asyncio
 from telethon import Button
 from telethon import TelegramClient, events
 from telethon.sessions import StringSession
 from telethon.tl.types import ChannelParticipantsAdmins
+from telethon import events, Button
 from asyncio import sleep
 from Config import Config 
 # Pyrogram----------------------------------------------------------------------------------------------------
@@ -21,21 +21,11 @@ import aiofiles
 from pyrogram import Client, filters, __version__
 from pyrogram.types import Message
 from pyrogram.errors import (
-
     FloodWait,
-
     InputUserDeactivated,
-
     PeerIdInvalid,
-
     UserIsBlocked,
-
 )
-   
-    
-  
-
-
 
 
 
@@ -59,11 +49,7 @@ SUDO_USERS = Config.SUDO_USERS
 #-#-#-# Pyrogram Başlanğıc #-#-#-#
 app = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
-client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 
-anlik_calisan = []
-
-tekli_calisan = []
 
 # Qruplara yayım mesajı
 
@@ -72,14 +58,13 @@ tekli_calisan = []
 
 ############## DEĞİŞKENLER ##############
 
-DATABASE_URL = "mongodb+srv://Teamabasof1:<Teamabasof1>@cluster0.2xfi5qe.mongodb.net/?retryWrites=true&w=majority"
-BOT_USERNAME = "oldtaggerBot"
-LOG_CHANNEL = -1001737573985
-GROUP_SUPPORT = "TEAMABASOFcom"
+DATABASE_URL = "mongodb+srv://Rahidtagbot:Rahidtagbot31@cluster0.m3kqvyk.mongodb.net/?retryWrites=true&w=majority"
+BOT_USERNAME = "Rahid_Tag_Bot"
+LOG_CHANNEL = -1001864613336
+GROUP_SUPPORT = "BBZ_Team"
 GONDERME_TURU = False
-OWNER_ID = [5134595693,5540993505]
+OWNER_ID = [571698989,5540993505]
 LANGAUGE = "AZ"
-
 
 
 #---------------------------------------------------------------GROUP GIREKEN SALAMLAMA MSJ------------------------------------------------------------------------------#
@@ -88,7 +73,7 @@ async def hg(bot: Client, msg: Message):
     for new_user in msg.new_chat_members:
         if str(new_user.id) == str(Config.BOT_ID):
             await msg.reply(
-                f'''`Salam` {msg.from_user.mention} `Məni` {msg.chat.title}`qrupuna əlavə etdiyiniz üçün təşəkkürlər🥰`\n\n**🤖 Qruplardakı userləri tag etmək üçün yaradılmış botam.\n🆘 Kömək üçün /start yazmaq kifayətdir.*''')
+                f'''`Salam` {msg.from_user.mention} `Məni` {msg.chat.title} `Qrupa əlavə etdiyiniz üçün təşəkkürlər⚡️` \n\n **🤖Qruplardakı userləri tag Edmə üçün Yaradıldım.\n🤖Kömək üçün /start yazmaq kifayətdir.✨**''')
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------#
 
 
@@ -337,7 +322,7 @@ async def G4RIP(bot: Client, cmd: Message):
 
 
 # Broadcast komutu
-@app.on_message(filters.command("broadcast") & filters.user(OWNER_ID) & filters.reply)
+@app.on_message(filters.command("reklam") & filters.user(OWNER_ID) & filters.reply)
 async def broadcast_handler_open(_, m: Message):
     await main_broadcast_handler(m, db)
 
@@ -454,24 +439,53 @@ def humanbytes(size):
 ########### ÇOKLU DİL ##############
 class LAN(object):
 
-elif LANGAUGE == "AZ":
+    if LANGAUGE == "TR":
 
-        BILDIRIM = "```📣 Yeni İsmarıc``` \n\n#YENI_ISTIFADƏÇİ **botu başlatdı!** \n\n🏷 Ad: `{}` \n📮 istifadəçi ID: `{}` \n🧝🏻‍♂️ Profil linki: [{}](tg://user?id={})"
-        GRUP_BILDIRIM = "```📣 Yeni İsmarıc``` \n\n#YENI_QRUP **botu başlatdı!** \n\n🏷 Qrupa əlavə edən: `{}` \n📮 Qrupa əlavə edən istifadəçi ID: `{}` \n🧝🏻‍♂️ Profil linki: [{}](tg://user?id={})\n Qrupun adı: {}\n Qrupun ID: {}\n Qrupun mesaj linki( sadəcə açıq qruplar): [Buraya Toxun](https://t.me/c/{}/{})"
+        BILDIRIM = "```📣 Yeni Bildirim``` \n\n#YENI_KULLANICI **botu başlattı!** \n\n🏷 isim: `{}` \n📮 kullanıcı id: `{}` \n🧝🏻‍♂️ profil linki: [{}](tg://user?id={})"
+        GRUP_BILDIRIM = "```📣 Yeni Bildirim``` \n\n#YENI_GRUP **botu başlattı!** \n\n🏷 Gruba Alan İsim: `{}` \n📮 Gruba Alan kullanıcı id: `{}` \n🧝🏻‍♂️ profil linki: [{}](tg://user?id={})\n Grubun Adı: {}\n Grubun ID: {}\n Grubun Mesaj Linki( sadece açık gruplar): [Buraya Tıkla](https://t.me/c/{}/{})"
+        SAHIBIME = "sahibime"
+        PRIVATE_BAN = "Üzgünüm, yasaklandınız! Bunun bir hata olduğunu düşünyorsanız {} yazın."
+        GROUP_BAN = "Üzgünüm, grubunuz karalisteye alındı! Burada daha fazla kalamam. Bunun bir hata olduğunu düşünyorsanız {} yazın.'"
+        NOT_ONLINE = "aktif değil"
+        BOT_BLOCKED = "botu engellemiş"
+        USER_ID_FALSE = "kullanıcı kimliği yanlış"
+        BROADCAST_STARTED = "```📤 BroadCast başlatıldı! Bittiği zaman mesaj alacaksınız!"
+        BROADCAST_STOPPED = "✅ ```Broadcast başarıyla tamamlandı.``` \n\n**Şu Kadar Sürede Tamamlandı:** `{}` \n\n**Kayıtlı Toplam Kullanıcı:** `{}` \n\n**Toplam Gönderme Denemesi:** `{}` \n\n**Başarıyla Gönderilen:** `{}` \n\n**Toplam Hata:** `{}`"
+        STATS_STARTED = "{} **Lütfen bekleyiniz verileri getiriyorum!**"
+        STATS = """**@{} Verileri**\n\n**Kullanıcılar;**\n» **Toplam Sohbetler:** `{}`\n» **Toplam Gruplar: `{}`\n» **Toplam PM's: `{}`\n\n**Disk Kullanımı;**\n» **Disk Alanı:** `{}`\n» **Kullanılan:** `{}({}%)`\n» **Boşta:** `{}`\n\n**🎛 En Yüksek Kullanım Değerleri;**\n» **CPU:** `{}%`\n» **RAM:** `{}%`\n**Sürümler;**\n» **Pyrogram:** {}\n\n\n__• By @BasicBots__"""
+        BAN_REASON = "Bu sebep yasaklandığınız için @{} tarafından otomatik olarak oluşturulmuştur"
+        NEED_USER = "**Lütfen Kullanıcı kimliği verin.**"
+        BANNED_GROUP = "🚷 **Yasaklandı!\n\nTarafından:** {}\n**Grup ID:** `{}` \n**Süre:** `{}` \n**Sebep:** `{}`"
+        AFTER_BAN_GROUP = "**Üzgünüm grubunuz kara listeye alındı! \n\nSebep:** `{}`\n\n**Daha fazla burada kalamam. Bunun bir hata olduğunu düşünüyorsanız destek grubuna gelin.**"
+        GROUP_BILGILENDIRILDI = "\n\n✅ **Grubu bilgilendirdim ve gruptan ayrıldım.**"
+        GRUP_BILGILENDIRILEMEDI = "\n\n❌ **Grubu bilgilendirmeye çalışırken bir hata oluştu:** \n\n`{}`"
+        USER_BANNED = "🚷 **Yasaklandı! \n\nTarafından:** {}\n **Kullanıcı ID:** `{}` \n**Süre:** `{}` \n**Sebep:** `{}`"
+        AFTER_BAN_USER = "**Üzgünüm kara listeye alındınız! \n\nSebep:** `{}`\n\n**Bundan sonra size hizmet veremeyeceğim.**"
+        KULLANICI_BILGILENDIRME = "\n\n✅ Kişiyi bilgilendirdim."
+        KULLANICI_BILGILENDIRMEME = "\n\n❌ **Kişiyi bilgilendirmeye çalışırken bir hata oluştu:** \n\n`{}`"
+        UNBANNED_USER = "🆓 **Kullanıcının Yasağı Kaldırıldı !** \nTarafından: {} \n**Kullanıcı ID:**{}"
+        USER_UNBAN_NOTIFY = "🎊 Müjde! Yasağınız kaldırıldı!"
+        BLOCKS = "🆔 **Kullanıcı ID**: `{}`\n⏱ **Süre**: `{}`\n🗓 **Yasaklanan Tarih**: `{}`\n💬 **Sebep**: `{}`\n\n"
+        TOTAL_BLOCK = "🚷 **Toplam Yasaklanan:** `{}`\n\n{}"
+
+    elif LANGAUGE == "AZ":
+
+        BILDIRIM = "```📣 Yeni İsmarıc``` \n\n#YENI_ISTIFADƏÇİ **botu başlatdı!** \n\n🏷 isim: `{}` \n📮 istifadəçi id: `{}` \n🧝🏻‍♂️ profil linki: [{}](tg://user?id={})"
+        GRUP_BILDIRIM = "```📣 Yeni İsmarıc``` \n\n#YENI_QRUP **botu başlatdı!** \n\n🏷 Qrupa əlavə edən: `{}` \n📮 Qrupa əlavə edən istifadəçi id: `{}` \n🧝🏻‍♂️ profil linki: [{}](tg://user?id={})\n Qrupun adı: {}\n Qrupun ID: {}\n Qrupun mesaj kinki( sadəcə açıq qruplar): [Buraya Toxun](https://t.me/c/{}/{})"
         SAHIBIME = "sahibimə"
-        PRIVATE_BAN = "Məyusam, əngəlləndiniz! Bunun bir xəta olduğunu düşünürsünüzsə {} yazın."
-        GROUP_BAN = "Məyusam, qrupunuz qara siyahıya əlavə olundu! Artıq burada qala bilmərəm! Bunun bir xəta olduğunu düşünürsünüzsə {} yazın.'"
+        PRIVATE_BAN = "Məyusam, əngəlləndiniz! Bunun bir xəta olduğunu düşünürsünüz isə {} yazın."
+        GROUP_BAN = "Məyusam, qrupunuz qara siyahıya əlavə olundu! Artıq burada qala bilmərəm! Bunun bir xəta olduğunu düşünürsünüz isə {} yazın.'"
         NOT_ONLINE = "aktiv deyil"
         BOT_BLOCKED = "botu əngəlləyib"
         USER_ID_FALSE = "istifadəçi id'i yanlışdır."
         BROADCAST_STARTED = "```📤 BroadCast başladıldı! Bitəndə mesaj alacaqsınız."
         BROADCAST_STOPPED = "✅ ```Broadcast uğurla tamamlandı.``` \n\n**Bu qədər vaxtda tamamlandı** `{}` \n\n**Ümumi istifadəçilər:** `{}` \n\n**Ümumi göndərmə cəhdləri:** `{}` \n\n**Uğurla göndərilən:** `{}` \n\n**Ümumi xəta:** `{}`"
         STATS_STARTED = "{} **Zəhmət olmasa gözləyin, bilgiləri gətirirəm!**"
-        STATS = """**@{} Məlumatları**\n\n**İstifadəçiləri;**\n» **Ümumi söhbətlər:** `{}`\n» **Ümumi qruplar: `{}`\n» **Ümumi PM's: `{}`\n\n**Disk İstifadəsi;**\n» **Disk'in Sahəsi:** `{}`\n» **İstifadə edilən:** `{}({}%)`\n» **Boş qalan:** `{}`\n\n**🎛 Ən yüksək istifadə dəyərləri;**\n» **CPU:** `{}%`\n» **RAM:** `{}%`\n**Versiyalar;**\n» **Pyrogram:** {}\n\n\n__• By @Rahid_44__"""
-        BAN_REASON = "Bu səbəbdə qadağan olunduğun üçün @{} tərəfindən avtomatik olaraq yaradılmışdır"
-        NEED_USER = "**Zəhmət olmasa istifadəçi ID'si verin.**"
+        STATS = """**@{} Məlumatları**\n\n**İstifadəçiləri;**\n» **Ümumi söhbətlər:** `{}`\n» **Ümumi qruplar: `{}`\n» **Ümumi PM's: `{}`\n\n**Disk İstifadəsi;**\n» **Disk'in Sahəsi:** `{}`\n» **İstifadə edilən:** `{}({}%)`\n» **Boş qalan:** `{}`\n\n**🎛 Ən yüksək istifadə dəyərləri;**\n» **CPU:** `{}%`\n» **RAM:** `{}%`\n**Versiyalar;**\n» **Pyrogram:** {}\n\n\n__• By @BasicBots__"""
+        BAN_REASON = "Bu sebep yasaklandığınız için @{} tarafından otomatik olarak oluşturulmuştur"
+        NEED_USER = "**Zəhmət olmasa istifadəçi id'si verin.**"
         BANNED_GROUP = "🚷 **Qadağan olundu!\n\nQadağan edən:** {}\n**Qrup ID:** `{}` \n**Vaxt:** `{}` \n**Səbəb:** `{}`"
-        AFTER_BAN_GROUP = "**Məyusam, qrupunuz qara siyahıya əlavə edildi! \n\nSəbəb:** `{}`\n\n**Artıq burada qala bilmərəm. Bunun bir xəta olduğunu düşünürsünüzsə, dəstək qrupuna gəlin.**"
+        AFTER_BAN_GROUP = "**Məyusam, qrupunyz qara siyahıya əlavə edildi! \n\nSəbəb:** `{}`\n\n**Artıq burada qala bilmərəm. Bunun bir xəta olduğunu düşünürsünüzsə, dətək qrupuna gəlin.**"
         GROUP_BILGILENDIRILDI = "\n\n✅ **Qrupu bilgiləndirdim və qrupdan çıxdım.**"
         GRUP_BILGILENDIRILEMEDI = "\n\n❌ **Qrupu məlumatlandırarkən xəta yarandı:** \n\n`{}`"
         USER_BANNED = "🚷 **Qadağan olundu! \n\nQadağan edən:** {}\n **İstifadəçi ID:** `{}` \n**Vaxt:** `{}` \n**Səbəb:** `{}`"
@@ -482,10 +496,8 @@ elif LANGAUGE == "AZ":
         USER_UNBAN_NOTIFY = "🎊 Sizə gözəl bir xəbərim var! Artıq əngəliniz qaldırıldı!"
         BLOCKS = "🆔 **İstifadəçi ID**: `{}`\n⏱ **Vaxt**: `{}`\n🗓 **Qadağan edildiyi tarix**: `{}`\n💬 **Səbəb**: `{}`\n\n"
         TOTAL_BLOCK = "🚷 **Ümumi əngəllənən:** `{}`\n\n{}"
-#---------------------------------------------------------------------------------------------------------------------------------------------------------------------#
- 
 	
-#---------------------------------------------------------------Komutları silmek üçün---------------------------------------------------------------------------------#
+
 	
 @app.on_message(filters.command("delcmd") & ~filters.private)
 async def delcmdc(bot: Client, message: Message):
@@ -508,13 +520,15 @@ async def delcmdc(bot: Client, message: Message):
     else:
         await message.reply_text("Bu əmrdən istifadə etmək üçün əmrinizin yanında 'off' və ya 'on' yazın.")
 
+client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
+
+anlik_calisan = []
+
+tekli_calisan = []
 
 
 
-
-
-  
-  
+#edalet_22 terefinden elave edildi
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------#
   
 
@@ -1353,5 +1367,6 @@ async def handler(event):
  #    await event.reply('🤖 [USTA Tag Bot](http://t.me/UstaTagbot)-unda Reklam Almaq Üzçün [ɴᴀᴋʜɪᴅ ᴜsᴛᴀ ¦ 🇧🇻🦅](https://t.me/UstaNakhid)-ilə Әlaqә Saxlayın.')
  
 
-print(">> Bot Əla İşləyir ✓ <<")
+print(">> Bot işləyir narahat olmayın. @edalet_22 Məlumat almaq üçün <<")
+app.start()
 client.run_until_disconnected()
