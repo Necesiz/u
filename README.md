@@ -18,7 +18,7 @@
 
 # H E R O K U   D E P L O Y ⏳
  
- [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Teamabasof/OLD-TAGGER-BOT-V.1.git)
+ [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Teamabasof/OLD-TAGGER-BOT)
 
 
 # O W N E R
