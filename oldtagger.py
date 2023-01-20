@@ -1466,8 +1466,8 @@ async def roll_bowling(bot, message):
 
 
 #pyrogram comand gonder
-app.on_message(filters.command('gonder')
-async def echo(bot, msg):
+app.on_message(filters.command('gonder'))
+def echo(bot, msg):
     text = msg.text.split(None, 1)[1]
     msg.reply(text)
 
