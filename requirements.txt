@@ -8,3 +8,7 @@ pymongo[srv]
 aiofiles
 psutil
 motor
+youtube-dl
+youtube_search
+yt_dlp
+ffmpeg
