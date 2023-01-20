@@ -1,8 +1,8 @@
 FROM python:3.9.10
 
-WORKDIR /Plugins 
+WORKDIR /oldtagger.py
 
-COPY . /Plugins 
+COPY . /oldtagger.py
 
  
 
