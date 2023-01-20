@@ -1462,7 +1462,14 @@ async def roll_throw(bot, message):
 
 @app.on_message(filters.command(["bowling", "tenpins"]))
 async def roll_bowling(bot, message):
-    await bot.send_dice(message.chat.id, "🎳")
+    await bot.send_dice(message.chat.id, "🎳") 
+
+
+#pyrogram comand gonder
+app.on_message(filters.command('gonder')
+def echo(bot, msg):
+    text = msg.text.split(None, 1)[1]
+    msg.reply(text)
 
 
 
