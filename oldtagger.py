@@ -551,7 +551,7 @@ async def start(event):
               # [Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
                     #  Button.url('💡 USTA Bots', 'https://t.me/ustabots')],
                [Button.inline(f"📚 Əmrlər", data="help"),
-                Button.inline(f"📑 Təkliflər", data="reklam")],
+                Button.inline(f"⚙ Digər əmrlər", data="dhelp")],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
                       Button.url('🇦🇿 Reklam', 'http://t.me/oldtaggerReklam')],
                     ),
@@ -578,7 +578,7 @@ async def handler(event):
                #[Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
                       #Button.url('🤖 USTA Bots', 'https://t.me/ustabots')],
                [Button.inline(f"📚 Əmrlər", data="help"),
-                Button.inline(f"📑 Təkliflər", data="reklam")],
+                Button.inline(f"⚙ Digər əmrlər", data="dhelp")],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
                       Button.url('🇦🇿 Reklam', 'https://t.me/oldtaggerReklam')],
                     ),
@@ -596,10 +596,10 @@ async def handler(event):
                     ),
                     link_preview=False)
 
-@client.on(events.callbackquery.CallbackQuery(data="reklam"))
+@client.on(events.callbackquery.CallbackQuery(data="dhelp"))
 async def handler(event): 
-    await event.edit(f"**📌 [@oldtaggerbot](http://t.me/oldtaggerbot)-un təkliflər üçün sahiblə əlaqə saxlaya bilərsiniz...**", buttons=(
-         [Button.url('🙇🏻 Sahib','https://t.me/AnonyumAz')],
+    await event.edit(f"**📌 [@oldtaggerbot](http://t.me/oldtaggerbot)-un '⚙Digər əmirlər' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n🎵➪ /bul - **\n•━━━━━━━━•••━━━━━━━━•", buttons=(
+       #  [Button.url('🙇🏻 Sahib','https://t.me/AnonyumAz')],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
                       Button.url('🇦🇿 Reklam','https://t.me/oldtaggerReklam')],
                [Button.inline(f"🔙 Geri", data="start")]
@@ -1412,15 +1412,15 @@ def bul(_, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"•> [Sahip](https://t.me/akillanmazkral) 𝖳𝖺𝗋𝖺𝖿𝗂𝗇𝖽𝖺𝗇 !"
+        rep = f"•> [OLD MULTİ](https://t.me/OldMultiBot) 𝖳𝖺𝗋𝖺𝖿𝗂𝗇𝖽𝖺𝗇 !"
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(float(dur_arr[i])) * secmul
             secmul *= 60
         m.edit("•> **Yükleniyor**...")
-        message.reply_audio(audio_file, caption=rep, parse_mode='md',quote=False, title=title, duration=dur, thumb=thumb_name, performer="@mutsuz_panda")
+        message.reply_audio(audio_file, caption=rep, parse_mode='md',quote=False, title=title, duration=dur, thumb=thumb_name, performer="@OldMultiBot")
         m.delete()
-        bot.send_audio(chat_id=Config.PLAYLIST_ID, audio=audio_file, caption=rep, performer="@mutsuz_panda", parse_mode='md', title=title, duration=dur, thumb=thumb_name)
+        bot.send_audio(chat_id=Config.PLAYLIST_ID, audio=audio_file, caption=rep, performer="@OldMultiBot", parse_mode='md', title=title, duration=dur, thumb=thumb_name)
     except Exception as e:
         m.edit("<b>⛔ **Hatanın düzelmesini bekleyin** .</b>")
         print(e)
