@@ -22,7 +22,7 @@ from pyrogram import Client, filters, __version__
 from pyrogram.types import Message
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import os, youtube_dl, requests, time
-from config import Config
+from Config import Config
 from youtube_search import YoutubeSearch
 from pyrogram.handlers import MessageHandler
 from pyrogram import Client, filters
