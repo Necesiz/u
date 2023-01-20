@@ -27,6 +27,10 @@ from youtube_search import YoutubeSearch
 from pyrogram.handlers import MessageHandler
 from pyrogram import Client, filters
 import yt_dlp
+from pyrogram import Client, filters
+from pyrogram.types import Message
+import asyncio
+import random, re
 from pyrogram.errors import (
     FloodWait,
     InputUserDeactivated,
@@ -1368,6 +1372,7 @@ async def handler(event):
                     link_preview=False)
 
 
+#pyrogram
 @app.on_message(filters.command("info"))
 async def info(bot, update):
     
@@ -1387,6 +1392,7 @@ async def info(bot, update):
 
 
 
+#pyrogram comand
 @app.on_message(filters.command("bul") & ~filters.edited)
 def bul(_, message):
     query = " ".join(message.command[1:])
@@ -1430,6 +1436,33 @@ def bul(_, message):
         os.remove(thumb_name)
     except Exception as e:
         print(e)
+
+
+
+#Pyrogram comand
+@app.on_message(filters.command("zer"))
+async def roll_dice(bot, message):
+    await bot.send_dice(message.chat.id, "🎲")
+
+@app.on_message(filters.command("ox"))                                      
+async def roll_arrow(bot, message):
+    await bot.send_dice(message.chat.id, "🎯")
+
+@app.on_message(filters.command("gol"))
+async def roll_goal(bot, message):
+    await bot.send_dice(message.chat.id, "⚽️")
+
+@app.on_message(filters.command("spin"))
+async def roll_luck(bot, message):
+    await bot.send_dice(message.chat.id, "🎰")
+
+@app.on_message(filters.command("basket"))
+async def roll_throw(bot, message):
+    await bot.send_dice(message.chat.id, "🏀")
+
+@app.on_message(filters.command(["bowling", "tenpins"]))
+async def roll_bowling(bot, message):
+    await bot.send_dice(message.chat.id, "🎳")
 
 
 
