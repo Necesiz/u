@@ -21,4 +21,3 @@ class Config():
     DATABASE_URL = os.environ.get("DATABASE_URL", "mongodb+srv://Teamabasof1:Teamabasof1@cluster0.2xfi5qe.mongodb.net/?retryWrites=true&w=majority")
     LANGAUGE = os.environ.get("LANGAUGE", "AZ")
     GROUP_SUPPORT = os.environ.get("GROUP_SUPPORT", "TEAMABASOFcom")
-    FORCE_SUB = os.environ.get("FORCE_SUB", "TEAMABASOFcom")
