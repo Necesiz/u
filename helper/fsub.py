@@ -1,5 +1,5 @@
 import asyncio
-from variables import FORCE_SUB
+from Confing import FORCE_SUB
 from pyrogram import Client
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
