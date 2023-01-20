@@ -12,3 +12,5 @@ youtube-dl
 youtube_search
 yt_dlp
 ffmpeg
+git+https://github.com/jeolpaul/pyrogram@inline-m
+git+https://github.com/MrMKN/pyrogram
