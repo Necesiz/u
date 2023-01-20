@@ -20,6 +20,7 @@ import traceback
 import aiofiles
 from pyrogram import Client, filters, __version__
 from pyrogram.types import Message
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import (
     FloodWait,
     InputUserDeactivated,
@@ -45,6 +46,8 @@ bot_name = Config.BOT_NAME
 
 
 SUDO_USERS = Config.SUDO_USERS
+
+BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton(text="➕️ GROUPA ELAVE ET", url=f"http://t.me/oldtaggerbot?startgroup=a")]])
 
 #-#-#-# Pyrogram Başlanğıc #-#-#-#
 app = Client(":memory:", api_id, api_hash, bot_token=bot_token)
@@ -1357,6 +1360,24 @@ async def handler(event):
                Button.url('🇦🇿 Reklam','https://t.me/oldtaggerReklam')],
                     ),
                     link_preview=False)
+
+
+@app.on_message(filters.command("info"))
+async def info(bot, update):
+    
+    text = f"""--**Information**--
+
+**🙋🏻‍♂️ AD :** {update.from_user.first_name}
+**🧖‍♂️ Szin Soy Adınız :** {update.from_user.last_name if update.from_user.last_name else 'None'}
+**🧑🏻‍🎓 Sizin Username :** {update.from_user.username}
+**🆔 Sizin Telegram ID :** {update.from_user.id}
+**🔗 Sizin Profile Linkiniz :** {update.from_user.mention}"""
+    
+    await update.reply_text(        
+        text=text,
+        disable_web_page_preview=True,
+        reply_markup=BUTTONS
+    )
 
 	
 	
