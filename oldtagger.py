@@ -26,7 +26,6 @@ import aiofiles
 from pyrogram import Client, filters, __version__
 from pyrogram.types import Message
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-import wget
 import os, youtube_dl, requests, time
 from Config import Config
 from youtube_search import YoutubeSearch
