@@ -105,7 +105,7 @@ async def hg(bot: Client, msg: Message):
     for new_user in msg.new_chat_members:
         if str(new_user.id) == str(Config.BOT_ID):
             await msg.reply(
-                f'''`Salam` {msg.from_user.mention} `Məni` {msg.chat.title} `Qrupa əlavə etdiyiniz üçün təşəkkürlər⚡️` \n\n **🤖Qruplardakı userləri tag Edmə üçün Yaradıldım.\n🤖Kömək üçün /start yazmaq kifayətdir.✨**''')
+                f'''`Salam` {msg.from_user.mention} `Məni` {msg.chat.title} `Qrupa əlavə etdiyiniz üçün təşəkkürlər⚡️` \n\n **🤖Qrupda bir cox funksyalı Multi botam.\n🤖Kömək üçün /start yazmaq kifayətdir.✨**''')
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------#
 
 
@@ -622,7 +622,7 @@ async def handler(event):
 
 @client.on(events.callbackquery.CallbackQuery(data="dhelp"))
 async def handler(event): 
-    await event.edit(f"**📌 [@oldtaggerbot](http://t.me/oldtaggerbot)-un '📥 YÜKLƏMƏ' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🎵 ➪ /bul - Musiqi yükleyir**\n**🖼 ➪ telegrap - bota şexside photo,video,gif ataraq telegrap linkin ala bilersiz**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
+    await event.edit(f"**📌 [@OldMultiBot](http://t.me/OldMultiBot)-un '📥 YÜKLƏMƏ' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🎵 ➪ /bul - Musiqi yükleyir**\n**🖼 ➪ telegrap - bota şexside photo,video,gif ataraq telegrap linkin ala bilersiz**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
        #  [Button.url('🙇🏻 Sahib','https://t.me/AnonyumAz')],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
                       Button.url('🇦🇿 Reklam','https://t.me/oldtaggerReklam')],
@@ -632,7 +632,7 @@ async def handler(event):
 
 @client.on(events.callbackquery.CallbackQuery(data="game"))
 async def handler(event): 
-    await event.edit(f"**📌 [@oldtaggerbot](http://t.me/oldtaggerbot)-un '🕹 GAME' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🎲 ➪ /zer - zer atar**\n**🎯 ➪ /ox - Ox atar**\n**⚽️ ➪ /gol - qoal at**\n**🏀 ➪ /basket - basket atar**\n**🎰 ➪ /spin - sansini dene**\n**🎳 ➪ /bowling - bowling atar**\n**🧮 ➪ /quiz Hesablamani tap**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
+    await event.edit(f"**📌 [@OldMultiBot](http://t.me/OldMultiBot)-un '🕹 GAME' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🎲 ➪ /zer - zer atar**\n**🎯 ➪ /ox - Ox atar**\n**⚽️ ➪ /gol - qoal at**\n**🏀 ➪ /basket - basket atar**\n**🎰 ➪ /spin - sansini dene**\n**🎳 ➪ /bowling - bowling atar**\n**🧮 ➪ /quiz Hesablamani tap**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
        #  [Button.url('🙇🏻 Sahib','https://t.me/AnonyumAz')],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
                       Button.url('🇦🇿 Reklam','https://t.me/oldtaggerReklam')],
