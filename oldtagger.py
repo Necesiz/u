@@ -1492,7 +1492,7 @@ async def quiz(event):
         else:
             keyboard = [[Button.inline("{}".format(sum_not_true), sum_not_true)],[Button.inline("{}".format(sum), sum)]]
 
-        text = "<b>Quiz time</b> 🤖\n{} + {} = ?\n".format(str(rand1), str(rand2))
+        text = "<b>OLD MULTI</b> 🤖\n{} + {} = ?\n".format(str(rand1), str(rand2))
         await conv.send_message(text, buttons=keyboard, parse_mode='html')
         press = await conv.wait_event(press_event(SENDER))
         choice = str(press.data.decode("utf-8"))
@@ -1510,7 +1510,7 @@ async def quiz(event):
 @client.on(events.ChatAction) 
 async def handler(event): # Welcome every new user 
     if event.user_joined: 
-       await event.reply('Welcome to the group!')
+       await event.reply('Salam xos geldiniz groupa!')
 
   
 #@client.on(events.NewMessage(pattern='/reklam'))
