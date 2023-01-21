@@ -13,3 +13,4 @@ youtube_search
 yt_dlp
 ffmpeg
 telegraph
+lyricsgenius
