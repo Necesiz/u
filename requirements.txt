@@ -12,3 +12,4 @@ youtube-dl
 youtube_search
 yt_dlp
 ffmpeg
+html-telegraph-poster==0.4.0
