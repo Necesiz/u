@@ -1465,8 +1465,8 @@ async def roll_bowling(bot, message):
     await bot.send_dice(message.chat.id, "🎳") 
 
 
-@app.on_message(filters.command("gonder"))
-async def echo(not, msg):
+@app.on_message(filters.command("say"))
+def echo(not, msg):
     text msg.text.split(None, 1) [1]
     msg.reply(text)
 
