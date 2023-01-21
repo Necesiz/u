@@ -622,7 +622,7 @@ async def handler(event):
 
 @client.on(events.callbackquery.CallbackQuery(data="dhelp"))
 async def handler(event): 
-    await event.edit(f"**📌 [@OldMultiBot](http://t.me/OldMultiBot)-un '📥 YÜKLƏMƏ' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🎵 ➪ /bul - Musiqi yükleyir**\n**🖼 ➪ telegrap - bota şexside photo,video,gif ataraq telegrap linkin ala bilersiz**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
+    await event.edit(f"**📌 [@OldMultiBot](http://t.me/OldMultiBot)-un '📥 YÜKLƏMƏ' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🎵 ➪ /song - Musiqi yükleyir**\n**🖼 ➪ telegrap - bota şexside photo,video,gif ataraq telegrap linkin ala bilersiz**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
        #  [Button.url('🙇🏻 Sahib','https://t.me/AnonyumAz')],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
                       Button.url('🇦🇿 Reklam','https://t.me/oldtaggerReklam')],
