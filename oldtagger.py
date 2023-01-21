@@ -557,14 +557,14 @@ async def start(event):
   if event.is_private:
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await event.reply(f"**👋 Salam mən bir cox funksyalı OLD MULTİ botam\n\n💁🏻 Ətraflı məlumat üçün 'Aşaqıdakı Buttonlardan' baxa bilersiz əmirlərimə**", buttons=(
+     await event.reply(f"**👋 Salam mən bir cox funksyalı OLD MULTİ botam\n\n💁🏻 Ətraflı məlumat üçün 'Aşaqıdakı Buttonlardan' baxa bilersiz əmirlərimə\n\n📨 Botu başladıqınza dayir sahibime bildiriş yolladım**", buttons=(
                      [Button.url('➕ Qrupa Əlavə Et ➕','http://t.me/OldMultiBot?startgroup=a')],
        # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
               # [Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
                     #  Button.url('💡 USTA Bots', 'https://t.me/ustabots')],
-               [Button.inline(f"📚 Əmrlər", data="help"),
-                Button.inline(f"⚙ Digər əmrlər", data="dhelp")],
-               [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
+               [Button.inline(f"📮 Əmrlər", data="help"),
+                Button.inline(f"📥 YÜKLƏMƏ", data="dhelp")],
+               [Button.inlinle(f"🕹 GAME", data="game"),
                       Button.url('🇦🇿 Reklam', 'http://t.me/oldtaggerReklam')],
                     ),
                     link_preview=False)
@@ -584,14 +584,14 @@ async def start(event):
 async def handler(event):
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await event.edit(f"**👋 Salam mən bir cox funksyalı OLD MULTİ botam😇\n\n💁🏻 Ətraflı məlumat üçün 'Aşaqıdakı Buttonlardan' baxa bilersiz əmirlərimə**", buttons=(
+     await event.edit(f"**👋 Salam mən bir cox funksyalı OLD MULTİ botam😇\n\n💁🏻 Ətraflı məlumat üçün 'Aşaqıdakı Buttonlardan' baxa bilersiz əmirlərimə\n\n📨 Botu başladıqınza dayir sahibime bildiriş yolladım**", buttons=(
                      [Button.url('➕ Qrupa Əlavə Et ➕','http://t.me/oldtaggerbot?startgroup=a')],
         # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
                #[Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
                       #Button.url('🤖 USTA Bots', 'https://t.me/ustabots')],
-               [Button.inline(f"📚 TAG Əmrlər", data="thelp"),
-                Button.inline(f"⚙ Digər əmrlər", data="dhelp")],
-               [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
+               [Button.inline(f"📮 TAG Əmrlər", data="thelp"),
+                Button.inline(f"📥 YÜKLƏMƏ", data="dhelp")],
+               [Button.inline(f"🕹 GAME', data="game"),
                       Button.url('🇦🇿 Reklam', 'https://t.me/oldtaggerReklam')],
                     ),
                     link_preview=False)
@@ -610,7 +610,17 @@ async def handler(event):
 
 @client.on(events.callbackquery.CallbackQuery(data="dhelp"))
 async def handler(event): 
-    await event.edit(f"**📌 [@oldtaggerbot](http://t.me/oldtaggerbot)-un '⚙Digər əmirlər' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n🎵 ➪ /bul - Musiqi axtarır**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
+    await event.edit(f"**📌 [@oldtaggerbot](http://t.me/oldtaggerbot)-un '📥 YÜKLƏMƏ' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🎵 ➪ /bul - Musiqi yükleyir**\n**🖼 ➪ telegrap - bota şexside photo,video,gif ataraq telegrap linkin ala bilersiz**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
+       #  [Button.url('🙇🏻 Sahib','https://t.me/AnonyumAz')],
+               [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
+                      Button.url('🇦🇿 Reklam','https://t.me/oldtaggerReklam')],
+               [Button.inline(f"🔙 Geri", data="start")]
+                    ),
+                    link_preview=False)
+
+@client.on(events.callbackquery.CallbackQuery(data="game"))
+async def handler(event): 
+    await event.edit(f"**📌 [@oldtaggerbot](http://t.me/oldtaggerbot)-un '🕹 GAME' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n🎲 ➪ /zer - zer atar**\n**🎯 ➪ /ox - Ox atar**\n**⚽️ ➪ /gol - qoal at**\n**🏀 ➪ /basket - basket atar**\n**🎰 ➪ /spin - sansini dene**\n**🎳 ➪ /bowling - bowling atar**\n**🧮 ➪ /quiz Hesablamani tap**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
        #  [Button.url('🙇🏻 Sahib','https://t.me/AnonyumAz')],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
                       Button.url('🇦🇿 Reklam','https://t.me/oldtaggerReklam')],
@@ -1519,11 +1529,11 @@ async def handler(event): # Welcome every new user
 #pyrogram telegrap
 @app.on_message(filters.private & filters.photo)
 async def uploadphoto(client, message):
-  msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
+  msg = await message.reply_text("`YÜKLƏNİR GÖZLƏYİN`")
   userid = str(message.chat.id)
   img_path = (f"./DOWNLOADS/{userid}.jpg")
   img_path = await client.download_media(message=message, file_name=img_path)
-  await msg.edit_text("`Tʀʏɪɴɢ Tᴏ Uᴘʟᴏᴀᴅ.....`")
+  await msg.edit_text("`YENİLENİR GÖZLƏYİN.....`")
   try:
     tlink = upload_file(img_path)
   except:
@@ -1535,11 +1545,11 @@ async def uploadphoto(client, message):
 @app.on_message(filters.private & filters.animation)
 async def uploadgif(client, message):
   if(message.animation.file_size < 5242880):
-    msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
+    msg = await message.reply_text("`YÜKLƏNİR GÖZLƏYİN`")
     userid = str(message.chat.id)
     gif_path = (f"./DOWNLOADS/{userid}.mp4")
     gif_path = await client.download_media(message=message, file_name=gif_path)
-    await msg.edit_text("`Tʀʏɪɴɢ Tᴏ Uᴘʟᴏᴀᴅ.....`")
+    await msg.edit_text("`YENİLENİR GÖZLƏYİN.....`")
     try:
       tlink = upload_file(gif_path)
       await msg.edit_text(f"https://telegra.ph{tlink[0]}")   
@@ -1552,11 +1562,11 @@ async def uploadgif(client, message):
 @app.on_message(filters.private & filters.video)
 async def uploadvid(client, message):
   if(message.video.file_size < 5242880):
-    msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
+    msg = await message.reply_text("`YÜKLƏNİR GÖZLƏYİN`")
     userid = str(message.chat.id)
     vid_path = (f"./DOWNLOADS/{userid}.mp4")
     vid_path = await client.download_media(message=message, file_name=vid_path)
-    await msg.edit_text("`Tʀʏɪɴɢ Tᴏ Uᴘʟᴏᴀᴅ.....`")
+    await msg.edit_text("`YENİLENİR GÖZLƏYİN.....`")
     try:
       tlink = upload_file(vid_path)
       await msg.edit_text(f"https://telegra.ph{tlink[0]}")     
