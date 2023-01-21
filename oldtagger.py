@@ -1416,7 +1416,7 @@ async def handler(event):
 @app.on_message(filters.command("info"))
 async def _id(_, message: Message):
   if event.is_private:
-    return await event.respond("üzgünəm çünku bu əmiri Qroupda isdifade ede bilersen!")
+    return await event.respond("**gicsen ee!** ")
     msg = message.reply_to_message or message
     out_str = "**User İnfo:**\n"
     out_str += f" ⚡️ __Grup ID__ : `{(msg.forward_from_chat or msg.chat).id}`\n"
