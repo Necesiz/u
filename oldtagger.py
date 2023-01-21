@@ -9,6 +9,7 @@ import random # pip install random
 from random import randint
 import configparser
 from asyncio import sleep
+from telethon import events
 from Config import Config 
 # Pyrogram----------------------------------------------------------------------------------------------------
 import datetime
@@ -1505,6 +1506,11 @@ async def quiz(event):
         return 
  
 
+#telethon xos geldin mesaj 
+@client.on(events.ChatAction) 
+async def handler(event): # Welcome every new user 
+    if event.user_joined: 
+       await event.reply('Welcome to the group!')
 
   
 #@client.on(events.NewMessage(pattern='/reklam'))
