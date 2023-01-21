@@ -111,8 +111,8 @@ async def hg(bot: Client, msg: Message):
 
 #-------------------------------------------------------------OWNERS SALAMLAMA MSJ---------------------------------------------------------------------------------------#
       
-	elif str(new_user.id) == str(Config.OWNER_ID):
-            await msg.reply('🤖 [OLD MULTİ](https://t.me/OldMultiBot)-un Sahibi, Qrupa Qatıldı.\n Xoş Gəldin  Aramıza Sahib, @AnonyumAz🥰.')
+	# elif str(new_user.id) == str(Config.OWNER_ID):
+      #       await msg.reply('🤖 [OLD MULTİ](https://t.me/OldMultiBot)-un Sahibi, Qrupa Qatıldı.\n Xoş Gəldin  Aramıza Sahib, @AnonyumAz🥰.')
 
 	
 	
