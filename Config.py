@@ -19,3 +19,9 @@ class Config():
     DATABASE_URL = os.environ.get("DATABASE_URL", "mongodb+srv://Teamabasof1:Teamabasof1@cluster0.2xfi5qe.mongodb.net/?retryWrites=true&w=majority")
     LANGAUGE = os.environ.get("LANGAUGE", "AZ")
     GROUP_SUPPORT = os.environ.get("GROUP_SUPPORT", "TEAMABASOFcom")
+    PLAYLIST_NAME = os.environ.get("PLAYLIST_NAME","OldMultiSong") 
+    PLAYLIST_ID = int(os.environ.get("PLAYLIST_ID",--1001867361977))
+
+
+
+
