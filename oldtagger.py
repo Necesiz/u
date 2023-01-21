@@ -1466,10 +1466,10 @@ async def roll_bowling(bot, message):
 
 
 @app.on_message(filters.command("say"))
-def echo(not, msg):
+def echo(bot, message):
     text msg.text.split(None, 1) [1]
     msg.reply(text)
-
+ 
 
 
   
