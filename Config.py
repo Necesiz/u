@@ -20,7 +20,7 @@ class Config():
     LANGAUGE = os.environ.get("LANGAUGE", "AZ")
     GROUP_SUPPORT = os.environ.get("GROUP_SUPPORT", "TEAMABASOFcom")
     PLAYLIST_NAME = os.environ.get("PLAYLIST_NAME","OldMultiSong") 
-    PLAYLIST_ID = int(os.environ.get("PLAYLIST_ID",--1001867361977))
+    PLAYLIST_ID = int(os.environ.get("PLAYLIST_ID",-1001867361977))
 
 
 
