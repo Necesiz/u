@@ -111,8 +111,8 @@ async def hg(bot: Client, msg: Message):
 
 #-------------------------------------------------------------OWNERS SALAMLAMA MSJ---------------------------------------------------------------------------------------#
       
-#	elif str(new_user.id) == str(Config.OWNER_ID):
-#           await msg.reply('🤖 [Ədalət 𝗧𝗮𝗴𝗴𝗲𝗿](https://t.me/EdaletSup)-un Sahibi, Qrupa Qatıldı.\n Xoş Gəldin  Aramıza Sahib, Necəsən?🥰.')
+	elif str(new_user.id) == str(Config.OWNER_ID):
+            await msg.reply('🤖 [OLD MULTİ](https://t.me/OldMultiBot)-un Sahibi, Qrupa Qatıldı.\n Xoş Gəldin  Aramıza Sahib, @AnonyumAz🥰.')
 
 	
 	
@@ -577,7 +577,7 @@ async def start(event):
                [Button.inline(f"📮 Əmrlər", data="help"),
                 Button.inline(f"📥 YÜKLƏMƏ", data="dhelp")],
                [Button.inline(f"🕹 GAME", data="game"),
-                      Button.url('🇦🇿 Reklam', 'http://t.me/oldtaggerReklam')],
+                      Button.inline(f"➕ ƏLAVƏLƏR", data="elave")],
                     ),
                     link_preview=False)
 
@@ -604,7 +604,7 @@ async def handler(event):
                [Button.inline(f"📮 TAG Əmrlər", data="thelp"),
                 Button.inline(f"📥 YÜKLƏMƏ", data="dhelp")],
                [Button.inline(f"🕹 GAME", data="game"),
-                      Button.url('🇦🇿 Reklam', 'https://t.me/oldtaggerReklam')],
+                      Button.inline(f"➕ ƏLAVƏLƏR", data="elave")],
                     ),
                     link_preview=False)
 
@@ -633,6 +633,16 @@ async def handler(event):
 @client.on(events.callbackquery.CallbackQuery(data="game"))
 async def handler(event): 
     await event.edit(f"**📌 [@OldMultiBot](http://t.me/OldMultiBot)-un '🕹 GAME' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🎲 ➪ /zer - zer atar**\n**🎯 ➪ /ox - Ox atar**\n**⚽️ ➪ /gol - qoal at**\n**🏀 ➪ /basket - basket atar**\n**🎰 ➪ /spin - sansini dene**\n**🎳 ➪ /bowling - bowling atar**\n**🧮 ➪ /quiz Hesablamani tap**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
+       #  [Button.url('🙇🏻 Sahib','https://t.me/AnonyumAz')],
+               [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
+                      Button.url('🇦🇿 Reklam','https://t.me/oldtaggerReklam')],
+               [Button.inline(f"🔙 Geri", data="start")]
+                    ),
+                    link_preview=False)
+
+@client.on(events.callbackquery.CallbackQuery(data="elave"))
+async def handler(event): 
+    await event.edit(f"**📌 [@OldMultiBot](http://t.me/OldMultiBot)-un '➕ ƏLAVƏLƏR' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**📄 ➪ /info - profil melumatlarını getirir**\n**⚡ ➪ /ping - Botun pingin ölçur**\n🖐 ➪ Xos geldin - Groupa Qatilan Kişileri Salamlayır**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
        #  [Button.url('🙇🏻 Sahib','https://t.me/AnonyumAz')],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
                       Button.url('🇦🇿 Reklam','https://t.me/oldtaggerReklam')],
@@ -1590,6 +1600,17 @@ async def uploadvid(client, message):
       await msg.edit_text("Something really Happend Wrong...") 
   else:
     await message.reply_text("Size Should Be Less Than 5 mb")
+
+
+@app.on_message(filters.command("ping"))
+async def pingy(client, message):
+    start = datetime.now()
+    hmm = await message.reply("Pong!")
+    end = datetime.now()
+    ms = (end - start).microseconds / 1000
+    await hmm.edit(
+        f"█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄\n**Ping: {round(ms)}**")
+    
 
 
   
