@@ -65,6 +65,8 @@ bot_name = Config.BOT_NAME
 
 SUDO_USERS = Config.SUDO_USERS
 
+PLAYLIST_ID = -1001867361977
+
 BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton(text="➕️ GROUPA ELAVE ET", url=f"http://t.me/oldtaggerbot?startgroup=a")]])
 
 #-#-#-# Pyrogram Başlanğıc #-#-#-#
@@ -1436,7 +1438,7 @@ def bul(_, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"•> [OLD MULTİ](https://t.me/OldMultiBot) 𝖳𝖺𝗋𝖺𝖿𝗂𝗇𝖽𝖺𝗇 !"
+        rep = f"•> [PLAYLIST](https://t.me/OldMultiSong) Musiqi Kanalda !"
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(float(dur_arr[i])) * secmul
@@ -1444,7 +1446,7 @@ def bul(_, message):
         m.edit("•> **Yükleniyor**...")
         message.reply_audio(audio_file, caption=rep, parse_mode='md',quote=False, title=title, duration=dur, thumb=thumb_name, performer="@OldMultiBot")
         m.delete()
-        bot.send_audio(chat_id=Config.PLAYLIST_ID, audio=audio_file, caption=rep, performer="@OldMultiBot", parse_mode='md', title=title, duration=dur, thumb=thumb_name)
+        bot.send_audio(chat_id=PLAYLIST_ID, audio=audio_file, caption=rep, performer="@OldMultiBot", parse_mode='md', title=title, duration=dur, thumb=thumb_name)
     except Exception as e:
         m.edit("<b>⛔ **Hatanın düzelmesini bekleyin** .</b>")
         print(e)
