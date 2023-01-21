@@ -10,8 +10,6 @@ from random import randint
 import configparser
 from asyncio import sleep
 from telethon import events
-from html_telegraph_poster.upload_images import upload_image
-from os import remove
 from Config import Config 
 # Pyrogram----------------------------------------------------------------------------------------------------
 import datetime
@@ -38,6 +36,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 import asyncio
 import random, re
+from telegraph import upload_file
 from pyrogram.errors import (
     FloodWait,
     InputUserDeactivated,
@@ -1515,19 +1514,56 @@ async def handler(event): # Welcome every new user
        await event.reply('Salam xos geldiniz groupa!')
 
 
-@client.on(events.NewMessage(outgoing=True, pattern=r'\.tgu'))
-async def runtgu(event):
-    await event.edit("Uploading...")
-    getcontent = await event.get_reply_message()
-    messagelocation = event.to_id
+#pyrogram telegrap
+@app.on_message(filters.command("pgrap"))
+async def uploadphoto(client, message):
+  msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
+  userid = str(message.chat.id)
+  img_path = (f"./DOWNLOADS/{userid}.jpg")
+  img_path = await client.download_media(message=message, file_name=img_path)
+  await msg.edit_text("`Tʀʏɪɴɢ Tᴏ Uᴘʟᴏᴀᴅ.....`")
+  try:
+    tlink = upload_file(img_path)
+  except:
+    await msg.edit_text("`Something went wrong`") 
+  else:
+    await msg.edit_text(f"https://telegra.ph{tlink[0]}")     
+    os.remove(img_path) 
+
+@app.on_message(filters.command("sgrap"))
+async def uploadgif(client, message):
+  if(message.animation.file_size < 5242880):
+    msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
+    userid = str(message.chat.id)
+    gif_path = (f"./DOWNLOADS/{userid}.mp4")
+    gif_path = await client.download_media(message=message, file_name=gif_path)
+    await msg.edit_text("`Tʀʏɪɴɢ Tᴏ Uᴘʟᴏᴀᴅ.....`")
     try:
-        targetcontent = await getcontent.download_media()
-        uploadcontent = upload_image(targetcontent)
+      tlink = upload_file(gif_path)
+      await msg.edit_text(f"https://telegra.ph{tlink[0]}")   
+      os.remove(gif_path)   
     except:
-        return await event.edit("Something Went Wrong")
-    await event.delete()
-    await event.client.send_message(messagelocation, uploadcontent)
-    remove(targetcontent)
+      await msg.edit_text("Something really Happend Wrong...") 
+  else:
+    await message.reply_text("Size Should Be Less Than 5 mb")
+
+@app.on_message(filters.command("vgrap"))
+async def uploadvid(client, message):
+  if(message.video.file_size < 5242880):
+    msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
+    userid = str(message.chat.id)
+    vid_path = (f"./DOWNLOADS/{userid}.mp4")
+    vid_path = await client.download_media(message=message, file_name=vid_path)
+    await msg.edit_text("`Tʀʏɪɴɢ Tᴏ Uᴘʟᴏᴀᴅ.....`")
+    try:
+      tlink = upload_file(vid_path)
+      await msg.edit_text(f"https://telegra.ph{tlink[0]}")     
+      os.remove(vid_path)   
+    except:
+      await msg.edit_text("Something really Happend Wrong...") 
+  else:
+    await message.reply_text("Size Should Be Less Than 5 mb")
+
 
   
 #@client.on(events.NewMessage(pattern='/reklam'))
