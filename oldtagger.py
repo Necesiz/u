@@ -591,7 +591,7 @@ async def handler(event):
                       #Button.url('🤖 USTA Bots', 'https://t.me/ustabots')],
                [Button.inline(f"📮 TAG Əmrlər", data="thelp"),
                 Button.inline(f"📥 YÜKLƏMƏ", data="dhelp")],
-               [Button.inline(f"🕹 GAME', data="game"),
+               [Button.inline(f"🕹 GAME", data="game"),
                       Button.url('🇦🇿 Reklam', 'https://t.me/oldtaggerReklam')],
                     ),
                     link_preview=False)
