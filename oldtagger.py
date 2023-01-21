@@ -1449,7 +1449,7 @@ def song(_, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"**╭───────────────**\n**├▷ ♬ Adı: [{title[:35]}]({link})**\n**├───────────────**\n**├▷♬ Playlist @{Config.PLAYLIST_NAME}**\n**╰───────────────**"
+        rep = f"**╭───────────────**\n**├▷ ♬ Adı: [{title[:35]}]({link})**\n**├───────────────**\n**├▷🤍 BOT @OldMultiBot**\n**╰───────────────**"
         res = f"**╭───────────────**\n**├▷ ♬ Adı: [{title[:35]}]({link})**\n**├───────────────**\n**├▷👤 İstəyən** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n**├───────────────**\n**├▷🌀 Bot: @{Config.BOT_USERNAME}**\n**╰───────────────**"
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
@@ -1469,89 +1469,6 @@ def song(_, message):
     except Exception as e:
         print(e)
 
-# Mahnı sözü
-
-@app.on_message(filters.command("lyrics") & ~filters.edited)
-async def get_lyric_genius(_, message: Message):
-    if len(message.command) < 2:
-        return await message.reply_text("**ᴋᴜʟʟᴀɴɪᴍ:**\n\n/lyrics (Mahnı adı)")
-    m = await message.reply_text("🔍 Mahnı sözleri axtarılır ...")
-    query = message.text.split(None, 1)[1]
-    x = "OXaVabSRKQLqwpiYOn-E4Y7k3wj-TNdL5RfDPXlnXhCErbcqVvdCF-WnMR5TBctI"
-    y = lyricsgenius.Genius(x)
-    y.verbose = False
-    S = y.search_song(query, get_full_info=False)
-    if S is None:
-        return await m.edit("❌ `404` Mahnı sözleri tapılmadı")
-    xxx = f"""
-**sᴀʀᴋɪ:** {query}
-**sᴀɴᴀᴛᴄɪ:** {S.artist}
-**sᴀʀᴋɪ sᴏᴢᴜ:**
-{S.lyrics}"""
-    if len(xxx) > 4096:
-        await m.delete()
-        filename = "lyrics.txt"
-        with open(filename, "w+", encoding="utf8") as out_file:
-            out_file.write(str(xxx.strip()))
-        await message.reply_document(
-            document=filename,
-            caption=f"**OUTPUT:**\n\n`Lyrics Text`",
-            quote=False,
-        )
-        os.remove(filename)
-    else:
-        await m.edit(xxx)
-
-
-# video indirme 
-
-@app.on_message(
-    filters.command(["video", "vsong"]) & ~filters.edited
-)
-async def vsong(client, message):
-    ydl_opts = {
-        "format": "best",
-        "keepvideo": True,
-        "prefer_ffmpeg": False,
-        "geo_bypass": True,
-        "outtmpl": "%(title)s.%(ext)s",
-        "quite": True,
-    }
-    query = " ".join(message.command[1:])
-    try:
-        results = YoutubeSearch(query, max_results=1).to_dict()
-        link = f"https://youtube.com{results[0]['url_suffix']}"
-        title = results[0]["title"][:40]
-        thumbnail = results[0]["thumbnails"][0]
-        thumb_name = f"{title}.jpg"
-        thumb = requests.get(thumbnail, allow_redirects=True)
-        open(thumb_name, "wb").write(thumb.content)
-        results[0]["duration"]
-        results[0]["url_suffix"]
-        results[0]["views"]
-        message.from_user.mention
-    except Exception as e:
-        print(e)
-    try:
-        msg = await message.reply("📥 **video yüklənəcəy...**")
-        with YoutubeDL(ydl_opts) as ytdl:
-            ytdl_data = ytdl.extract_info(link, download=True)
-            file_name = ytdl.prepare_filename(ytdl_data)
-    except Exception as e:
-        return await msg.edit(f"🚫 **Xəta:** {e}")
-    preview = wget.download(thumbnail)
-    await msg.edit("📤 **video yüklənir...**")
-    await message.reply_video(
-        file_name,
-        duration=int(ytdl_data["duration"]),
-        thumb=preview,
-        caption=ytdl_data["title"],
-    )
-    try:
-        os.remove(file_name)
-        await msg.delete()
-    except Exception as e:
-        print(e)
 
 
 
