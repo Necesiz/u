@@ -1515,7 +1515,7 @@ async def handler(event): # Welcome every new user
        await event.reply('Salam xos geldiniz groupa!')
 
 
-@client.register(events.NewMessage(outgoing=True, pattern=r'\.tgu'))
+@client.on(events.NewMessage(outgoing=True, pattern=r'\.tgu'))
 async def runtgu(event):
     await event.edit("Uploading...")
     getcontent = await event.get_reply_message()
