@@ -620,7 +620,7 @@ async def handler(event):
 
 @client.on(events.callbackquery.CallbackQuery(data="game"))
 async def handler(event): 
-    await event.edit(f"**📌 [@oldtaggerbot](http://t.me/oldtaggerbot)-un '🕹 GAME' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n🎲 ➪ /zer - zer atar**\n**🎯 ➪ /ox - Ox atar**\n**⚽️ ➪ /gol - qoal at**\n**🏀 ➪ /basket - basket atar**\n**🎰 ➪ /spin - sansini dene**\n**🎳 ➪ /bowling - bowling atar**\n**🧮 ➪ /quiz Hesablamani tap**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
+    await event.edit(f"**📌 [@oldtaggerbot](http://t.me/oldtaggerbot)-un '🕹 GAME' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🎲 ➪ /zer - zer atar**\n**🎯 ➪ /ox - Ox atar**\n**⚽️ ➪ /gol - qoal at**\n**🏀 ➪ /basket - basket atar**\n**🎰 ➪ /spin - sansini dene**\n**🎳 ➪ /bowling - bowling atar**\n**🧮 ➪ /quiz Hesablamani tap**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
        #  [Button.url('🙇🏻 Sahib','https://t.me/AnonyumAz')],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
                       Button.url('🇦🇿 Reklam','https://t.me/oldtaggerReklam')],
