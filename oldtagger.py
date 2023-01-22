@@ -43,6 +43,7 @@ import os
 import asyncio
 from pyrogram import Client, filters
 import speedtest
+from pyrogram import filters
 from pyrogram.errors import (
     FloodWait,
     InputUserDeactivated,
