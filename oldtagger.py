@@ -69,10 +69,6 @@ bot_name = Config.BOT_NAME
 
 SUDO_USERS = Config.SUDO_USERS
 
-#### Access credentials
-config = configparser.ConfigParser() # Define the method to read the configuration file
-config.read('Config.py') # read config.ini file
-
 ALIVE = (
     "Sahibim OLD MULTI BOT : ONLINE\n\nVERSIYA ⚡️"
     f"\nv{__version__}"
