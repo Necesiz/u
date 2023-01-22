@@ -42,7 +42,6 @@ import pyrogram
 import os
 import asyncio
 from pyrogram import Client, filters
-from pyrogram.raw.all import layer
 from pyrogram.errors import (
     FloodWait,
     InputUserDeactivated,
@@ -71,7 +70,6 @@ SUDO_USERS = Config.SUDO_USERS
 
 ALIVE = (
     "BOT AKTİVDİR"
-    f"\nL{layer}"
     f"\nv{__version__}"
 )
 
