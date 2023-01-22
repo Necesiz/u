@@ -10,7 +10,6 @@ from random import randint
 import configparser
 from asyncio import sleep
 from telethon import events
-from os import remove
 from Config import Config 
 # Pyrogram----------------------------------------------------------------------------------------------------
 import datetime
@@ -1596,7 +1595,7 @@ async def uploadvid(client, message):
     await message.reply_text("Size Should Be Less Than 5 mb")
 
 
-@app.on_message(events.NewMessage(outgoing=True, pattern=r'\.carbon'))
+@app.on_message(events.NewMessage(pattern='/(?i)quiz'))
 async def runtti(event):
     messagelocation = event.to_id
     repliedmessage = await event.get_reply_message()
