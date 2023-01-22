@@ -38,9 +38,12 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 import asyncio
 import random, re
-from telegraph import upload_file
 import pyrogram
 import os
+import asyncio
+from pyrogram import Client, filters
+from telegraph import upload_file
+from helper.fsub import ForceSub
 from pyrogram.errors import (
     FloodWait,
     InputUserDeactivated,
@@ -1545,54 +1548,41 @@ async def handler(event): # Welcome every new user
 
 
 #pyrogram telegrap
-@app.on_message(filters.private & filters.photo)
-async def uploadphoto(client, message):
-  msg = await message.reply_text("`YÜKLƏNİR GÖZLƏYİN`")
-  userid = str(message.chat.id)
-  img_path = (f"./DOWNLOADS/{userid}.jpg")
-  img_path = await client.download_media(message=message, file_name=img_path)
-  await msg.edit_text("`YENİLENİR GÖZLƏYİN.....`")
-  try:
-    tlink = upload_file(img_path)
-  except:
-    await msg.edit_text("`Something went wrong`") 
-  else:
-    await msg.edit_text(f"https://telegra.ph{tlink[0]}")     
-    os.remove(img_path) 
-
-@app.on_message(filters.private & filters.animation)
-async def uploadgif(client, message):
-  if(message.animation.file_size < 5242880):
-    msg = await message.reply_text("`YÜKLƏNİR GÖZLƏYİN`")
-    userid = str(message.chat.id)
-    gif_path = (f"./DOWNLOADS/{userid}.mp4")
-    gif_path = await client.download_media(message=message, file_name=gif_path)
-    await msg.edit_text("`YENİLENİR GÖZLƏYİN.....`")
+@app.on_message(filters.command("telegraph") & filters.private)
+async def telegraph_upload(bot, update):
+    FSub = await ForceSub(bot, update)
+    if FSub == 400:
+        return
+    replied = update.reply_to_message
+    if not replied:
+        await update.reply_text("𝚁𝙴𝙿𝙻𝚈 𝚃𝙾 𝙰 𝙿𝙷𝙾𝚃𝙾 𝙾𝚁 𝚅𝙸𝙳𝙴𝙾 𝚄𝙽𝙳𝙴𝚁 𝟻𝙼𝙱.")
+        return
+    text = await update.reply_text(text="<code>Downloading to My Server ...</code>", disable_web_page_preview=True)   
+    media = await update.reply_to_message.download()   
+    await text.edit_text(text="<code>Downloading Completed. Now I am Uploading to telegra.ph Link ...</code>", disable_web_page_preview=True)                                            
     try:
-      tlink = upload_file(gif_path)
-      await msg.edit_text(f"https://telegra.ph{tlink[0]}")   
-      os.remove(gif_path)   
-    except:
-      await msg.edit_text("Something really Happend Wrong...") 
-  else:
-    await message.reply_text("Size Should Be Less Than 5 mb")
-
-@app.on_message(filters.private & filters.video)
-async def uploadvid(client, message):
-  if(message.video.file_size < 5242880):
-    msg = await message.reply_text("`YÜKLƏNİR GÖZLƏYİN`")
-    userid = str(message.chat.id)
-    vid_path = (f"./DOWNLOADS/{userid}.mp4")
-    vid_path = await client.download_media(message=message, file_name=vid_path)
-    await msg.edit_text("`YENİLENİR GÖZLƏYİN.....`")
+        response = upload_file(media)
+    except Exception as error:
+        print(error)
+        await text.edit_text(text=f"Error :- {error}", disable_web_page_preview=True)       
+        return    
     try:
-      tlink = upload_file(vid_path)
-      await msg.edit_text(f"https://telegra.ph{tlink[0]}")     
-      os.remove(vid_path)   
-    except:
-      await msg.edit_text("Something really Happend Wrong...") 
-  else:
-    await message.reply_text("Size Should Be Less Than 5 mb")
+        os.remove(media)
+    except Exception as error:
+        print(error)
+        return    
+    await text.edit_text(
+        text=f"<b>Link :-</b>\n\n<code>https://graph.org{response[0]}</code>",
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup( [[
+            InlineKeyboardButton(text="Open Link", url=f"https://graph.org{response[0]}"),
+            InlineKeyboardButton(text="Share Link", url=f"https://telegram.me/share/url?url=https://graph.org{response[0]}")
+            ],[
+            InlineKeyboardButton(text="✗ Close ✗", callback_data="close")
+            ]]
+        )
+    )
+
 
 
 #
