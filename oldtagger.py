@@ -577,7 +577,7 @@ async def start(event):
   if event.is_private:
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await event.reply(f"**👋 Salam mən bir cox funksyalı OLD MULTİ botam\n\n💁🏻 Botdan necə isdifade edlir melumat üçün ƏMİRLƏR butonuna vuraraq baxa bilersiz əmirlərimə\n\n📨 Botu başladıqınza dayir sahibime bildiriş yolladım**", buttons=(
+     await event.reply(f"**👋 Salam mən bir cox funksyalı OLD MULTİ botam\n\n💁🏻 Botdan necə isdifade edlir melumat üçün ƏMİRLƏR butonuna vuraraq baxa bilersiz\n\n📨 Botu başladıqınza dayir sahibime bildiriş yolladım**", buttons=(
                      [Button.inline(f"🎛 KOMUTLAR", data="ehelp"),
        # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
               # [Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
@@ -604,7 +604,7 @@ async def start(event):
 async def handler(event):
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await event.edit(f"**👋 Salam mən bir cox funksyalı OLD MULTİ botam😇\n\n💁🏻 Botdan necə isdifade edlir melumat üçün ƏMİRLƏR butonuna vuraraq baxa bilersiz əmirlərimə\n\n📨 Botu başladıqınza dayir sahibime bildiriş yolladım**", buttons=(
+     await event.edit(f"**👋 Salam mən bir cox funksyalı OLD MULTİ botam😇\n\n💁🏻 Botdan necə isdifade edlir melumat üçün ƏMİRLƏR butonuna vuraraq baxa bilersiz\n\n📨 Botu başladıqınza dayir sahibime bildiriş yolladım**", buttons=(
                      [Button.inline(f"🎛 KOMUTLAR", data="ehelp"),
         # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
                #[Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
