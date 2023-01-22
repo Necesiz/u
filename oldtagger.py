@@ -42,8 +42,6 @@ import pyrogram
 import os
 import asyncio
 from pyrogram import Client, filters
-import speedtest
-from pyrogram import filters
 from pyrogram.errors import (
     FloodWait,
     InputUserDeactivated,
@@ -1564,29 +1562,14 @@ def testspeed(m):
     return result
 
 
-@app.on_message(filters.command("spedtest") & Config.OWNER_ID)
-async def speedtest_function(client, message):
-    m = await message.reply_text("Running Speed test")
-    loop = asyncio.get_event_loop()
-    result = await loop.run_in_executor(None, testspeed, m)
-    output = f"""**Speedtest Results**
-    
-<u>**Client:**</u>
-**__ISP:__** {result['client']['isp']}
-**__Country:__** {result['client']['country']}
-  
-<u>**Server:**</u>
-**__Name:__** {result['server']['name']}
-**__Country:__** {result['server']['country']}, {result['server']['cc']}
-**__Sponsor:__** {result['server']['sponsor']}
-**__Latency:__** {result['server']['latency']}  
-**__Ping:__** {result['ping']}"""
-    msg = await app.send_photo(
-        chat_id=message.chat.id, 
-        photo=result["share"], 
-        caption=output
-    )
-    await m.delete()
+@app.on_message(filters.command("ping"))
+async def ping(_, message):
+    start_t = time.time()
+    rm = await message.reply_text("...")
+    end_t = time.time()
+    time_taken_s = (end_t - start_t) * 1000
+    await rm.edit(f"Pong!\n{time_taken_s:.3f} ms")
+
 
   
 #@client.on(events.NewMessage(pattern='/reklam'))
