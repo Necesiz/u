@@ -577,7 +577,7 @@ async def start(event):
   if event.is_private:
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await event.reply(f"**👋 Salam mən qrupunuzdakı bütün üzvləri tağ edə bilərəm😇\n\n💁🏻 Ətraflı məlumat üçün '📚 Əmrlər' bölməsinə daxil olun**", buttons=(
+     await event.reply(f"**👋 Salam əzizim Mən OLD MULTİ BOT bir cox funksyaya malik OLD MULTİ botam\n\n🤔 Botun isdifade qaydasın bilmirsen indi ise'🎛 ƏMİRLƏR' bölməsinə daxil olun\n\n✉️ Botu başladıqına dayir Sahibime mesaj yolladım**", buttons=(
                      [Button.inline("🎛 ƏMİRLƏR", data="emir")],
        # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
               # [Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
@@ -594,7 +594,7 @@ async def start(event):
     return await client.send_message(event.chat_id, f"**[@OldMultiBot](http://t.me/OldMultiBot)'un məlumatları**", buttons=(
                      [Button.url('💡 Bota Keç','https://t.me/OldMulti?start=start')],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
-          Button.url('🇦🇿 Reklam', 'https://t.me/Qarsiliqli_Abune')],
+          Button.url('📂 APK', 'https://t.me/apkprogram1')],
                     ),
                     link_preview=False)
 
@@ -612,7 +612,7 @@ async def handler(event):
                [Button.url('➕ Qrupa Əlavə Et ➕','http://t.me/OldMultiBot?startgroup=a'),
                 Button.url('🎴 KANALIM','http://t.me/TEAMABASOFcom')],
                [Button.url('🌟 SAHİB','https://t.me/AnonyumAz'),
-                      Button.url('🇦🇿 Reklam', 'https://t.me/Qarsiliqli_Abune')],
+                      Button.url('📂 APK', 'https://t.me/apkprogram1')],
                     ),
                     link_preview=False)
 
@@ -629,6 +629,7 @@ async def handler(event):
                 Button.inline(f"📥 YÜKLƏMƏ", data="yhelp")],
                [Button.inline(f"🕹 GAME", data="dhelp"),
                       Button.inline(f"➕️ ƏLAVƏLƏR", data="elave")],
+	       [Button.inline(f"🔙 Geri", data="start")]
                     ),
                     link_preview=False)
 
