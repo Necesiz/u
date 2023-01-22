@@ -1,4 +1,6 @@
+import re
 import os
+from os import environ
 
 class Config():
     # Get these values from my.telegram.org
