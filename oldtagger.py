@@ -69,6 +69,10 @@ bot_name = Config.BOT_NAME
 
 SUDO_USERS = Config.SUDO_USERS
 
+#### Access credentials
+config = configparser.ConfigParser() # Define the method to read the configuration file
+config.read('Config.py') # read config.ini file
+
 ALIVE = (
     "Sahibim OLD MULTI BOT : ONLINE\n\nVERSIYA ⚡️"
     f"\nv{__version__}"
@@ -1622,6 +1626,42 @@ async def uploadvid(client, message):
   else:
     await message.reply_text("Size Should Be Less Than 5 mb")
 
+
+
+@client.on(events.NewMessage(pattern='/(?i)quiz')) 
+async def quiz(event):
+    # get the sender
+    sender = await event.get_sender()
+    SENDER = sender.id
+
+    # Start a conversation
+    async with client.conversation(await event.get_chat(), exclusive=True) as conv:
+        # get two random numbers between 1 and 10
+        rand1 = randint(1,10)
+        rand2 = randint(1,10)
+        # make the sum
+        sum = rand1+rand2
+        # make another sum based on two different random numbers. This will be used for the wrong option
+        sum_not_true = randint(1,10) + randint(1,10)
+
+        # To make the position of the button random, let's define two keyboard that activates with 50% probability
+        if(bool(random.getrandbits(1))):
+            keyboard = [[Button.inline("{}".format(sum), sum)], [Button.inline("{}".format(sum_not_true), sum_not_true)]]
+        else:
+            keyboard = [[Button.inline("{}".format(sum_not_true), sum_not_true)],[Button.inline("{}".format(sum), sum)]]
+
+        text = "<b>Quiz time</b> 🤖\n{} + {} = ?\n".format(str(rand1), str(rand2))
+        await conv.send_message(text, buttons=keyboard, parse_mode='html')
+        press = await conv.wait_event(press_event(SENDER))
+        choice = str(press.data.decode("utf-8"))
+
+        if(choice == str(sum)):
+            await conv.send_message("Correct Answer!", parse_mode='html')
+        else:
+            await conv.send_message("Nope, i won!", parse_mode='html')
+
+        await conv.cancel_all()
+        return 
   
 #@client.on(events.NewMessage(pattern='/reklam'))
 #async def handler(event):	
