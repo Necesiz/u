@@ -625,7 +625,7 @@ async def handler(event):
         # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
                #[Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
                       #Button.url('🤖 USTA Bots', 'https://t.me/ustabots')],
-               [Button.inline(f"📮 TAG ƏMİRLƏRİ", data=""thelp),
+               [Button.inline(f"📮 TAG ƏMİRLƏRİ", data="thelp"),
                 Button.inline(f"📥 YÜKLƏMƏ", data="yhelp")],
                [Button.inline(f"🕹 GAME", data="dhelp"),
                       Button.inline(f"➕️ ƏLAVƏLƏR", data="elave")],
