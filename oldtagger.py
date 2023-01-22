@@ -29,7 +29,6 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import os, youtube_dl, requests, time
 from Config import Config
 from youtube_search import YoutubeSearch
-import lyricsgenius
 from pyrogram.handlers import MessageHandler
 from pyrogram import Client, filters
 import yt_dlp
@@ -41,8 +40,7 @@ import asyncio
 import random, re
 from telegraph import upload_file
 import pyrogram
-import os 
-from datetime import datetime
+import os
 from pyrogram.errors import (
     FloodWait,
     InputUserDeactivated,
