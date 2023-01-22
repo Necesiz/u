@@ -616,25 +616,64 @@ async def handler(event):
                     ),
                     link_preview=False)
 
+@client.on(events.callbackquery.CallbackQuery(data="emir"))
+async def handler(event):
+    async for usr in client.iter_participants(event.chat_id):
+     ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
+     await event.edit(f"**👋 Salam mən qrupunuzdakı bütün üzvləri😇\n\n💁🏻 Ətraflı məlumat üçün '📚 Əmrlər' bölməsinə daxil olun**", buttons=(
+                     [Button.url('➕ Qrupa Əlavə Et ➕','http://t.me/OldMultiBot?startgroup=a')],
+        # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
+               #[Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
+                      #Button.url('🤖 USTA Bots', 'https://t.me/ustabots')],
+               [Button.inline(f"📮 TAG ƏMİRLƏRİ", data=""thelp),
+                Button.inline(f"📥 YÜKLƏMƏ", data="yhelp")],
+               [Button.inline(f"🕹 GAME", data="dhelp"),
+                      Button.inline(f"➕️ ƏLAVƏLƏR", data="elave")],
+                    ),
+                    link_preview=False)
+
 # gece kusu
 @client.on(events.callbackquery.CallbackQuery(data="thelp"))
 async def handler(event): 
     await event.edit(f"**[@OldMultiBot](http://t.me/OldMultiBot)-un '📮TAG ƏMİRLƏR' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🤖➪ /tag - 5-li tağ edər**\n**🤖➪ /etag - Emoji ilə tağ edər**\n**🤖➪ /stag - Sözlər ilə tağ edər**\n**🤖➪ /tektag - Tək-Tək tağ edər**\n**🤖➪ /usta - Usta tağ botuna aid tağ edər**\n**🤖➪ /admins - Adminləri tağ edər**\n**🤖➪ /cancel - Tağı dayandırar**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
               # [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/UstaTagbot?startgroup=a')],
          #[Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
-               [Button.url('🔮 Kanalım','https://t.me/Rahid_44'),
+               [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
                       Button.url('🇦🇿 Reklam','https://t.me/Qarsiliqli_Abune')],
                [Button.inline(f"🔙 Geri", data="emir")]
                     ),
                     link_preview=False)
 
-@client.on(events.callbackquery.CallbackQuery(data="emir"))
+@client.on(events.callbackquery.CallbackQuery(data="yhelp"))
 async def handler(event): 
-    await event.edit(f"**📌 [@OldMultiBot](http://t.me/OldMultiBot)-un təkliflər üçün sahiblə əlaqə saxlaya bilərsiniz...**", buttons=(
-         [Button.inline(f"📮 TAG ƏMİRLƏR", data="thelp")],
-               [Button.url(f"",'https://t.me/Rahid_44'),
+    await event.edit(f"**[@OldMultiBot](http://t.me/OldMultiBot)-un '📥 YÜKLƏMƏ' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🤖➪ /tag - 5-li tağ edər**\n**🤖➪ /etag - Emoji ilə tağ edər**\n**🤖➪ /stag - Sözlər ilə tağ edər**\n**🤖➪ /tektag - Tək-Tək tağ edər**\n**🤖➪ /usta - Usta tağ botuna aid tağ edər**\n**🤖➪ /admins - Adminləri tağ edər**\n**🤖➪ /cancel - Tağı dayandırar**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
+              # [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/UstaTagbot?startgroup=a')],
+         #[Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
+               [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
                       Button.url('🇦🇿 Reklam','https://t.me/Qarsiliqli_Abune')],
-               [Button.inline(f"🔙 Geri", data="start")]
+               [Button.inline(f"🔙 Geri", data="emir")]
+                    ),
+                    link_preview=False)
+
+@client.on(events.callbackquery.CallbackQuery(data="dhelp"))
+async def handler(event): 
+    await event.edit(f"**[@OldMultiBot](http://t.me/OldMultiBot)-un '🕹 GAME' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🤖➪ /tag - 5-li tağ edər**\n**🤖➪ /etag - Emoji ilə tağ edər**\n**🤖➪ /stag - Sözlər ilə tağ edər**\n**🤖➪ /tektag - Tək-Tək tağ edər**\n**🤖➪ /usta - Usta tağ botuna aid tağ edər**\n**🤖➪ /admins - Adminləri tağ edər**\n**🤖➪ /cancel - Tağı dayandırar**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
+              # [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/UstaTagbot?startgroup=a')],
+         #[Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
+               [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
+                      Button.url('🇦🇿 Reklam','https://t.me/Qarsiliqli_Abune')],
+               [Button.inline(f"🔙 Geri", data="emir")]
+                    ),
+                    link_preview=False)
+
+@client.on(events.callbackquery.CallbackQuery(data="elave"))
+async def handler(event): 
+    await event.edit(f"**[@OldMultiBot](http://t.me/OldMultiBot)-un '➕️ ƏLAVƏLƏR' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🤖➪ /tag - 5-li tağ edər**\n**🤖➪ /etag - Emoji ilə tağ edər**\n**🤖➪ /stag - Sözlər ilə tağ edər**\n**🤖➪ /tektag - Tək-Tək tağ edər**\n**🤖➪ /usta - Usta tağ botuna aid tağ edər**\n**🤖➪ /admins - Adminləri tağ edər**\n**🤖➪ /cancel - Tağı dayandırar**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
+              # [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/UstaTagbot?startgroup=a')],
+         #[Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
+               [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
+                      Button.url('🇦🇿 Reklam','https://t.me/Qarsiliqli_Abune')],
+               [Button.inline(f"🔙 Geri", data="emir")]
                     ),
                     link_preview=False)
 
