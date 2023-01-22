@@ -577,15 +577,15 @@ async def start(event):
   if event.is_private:
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await event.reply(f"**👋 Salam mən bir cox funksyalı OLD MULTİ botam\n\n💁🏻 Ətraflı məlumat üçün 'Aşaqıdakı Buttonlardan' baxa bilersiz əmirlərimə\n\n📨 Botu başladıqınza dayir sahibime bildiriş yolladım**", buttons=(
+     await event.reply(f"**👋 Salam mən bir cox funksyalı OLD MULTİ botam\n\n💁🏻 Botdan necə isdifade edlir melumat üçün 'ƏMİRLƏR' butonuna vuraraq baxa bilersiz əmirlərimə\n\n📨 Botu başladıqınza dayir sahibime bildiriş yolladım**", buttons=(
                      [Button.url('➕ Qrupa Əlavə Et ➕','http://t.me/OldMultiBot?startgroup=a')],
        # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
               # [Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
                     #  Button.url('💡 USTA Bots', 'https://t.me/ustabots')],
-               [Button.inline(f"📮 Əmrlər", data="help"),
-                Button.inline(f"📥 YÜKLƏMƏ", data="dhelp")],
-               [Button.inline(f"🕹 GAME", data="game"),
-                      Button.inline(f"➕ ƏLAVƏLƏR", data="elave")],
+               [Button.inline(f"🎛 ƏMİRLƏR", data="emirler"),
+                Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom')],
+               [Button.url('🧑‍💻 SAHİB','https://t.me/AnonyumAz'),
+                      Button.url('APK','https://t.me/apkprogram1')],
                     ),
                     link_preview=False)
 
@@ -604,15 +604,28 @@ async def start(event):
 async def handler(event):
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await event.edit(f"**👋 Salam mən bir cox funksyalı OLD MULTİ botam😇\n\n💁🏻 Ətraflı məlumat üçün 'Aşaqıdakı Buttonlardan' baxa bilersiz əmirlərimə\n\n📨 Botu başladıqınza dayir sahibime bildiriş yolladım**", buttons=(
+     await event.edit(f"**👋 Salam mən bir cox funksyalı OLD MULTİ botam😇\n\n💁🏻 Botdan necə isdifade edlir melumat üçün 'ƏMİRLƏR' butonuna vuraraq baxa bilersiz əmirlərimə\n\n📨 Botu başladıqınza dayir sahibime bildiriş yolladım**", buttons=(
                      [Button.url('➕ Qrupa Əlavə Et ➕','http://t.me/oldtaggerbot?startgroup=a')],
         # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
                #[Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
                       #Button.url('🤖 USTA Bots', 'https://t.me/ustabots')],
+               [Button.inline(f"🎛 ƏMİRLƏR", data="emirler"),
+                Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom')],
+               [Button.url('🧑‍💻 SAHİB','https://t.me/AnonyumAz'),
+                      Button.url('APK','https://t.me/apkprogram1')],
+                    ),
+                    link_preview=False)
+
+@client.on(events.callbackquery.CallbackQuery(data="emirler"))
+async def handler(event): 
+    await event.edit(f"**[@OldMultiBot](http://t.me/OldMultiBot)-un 'ƏMİRLƏR' bölməsi Aşaqıdaki buttonlardan əmirlər bolumune baxa bilerisz**", buttons=(
+              # [Button.url(' SAHİB','http://t.me/AnonyumAz')],
+         #[Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
                [Button.inline(f"📮 TAG Əmrlər", data="thelp"),
                 Button.inline(f"📥 YÜKLƏMƏ", data="dhelp")],
                [Button.inline(f"🕹 GAME", data="game"),
                       Button.inline(f"➕ ƏLAVƏLƏR", data="elave")],
+               [Button.inline(f"🔙 Geri", data="start")]
                     ),
                     link_preview=False)
 
