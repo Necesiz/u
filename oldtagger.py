@@ -1415,11 +1415,8 @@ async def handler(event):
 #pyrogram
 @app.on_message(filters.command("info"))
 async def _id(_, message: Message):
-  if event.is_private:
-    return await event.respond("**gicsen ee!**")
     msg = message.reply_to_message or message
     out_str = "**User İnfo:**\n"
-    out_str += f" ⚡️ __Grup ID__ : `{(msg.forward_from_chat or msg.chat).id}`\n"
     out_str += f" 💎 __Yanıtlanan Kullanıcı Adı__ : {msg.from_user.first_name}\n"
     out_str += f" 💬 __Mesaj ID__ : `{msg.forward_from_message_id or msg.message_id}`\n"
     if msg.from_user:
@@ -1599,7 +1596,15 @@ async def uploadvid(client, message):
     await message.reply_text("Size Should Be Less Than 5 mb")
 
 
-#d
+@app.on_message(filters.command("ping"))
+async def pingy(client, message):
+    start = datetime.now()
+    hmm = await message.reply("Pong!")
+    end = datetime.now()
+    ms = (end - start).microseconds / 1000
+    await hmm.edit(
+        f"█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄\n**Ping: {round(ms)}**")
+    
 
 
   
