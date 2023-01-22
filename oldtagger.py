@@ -1595,7 +1595,7 @@ async def uploadvid(client, message):
     await message.reply_text("Size Should Be Less Than 5 mb")
 
 
-@app.on_message(events.NewMessage(pattern='/(?i)quiz'))
+@app.on_message(events.NewMessage(pattern='/(?i)carbon'))
 async def runtti(event):
     messagelocation = event.to_id
     repliedmessage = await event.get_reply_message()
