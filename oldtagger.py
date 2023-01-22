@@ -81,7 +81,7 @@ ydl_opts = {
 
 BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton(text="➕️ GROUPA ELAVE ET", url=f"http://t.me/oldtaggerbot?startgroup=a")]])
 
-FORCE_SUB = Confing.FORCE_SUB
+FORCE_SUB = "TEAMABASOFcom"
 
 #-#-#-# Pyrogram Başlanğıc #-#-#-#
 app = Client(":memory:", api_id, api_hash, bot_token=bot_token)
