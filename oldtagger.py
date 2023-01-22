@@ -578,11 +578,11 @@ async def start(event):
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
      await event.reply(f"**👋 Salam mən bir cox funksyalı OLD MULTİ botam\n\n💁🏻 Botdan necə isdifade edlir melumat üçün 'ƏMİRLƏR' butonuna vuraraq baxa bilersiz əmirlərimə\n\n📨 Botu başladıqınza dayir sahibime bildiriş yolladım**", buttons=(
-                     [Button.url('➕ Qrupa Əlavə Et ➕','http://t.me/OldMultiBot?startgroup=a')],
+                     [Button.inline(f"🎛 ƏMİRLƏR", data="emirler"),
        # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
               # [Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
                     #  Button.url('💡 USTA Bots', 'https://t.me/ustabots')],
-               [Button.inline(f"🎛 ƏMİRLƏR", data="emirler"),
+               [Button.url('➕ Qrupa Əlavə Et ➕','http://t.me/OldMultiBot?startgroup=a')],
                 Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom')],
                [Button.url('🧑‍💻 SAHİB','https://t.me/AnonyumAz'),
                       Button.url('APK','https://t.me/apkprogram1')],
@@ -605,11 +605,11 @@ async def handler(event):
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
      await event.edit(f"**👋 Salam mən bir cox funksyalı OLD MULTİ botam😇\n\n💁🏻 Botdan necə isdifade edlir melumat üçün 'ƏMİRLƏR' butonuna vuraraq baxa bilersiz əmirlərimə\n\n📨 Botu başladıqınza dayir sahibime bildiriş yolladım**", buttons=(
-                     [Button.url('➕ Qrupa Əlavə Et ➕','http://t.me/oldtaggerbot?startgroup=a')],
+                     [Button.inline(f"🎛 ƏMİRLƏR", data="emirler"),
         # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
                #[Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
                       #Button.url('🤖 USTA Bots', 'https://t.me/ustabots')],
-               [Button.inline(f"🎛 ƏMİRLƏR", data="emirler"),
+               [Button.url('➕ Qrupa Əlavə Et ➕','http://t.me/OldMultiBot?startgroup=a')],
                 Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom')],
                [Button.url('🧑‍💻 SAHİB','https://t.me/AnonyumAz'),
                       Button.url('APK','https://t.me/apkprogram1')],
