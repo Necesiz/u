@@ -578,7 +578,7 @@ async def start(event):
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
      await event.reply(f"**👋 Salam mən bir cox funksyalı OLD MULTİ botam\n\n💁🏻 Botdan necə isdifade edlir melumat üçün ƏMİRLƏR butonuna vuraraq baxa bilersiz əmirlərimə\n\n📨 Botu başladıqınza dayir sahibime bildiriş yolladım**", buttons=(
-                     [Button.inline(f"🎛 ƏMİRLƏR", data="ehelp"),
+                     [Button.inline(f"🎛 KOMUTLAR", data="ehelp"),
        # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
               # [Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
                     #  Button.url('💡 USTA Bots', 'https://t.me/ustabots')],
@@ -605,7 +605,7 @@ async def handler(event):
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
      await event.edit(f"**👋 Salam mən bir cox funksyalı OLD MULTİ botam😇\n\n💁🏻 Botdan necə isdifade edlir melumat üçün ƏMİRLƏR butonuna vuraraq baxa bilersiz əmirlərimə\n\n📨 Botu başladıqınza dayir sahibime bildiriş yolladım**", buttons=(
-                     [Button.inline(f"🎛 ƏMİRLƏR", data="ehelp"),
+                     [Button.inline(f"🎛 KOMUTLAR", data="ehelp"),
         # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
                #[Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
                       #Button.url('🤖 USTA Bots', 'https://t.me/ustabots')],
@@ -629,7 +629,6 @@ async def handler(event):
                     ),
                     link_preview=False)
 
-# gece kusu
 @client.on(events.callbackquery.CallbackQuery(data="thelp"))
 async def handler(event): 
     await event.edit(f"**[@OldMultiBot](http://t.me/OldMultiBot)-un '📚 TAG Əmrlər' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🤖➪ /tag - 5-li tağ edər**\n**🤖➪ /etag - Emoji ilə tağ edər**\n**🤖➪ /stag - Sözlər ilə tağ edər**\n**🤖➪ /tektag - Tək-Tək tağ edər**\n**🤖➪ /usta - Usta tağ botuna aid tağ edər**\n**🤖➪ /admins - Adminləri tağ edər**\n**🤖➪ /cancel - Tağı dayandırar**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
