@@ -1541,9 +1541,9 @@ async def handler(event): # Welcome every new user
 
 
 #pyrogram telegrap
-@app.on.message(filters.command("alive") & filters.user(Config.OWNER_ID))
-async def check_alive(_, message):
-    await message.reply_text(ALIVE)
+@app.on_message(filters.command("alive") & filters.user(Config.OWNER_ID))
+async def live(client: Client, message: Message):
+    livemsg = await message.reply_text(ALIVE)
 
 
 #
