@@ -69,7 +69,7 @@ bot_name = Config.BOT_NAME
 SUDO_USERS = Config.SUDO_USERS
 
 ALIVE = (
-    "BOT AKTİVDİR"
+    "Sahibim OLD MULTI BOT : ONLINE\n\nVERSIYA ⚡️"
     f"\nv{__version__}"
 )
 
