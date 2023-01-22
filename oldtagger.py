@@ -42,8 +42,7 @@ import pyrogram
 import os
 import asyncio
 from pyrogram import Client, filters
-from telegraph import upload_file
-from helper.fsub import ForceSub
+from pyrogram.raw.all import layer
 from pyrogram.errors import (
     FloodWait,
     InputUserDeactivated,
@@ -69,6 +68,12 @@ bot_name = Config.BOT_NAME
 
 
 SUDO_USERS = Config.SUDO_USERS
+
+ALIVE = (
+    "BOT AKTİVDİR"
+    f"\nL{layer}"
+    f"\nv{__version__}"
+)
 
 ydl_opts = {
     'format': 'best',
@@ -1403,18 +1408,6 @@ async def mentionall(event):
 
 ad = ['Üzümlü kek ✨', 'Nar çiçeği ✨', 'Papatya 🌼', 'Karanfil ✨', 'Gül 🌹', 'Ayıcık 🐻', 'Mutlu panda 🐼', 'Ay pare 🌛', 'Ballı lokma ✨', 'Lale 🌷', 'Ahtapot 🐙', 'Zambak ⚜️', 'Akasya 🌿', 'Akşam Sefası 🌛', 'Begonvil 🥀', 'Begonya 🪴', 'Bambu 🎍', 'Fesleğen 🌿', 'Kasımpatı 🌸', 'Manolya 🌾', 'Boncuk 🧿', 'Badem 🥭', 'Minnoş 🐹', 'Ponçik 🐣', 'Pofuduk 🐼', 'Unicorn 🦄', 'Karamel 🍫', 'Fındık 🌰', 'Fıstık 🥜', 'Pamuk ☁️', 'Minnoş 🥰', 'Zeytin 🫒', 'Afrodit 🧚🏻', 'Nergis ✨', 'Sümbül ☘️', 'Nilüfer ☘️', 'Menekşe ⚜️', 'Lavanta ✨', 'Gül pare 🌺', 'Reyhan 🌷', 'Kaktüs 🌵', 'Buket 💐', 'Başak 🌾', 'Kar Tanesi ❄️', 'Tospik 🐢', 'Kelebek 🦋', 'Tavşan 🐰', 'Şeker 🍬', 'Böğürtlen ☘️', 'Orkide ☘️', 'Manolya ✨', 'Ayçiçeği 🌻', 'Tweety 🐥', 'Star ✨', 'Yonca 🍀', 'Ateş böceği ✨']
 
-@client.on(events.NewMessage(pattern='/offline'))
-async def handler(event):
-    # Kimsə "Salam" və başqa bir şey deyəndə cavab verin
-    if str(event.sender_id) not in SUDO_USERS:
-        return await event.reply("Sən mənim sahibim deyilsən😒")
-    await event.reply('Bot Mükəmməl İşləyir 🚀',
-         buttons=(
-               [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
-               Button.url('🇦🇿 Reklam','https://t.me/oldtaggerReklam')],
-                    ),
-                    link_preview=False)
-
 
 #pyrogram
 @app.on_message(filters.command("info"))
@@ -1550,41 +1543,9 @@ async def handler(event): # Welcome every new user
 
 
 #pyrogram telegrap
-@app.on_message(filters.command("telegraph") & filters.private)
-async def telegraph_upload(bot, update):
-    FSub = await ForceSub(bot, update)
-    if FSub == 400:
-        return
-    replied = update.reply_to_message
-    if not replied:
-        await update.reply_text("𝚁𝙴𝙿𝙻𝚈 𝚃𝙾 𝙰 𝙿𝙷𝙾𝚃𝙾 𝙾𝚁 𝚅𝙸𝙳𝙴𝙾 𝚄𝙽𝙳𝙴𝚁 𝟻𝙼𝙱.")
-        return
-    text = await update.reply_text(text="<code>Downloading to My Server ...</code>", disable_web_page_preview=True)   
-    media = await update.reply_to_message.download()   
-    await text.edit_text(text="<code>Downloading Completed. Now I am Uploading to telegra.ph Link ...</code>", disable_web_page_preview=True)                                            
-    try:
-        response = upload_file(media)
-    except Exception as error:
-        print(error)
-        await text.edit_text(text=f"Error :- {error}", disable_web_page_preview=True)       
-        return    
-    try:
-        os.remove(media)
-    except Exception as error:
-        print(error)
-        return    
-    await text.edit_text(
-        text=f"<b>Link :-</b>\n\n<code>https://graph.org{response[0]}</code>",
-        disable_web_page_preview=True,
-        reply_markup=InlineKeyboardMarkup( [[
-            InlineKeyboardButton(text="Open Link", url=f"https://graph.org{response[0]}"),
-            InlineKeyboardButton(text="Share Link", url=f"https://telegram.me/share/url?url=https://graph.org{response[0]}")
-            ],[
-            InlineKeyboardButton(text="✗ Close ✗", callback_data="close")
-            ]]
-        )
-    )
-
+@app.on.message(filters.command("alive") & filters.user(OWNER_ID))
+async def check_alive(_, message):
+    await message.reply_text(ALIVE)
 
 
 #
