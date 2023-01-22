@@ -578,7 +578,7 @@ async def start(event):
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
      await event.reply(f"**👋 Salam mən bir cox funksyalı OLD MULTİ botam\n\n💁🏻 Botdan necə isdifade edlir melumat üçün 'ƏMİRLƏR' butonuna vuraraq baxa bilersiz əmirlərimə\n\n📨 Botu başladıqınza dayir sahibime bildiriş yolladım**", buttons=(
-                     [Button.inline(f"🎛 ƏMİRLƏR", data="emirler"),
+                     [Button.inline(f"🎛 ƏMİRLƏR", data="ehelp"),
        # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
               # [Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
                     #  Button.url('💡 USTA Bots', 'https://t.me/ustabots')],
@@ -605,7 +605,7 @@ async def handler(event):
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
      await event.edit(f"**👋 Salam mən bir cox funksyalı OLD MULTİ botam😇\n\n💁🏻 Botdan necə isdifade edlir melumat üçün 'ƏMİRLƏR' butonuna vuraraq baxa bilersiz əmirlərimə\n\n📨 Botu başladıqınza dayir sahibime bildiriş yolladım**", buttons=(
-                     [Button.inline(f"🎛 ƏMİRLƏR", data="emirler"),
+                     [Button.inline(f"🎛 ƏMİRLƏR", data="ehelp"),
         # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
                #[Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
                       #Button.url('🤖 USTA Bots', 'https://t.me/ustabots')],
@@ -616,7 +616,7 @@ async def handler(event):
                     ),
                     link_preview=False)
 
-@client.on(events.callbackquery.CallbackQuery(data="emirler"))
+@client.on(events.callbackquery.CallbackQuery(data="ehelp"))
 async def handler(event): 
     await event.edit(f"**[@OldMultiBot](http://t.me/OldMultiBot)-un 'ƏMİRLƏR' bölməsi Aşaqıdaki buttonlardan əmirlər bolumune baxa bilerisz**", buttons=(
               # [Button.url(' SAHİB','http://t.me/AnonyumAz')],
@@ -637,7 +637,7 @@ async def handler(event):
          #[Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
                       Button.url('🇦🇿 Reklam','https://t.me/oldtaggerReklam')],
-               [Button.inline(f"🔙 Geri", data="emirler")]
+               [Button.inline(f"🔙 Geri", data="start")]
                     ),
                     link_preview=False)
 
@@ -647,7 +647,7 @@ async def handler(event):
        #  [Button.url('🙇🏻 Sahib','https://t.me/AnonyumAz')],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
                       Button.url('🇦🇿 Reklam','https://t.me/oldtaggerReklam')],
-               [Button.inline(f"🔙 Geri", data="emirler")]
+               [Button.inline(f"🔙 Geri", data="start")]
                     ),
                     link_preview=False)
 
@@ -657,7 +657,7 @@ async def handler(event):
        #  [Button.url('🙇🏻 Sahib','https://t.me/AnonyumAz')],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
                       Button.url('🇦🇿 Reklam','https://t.me/oldtaggerReklam')],
-               [Button.inline(f"🔙 Geri", data="emirler")]
+               [Button.inline(f"🔙 Geri", data="start")]
                     ),
                     link_preview=False)
 
@@ -667,7 +667,7 @@ async def handler(event):
        #  [Button.url('🙇🏻 Sahib','https://t.me/AnonyumAz')],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
                       Button.url('🇦🇿 Reklam','https://t.me/oldtaggerReklam')],
-               [Button.inline(f"🔙 Geri", data="emirler")]
+               [Button.inline(f"🔙 Geri", data="start")]
                     ),
                     link_preview=False)
 
