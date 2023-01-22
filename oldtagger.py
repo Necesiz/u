@@ -1563,7 +1563,7 @@ def testspeed(m):
     return result
 
 
-@app.on_message(filters.command("spedtest") & OWNER_ID)
+@app.on_message(filters.command("spedtest") & Config.OWNER_ID)
 async def speedtest_function(client, message):
     m = await message.reply_text("Running Speed test")
     loop = asyncio.get_event_loop()
