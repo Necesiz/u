@@ -577,7 +577,7 @@ async def start(event):
   if event.is_private:
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await event.reply(f"**👋 Salam əzizim Mən OLD MULTİ BOT bir cox funksyaya malik OLD MULTİ botam\n\n🤔 Botun isdifade qaydasın bilmirsen indi ise'🎛 ƏMİRLƏR' bölməsinə daxil olun\n\n✉️ Botu başladıqına dayir Sahibime mesaj yolladım**", buttons=(
+     await event.reply(f"**👋 Salam əzizim Mən OLD MULTİ BOT bir cox funksyaya malik OLD MULTİ botam\n\n🤔 Botun isdifade qaydasın bilmirsen indi ise '🎛 ƏMİRLƏR' bölməsinə daxil olun\n\n✉️ Botu başladıqına dayir Sahibime mesaj yolladım**", buttons=(
                      [Button.inline("🎛 ƏMİRLƏR", data="emir")],
        # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
               # [Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
@@ -585,7 +585,7 @@ async def start(event):
                [Button.url('➕ Qrupa Əlavə Et ➕','http://t.me/OldMultiBot?startgroup=a'),
                 Button.url('🎴 KANALIM','http://t.me/TEAMABASOFcom')],
                [Button.url("🌟 SAHİB",'https://t.me/AnonyumAz'),
-                      Button.url('📂 APK','http://t.me/apkprogram1')],
+                      Button.url('📂 APK','http://t.me/texnoapk1')],
                     ),
                     link_preview=False)
 
@@ -594,7 +594,7 @@ async def start(event):
     return await client.send_message(event.chat_id, f"**[@OldMultiBot](http://t.me/OldMultiBot)'un məlumatları**", buttons=(
                      [Button.url('💡 Bota Keç','https://t.me/OldMulti?start=start')],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
-          Button.url('📂 APK', 'https://t.me/apkprogram1')],
+          Button.url('📂 APK', 'https://t.me/texnoapk1')],
                     ),
                     link_preview=False)
 
@@ -604,7 +604,7 @@ async def start(event):
 async def handler(event):
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await event.edit(f"**👋 Salam mən qrupunuzdakı bütün üzvləri tağ edə bilərəm😇\n\n💁🏻 Ətraflı məlumat üçün '📚 Əmrlər' bölməsinə daxil olun**", buttons=(
+     await event.edit(f"**👋 Salam əzizim Mən OLD MULTİ BOT bir cox funksyaya malik OLD MULTİ botam\n\n🤔 Botun isdifade qaydasın bilmirsen indi ise '🎛 ƏMİRLƏR' bölməsinə daxil olun\n\n✉️ Botu başladıqına dayir Sahibime mesaj yolladım**", buttons=(
                      [Button.inline(f"🎛 ƏMİRLƏR", data="emir")],
         # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
                #[Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
@@ -612,7 +612,7 @@ async def handler(event):
                [Button.url('➕ Qrupa Əlavə Et ➕','http://t.me/OldMultiBot?startgroup=a'),
                 Button.url('🎴 KANALIM','http://t.me/TEAMABASOFcom')],
                [Button.url('🌟 SAHİB','https://t.me/AnonyumAz'),
-                      Button.url('📂 APK', 'https://t.me/apkprogram1')],
+                      Button.url('📂 APK', 'https://t.me/texnoapk1')],
                     ),
                     link_preview=False)
 
@@ -620,7 +620,7 @@ async def handler(event):
 async def handler(event):
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await event.edit(f"**👋 Salam mən qrupunuzdakı bütün üzvləri😇\n\n💁🏻 Ətraflı məlumat üçün '📚 Əmrlər' bölməsinə daxil olun**", buttons=(
+     await event.edit(f"**🤩 Siz artıq ƏMİRLƏR bölümündesiz\n\n🫡 Hansı əmiri isdəsəniz aşağıda Buttonla vuraraq baxa bilersiz\n\n🩶 XOŞ İSDİFADELER @OldMultiBot**", buttons=(
                      [Button.url('➕ Qrupa Əlavə Et ➕','http://t.me/OldMultiBot?startgroup=a')],
         # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
                #[Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
@@ -640,18 +640,18 @@ async def handler(event):
               # [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/UstaTagbot?startgroup=a')],
          #[Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
-                      Button.url('🇦🇿 Reklam','https://t.me/Qarsiliqli_Abune')],
+                      Button.url('📂 APK','https://t.me/texnoapk1')],
                [Button.inline(f"🔙 Geri", data="emir")]
                     ),
                     link_preview=False)
 
 @client.on(events.callbackquery.CallbackQuery(data="yhelp"))
 async def handler(event): 
-    await event.edit(f"**[@OldMultiBot](http://t.me/OldMultiBot)-un '📥 YÜKLƏMƏ' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🤖➪ /tag - 5-li tağ edər**\n**🤖➪ /etag - Emoji ilə tağ edər**\n**🤖➪ /stag - Sözlər ilə tağ edər**\n**🤖➪ /tektag - Tək-Tək tağ edər**\n**🤖➪ /usta - Usta tağ botuna aid tağ edər**\n**🤖➪ /admins - Adminləri tağ edər**\n**🤖➪ /cancel - Tağı dayandırar**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
+    await event.edit(f"**[@OldMultiBot](http://t.me/OldMultiBot)-un '📥 YÜKLƏMƏ' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🎵 ➪  /song - MAHNI YÜKLƏYİR**\n**⛓️ ➪ Telegrap - Bota şexside photo,video,gif ataraq telegrap linki ala bilersiz Əmir şəxsidə çalışır**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
               # [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/UstaTagbot?startgroup=a')],
          #[Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
-                      Button.url('🇦🇿 Reklam','https://t.me/Qarsiliqli_Abune')],
+                      Button.url('📂 APK','https://t.me/texnoapk1')],
                [Button.inline(f"🔙 Geri", data="emir")]
                     ),
                     link_preview=False)
@@ -662,7 +662,7 @@ async def handler(event):
               # [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/UstaTagbot?startgroup=a')],
          #[Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
-                      Button.url('🇦🇿 Reklam','https://t.me/Qarsiliqli_Abune')],
+                      Button.url('📂 APK','https://t.me/texnoapk1')],
                [Button.inline(f"🔙 Geri", data="emir")]
                     ),
                     link_preview=False)
@@ -673,7 +673,7 @@ async def handler(event):
               # [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/UstaTagbot?startgroup=a')],
          #[Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
-                      Button.url('🇦🇿 Reklam','https://t.me/Qarsiliqli_Abune')],
+                      Button.url('📂 APK','https://t.me/texnoapk1')],
                [Button.inline(f"🔙 Geri", data="emir")]
                     ),
                     link_preview=False)
