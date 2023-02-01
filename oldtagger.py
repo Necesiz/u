@@ -99,7 +99,7 @@ app = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 ############## DEĞİŞKENLER ##############
 
-DATABASE_URL = "mongodb+srv://Bots:Bots@cluster0.nedd9xs.mongodb.net/?retryWrites=true&w=majority"
+DATABASE_URL = "mongodb+srv://mirge1:mirge1@cluster0.tebyent.mongodb.net/?retryWrites=true&w=majority"
 BOT_USERNAME = "OldMultiBot"
 LOG_CHANNEL = -1001737573985
 GROUP_SUPPORT = "TEAMABASOFcom"
