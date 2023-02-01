@@ -26,23 +26,6 @@ import aiofiles
 from pyrogram import Client, filters, __version__
 from pyrogram.types import Message
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-import os, youtube_dl, requests, time
-from Config import Config
-from youtube_search import YoutubeSearch
-from pyrogram.handlers import MessageHandler
-from pyrogram import Client, filters
-import yt_dlp
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery 
-from yt_dlp import YoutubeDL
-from pyrogram import Client, filters
-from pyrogram.types import Message
-import asyncio
-import random, re
-import pyrogram
-import os
-import asyncio
-from telegraph import upload_file
-import pyrogram
 from pyrogram.errors import (
     FloodWait,
     InputUserDeactivated,
@@ -100,7 +83,7 @@ app = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 ############## DEĞİŞKENLER ##############
 
 DATABASE_URL = "mongodb+srv://mirge1:mirge1@cluster0.tebyent.mongodb.net/?retryWrites=true&w=majority"
-BOT_USERNAME = "OldMultiBot"
+BOT_USERNAME = "oldtaggerbot"
 LOG_CHANNEL = -1001737573985
 GROUP_SUPPORT = "TEAMABASOFcom"
 GONDERME_TURU = False
