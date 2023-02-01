@@ -560,7 +560,7 @@ async def start(event):
   if event.is_private:
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await event.reply(f"**👋 Salam əzizim Mən OLD MULTİ BOT bir cox funksyaya malik OLD MULTİ botam\n\n🤔 Botun isdifade qaydasın bilmirsen indi ise '🎛 ƏMİRLƏR' bölməsinə daxil olun\n\n✉️ Botu başladıqına dayir Sahibime mesaj yolladım**", buttons=(
+     await event.reply(f"**👋 Salam {ad} Mən OLD TAGGER'botam bir cox Tag funksiyaya malik olan OLD TAGGER  botam\n\n🤔 Botun isdifade qaydasın bilmirsen indi ise '📮 TAG ƏMİRLƏR' bölməsinə daxil olun\n\n✉️ Botu başladıqına dayir Sahibime mesaj yolladım**", buttons=(
                      [Button.inline("📮 TAG ƏMİRLƏR", data="emir")],
        # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
               # [Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
@@ -585,7 +585,7 @@ async def start(event):
 async def handler(event):
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await event.edit(f"**👋 Salam əzizim Mən OLD MULTİ BOT bir cox funksyaya malik OLD MULTİ botam\n\n🤔 Botun isdifade qaydasın bilmirsen indi ise '🎛 ƏMİRLƏR' bölməsinə daxil olun\n\n✉️ Botu başladıqına dayir Sahibime mesaj yolladım**", buttons=(
+     await event.edit(f"**👋 Salam {ad} Mən OLD TAGGER'botam bir cox Tag funksiyaya malik olan OLD TAGGER  botam\n\n🤔 Botun isdifade qaydasın bilmirsen indi ise '📮 TAG ƏMİRLƏR' bölməsinə daxil olun\n\n✉️ Botu başladıqına dayir Sahibime mesaj yolladım**", buttons=(
                      [Button.inline(f"📮 TAG ƏMİRLƏR", data="emir")],
         # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
                #[Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
@@ -601,7 +601,7 @@ async def handler(event):
 # gece kusu
 @client.on(events.callbackquery.CallbackQuery(data="emir"))
 async def handler(event): 
-    await event.edit(f"**[@OldMultiBot](http://t.me/OldMultiBot)-un '📮TAG ƏMİRLƏR' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🤖➪ /tag - 5-li tağ edər**\n**🤖➪ /etag - Emoji ilə tağ edər**\n**🤖➪ /stag - Sözlər ilə tağ edər**\n**🤖➪ /tektag - Tək-Tək tağ edər**\n**🤖➪ /oldmulti - OldMultiBot botuna ozəl tağ edər**\n**🤖➪ /admins - Adminləri tağ edər**\n**🤖➪ /cancel - Tağı dayandırar**\n**🤖➪ /mafia - Mafia roluyla tag edər**\n**🤖➪ /adtag - Maraqlı adlar ile tag edər\n**🤖➪ /ftag - Futbolçu adları ilə tag edər**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
+    await event.edit(f"**[@OldTaggerBot](http://t.me/oldtaggerbot)-un '📮TAG ƏMİRLƏR' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🤖➪ /tag - 5-li tağ edər**\n**🤖➪ /etag - Emoji ilə tağ edər**\n**🤖➪ /stag - Sözlər ilə tağ edər**\n**🤖➪ /tektag - Tək-Tək tağ edər**\n**🤖➪ /oldmulti - OldMultiBot botuna ozəl tağ edər**\n**🤖➪ /admins - Adminləri tağ edər**\n**🤖➪ /cancel - Tağı dayandırar**\n**🤖➪ /mafia - Mafia roluyla tag edər**\n**🤖➪ /adtag - Maraqlı adlar ile tag edər\n**🤖➪ /ftag - Futbolçu adları ilə tag edər**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
               # [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/UstaTagbot?startgroup=a')],
          #[Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
