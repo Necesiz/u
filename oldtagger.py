@@ -578,7 +578,7 @@ async def start(event):
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
      await event.reply(f"**👋 Salam əzizim Mən OLD MULTİ BOT bir cox funksyaya malik OLD MULTİ botam\n\n🤔 Botun isdifade qaydasın bilmirsen indi ise '🎛 ƏMİRLƏR' bölməsinə daxil olun\n\n✉️ Botu başladıqına dayir Sahibime mesaj yolladım**", buttons=(
-                     [Button.inline("🎛 ƏMİRLƏR", data="emir")],
+                     [Button.inline("📮 TAG ƏMİRLƏR", data="emir")],
        # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
               # [Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
                     #  Button.url('💡 USTA Bots', 'https://t.me/ustabots')],
@@ -603,7 +603,7 @@ async def handler(event):
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
      await event.edit(f"**👋 Salam əzizim Mən OLD MULTİ BOT bir cox funksyaya malik OLD MULTİ botam\n\n🤔 Botun isdifade qaydasın bilmirsen indi ise '🎛 ƏMİRLƏR' bölməsinə daxil olun\n\n✉️ Botu başladıqına dayir Sahibime mesaj yolladım**", buttons=(
-                     [Button.inline(f"🎛 ƏMİRLƏR", data="emir")],
+                     [Button.inline(f"📮 TAG ƏMİRLƏR", data="emir")],
         # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
                #[Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
                       #Button.url('🤖 USTA Bots', 'https://t.me/ustabots')],
@@ -614,65 +614,16 @@ async def handler(event):
                     ),
                     link_preview=False)
 
-@client.on(events.callbackquery.CallbackQuery(data="emir"))
-async def handler(event):
-    async for usr in client.iter_participants(event.chat_id):
-     ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await event.edit(f"**🤩 Siz artıq ƏMİRLƏR bölümündesiz\n\n🫡 Hansı əmiri isdəsəniz aşağıda Buttonla vuraraq baxa bilersiz\n\n🩶 XOŞ İSDİFADELER @OldMultiBot**", buttons=(
-                     [Button.url('➕ Qrupa Əlavə Et ➕','http://t.me/OldMultiBot?startgroup=a')],
-        # [Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
-               #[Button.url('Qurup🛠', 'https://t.me/Bizim_Paytaxt'),
-                      #Button.url('🤖 USTA Bots', 'https://t.me/ustabots')],
-               [Button.inline(f"📮 TAG ƏMİRLƏRİ", data="thelp"),
-                Button.inline(f"📥 YÜKLƏMƏ", data="yhelp")],
-               [Button.inline(f"🕹 GAME", data="dhelp"),
-                      Button.inline(f"➕️ ƏLAVƏLƏR", data="elave")],
-	       [Button.inline(f"🔙 Geri", data="start")]
-                    ),
-                    link_preview=False)
 
 # gece kusu
-@client.on(events.callbackquery.CallbackQuery(data="thelp"))
+@client.on(events.callbackquery.CallbackQuery(data="emir"))
 async def handler(event): 
     await event.edit(f"**[@OldMultiBot](http://t.me/OldMultiBot)-un '📮TAG ƏMİRLƏR' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🤖➪ /tag - 5-li tağ edər**\n**🤖➪ /etag - Emoji ilə tağ edər**\n**🤖➪ /stag - Sözlər ilə tağ edər**\n**🤖➪ /tektag - Tək-Tək tağ edər**\n**🤖➪ /oldmulti - OldMultiBot botuna ozəl tağ edər**\n**🤖➪ /admins - Adminləri tağ edər**\n**🤖➪ /cancel - Tağı dayandırar**\n**🤖➪ /mafia - Mafia roluyla tag edər**\n**🤖➪ /adtag - Maraqlı adlar ile tag edər\n**🤖➪ /ftag - Futbolçu adları ilə tag edər**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
               # [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/UstaTagbot?startgroup=a')],
          #[Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
                       Button.url('📂 APK','https://t.me/texnoapk1')],
-               [Button.inline(f"🔙 Geri", data="emir")]
-                    ),
-                    link_preview=False)
-
-@client.on(events.callbackquery.CallbackQuery(data="yhelp"))
-async def handler(event): 
-    await event.edit(f"**[@OldMultiBot](http://t.me/OldMultiBot)-un '📥 YÜKLƏMƏ' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🎵 ➪  /song - MAHNI YÜKLƏYİR**\n**⛓️ ➪ Telegrap - Bota şexside photo,video,gif ataraq telegrap linki ala bilersiz Əmir şəxsidə çalışır**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
-              # [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/UstaTagbot?startgroup=a')],
-         #[Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
-               [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
-                      Button.url('📂 APK','https://t.me/texnoapk1')],
-               [Button.inline(f"🔙 Geri", data="emir")]
-                    ),
-                    link_preview=False)
-
-@client.on(events.callbackquery.CallbackQuery(data="dhelp"))
-async def handler(event): 
-    await event.edit(f"**[@OldMultiBot](http://t.me/OldMultiBot)-un '🕹 GAME' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🎲 ➪ /zer - Zər atar**\n**🎯 ➪ /ox - Ox atar**\n**⚽️ ➪ /gol - Goal atar**\n**🎰 ➪ /spin - Spin cevir**\n**🏀 ➪ /basket - Basket atar**\n**🎳 ➪ /bowling - Bowling atar**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
-              # [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/UstaTagbot?startgroup=a')],
-         #[Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
-               [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
-                      Button.url('📂 APK','https://t.me/texnoapk1')],
-               [Button.inline(f"🔙 Geri", data="emir")]
-                    ),
-                    link_preview=False)
-
-@client.on(events.callbackquery.CallbackQuery(data="elave"))
-async def handler(event): 
-    await event.edit(f"**[@OldMultiBot](http://t.me/OldMultiBot)-un '➕️ ƏLAVƏLƏR' bölməsi ⤵**\n\n\n•━━━━━━━━•••━━━━━━━━•\n**🪪 ➪ /info - Kullanıcı melumat getirii**\n**📈 ➪ /ping - Botun pingin ölçür**\n**🎚 ➪ /alive Botun aktiv olmaqın gosterir Sahib isdifade ede biler**\n**👋 ➪ salamlama - Groupa qatılanlara xoş geldin deyir**\n•━━━━━━━━•••━━━━━━━━•", buttons=(
-              # [Button.url('➕ Məni Qrupa əlavə et ➕','http://t.me/UstaTagbot?startgroup=a')],
-         #[Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
-               [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
-                      Button.url('📂 APK','https://t.me/texnoapk1')],
-               [Button.inline(f"🔙 Geri", data="emir")]
+               [Button.inline(f"🔙 Geri", data="start")]
                     ),
                     link_preview=False)
 
@@ -1426,206 +1377,6 @@ async def mentionall(event):
 ad = ['Üzümlü kek ✨', 'Nar çiçeği ✨', 'Papatya 🌼', 'Karanfil ✨', 'Gül 🌹', 'Ayıcık 🐻', 'Mutlu panda 🐼', 'Ay pare 🌛', 'Ballı lokma ✨', 'Lale 🌷', 'Ahtapot 🐙', 'Zambak ⚜️', 'Akasya 🌿', 'Akşam Sefası 🌛', 'Begonvil 🥀', 'Begonya 🪴', 'Bambu 🎍', 'Fesleğen 🌿', 'Kasımpatı 🌸', 'Manolya 🌾', 'Boncuk 🧿', 'Badem 🥭', 'Minnoş 🐹', 'Ponçik 🐣', 'Pofuduk 🐼', 'Unicorn 🦄', 'Karamel 🍫', 'Fındık 🌰', 'Fıstık 🥜', 'Pamuk ☁️', 'Minnoş 🥰', 'Zeytin 🫒', 'Afrodit 🧚🏻', 'Nergis ✨', 'Sümbül ☘️', 'Nilüfer ☘️', 'Menekşe ⚜️', 'Lavanta ✨', 'Gül pare 🌺', 'Reyhan 🌷', 'Kaktüs 🌵', 'Buket 💐', 'Başak 🌾', 'Kar Tanesi ❄️', 'Tospik 🐢', 'Kelebek 🦋', 'Tavşan 🐰', 'Şeker 🍬', 'Böğürtlen ☘️', 'Orkide ☘️', 'Manolya ✨', 'Ayçiçeği 🌻', 'Tweety 🐥', 'Star ✨', 'Yonca 🍀', 'Ateş böceği ✨']
 
 
-#pyrogram
-@app.on_message(filters.command("info"))
-async def _id(_, message: Message):
-    msg = message.reply_to_message or message
-    out_str = "**User İnfo:**\n"
-    out_str += f" 💎 __Yanıtlanan Kullanıcı Adı__ : {msg.from_user.first_name}\n"
-    out_str += f" 💬 __Mesaj ID__ : `{msg.forward_from_message_id or msg.message_id}`\n"
-    if msg.from_user:
-        out_str += f" 🙋🏻‍♂️ __Yanıtlanan Kullanıcı ID__ : `{msg.from_user.id}`\n"
- 
-    await message.reply(out_str)
-
-
-
-#mahnı yükləmə#
-
-@app.on_message(filters.command("song") & ~filters.edited)
-def song(_, message):
-    query = " ".join(message.command[1:])
-    m = message.reply("<b>Mahnınız Axtarılır ... 🔍</b>")
-    ydl_ops = {"format": "bestaudio[ext=m4a]"}
-    try:
-        results = YoutubeSearch(query, max_results=1).to_dict()
-        link = f"https://youtube.com{results[0]['url_suffix']}"
-        title = results[0]["title"][:40]
-        thumbnail = results[0]["thumbnails"][0]
-        thumb_name = f"{title}.jpg"
-        thumb = requests.get(thumbnail, allow_redirects=True)
-        open(thumb_name, "wb").write(thumb.content)
-        duration = results[0]["duration"]
-
-    except Exception as e:
-        m.edit("<b>❌ Bunu deməliyəm üzürlü say 😔 mahnı tapılmadı.\n\n Zəhmət Olmasa başqa mahnı adı deyin @oldsupport 🍷.</b>")
-        print(str(e))
-        return
-    m.edit("<b>📥 Yükləmə Prosesi Başladı...</b>")
-    try:
-        with yt_dlp.YoutubeDL(ydl_ops) as ydl:
-            info_dict = ydl.extract_info(link, download=False)
-            audio_file = ydl.prepare_filename(info_dict)
-            ydl.process_info(info_dict)
-        rep = f"**╭───────────────**\n**├▷ ♬ Adı: [{title[:35]}]({link})**\n**├───────────────**\n**├▷🤍 BOT @OldMultiBot**\n**╰───────────────**"
-        res = f"**╭───────────────**\n**├▷ ♬ Adı: [{title[:35]}]({link})**\n**├───────────────**\n**├▷👤 İstəyən** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n**├───────────────**\n**├▷🌀 Bot: @{Config.BOT_USERNAME}**\n**╰───────────────**"
-        secmul, dur, dur_arr = 1, 0, duration.split(":")
-        for i in range(len(dur_arr) - 1, -1, -1):
-            dur += int(float(dur_arr[i])) * secmul
-            secmul *= 60
-        m.edit("📤 Yüklenir..")
-        message.reply_audio(audio_file, caption=rep, parse_mode='md',quote=False, title=title, duration=dur, thumb=thumb_name, performer="@OldMultiBot")
-        m.delete()
-        bot.send_audio(chat_id=Config.PLAYLIST_ID, audio=audio_file, caption=res, performer="@AzeSongRobot", parse_mode='md', title=title, duration=dur, thumb=thumb_name)
-    except Exception as e:
-        m.edit("<link Xətanın, düzelmesini gözləyin.</b>")
-        print(e)
-
-    try:
-        os.remove(audio_file)
-        os.remove(thumb_name)
-    except Exception as e:
-        print(e)
-
-
-
-
-#Pyrogram comand
-@app.on_message(filters.command("zer"))
-async def roll_dice(bot, message):
-    await bot.send_dice(message.chat.id, "🎲")
-
-@app.on_message(filters.command("ox"))                                      
-async def roll_arrow(bot, message):
-    await bot.send_dice(message.chat.id, "🎯")
-
-@app.on_message(filters.command("gol"))
-async def roll_goal(bot, message):
-    await bot.send_dice(message.chat.id, "⚽️")
-
-@app.on_message(filters.command("spin"))
-async def roll_luck(bot, message):
-    await bot.send_dice(message.chat.id, "🎰")
-
-@app.on_message(filters.command("basket"))
-async def roll_throw(bot, message):
-    await bot.send_dice(message.chat.id, "🏀")
-
-@app.on_message(filters.command(["bowling", "tenpins"]))
-async def roll_bowling(bot, message):
-    await bot.send_dice(message.chat.id, "🎳") 
-
- 
-
-#telethon xos geldin mesaj 
-@client.on(events.ChatAction) 
-async def handler(event): # Welcome every new user 
-    if event.user_joined: 
-       await event.reply('Salam xos geldiniz groupa!')
-
-
-#pyrogram telegrap
-@app.on_message(filters.command("alive") & filters.user(Config.OWNER_ID))
-async def live(client: Client, message: Message):
-    livemsg = await message.reply_text(ALIVE)
-
-
-
-@app.on_message(filters.command("ping"))
-async def ping(_, message):
-    start_t = time.time()
-    rm = await message.reply_text("...")
-    end_t = time.time()
-    time_taken_s = (end_t - start_t) * 1000
-    await rm.edit(f"Pong!\n{time_taken_s:.3f} ms")
-
-
-
-@app.on_message(filters.private & filters.photo)
-async def uploadphoto(client, message):
-  msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
-  userid = str(message.chat.id)
-  img_path = (f"./DOWNLOADS/{userid}.jpg")
-  img_path = await client.download_media(message=message, file_name=img_path)
-  await msg.edit_text("`Tʀʏɪɴɢ Tᴏ Uᴘʟᴏᴀᴅ.....`")
-  try:
-    tlink = upload_file(img_path)
-  except:
-    await msg.edit_text("`Something went wrong`") 
-  else:
-    await msg.edit_text(f"https://telegra.ph{tlink[0]}")     
-    os.remove(img_path) 
-
-@app.on_message(filters.private & filters.photo)
-async def uploadgif(client, message):
-  if(message.animation.file_size < 5242880):
-    msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
-    userid = str(message.chat.id)
-    gif_path = (f"./DOWNLOADS/{userid}.mp4")
-    gif_path = await client.download_media(message=message, file_name=gif_path)
-    await msg.edit_text("`Tʀʏɪɴɢ Tᴏ Uᴘʟᴏᴀᴅ.....`")
-    try:
-      tlink = upload_file(gif_path)
-      await msg.edit_text(f"https://telegra.ph{tlink[0]}")   
-      os.remove(gif_path)   
-    except:
-      await msg.edit_text("Something really Happend Wrong...") 
-  else:
-    await message.reply_text("Size Should Be Less Than 5 mb")
-
-@app.on_message(filters.private & filters.photo)
-async def uploadvid(client, message):
-  if(message.video.file_size < 5242880):
-    msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
-    userid = str(message.chat.id)
-    vid_path = (f"./DOWNLOADS/{userid}.mp4")
-    vid_path = await client.download_media(message=message, file_name=vid_path)
-    await msg.edit_text("`Tʀʏɪɴɢ Tᴏ Uᴘʟᴏᴀᴅ.....`")
-    try:
-      tlink = upload_file(vid_path)
-      await msg.edit_text(f"https://telegra.ph{tlink[0]}")     
-      os.remove(vid_path)   
-    except:
-      await msg.edit_text("Something really Happend Wrong...") 
-  else:
-    await message.reply_text("Size Should Be Less Than 5 mb")
-
-
-
-@client.on(events.NewMessage(pattern='/(?i)quiz')) 
-async def quiz(event):
-    # get the sender
-    sender = await event.get_sender()
-    SENDER = sender.id
-
-    # Start a conversation
-    async with client.conversation(await event.get_chat(), exclusive=True) as conv:
-        # get two random numbers between 1 and 10
-        rand1 = randint(1,10)
-        rand2 = randint(1,10)
-        # make the sum
-        sum = rand1+rand2
-        # make another sum based on two different random numbers. This will be used for the wrong option
-        sum_not_true = randint(1,10) + randint(1,10)
-
-        # To make the position of the button random, let's define two keyboard that activates with 50% probability
-        if(bool(random.getrandbits(1))):
-            keyboard = [[Button.inline("{}".format(sum), sum)], [Button.inline("{}".format(sum_not_true), sum_not_true)]]
-        else:
-            keyboard = [[Button.inline("{}".format(sum_not_true), sum_not_true)],[Button.inline("{}".format(sum), sum)]]
-
-        text = "<b>Quiz time</b> 🤖\n{} + {} = ?\n".format(str(rand1), str(rand2))
-        await conv.send_message(text, buttons=keyboard, parse_mode='html')
-        press = await conv.wait_event(press_event(SENDER))
-        choice = str(press.data.decode("utf-8"))
-
-        if(choice == str(sum)):
-            await conv.send_message("Correct Answer!", parse_mode='html')
-        else:
-            await conv.send_message("Nope, i won!", parse_mode='html')
-
-        await conv.cancel_all()
-        return 
   
 #@client.on(events.NewMessage(pattern='/reklam'))
 #async def handler(event):	
