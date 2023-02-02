@@ -575,7 +575,7 @@ async def start(event):
 
   if event.is_group:
     return await client.send_message(event.chat_id, f"**Əziz isdifadeçi Qroupda cox yazmaqla başınızı ağrıtmıyım Bota Keç vuraraq şexside melumat ala bilersiz**", buttons=(
-                     [Button.url('💡 Bota Keç','https://t.me/OldMultiBot?start=start')],
+                     [Button.url('💡 Bota Keç','https://t.me/oldtaggerbot?start=start')],
                     ),
                     link_preview=False)
 
