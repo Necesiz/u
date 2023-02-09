@@ -574,8 +574,8 @@ async def start(event):
 
 
   if event.is_group:
-    return await client.send_message(event.chat_id, f"**Əziz isdifadeçi Qroupda cox yazmaqla başınızı ağrıtmıyım BOT ƏMRLƏRİ vuraraq şexside melumat ala bilersiz**", buttons=(
-                     [Button.url('🎛 BOT ƏMRLƏRİ','https://t.me/oldtaggerbot?start=estart')],
+    return await client.send_message(event.chat_id, f"**Əziz isdifadeçi Qroupda cox yazmaqla başınızı ağrıtmıyım BOT Start vererek vuraraq şexside melumat ala bilersiz**", buttons=(
+                     [Button.url('👋 BOT Start vererek','https://t.me/oldtaggerbot')],
                     ),
                     link_preview=False)
 
