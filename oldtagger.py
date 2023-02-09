@@ -575,13 +575,13 @@ async def start(event):
 
   if event.is_group:
     return await client.send_message(event.chat_id, f"**Əziz isdifadeçi Qroupda cox yazmaqla başınızı ağrıtmıyım BOT ƏMRLƏRİ vuraraq şexside melumat ala bilersiz**", buttons=(
-                     [Button.url('🎛 BOT ƏMRLƏRİ','https://t.me/oldtaggerbot?start=emir')],
+                     [Button.url('🎛 BOT ƏMRLƏRİ','https://t.me/oldtaggerbot?start=estart')],
                     ),
                     link_preview=False)
 
 
 
-@client.on(events.callbackquery.CallbackQuery(data="start"))
+@client.on(events.callbackquery.CallbackQuery(data="estart"))
 async def handler(event):
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
@@ -606,7 +606,7 @@ async def handler(event):
          #[Button.url('🎉 Sahib', 'https://t.me/Nehmedov')],
                [Button.url('🔮 Kanalım','https://t.me/TEAMABASOFcom'),
                       Button.url('📂 APK','https://t.me/texnoapk1')],
-               [Button.inline(f"🔙 Geri", data="start")]
+               [Button.inline(f"🔙 Geri", data="estart")]
                     ),
                     link_preview=False)
 
