@@ -74,6 +74,20 @@ def userinfo(client, message):
 
 
 
+@rehim.on_message(filters.command("info"))
+def userinfo(client, message): 
+ user_id = message.chat.id # getting the user_id 
+  
+ user = app.get_users(user_id) # getting the user object 
+ name = user.first_name + " " + user.last_name # name 
+ username = user.username # username 
+ bio = user.about # bio 
+ is_verified = user.is_verified # is_verified 
+ is_bot = user.is_bot # is_bot 
+ photo = user.photo # photo 
+ message.reply_text(f"Name: {name}\nUsername: {username}\nBio: {bio}\nis_verified: {is_verified}\nis_bot: {is_bot}\nPhoto: {photo}") 
+
+
 
 
 
