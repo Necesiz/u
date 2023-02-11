@@ -62,17 +62,21 @@ def unpin_message(client, message):
   client.send_message(message.chat.id, "Bir mesaj seciniz")
 
 
+@rehim.on_message(filters.command("userinfo"))
+def userinfo(client, message):
+    if message.text == "/userinfo":
+        user = app.get_users(message.from_user.id)
+        client.send_message(
+            chat_id=message.chat.id,
+            text="Hey {0[first_name]}!\nYour user ID is: {0[id]}".format(user),
+            parse_mode="HTML"
+        )
 
-@rehim.on_message(filters.command(["fileid"]))
-def fileid(client, message):
-    if len(message.text.split()) == 2:
-        fileid = message.reply_to_message.document.file_id
-        client.send_message(
-            chat_id=message.chat.id,
-            text="The file id is {}".format(fileid),
-            parse_mode="markdown"
-        )
 
+
+
+
+app.run()
 
 
 
