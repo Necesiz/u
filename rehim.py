@@ -62,13 +62,13 @@ def unpin_message(client, message):
   client.send_message(message.chat.id, "Bir mesaj seciniz")
 
 
-@rehim.on_message(filters.command("userinfo"))
+@rehim.on_message(filters.private & filters.command("id"))
 def userinfo(client, message):
     if message.text == "/userinfo":
         user = rehim.get_users(message.from_user.id)
         client.send_message(
             chat_id=message.chat.id,
-            text="Hey {0[first_name]}!\nYour user ID is: {0[id]}".format(user),
+            text="Salam {0[first_name]}!\nSənin ID: {0[id]}".format(user),
             parse_mode="HTML"
         )
 
