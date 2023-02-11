@@ -74,18 +74,28 @@ def userinfo(client, message):
 
 
 
-@rehim.on_message(filters.command("info"))
-def userinfo(client, message): 
- user_id = message.chat.id # getting the user_id 
-  
- user = rehim.get_users(user_id) # getting the user object 
- name = user.first_name + " " + user.last_name # name 
- username = user.username # username 
- bio = user.about # bio 
- is_verified = user.is_verified # is_verified 
- is_bot = user.is_bot # is_bot 
- photo = user.photo # photo 
- message.reply_text(f"Name: {name}\nUsername: {username}\nBio: {bio}\nis_verified: {is_verified}\nis_bot: {is_bot}\nPhoto: {photo}") 
+
+
+@rehim.on_message(filters.command('info'))
+def user_info(client, message):
+    if message.reply_to_message:
+        user = message.reply_to_message.from_user
+    else :
+        user = message.from_user
+
+    user_id = user.id 
+    first_name = user.first_name 
+    last_name = user.last_name 
+    user_name = user.username
+    language_code = user.language_code  
+
+    message.reply_text(
+        f"User ID : {user_id}\n"
+        f"First Name : {first_name}\n"
+        f"Last Name : {last_name}\n"
+        f"User Name : {user_name}\n"
+        f"Language Code : {language_code}"        
+    )
 
 
 
