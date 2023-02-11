@@ -78,7 +78,7 @@ def userinfo(client, message):
 def userinfo(client, message): 
  user_id = message.chat.id # getting the user_id 
   
- user = app.get_users(user_id) # getting the user object 
+ user = rehim.get_users(user_id) # getting the user object 
  name = user.first_name + " " + user.last_name # name 
  username = user.username # username 
  bio = user.about # bio 
