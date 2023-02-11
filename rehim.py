@@ -38,19 +38,15 @@ def botlist(client, message):
     message.reply(response_text)
 
 
-adminList = ['teamabasov', 'anonyumaz', 'anonyumAzbot']
-
-def get_admin_list():
-  return adminList
-
-@rehim.on_message(filters.command(["adminlist"]))
-def adminlist(client, message):
-  text = f"The current admins are: {', '.join(get_admin_list())}"
-  client.send_message(
-    chat_id=message.chat.id, 
-    text=text, 
-    reply_to_message_id=message.message_id
-  )
+@rehim.on_message(filters.command("unpin"))
+def unpin_message(client, message):
+ reply_to = message.reply_to_message
+ 
+ if reply_to != None:
+  client.unpin_chat_message(message.chat.id, reply_to.message_id)
+  client.send_message(message.chat.id, "Mesaj başarıyla kaldırıldı.")
+ else:
+  client.send_message(message.chat.id, "Bir mesaj seciniz")
 
 
 
