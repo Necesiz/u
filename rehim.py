@@ -16,6 +16,28 @@ async def hello(client, message):
 
 
 
+@rehim.on_message(filters.command("botlist"))
+def botlist(client, message):
+    bots = [     # List of Bots
+        {
+            "name": "Besty",
+            "username": "BestyBot"
+        },
+        {
+            "name": "Robbie",
+            "username": "RobbieBot"
+        },
+        {
+            "name": "Cally",
+            "username": "CallyBot"
+        }
+    ]
+    response_text = ""
+    for bot in bots:
+        response_text += f"{bot['name']}: @{bot['username']}\n"
+    message.reply(response_text)
+
+
 
 
 
