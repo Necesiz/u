@@ -22,4 +22,4 @@ async def hello(client, message):
 
 
 
-rehim.start()
+rehim.run()
