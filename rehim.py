@@ -38,6 +38,18 @@ def botlist(client, message):
     message.reply(response_text)
 
 
+
+@rehim.on_message(Filters.command('pin'))
+def pin_message(client, message):
+    replied = message.reply_to_message
+    if replied:
+        client.pin_chat_message(message.chat.id, replied.message_id)
+    else:
+        message.reply("Lütfen cevaplayarak mesajınızı sabitlemeyi deneyin")
+
+
+
+
 @rehim.on_message(filters.command("unpin"))
 def unpin_message(client, message):
  reply_to = message.reply_to_message
