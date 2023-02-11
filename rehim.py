@@ -76,10 +76,6 @@ def userinfo(client, message):
 
 
 
-app.run()
-
-
-
 
 
 rehim.run()
