@@ -65,7 +65,7 @@ def unpin_message(client, message):
 @rehim.on_message(filters.command("userinfo"))
 def userinfo(client, message):
     if message.text == "/userinfo":
-        user = app.get_users(message.from_user.id)
+        user = rehim.get_users(message.from_user.id)
         client.send_message(
             chat_id=message.chat.id,
             text="Hey {0[first_name]}!\nYour user ID is: {0[id]}".format(user),
