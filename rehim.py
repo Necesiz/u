@@ -1,4 +1,4 @@
-from pyrogram import Client, Filters
+from pyrogram import Client, filters
 from Config import Config
 
 api_id = Config.API_ID
@@ -13,7 +13,7 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
-@rehim.on_message(Filters.command("botlist"))
+@rehim.on_message(filters.command("botlist"))
 def botlist(client, message):
     bots = [     # List of Bots
         {
