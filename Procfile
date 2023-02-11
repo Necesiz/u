@@ -1,1 +1,1 @@
-worker: python3 oldtagger.py
+worker: python3 rehim.py
