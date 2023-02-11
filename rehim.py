@@ -39,7 +39,7 @@ def botlist(client, message):
 
 
 
-@rehim.on_message(Filters.command('pin'))
+@rehim.on_message(filters.command('pin'))
 def pin_message(client, message):
     replied = message.reply_to_message
     if replied:
