@@ -1,10 +1,2 @@
-# repodan adimi silme peyser.
-telethon
-cryptg
-requests
-Pyrogram==1.4.9
-tgcrypto
-pymongo[srv]
-aiofiles
-psutil
-motor
+#teamabasov test
+pyrogram==1.4.16
