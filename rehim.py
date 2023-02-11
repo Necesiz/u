@@ -1,3 +1,4 @@
+import pyrogram
 from pyrogram import Client, filters
 from Config import Config
 
@@ -62,11 +63,17 @@ def unpin_message(client, message):
 
 
 
+@rehim.on_message(filters.command(["fileid"]))
+def fileid(client, message):
+    if len(message.text.split()) == 2:
+        fileid = message.reply_to_message.document.file_id
+        client.send_message(
+            chat_id=message.chat.id,
+            text="The file id is {}".format(fileid),
+            parse_mode="markdown"
+        )
 
-@rehim.on_message(filters.command('fileid')) 
-def fileid(client, message): 
-    reply_text = "File ID: {}".format(message.document.file_id) 
-    message.reply_text(reply_text) 
+
 
 
 
