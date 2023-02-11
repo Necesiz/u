@@ -63,6 +63,12 @@ def unpin_message(client, message):
 
 
 
+@rehim.on_message(filters.command('fileid')) 
+def fileid(client, message): 
+    reply_text = "File ID: {}".format(message.document.file_id) 
+    message.reply_text(reply_text) 
+
+
 
 
 rehim.run()
