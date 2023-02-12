@@ -157,12 +157,6 @@ def text_delete(client, message):
 
 
 
-@rehim.on_message(filters.command(["leave"]))
-def leave_chat(client, message):
-    if message.chat.type in ["supergroup", "group"]:
-        client.leave_chat(message.chat.id)
-        message.reply("Ayrıldım!")
-
 
 
 rehim.run()
