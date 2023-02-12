@@ -158,11 +158,6 @@ def text_delete(client, message):
 
 
 
-#unpin_all_chat_messages kodu:
-
-from pyrogram import Client, Filters
-
-app = Client("my_account")
                                                            
 @rehim.on_message(filters.command(["unpinall"]))
 def unpin_all_chat_messages(client, message):
