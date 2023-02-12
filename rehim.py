@@ -101,7 +101,7 @@ def user_info(client, message):
 
 
 
-@rehim.on_message(filter.command("ses"))
+@rehim.on_message(filters.command("ses"))
 def get_voice(client, message):
     if message.audio:
         message.download_media(file_name="voice.ogg")
