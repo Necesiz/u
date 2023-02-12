@@ -22,8 +22,8 @@ async def hello(client, message):
 def botlist(client, message):
     bots = [     # List of Bots
         {
-            "name": "Besty",
-            "username": "BestyBot"
+            "name": "OldMulti",
+            "username": "OldMultiBot"
         },
         {
             "name": "Robbie",
@@ -159,7 +159,7 @@ def text_delete(client, message):
 
 
 
- @rehim.on_message(filters.command('mute'))
+@rehim.on_message(filters.command('mute'))
 def mute(client, message):
     message.delete()
     user_id = message.command[1]
