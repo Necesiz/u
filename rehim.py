@@ -159,11 +159,16 @@ def text_delete(client, message):
 
 
                                                            
-@rehim.on_message(filters.command(["unpinall"]))
-def unpin_all_chat_messages(client, message):
-    message.delete()  # Kullanıcının mesajı silinir
-    chat_id = message.chat.id  # Mesaj gönderen sohbetin kimliğini al
-    client.unpin_all_chat_messages(chat_id)  # Sohbet mesajlarının tümünün başlangıç noktası olarak ayarlanması
+from pyrogram import Client, Filters
+
+app = Client("my_account")
+
+@rehim.on_message(filters.command("promote"))
+def promote_chat_member(client, message):
+    chat_id = message.chat.id
+    user_id = message.reply_to_message.from_user.id
+    app.promote_chat_member(chat_id=chat_id, user_id=user_id)
+    message.reply("Kullanıcı başarıyla yönetici olarak atandı!")
 
 
 
