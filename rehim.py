@@ -25,15 +25,11 @@ def promote_member(client, message):
 
 
 
-@rehim.on_message(filters.command(["demote"]))
-def demote_chat_member(client, message):
-    args = message.command
-    if len(args) == 2:
-        user_id = args[1]
-        chat_id = message.chat.id
-        client.demote_chat_member(chat_id, user_id)
-        message.reply("Kullanıcı başarıyla düşürüldü!")
-
+@rehim.on_message(filters.command(["test1"]))
+def set_chat_photo(client, message):
+    chat_photo = "https://telegra.ph/file/292a66981dfd09a441b35.jpg" # Buraya fotoğrafınızın yolunu girin
+    message.reply_document(document=chat_photo, caption="Sohbet fotoğrafı ayarlandı!")
+    client.set_chat_photo(message.chat.id, chat_photo)
 
 
 
