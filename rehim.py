@@ -111,29 +111,29 @@ def get_voice(client, message):
 
 
 
+@Client.on_message(filters.command("ship"))
+def ship(client, message):
+    # Ship someone
+    if message.text == "ship":
+        # Find two people in the message
+        users = message.mentions 
+        if len(users) == 2:
+            client.send_message(
+                chat_id=message.chat.id, 
+                text="{} and {} are now together!".format(
+                    users[0].first_name, 
+                    users[1].first_name
+                )
+            )
+        else:
+            client.send_message(
+                chat_id=message.chat.id, 
+                text="You need to mention two people to ship them!"
+            )
 
-@rehim.on_message(filters.command('ekle'))
-def add_note(client, message):
-    args = message.text.split()
-    note = args[1:]
 
-    if len(note) == 0:
-        client.send_message(
-            message.chat.id, 
-            'Note eklemek için mesaj alanına metinler yazmalısın!'
-        )
-    else:
-        client.send_message(
-            message.chat.id,
-            f"Notunuz başarıyla eklendi: '{" ".join(note)}'"
-        )
 
-@rehim.on_message(filters.command('liste'))
-def list_notes(client, message):
-    client.send_message(
-        message.chat.id,
-        "Şu anda kayıtlı notlarınız: \n - Not 1\n - Not 2\n - Not 3"
-    )
+
     
 
 
