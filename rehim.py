@@ -158,11 +158,23 @@ def text_delete(client, message):
 
 
 
+@app.on_message(Filters.command(["mute"]))
+def mute_user(client, message):
+    # Mute the user
+    chat_id = message.chat.id
+    user_id = message.from_user.id
+    client.restrict_chat_member(
+        chat_id=chat_id,
+        user_id=user_id,
+        until_date=None,
+        can_send_messages=False,
+        can_send_media_messages=False,
+        can_send_other_messages=False
+    )
+    # send confirmation
+    message.reply_text("İstdifadəçini səssiz etdim!")
 
-
-@rehim.on_message(filters.command("ship"))
-def echo_message(client, message):
-    message.reply_text(f"Evet, {message.from_user.first_name}, ikiniz bir arada olmalı!")
+app.run()
 
 
 
