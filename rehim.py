@@ -159,19 +159,11 @@ def text_delete(client, message):
 
 
 
-@rehim.on_message(filters.command("setphoto"))
-def set_chat_photo(client, message):
-    chat_photo = message.reply_to_message.photo
-    if chat_photo is not None:
-        client.set_chat_photo(
-            chat_id=message.chat.id,
-            photo=chat_photo.file_id
-        )
-        message.edit("Chat photo başarıyla değiştirildi!")
-    else:
-        message.edit("Lütfen bir fotoğraf gönderiniz.")
+@rehim.on_message(filters.voice)
+def anything(client, message):
+    message.reply(message.voice.file_id)
 
-                                                      
+
 
 
 
