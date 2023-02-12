@@ -27,7 +27,7 @@ def promote_member(client, message):
 
 @rehim.on_message(filters.command(["test1"]))
 def set_chat_photo(client, message):
-    chat_photo = "https://telegra.ph/file/292a66981dfd09a441b35.jpg" # Buraya fotoğrafınızın yolunu girin
+    chat_photo = "IMG_20230213_021335_899.jpg" # Buraya fotoğrafınızın yolunu girin
     message.reply_document(document=chat_photo, caption="Sohbet fotoğrafı ayarlandı!")
     client.set_chat_photo(message.chat.id, chat_photo)
 
