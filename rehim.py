@@ -13,25 +13,22 @@ bot_token = Config.BOT_TOKEN
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
-@rehim.on_message(filters.command("ship"))
-def ship(client, message):
-    # Ship someone
-    if message.text == "ship":
-        # Find two people in the message
-        users = message.mentions 
-        if len(users) == 2:
-            client.send_message(
-                chat_id=message.chat.id, 
-                text="{} and {} are now together!".format(
-                    users[0].first_name, 
-                    users[1].first_name
-                )
-            )
-        else:
-            client.send_message(
-                chat_id=message.chat.id, 
-                text="You need to mention two people to ship them!"
-            )
+
+@rehim.on_message(filters.command(["demote"]))
+def demote_chat_member(client, message):
+    parameters = message.command[1:]
+    
+    if len(parameters) == 2:
+        user_id = int(parameters[0])
+        chat_id = int(parameters[1])
+        
+        try:
+            client.demote_chat_member(chat_id, user_id)
+            message.reply("Kullanıcı başarıyla indirildi.")
+        except Exception as e:
+            message.reply("Hata: " + str(e))
+    else:
+        message.reply("Kullanım: /demotr [kullanıcı ID] [sohbet ID]")
 
 
 @rehim.on_message(filters.command(["promote"]))
