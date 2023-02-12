@@ -23,7 +23,7 @@ def chat_members(client, message):
     # Gruplardaki üyeleri listeleme
     text = "Gruptaki Üyeler:\n\n"
     for x in members:
-        text += f"""\U0001f464 Adı {x.user.first_name} - Kullanıcı adı {x.user.username}\n"""
+        text += f"""\U0001f464 {x.user.username}\n"""
     message.reply_text(text)
 
 
