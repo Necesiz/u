@@ -158,7 +158,7 @@ def text_delete(client, message):
 
 
 
-@app.on_message(Filters.command(["mute"]))
+@rehim.on_message(Filters.command(["mute"]))
 def mute_user(client, message):
     # Mute the user
     chat_id = message.chat.id
@@ -174,7 +174,6 @@ def mute_user(client, message):
     # send confirmation
     message.reply_text("İstdifadəçini səssiz etdim!")
 
-app.run()
 
 
 
