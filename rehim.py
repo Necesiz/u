@@ -18,7 +18,7 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
-@rehim.on_message(Filters.command(["demote"]))
+@rehim.on_message(filters.command(["demote"]))
 def demote_chat_member(client, message):
     if len(message.command) == 2:
         user_id = message.command[1]
