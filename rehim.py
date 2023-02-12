@@ -155,7 +155,7 @@ def text_delete(client, message):
         rehim.delete_messages(message.chat.id, message_ids=message.message_id)
 
 
-@rehim.on_message(filters.command("cıx"))
+@rehim.on_message(filters.command("leave"))
 def leave(client, message):
     message.reply('Mən burdan gedirəm')
     rehim.leave_chat(message.chat.id)
