@@ -12,6 +12,14 @@ bot_token = Config.BOT_TOKEN
 #-#-#-# Pyrogram Başlanğıc #-#-#-#
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
+
+
+
+@rehim.on_message(filters.command('aye'))
+def send_voice(client, message):
+    rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACITpj6VD0_jjbXkOZ307AwYF8rNw5UwACswIAAs0m_VKAQ7xZ5hdPpx4E', caption="Test")
+
+
 @rehim.on_message(filters.command("start"))
 async def hello(client, message): 
     await message.reply("Hello from Pyrogram!")
@@ -164,10 +172,6 @@ def anything(client, message):
     message.reply(message.voice.file_id)
 
 
-
-@rehim.on_message(filters.command('aye'))
-def send_voice(client, message):
-    rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACITpj6VD0_jjbXkOZ307AwYF8rNw5UwACswIAAs0m_VKAQ7xZ5hdPpx4E', caption="Test")
 
 
 
