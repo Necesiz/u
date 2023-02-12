@@ -100,17 +100,14 @@ def user_info(client, message):
 
 
 
-@rehim.on_message(filters.command("google"))
-def echo(client, message):
-    # Şimdi google'a bir sorgu göndereceğiz
-    query = message.text
-    results = rehim.google_search(query=query)
-    
-    # Sonuçları ekranda gösteriyoruz
-    for result in results:
-        message.reply_text(result['title'] + "\n" + result['link'])
-
-
+# Bu filtre tetiklenirse bu işlemi başlat
+@rehim.on_message(filters.command("purge"))
+def purge(client, message):
+ # Chat mesajlarının silinmesini sağlamak için 100 mesaj silinmesi gerekli
+    for _ in range(100):
+        client.delete_messages(message.chat.id)
+ # Son mesajların silinmesi
+    client.delete_messages(message.chat.id, message.message_id)
 
 
 
