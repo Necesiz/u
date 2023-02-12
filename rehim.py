@@ -1,6 +1,7 @@
 import pyrogram
 import random
 from pyrogram import Client, filters
+from pyrogram import Client, emoji, filters
 from Config import Config
 
 api_id = Config.API_ID
@@ -15,19 +16,26 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
-@rehim.on_message(filters.command("save"))
-def save_file(client, message):
-    file_id = message.document.file_id
-    file_name = message.document.file_name
-    file_size = message.document.file_size
 
-    rehim.download_media(
-        message=message,
-        file_name=file_name,
-        progress=progress
-    )
-    
-    print(f"Dosya {file_name} kaydedildi!")
+
+# Target chat. Can also be a list of multiple chat ids/usernames
+TARGET = -1001724090128
+# Welcome message template
+MESSAGE = "{} Welcome to [Pyrogram](https://t.me/rehimbottest)'s group chat {}!"
+
+
+
+
+# Filter in only new_chat_members updates generated in TARGET chat
+@rehim.on_message(filters.chat(TARGET) & filters.new_chat_members)
+async def welcome(client, message):
+    # Build the new members list (with mentions) by using their first_name
+    new_members = [u.mention for u in message.new_chat_members]
+    # Build the welcome message by using an emoji and the list we built above
+    text = MESSAGE.format(emoji.SPARKLES, ", ".join(new_members))
+    # Send the welcome message, without the web page preview
+    await message.reply_text(text, disable_web_page_preview=True)
+
 
 
 
