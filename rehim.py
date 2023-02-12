@@ -159,7 +159,7 @@ def text_delete(client, message):
 
 @app.on_message(filters.commad("test"))
 def ship(client, message):
-    if message.text == "/ship":
+    if message.text == "/test":
         shipMessage = message.reply("🚢")
         shipMessage.edit("🚢Sailing!")
 
