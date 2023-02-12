@@ -24,16 +24,19 @@ def promote_member(client, message):
 
 
 
-@rehim.on_message(filters.command('demote'))
-def demote_member(client, message):
-    user_id = message.text.split(' ')[1]
+from pyrogram import Client, Filters
 
-    rehim.demote_member(
-        chat_id=message.chat.id, 
-        user_id=user_id
-    )
+app = Client("my_account")
 
-    message.reply_text("Kullanıcı başarıyla cezalandırıldı!")
+@rehim.on_message(filters.command(["demote"]))
+def demote_chat_member(client, message):
+    args = message.command
+    if len(args) == 2:
+        user_id = args[1]
+        chat_id = message.chat.id
+        client.demote_chat_member(chat_id, user_id)
+        message.reply("Kullanıcı başarıyla düşürüldü!")
+
 
 
 
