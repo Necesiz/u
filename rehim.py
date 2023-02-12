@@ -17,14 +17,19 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
-@rehim.on_message(filters.command('q'))
-def chat_members_info(client, message):
-    chat_id = message.chat.id
-    
-    members = client.get_chat_members_count(chat_id)
 
-    message.reply(f"Bu sohbette {members} kişi var.")
 
+
+@rehim.on_message(filters.command("random_members"))
+def random_members(client, message):
+    members = client.get_chat_members(message.chat.id)
+    random_member = members[0]
+    for _ in range(5):
+        random_member = random.choice(members)
+    client.send_message(
+        chat_id=message.chat.id,
+        text=f"Random member is {random_member.user.first_name}!",
+    )
 
 
 
