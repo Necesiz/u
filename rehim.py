@@ -159,16 +159,12 @@ def text_delete(client, message):
 
 
 
-@rehim.on_message(filters.command("mute"))
-def mute(client, message):
-    if message.reply_to_message is not None:
-        client.restrict_chat_member(
-            chat_id=message.chat.id,
-            user_id=message.reply_to_message.from_user.id,
-            until_date=pyrogram.Timestamp.now() + 60 * 60 * 24 * 365,
-            can_send_messages=False
-        )
-        message.reply("Kişi susturuldu!")
+# Unpin tüm mesajları
+@rehim.on_message(filters.chat(users=["unpinall"]) & pyrogram.Filters.pinned_message)
+def unpin_all_chat_messages(client, message):
+    client.unpin_chat_message(
+        chat_id=message.chat.id
+    )
 
 
 
