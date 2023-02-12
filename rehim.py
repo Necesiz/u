@@ -13,6 +13,17 @@ bot_token = Config.BOT_TOKEN
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
+
+
+@rehim.on_message(filters.command(["promote"]))
+def promote_member(client, message):
+    if len(message.command) == 2:
+        member_id = message.command[1]
+        status = client.promote_chat_member(chat_id=message.chat.id, user_id=member_id)
+        message.reply(f"{member_id} Başarıyla Yükseltildi.")
+
+
+
 @rehim.on_message(filters.command("unpinall"))
 def unpin_all_chat_messages(client, message):
     chat_id = message.chat.id
