@@ -14,21 +14,31 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
+from pyrogram import Client, filters
 
+app = Client("my_account")
 
-
-
-@rehim.on_message(filters.command(["demote"]))
-def demote_chat_member(client, message):
+@rehim.on_message(filters.command(["promote"]))
+def promote_member(client, message):
     if len(message.command) == 2:
-        user_id = message.command[1]
-        rehim.demote_chat_member(
-            chat_id=message.chat.id,
-            user_id=user_id
-        )
-    else:
-        message.reply("gggggg. Kullanım: /demote ")
+        member_id = message.command[1]
+        status = client.promote_chat_member(chat_id=message.chat.id, user_id=member_id)
+        message.reply(f"{member_id} Başarıyla Yükseltildi.")
 
+app.run()
+
+
+
+@rehim.on_message(filters.command('demote'))
+def demote_member(client, message):
+    user_id = message.text.split(' ')[1]
+
+    rehim.demote_member(
+        chat_id=message.chat.id, 
+        user_id=user_id
+    )
+
+    message.reply_text("Kullanıcı başarıyla cezalandırıldı!")
 
 
 
