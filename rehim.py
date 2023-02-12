@@ -148,6 +148,12 @@ def delete_message(client, message):
 
 
     
+@rehim.on_message(filters.command(["id"]))
+def get_id(client, message):
+    #iletiye atama yapıyoruz
+    message.reply("Kişinin ID'si: " + str(message.chat.id))
+
+
 
 
 
