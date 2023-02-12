@@ -20,7 +20,7 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
-@rehim.on_message(filters.command("random_members"))
+@rehim.on_message(filters.command("s"))
 def random_members(client, message):
     members = client.get_chat_members(message.chat.id)
     random_member = members[0]
@@ -28,7 +28,7 @@ def random_members(client, message):
         random_member = random.choice(members)
     client.send_message(
         chat_id=message.chat.id,
-        text=f"Random member is {random_member.user.first_name}!",
+        text=f"Sevgi faizi {random_member.user.first_username}  💝  {random_member.user.first_username}",
     )
 
 
