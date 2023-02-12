@@ -100,6 +100,20 @@ def user_info(client, message):
 
 
 
+@rehim.on_message(filters.command("google"))
+def echo(client, message):
+    # Şimdi google'a bir sorgu göndereceğiz
+    query = message.text
+    results = rehim.google_search(query=query)
+    
+    # Sonuçları ekranda gösteriyoruz
+    for result in results:
+        message.reply_text(result['title'] + "\n" + result['link'])
+
+app.run()
+
+
+
 
 
 rehim.run()
