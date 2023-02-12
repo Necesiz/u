@@ -112,7 +112,7 @@ def get_voice(client, message):
 
 
 
-@Client.on_message(filters.command("ship"))
+@rehim.on_message(filters.command("ship"))
 def ship(client, message):
     # Ship someone
     if message.text == "ship":
@@ -158,7 +158,7 @@ def text_delete(client, message):
 
 
 
-@rehim.on_message(Filters.command(["mute"]))
+@rehim.on_message(filters.command(["mute"]))
 def mute_user(client, message):
     # Mute the user
     chat_id = message.chat.id
