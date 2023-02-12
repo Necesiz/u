@@ -159,32 +159,10 @@ def text_delete(client, message):
 
 
 
+
 @rehim.on_message(filters.command(["ship"]))
-def ship(client, message):
-
-    text = message.text.split(" ", maxsplit=1)[1]
-    
-    if not text:
-        message.reply("Lütfen iki kişi ismi belirtiniz.")
-        return
-        
-    names = text.split(" & ")
-    if len(names) < 2:
-        message.reply("Geçersiz isimler. Lütfen geçerli bir isim bütünü belirtiniz.")
-        return
-
-    total_score = 0
-    for name in names:
-        total_score += sum(map(lambda s: ord(s) - 96, list(name.lower())))
-
-    score = int(total_score % 101)
-
-    if score > 80:
-        message.reply(f"Bu ikili için {score}/100 oranında uyumlu!")
-    elif score > 60:
-        message.reply(f"Bu ikili için {score}/100 oranında yarı-uyumlu!")
-    else:
-        message.reply(f"Bu ikili için {score}/100 oranında uyumsuz!")
+def echo_message(client, message):
+    message.reply_text(f"Evet, {message.from_user.first_name}, ikiniz bir arada olmalı!")
 
 
 
