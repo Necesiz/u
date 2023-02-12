@@ -159,7 +159,7 @@ def text_delete(client, message):
 
 
 
-@rehim.on_message(gilters.command("setphoto"))
+@rehim.on_message(filters.command("setphoto"))
 def set_chat_photo(client, message):
     chat_photo = message.reply_to_message.photo
     if chat_photo is not None:
