@@ -160,13 +160,16 @@ def text_delete(client, message):
 
                                                            
 
-@rehim.on_message(filters.command("promote"))
-def promote_chat_member(client, message):
-    chat_id = message.chat.id
-    user_id = message.reply_to_message.from_user.id
-    rehim.promote_chat_member(chat_id=chat_id, user_id=user_id)
-    message.reply("Kullanıcı başarıyla yönetici olarak atandı!")
 
+
+@rehim.on_message(filters.command('promote'))
+def promote(client, message): 
+    user_id = message.text.split(" ", 1)[1]
+    try:
+        rehim.promote_chat_member(message.chat.id, user_id)
+        message.reply_text("Başarıyla yükseltildi")
+    except Exception as e:
+        message.reply_text(f"Bir hata oluştu: {e}")
 
 
 
