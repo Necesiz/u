@@ -159,9 +159,6 @@ def text_delete(client, message):
 
 
                                                            
-from pyrogram import Client, Filters
-
-app = Client("my_account")
 
 @rehim.on_message(filters.command("promote"))
 def promote_chat_member(client, message):
