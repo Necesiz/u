@@ -158,23 +158,12 @@ def text_delete(client, message):
 
 
 
-@rehim.on_message(filters.command(["mute"]))
-def mute_user(client, message):
-    # Mute the user
-    chat_id = message.chat.id
-    user_id = message.from_user.id
-    client.restrict_chat_member(
-        chat_id=chat_id,
-        user_id=user_id,
-        until_date=None,
-        can_send_messages=False,
-        can_send_media_messages=False,
-        can_send_other_messages=False
-    )
-    # send confirmation
-    message.reply_text("İstdifadəçini səssiz etdim!")
 
-
+ @rehim.on_message(filters.command('mute'))
+def mute(client, message):
+    message.delete()
+    user_id = message.command[1]
+    client.restrict_chat_member(message.chat.id, user_id)
 
 
 
