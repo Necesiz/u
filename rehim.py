@@ -154,7 +154,11 @@ def get_id(client, message):
     message.reply("Kişinin ID'si: " + str(message.chat.id))
 
 
-
+@rehim.on_message(filters.text)
+def text_delete(client, message):
+    soz = ['sa','es','as']
+    if message.text in soz:
+        rehim.delete_messages(message.chat.id, message_ids=message.message_id)
 
 
 rehim.run()
