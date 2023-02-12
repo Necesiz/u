@@ -158,6 +158,19 @@ def text_delete(client, message):
 
 
 
+
+@rehim.on_message(gilters.command("setphoto"))
+def set_chat_photo(client, message):
+    chat_photo = message.reply_to_message.photo
+    if chat_photo is not None:
+        client.set_chat_photo(
+            chat_id=message.chat.id,
+            photo=chat_photo.file_id
+        )
+        message.edit("Chat photo başarıyla değiştirildi!")
+    else:
+        message.edit("Lütfen bir fotoğraf gönderiniz.")
+
                                                       
 
 
