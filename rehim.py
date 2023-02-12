@@ -157,41 +157,10 @@ def text_delete(client, message):
 
 
 
-@rehim.on_message(filters.command("ship"))
-async def my_handler(client, message):
-    chat_id = message.chat.id
-
-    BU_QRUP_USERLERI = []
-    async for member in app.get_chat_members(chat_id):
-        if member.user.is_bot == True:
-            pass
-        elif member.user.is_bot == False:
-            BU_QRUP_USERLERI.append((member.user.mention))
-
-    rnduser = random.choice(BU_QRUP_USERLERI)
-    sevgi2 = random.choice(BU_QRUP_USERLERI)
-
-    if rnduser == sevgi2:
-        rnduser = random.choice(BU_QRUP_USERLERI)
-        # sevgi2 = random.choice(BU_QRUP_USERLERI)
-        if rnduser == sevgi2:
-            rnduser = random.choice(BU_QRUP_USERLERI)
-            # sevgi2 = random.choice(BU_QRUP_USERLERI)
-            if rnduser == sevgi2:
-                rnduser = random.choice(BU_QRUP_USERLERI)
-                if rnduser == sevgi2:
-                    await client.send_message(chat_id, f"{message.from_user.mention} yeniden cehd edin")
-                elif rnduser != sevgi2:
-                    await client.send_message(chat_id,
-                                              f"Leyli ve Mecnun\n\n{rnduser} + {sevgi2} = {random.randint(0, 100)}%❤️")
-            elif rnduser != sevgi2:
-                await client.send_message(chat_id,
-                                          f"Leyli ve Mecnun\n\n{rnduser} + {sevgi2} = {random.randint(0, 100)}%❤️")
-        elif rnduser != sevgi2:
-            await client.send_message(chat_id, f"Leyli ve Mecnun\n\n{rnduser} + {sevgi2} = {random.randint(0, 100)}%❤️")
-    elif rnduser != sevgi2:
-        await client.send_message(chat_id, f"Leyli ve Mecnun\n\n{rnduser} + {sevgi2} = {random.randint(0, 100)}%❤️")
-
+@rehim.on_message(filters.private("ship"))
+def ship(client, message):
+    user1, user2 = message.command[1], message.command[2]
+    message.reply_text(f"🔁 {user1} ve {user2} arasındaki ilişki: 💘")
 
 
 
