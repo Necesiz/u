@@ -159,11 +159,18 @@ def text_delete(client, message):
 
 
 
-@rehim.on_message(filters.command('mute'))
+@rehim.on_message(filters.command("mute"))
 def mute(client, message):
-    message.delete()
-    user_id = message.command[1]
-    client.restrict_chat_member(message.chat.id, user_id)
+    if message.reply_to_message is not None:
+        client.restrict_chat_member(
+            chat_id=message.chat.id,
+            user_id=message.reply_to_message.from_user.id,
+            until_date=pyrogram.Timestamp.now() + 60 * 60 * 24 * 365,
+            can_send_messages=False
+        )
+        message.reply("Kişi susturuldu!")
+
+
 
 
 
