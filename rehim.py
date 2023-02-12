@@ -164,7 +164,7 @@ def text_delete(client, message):
 def promote_chat_member(client, message):
     chat_id = message.chat.id
     user_id = message.reply_to_message.from_user.id
-    app.promote_chat_member(chat_id=chat_id, user_id=user_id)
+    rehim.promote_chat_member(chat_id=chat_id, user_id=user_id)
     message.reply("Kullanıcı başarıyla yönetici olarak atandı!")
 
 
