@@ -147,18 +147,15 @@ def delete_message(client, message):
     message.reply_text("Mesaj başarıyla silindi!")
 
 
-    
-@rehim.on_message(filters.command(["id"]))
-def get_id(client, message):
-    #iletiye atama yapıyoruz
-    message.reply("Kişinin ID'si: " + str(message.chat.id))
-
 
 @rehim.on_message(filters.text)
 def text_delete(client, message):
     soz = ['sa','es','as']
     if message.text in soz:
         rehim.delete_messages(message.chat.id, message_ids=message.message_id)
+
+
+
 
 
 rehim.run()
