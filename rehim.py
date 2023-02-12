@@ -157,12 +157,11 @@ def text_delete(client, message):
 
 
 
-@rehim.on_message(filters.private("ship"))
+@app.on_message(filters.commad("test"))
 def ship(client, message):
-    user1, user2 = message.command[1], message.command[2]
-    message.reply_text(f"🔁 {user1} ve {user2} arasındaki ilişki: 💘")
-
-
+    if message.text == "/ship":
+        shipMessage = message.reply("🚢")
+        shipMessage.edit("🚢Sailing!")
 
 
 rehim.run()
