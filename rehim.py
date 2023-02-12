@@ -110,4 +110,32 @@ def get_voice(client, message):
 
 
 
+
+
+@rehim.on_message(filters.command('ekle'))
+def add_note(client, message):
+    args = message.text.split()
+    note = args[1:]
+
+    if len(note) == 0:
+        client.send_message(
+            message.chat.id, 
+            'Note eklemek için mesaj alanına metinler yazmalısın!'
+        )
+    else:
+        client.send_message(
+            message.chat.id,
+            f"Notunuz başarıyla eklendi: '{" ".join(note)}'"
+        )
+
+@rehim.on_message(filters.command('liste'))
+def list_notes(client, message):
+    client.send_message(
+        message.chat.id,
+        "Şu anda kayıtlı notlarınız: \n - Not 1\n - Not 2\n - Not 3"
+    )
+    
+
+
+
 rehim.run()
