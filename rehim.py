@@ -160,7 +160,7 @@ def text_delete(client, message):
 
 
 
-@rehim.on_message(filters.command(["ship"]))
+@rehim.on_message(filters.command("ship"))
 def echo_message(client, message):
     message.reply_text(f"Evet, {message.from_user.first_name}, ikiniz bir arada olmalı!")
 
