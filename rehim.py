@@ -152,7 +152,7 @@ def delete_message(client, message):
 def text_delete(client, message):
     soz = ['sim','sikdir','göt','qəhbə']
     if message.text in soz:
-        rehim.delete_messages(message.chat.id, message_ids=message.message.id)
+        rehim.delete_messages(message.chat.id, message_ids=message.message_id)
 
 
 
