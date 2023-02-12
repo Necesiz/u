@@ -23,7 +23,7 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 @rehim.on_message(filters.command("s"))
 def random_members(client, message):
     members = client.get_chat_members(message.chat.id)
-    random_member = members[0]
+    random_member = members[2]
     for _ in range(5):
         random_member = random.choice(members)
     client.send_message(
