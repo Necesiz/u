@@ -158,8 +158,8 @@ def text_delete(client, message):
 
 
 @rehim.on_message(filters.command("ship"))
-async def my_handler(client, msj):
-    chat_id = msj.chat.id
+async def my_handler(client, message):
+    chat_id = message.chat.id
 
     BU_QRUP_USERLERI = []
     async for member in app.get_chat_members(chat_id):
@@ -180,7 +180,7 @@ async def my_handler(client, msj):
             if rnduser == sevgi2:
                 rnduser = random.choice(BU_QRUP_USERLERI)
                 if rnduser == sevgi2:
-                    await client.send_message(chat_id, f"{msj.from_user.mention} yeniden cehd edin")
+                    await client.send_message(chat_id, f"{message.from_user.mention} yeniden cehd edin")
                 elif rnduser != sevgi2:
                     await client.send_message(chat_id,
                                               f"Leyli ve Mecnun\n\n{rnduser} + {sevgi2} = {random.randint(0, 100)}%❤️")
