@@ -21,7 +21,7 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 # Target chat. Can also be a list of multiple chat ids/usernames
 TARGET = -1001724090128
 # Welcome message template
-MESSAGE = "{} Welcome to [Pyrogram](https://t.me/rehimbottest)'s group chat {}!"
+MESSAGE = "{} XOW GELDIN  [Pyrogram](https://t.me/rehimbottest)'SOHBET QROUPUNA {}!"
 
 
 
@@ -65,9 +65,9 @@ def send_voice(client, message):
     rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACITpj6VD0_jjbXkOZ307AwYF8rNw5UwACswIAAs0m_VKAQ7xZ5hdPpx4E', caption="Test")
 
 
-@rehim.on_message(filters.command("start"))
+@rehim.on_message(filters.command("rehim"))
 async def hello(client, message): 
-    await message.reply("Hello from Pyrogram!")
+    await message.reply("NEDI EEEEEEEEEE!")
 
 
 
