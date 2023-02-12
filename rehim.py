@@ -14,10 +14,6 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
-from pyrogram import Client, filters
-
-app = Client("my_account")
-
 @rehim.on_message(filters.command(["promote"]))
 def promote_member(client, message):
     if len(message.command) == 2:
@@ -25,7 +21,6 @@ def promote_member(client, message):
         status = client.promote_chat_member(chat_id=message.chat.id, user_id=member_id)
         message.reply(f"{member_id} Başarıyla Yükseltildi.")
 
-app.run()
 
 
 
