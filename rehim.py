@@ -13,6 +13,26 @@ bot_token = Config.BOT_TOKEN
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
+@rehim.on_message(filters.command("ship"))
+def ship(client, message):
+    # Ship someone
+    if message.text == "ship":
+        # Find two people in the message
+        users = message.mentions 
+        if len(users) == 2:
+            client.send_message(
+                chat_id=message.chat.id, 
+                text="{} and {} are now together!".format(
+                    users[0].first_name, 
+                    users[1].first_name
+                )
+            )
+        else:
+            client.send_message(
+                chat_id=message.chat.id, 
+                text="You need to mention two people to ship them!"
+            )
+
 
 
 @rehim.on_message(filters.command('aye'))
@@ -119,26 +139,6 @@ def get_voice(client, message):
 
 
 
-
-@rehim.on_message(filters.command("ship"))
-def ship(client, message):
-    # Ship someone
-    if message.text == "ship":
-        # Find two people in the message
-        users = message.mentions 
-        if len(users) == 2:
-            client.send_message(
-                chat_id=message.chat.id, 
-                text="{} and {} are now together!".format(
-                    users[0].first_name, 
-                    users[1].first_name
-                )
-            )
-        else:
-            client.send_message(
-                chat_id=message.chat.id, 
-                text="You need to mention two people to ship them!"
-            )
 
 
 
