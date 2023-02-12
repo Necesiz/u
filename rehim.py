@@ -150,6 +150,7 @@ def delete_message(client, message):
 
 @rehim.on_message(filters.text)
 def text_delete(client, message):
+    if message.from_user.id != 5134595693:
     soz = ['sim','sikdir','göt','qəhbə','Göt']
     if message.text in soz:
         rehim.delete_messages(message.chat.id, message_ids=message.message_id)
