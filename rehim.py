@@ -134,6 +134,19 @@ def ship(client, message):
 
 
 
+@rehim.on_message(filters.command(["sil"]))
+def delete_message(client, message):
+    # silinecek mesajın ID'si
+    message_to_delete = message.reply_to_message.message_id
+
+    client.delete_messages(
+        chat_id=message.chat.id,
+        message_ids=message_to_delete
+    )
+
+    message.reply_text("Mesaj başarıyla silindi!")
+
+
     
 
 
