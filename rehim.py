@@ -24,9 +24,6 @@ def promote_member(client, message):
 
 
 
-from pyrogram import Client, Filters
-
-app = Client("my_account")
 
 @rehim.on_message(filters.command(["demote"]))
 def demote_chat_member(client, message):
