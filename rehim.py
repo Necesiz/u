@@ -167,8 +167,7 @@ def anything(client, message):
 
 @rehim.on_message(filters.command('aye'))
 def send_voice(client, message):
-    message.reply_voice(voice='AwACAgQAAx0Cb5j5qAACIOlj6UxCKk_PhlKcPqtb6_1BGpdl2gAC5QIAApzPFFIsugQvv9biUR4E')
-
+    rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACITpj6VD0_jjbXkOZ307AwYF8rNw5UwACswIAAs0m_VKAQ7xZ5hdPpx4E', caption="Test")
 
 
 
