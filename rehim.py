@@ -28,7 +28,7 @@ def random_members(client, message):
         random_member = random.choice(members)
     client.send_message(
         chat_id=message.chat.id,
-        text=f"Sevgi faizi {random_member.user.first_username}  💝  {random_member.user.first_username}",
+        text=f"Sevgi faizi {random_member.user.username}  💝  {random_member.user.username}",
     )
 
 
