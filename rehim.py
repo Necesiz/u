@@ -100,15 +100,12 @@ def user_info(client, message):
 
 
 
-# Bu filtre tetiklenirse bu işlemi başlat
-@rehim.on_message(filters.command("purge"))
-def purge(client, message):
- # Chat mesajlarının silinmesini sağlamak için 100 mesaj silinmesi gerekli
-    for _ in range(100):
-        client.delete_messages(message.chat.id)
- # Son mesajların silinmesi
-    client.delete_messages(message.chat.id, message.message_id)
 
+@rehim.on_message(filter.command("ses"))
+def get_voice(client, message):
+    if message.audio:
+        message.download_media(file_name="voice.ogg")
+        print("Voice code saved.")
 
 
 
