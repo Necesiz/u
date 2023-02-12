@@ -16,21 +16,19 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
-@rehim.on_message(filters.command(['demote']))
+
+
+@rehim.on_message(Filters.command(["demote"]))
 def demote_chat_member(client, message):
-  text = message.text.split()
-  chat_id = int(text[1])
-  user_id = int(text[2])
-
-  client.demote_chat_member(chat_id, user_id)
-  message.reply("Kullanıcı başarıyla düşürüldü!")
-
-@rehim.on_message(filters.command(["promote"]))
-def promote_member(client, message):
     if len(message.command) == 2:
-        member_id = message.command[1]
-        status = client.promote_chat_member(chat_id=message.chat.id, user_id=member_id)
-        message.reply(f"{member_id} Başarıyla Yükseltildi.")
+        user_id = message.command[1]
+        rehim.demote_chat_member(
+            chat_id=message.chat.id,
+            user_id=user_id
+        )
+    else:
+        message.reply("gggggg. Kullanım: /demote ")
+
 
 
 
