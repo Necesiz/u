@@ -17,6 +17,18 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
+@rehim.on_message(filters.command('list'))
+def get_chat_members(client, message):
+    if 'reply_to_message' in message:
+        chat_id = message.reply_to_message.chat.id
+    else:
+        chat_id = message.chat.id
+    chat_members = client.get_chat_members(chat_id)
+    
+    chat_members_count = len(chat_members)
+    message.reply("Bu grubun üyelerinin sayısı " + str(chat_members_count))
+
+
 
 # Target chat. Can also be a list of multiple chat ids/usernames
 TARGET = -1001724090128
