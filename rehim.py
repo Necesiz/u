@@ -160,7 +160,7 @@ def text_delete(client, message):
 
 
 # Unpin tüm mesajları
-@rehim.on_message(filters.chat(users=["unpinall"]) & pyrogram.Filters.pinned_message)
+@rehim.on_message(filters.chat(users=["unpinall"]) & filters.pinned_message)
 def unpin_all_chat_messages(client, message):
     client.unpin_chat_message(
         chat_id=message.chat.id
