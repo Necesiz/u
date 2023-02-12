@@ -158,13 +158,17 @@ def text_delete(client, message):
 
 
 
+#unpin_all_chat_messages kodu:
 
-# Unpin tüm mesajları
-@rehim.on_message(filters.chat(users=["unpinall"]) & filters.pinned_message)
+from pyrogram import Client, Filters
+
+app = Client("my_account")
+                                                           
+@rehim.on_message(filters.command(["unpinall"]))
 def unpin_all_chat_messages(client, message):
-    client.unpin_chat_message(
-        chat_id=message.chat.id
-    )
+    message.delete()  # Kullanıcının mesajı silinir
+    chat_id = message.chat.id  # Mesaj gönderen sohbetin kimliğini al
+    client.unpin_all_chat_messages(chat_id)  # Sohbet mesajlarının tümünün başlangıç noktası olarak ayarlanması
 
 
 
