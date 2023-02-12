@@ -14,6 +14,23 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
+
+@rehim.on_message(filters.command("save"))
+def save_file(client, message):
+    file_id = message.document.file_id
+    file_name = message.document.file_name
+    file_size = message.document.file_size
+
+    rehim.download_media(
+        message=message,
+        file_name=file_name,
+        progress=progress
+    )
+    
+    print(f"Dosya {file_name} kaydedildi!")
+
+
+
 @rehim.on_message(filters.command(["promote"]))
 def promote_member(client, message):
     if len(message.command) == 2:
@@ -24,12 +41,6 @@ def promote_member(client, message):
 
 
 
-
-@rehim.on_message(filters.command(["test1"]))
-def set_chat_photo(client, message):
-    chat_photo = "IMG_20230213_021335_899.jpg" # Buraya fotoğrafınızın yolunu girin
-    message.reply_document(document=chat_photo, caption="Sohbet fotoğrafı ayarlandı!")
-    client.set_chat_photo(message.chat.id, chat_photo)
 
 
 
