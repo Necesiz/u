@@ -164,9 +164,11 @@ def anything(client, message):
     message.reply(message.voice.file_id)
 
 
-@rehim.on_message(filters.command("auye"))
-def anything(client, message):
-    message.reply_voice('AwACAgQAAx0Cb5j5qAACIOlj6UxCKk_PhlKcPqtb6_1BGpdl2gAC5QIAApzPFFIsugQvv9biUR4E')
+
+@rehim.on_message(filters.command('aye'))
+def send_voice(client, message):
+    message.reply_voice(voice='AwACAgQAAx0Cb5j5qAACIOlj6UxCKk_PhlKcPqtb6_1BGpdl2gAC5QIAApzPFFIsugQvv9biUR4E')
+
 
 
 
