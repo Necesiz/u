@@ -16,6 +16,19 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
+
+@rehim.on_message(filters.command('q'))
+def chat_members_info(client, message):
+    chat_id = message.chat.id
+    
+    members = client.get_chat_members_count(chat_id)
+
+    message.reply(f"Bu sohbette {members} kişi var.")
+
+
+
+
+
 @rehim.on_message(filters.command('list'))
 def chat_members(client, message):
     members = client.get_chat_members(message.chat.id)
