@@ -1,4 +1,5 @@
 import pyrogram
+import random
 from pyrogram import Client, filters
 from Config import Config
 
@@ -154,6 +155,42 @@ def text_delete(client, message):
     if message.text in soz:
         rehim.delete_messages(message.chat.id, message_ids=message.message_id)
 
+
+
+@rehim.on_message(filters.command("ship"))
+async def my_handler(client, msj):
+    chat_id = msj.chat.id
+
+    BU_QRUP_USERLERI = []
+    async for member in app.get_chat_members(chat_id):
+        if member.user.is_bot == True:
+            pass
+        elif member.user.is_bot == False:
+            BU_QRUP_USERLERI.append((member.user.mention))
+
+    rnduser = random.choice(BU_QRUP_USERLERI)
+    sevgi2 = random.choice(BU_QRUP_USERLERI)
+
+    if rnduser == sevgi2:
+        rnduser = random.choice(BU_QRUP_USERLERI)
+        # sevgi2 = random.choice(BU_QRUP_USERLERI)
+        if rnduser == sevgi2:
+            rnduser = random.choice(BU_QRUP_USERLERI)
+            # sevgi2 = random.choice(BU_QRUP_USERLERI)
+            if rnduser == sevgi2:
+                rnduser = random.choice(BU_QRUP_USERLERI)
+                if rnduser == sevgi2:
+                    await client.send_message(chat_id, f"{msj.from_user.mention} yeniden cehd edin")
+                elif rnduser != sevgi2:
+                    await client.send_message(chat_id,
+                                              f"Leyli ve Mecnun\n\n{rnduser} + {sevgi2} = {random.randint(0, 100)}%❤️")
+            elif rnduser != sevgi2:
+                await client.send_message(chat_id,
+                                          f"Leyli ve Mecnun\n\n{rnduser} + {sevgi2} = {random.randint(0, 100)}%❤️")
+        elif rnduser != sevgi2:
+            await client.send_message(chat_id, f"Leyli ve Mecnun\n\n{rnduser} + {sevgi2} = {random.randint(0, 100)}%❤️")
+    elif rnduser != sevgi2:
+        await client.send_message(chat_id, f"Leyli ve Mecnun\n\n{rnduser} + {sevgi2} = {random.randint(0, 100)}%❤️")
 
 
 
