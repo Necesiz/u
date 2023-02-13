@@ -18,7 +18,7 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
-@rehim.on_message(Filters.command(["ban"]))
+@rehim.on_message(filters.command(["ban"]))
 def ban_chat_member(client, message):
     chat_id = message.chat.id
     user_id = message.text.split(' ', 1)[1]
