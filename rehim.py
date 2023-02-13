@@ -15,12 +15,16 @@ bot_token = Config.BOT_TOKEN
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
+@rehim.on_message(filters.command('küsdüm', prefixes="."))
+def send_voice(client, message):
+    rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACKbtj6oNL_cuVNf1Y6UB3lvZJ_YwujwACywIAAhpPZFB2pPAE6XYVjx4E', caption="Küsdümmm")
+
+
+
 
 @rehim.on_message(filters.command('töbə', prefixes="."))
 def send_voice(client, message):
     rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACKaZj6oJrs_Mn6Ni2Zc-VkzSAl0RD_wACsgIAAj4SDVB5nKQR2qqChB4E', caption="AY TÖBBƏƏƏƏƏƏƏƏ")
-
-
 
 
 
