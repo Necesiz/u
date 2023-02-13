@@ -18,18 +18,6 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
-@rehim.on_message(filters.text)
-def ship(client, message): 
-    words = message.text.split() 
- 
-    if len(words) == 2: 
-        first_name = words[0] 
-        second_name = words[1] 
- 
-        message.reply("💘 " + first_name + " ❤️    " + second_name) 
- 
-
-
 
 
 
