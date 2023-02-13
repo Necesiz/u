@@ -17,19 +17,34 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
+@rehim.on_message(filters.command("ship") )
+def ship(client, message): 
+    if not message.text:
+        return
+    # İşlemi sadece mesajlarda çalıştırmak 
+    if '!' in message.text and message.reply_to_message is None: 
+        chat_id = message.chat.id 
+        
+        # Mesajın string bir hale alınması 
+        words = message.text.split(' ')
+       
+        # İki kişiyi eşlemek 
+        p1 = words[1] 
+        p2 = words[2]
 
+        # Rapor oluşturma
+        ship_msg = "Göz atıyorum...\n {0} ile {1} arasındaki ilişki \n :heart: %100 % Şans"\
+        .format(p1, p2)
 
-
-@rehim.on_message(filters.command("s"))
-def random_members(client, message):
-    members = client.get_chat_members(message.chat.id)
-    random_member = members[2]
-    for _ in range(5):
-        random_member = random.choice(members)
-    client.send_message(
-        chat_id=message.chat.id,
-        text=f"Sevgi faizi {random_member.user.username}  💝  {random_member.user.username}",
-    )
+        # Engelleme için kullanılan anahtar kelimeler
+        blocked_words = ["gelin", "damat"]
+         
+        for word in blocked_words: 
+            if word in message.text: 
+                ship_msg = ":smiling_imp: Ciddiyetle bu durumu değerlendirmiyorum."
+                 
+        client.send_message(chat_id, ship_msg)
+        
 
 
 
