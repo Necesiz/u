@@ -24,7 +24,7 @@ def send_dice(client, message):
     result = random.randint(1, 6)
     dice = str(result)
     if message.chat.type in ["group", "supergroup"]:
-        client.send_message(message.chat.id, f"{message.from_user.first_name} sanırım {dice} geldi!", parse_mode="html")
+        client.send_message(message.chat.id, f"{message.from_user.first_name} sanırım {dice} 🎲 geldi!", parse_mode="html")
 
 
 @rehim.on_message(filters.command('list'))
