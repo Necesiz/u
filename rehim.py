@@ -63,7 +63,7 @@ def on_undelete(client, query):
 
 
 
-@rehim.on_message(filters.command('salam', prefixes="!")))
+@rehim.on_message(filters.command('salam', prefixes="!"))
 def send_voice(client, message):
     rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACJg1j6hzo4r2ZWfnHhM6h1TFVKMjGbwACcAMAAtUEBVKM8iMEgl-FfR4E', caption="SALAM ALEYKUMMM")
 
