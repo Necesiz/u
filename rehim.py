@@ -123,7 +123,7 @@ def botlist(client, message):
 
 @rehim.on_message(filters.command("pin"))
 def pin_message(client, message):
-    app.pin_chat_message(message.chat.id, message.message_id)
+    rehim.pin_chat_message(message.chat.id, message.message_id)
     message.reply("Mesaj sabitlendi!")
 
 
