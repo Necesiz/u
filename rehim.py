@@ -78,7 +78,7 @@ def send_dice(client, message):
         client.send_message(message.chat.id, f"{message.from_user.first_name} sanırım {dice} 🎲 geldi!", parse_mode="html")
 
 
-@rehim.on_message(filters.command('list', prefixes="!")))
+@rehim.on_message(filters.command('list', prefixes="!"))
 def chat_members(client, message):
     members = client.get_chat_members(message.chat.id)
 
@@ -132,12 +132,12 @@ def unpin_all_chat_messages(client, message):
 
 
 
-@rehim.on_message(filters.command('aye', prefixes="!")))
+@rehim.on_message(filters.command('aye', prefixes="!"))
 def send_voice(client, message):
     rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACITpj6VD0_jjbXkOZ307AwYF8rNw5UwACswIAAs0m_VKAQ7xZ5hdPpx4E', caption="Test")
 
 
-@rehim.on_message(filters.command("rehim", prefixes="!")))
+@rehim.on_message(filters.command("rehim", prefixes="!"))
 async def hello(client, message): 
     await message.reply("NEDI EEEEEEEEEE!")
 
@@ -192,7 +192,7 @@ def unpin_message(client, message):
   client.send_message(message.chat.id, "Bir mesaj seciniz")
 
 
-@rehim.on_message(filters.private & filters.command("id", prefixes="!")))
+@rehim.on_message(filters.private & filters.command("id", prefixes="!"))
 def userinfo(client, message):
     if message.text == "/id":
         user = rehim.get_users(message.from_user.id)
