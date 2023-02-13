@@ -15,6 +15,13 @@ bot_token = Config.BOT_TOKEN
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
+@rehim.on_message(filters.command('məzələnmə', prefixes="."))
+def send_voice(client, message):
+    rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACKclj6oQmuLyLtOWks7vlpCYmJKp4JgAC9QIAAheWPVEZhr74w1bcwx4E', caption="Mözölönməəə")
+
+
+
+
 @rehim.on_message(filters.command('küsdüm', prefixes="."))
 def send_voice(client, message):
     rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACKbtj6oNL_cuVNf1Y6UB3lvZJ_YwujwACywIAAhpPZFB2pPAE6XYVjx4E', caption="Küsdümmm")
