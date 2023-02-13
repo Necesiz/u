@@ -3,6 +3,8 @@ import random
 from pyrogram import Client, filters
 from pyrogram import Client, emoji, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery 
+from pyrogram.types import Message
+import os
 from Config import Config
 
 api_id = Config.API_ID
@@ -15,14 +17,31 @@ bot_token = Config.BOT_TOKEN
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
-@rehim.on_message(filters.command('sa', prefixes="."))
-def send_voice(client, message):
-    reply = message.reply_to_message
+@rehim.on_message(filters.command('mid'))
+async def get_id(client, message):
+    try:
 
-    if reply:
-        rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACKaZj6oJrs_Mn6Ni2Zc-VkzSAl0RD_wACsgIAAj4SDVB5nKQR2qqChB4E', caption=f"{reply.from_user.mention} text")
-    else:
-        rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACKaZj6oJrs_Mn6Ni2Zc-VkzSAl0RD_wACsgIAAj4SDVB5nKQR2qqChB4E', caption=f"text")
+        if (not message.reply_to_message) and (message.chat):
+            await message.reply(f"User {message.from_user.first_name}'s ID is <code>{message.from_user.id }</code>.\nThis chat's ID is: <code>{message.chat.id}</code>.") 
+
+        elif not message.reply_to_message:
+            await message.reply(f"User {message.from_user.first_name}'s ID is <code>{message.from_user.id }</code>.") 
+
+        elif message.reply_to_message.forward_from_chat:
+            await message.reply(f"The forwarded {str(message.reply_to_message.forward_from_chat.type)[9:].lower()}, {message.reply_to_message.forward_from_chat.title} has an ID of <code>{message.reply_to_message.forward_from_chat.id}</code>.") 
+
+        elif message.reply_to_message.forward_from:
+            await message.reply(f"The forwarded user, {message.reply_to_message.forward_from.first_name} has an ID of <code>{message.reply_to_message.forward_from.id   }</code>.")
+
+        elif message.reply_to_message.forward_sender_name:
+            await message.reply("Sorry, you cannot get the forwarded user ID because of their privacy settings")
+
+        else:
+            await message.reply(f"User {message.reply_to_message.from_user.first_name}'s ID is <code>{message.reply_to_message.from_user.id}</code>.")   
+
+    except Exception:
+            await message.reply("An error occured while getting the ID.")
+
 
 
 
