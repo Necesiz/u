@@ -15,6 +15,17 @@ bot_token = Config.BOT_TOKEN
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
+@rehim.on_message(filters.command('sa', prefixes="."))
+def send_voice(client, message):
+    reply = message.reply_to_message
+
+    if reply:
+        rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACKaZj6oJrs_Mn6Ni2Zc-VkzSAl0RD_wACsgIAAj4SDVB5nKQR2qqChB4E', caption=f"{reply.from_user.mention} text")
+    else:
+        rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACKaZj6oJrs_Mn6Ni2Zc-VkzSAl0RD_wACsgIAAj4SDVB5nKQR2qqChB4E', caption=f"text")
+
+
+
 @rehim.on_message(filters.command('məzələnmə', prefixes="."))
 def send_voice(client, message):
     rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACKclj6oQmuLyLtOWks7vlpCYmJKp4JgAC9QIAAheWPVEZhr74w1bcwx4E', caption="Mözölönməəə")
