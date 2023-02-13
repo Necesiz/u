@@ -2,8 +2,8 @@ import pyrogram
 import random
 from pyrogram import Client, filters
 from pyrogram import Client, emoji, filters
-from pyrogram import Client, filters, InlineKeyboardMarkup, InlineKeyboardButton
-
+from pyrogram.types import (ReplyKeyboardMarkup, InlineKeyboardMarkup,
+                            InlineKeyboardButton)
 
 from Config import Config
 
