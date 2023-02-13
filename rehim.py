@@ -18,17 +18,14 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
-@rehim.on_message(filters.command(["ban"]))
-def ban_chat_member(client, message):
-    chat_id = message.chat.id
-    user_id = message.text.split(' ', 1)[1]
-    
-    client.kick_chat_member(chat_id, user_id)
-    
-    message.reply_text(f"{user_id} başarıyla yasaklandı!")
 
-
-
+@rehim.on_message(filters.command("zer")) 
+def send_dice(client, message):
+    if message.text == "/dice": #Kullanıcıdan /dice komutu alınıyorsa
+        dice_num = random.randint(1, 6) #Dört için 1-6 arasında bir sayı seçiyoruz
+        msg = "Atılan zarlar {} oldu!".format(dice_num)
+        message.reply(msg) #Kullanıcıya sonuç mesajı gönderiyoruz.
+      
 
 @rehim.on_message(filters.command('list'))
 def chat_members(client, message):
