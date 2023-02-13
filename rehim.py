@@ -118,10 +118,14 @@ def botlist(client, message):
 
 
 
-@rehim.on_message(filters.command("pin"))
-def pin_message(client, message):
-    rehim.pin_chat_message(message.chat.id, message.message_id)
-    message.reply("Mesaj sabitlendi!")
+@rehim.on_message(Filters.command('pin')) 
+def pin_message(client, message): 
+    if not message.reply_to_message: 
+        message.reply("Lütfen bir mesaj yanıtlayarak pinleme yapın!") 
+    else: 
+        message.reply_to_message.pin() 
+        message.reply("Mesajınız başarıyla pinlendi!") 
+
 
 
 
