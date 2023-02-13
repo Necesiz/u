@@ -118,7 +118,7 @@ def botlist(client, message):
 
 
 
-@rehim.on_message(Filters.command('pin')) 
+@rehim.on_message(filters.command('pin')) 
 def pin_message(client, message): 
     if not message.reply_to_message: 
         message.reply("Lütfen bir mesaj yanıtlayarak pinleme yapın!") 
