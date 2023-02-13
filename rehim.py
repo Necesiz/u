@@ -16,19 +16,20 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
+@rehim.on_message(filters.command('töbə', prefixes="."))
+def send_voice(client, message):
+    rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACKaZj6oJrs_Mn6Ni2Zc-VkzSAl0RD_wACsgIAAj4SDVB5nKQR2qqChB4E', caption="AY TÖBBƏƏƏƏƏƏƏƏ")
 
-@rehim.on_message(filters.command("purgeall", prefixes="!"))
-def purgeall(client, message):
-    ChatID = message.chat.id
 
-    MessagesList = client.get_history(ChatID)  # Gets the history
 
-    # Delete all messages
-    if MessagesList is not None:
-        # Process messages in batches of 100
-        for batch in MessagesList:
-            client.delete_messages(ChatID, batch)
-            client.send_message(ChatID, "Successfully purged the chat!")
+
+
+
+@rehim.on_message(filters.command('aleykum', prefixes="."))
+def send_voice(client, message):
+    rehim.send_voice(message.chat.id, voice='AwACAgIAAx0Cb5j5qAACKaFj6oC30P3qeRCVsZr5JV-pdmRTYAACNiMAAn-7WEuTKmDWoWhDyh4E', caption="ALEYKUMMM SALAM")
+
+
 
 
 @rehim.on_message(filters.command("purge", prefixes="!"))
@@ -74,7 +75,7 @@ def on_undelete(client, query):
 
 
 
-@rehim.on_message(filters.command('salam', prefixes="!"))
+@rehim.on_message(filters.command('salam', prefixes="."))
 def send_voice(client, message):
     rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACJg1j6hzo4r2ZWfnHhM6h1TFVKMjGbwACcAMAAtUEBVKM8iMEgl-FfR4E', caption="SALAM ALEYKUMMM")
 
@@ -143,7 +144,7 @@ def unpin_all_chat_messages(client, message):
 
 
 
-@rehim.on_message(filters.command('aye', prefixes="!"))
+@rehim.on_message(filters.command('aye', prefixes="."))
 def send_voice(client, message):
     rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACITpj6VD0_jjbXkOZ307AwYF8rNw5UwACswIAAs0m_VKAQ7xZ5hdPpx4E', caption="Test")
 
