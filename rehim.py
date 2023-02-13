@@ -19,26 +19,16 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
-@rehim.on_message(filters.command(["purge"])) 
-def purge(client, message): 
-    # Mesaj silmeyi kontrol edin
-    if message.chat.type == "supergroup":
-      messages = client.get_history( 
-              chat_id=message.chat.id, 
-              limit=1000
-        )
 
-      for msg in messages:
-        client.delete_messages(
-            chat_id=message.chat.id,
-            message_ids=msg.message_id
-        )
+@rehim.on_message(filters.command("purge", prefixes="!"))
+def purge_my_messages(client, message):
+ to_delete = message.reply_to_message.message_id
+ 
+ for message in client.iter_history(message.chat.id, limit=100):
+  if message.message_id < to_delete:
+   client.delete_messages(message.chat.id, message.message_id)
+  
 
-      # Son mesaja cevap mesajı gönderin
-      client.send_message(
-        chat_id=message.chat.id,
-        text="Mesajlar başarıyla temizlendi!"
-      )
 
 
 @rehim.on_message(filters.command("sill"))
