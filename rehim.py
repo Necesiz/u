@@ -17,21 +17,23 @@ bot_token = Config.BOT_TOKEN
 #-#-#-# Pyrogram Başlanğıc #-#-#-#
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
-@rehim.on_message(filters.command('tgm'))
+
+
+@rehim.on_message(filters.command('tlink'))
 async def get_link_group(client, message):
     try:
-        text = await message.reply("Processing...")
+        text = await message.reply("Emal edilir...")
         async def progress(current, total):
-            await text.edit_text(f"📥 Downloading media... {current * 100 / total:.1f}%")
+            await text.edit_text(f"📥 Media yüklənir... {current * 100 / total:.1f}%")
         try:
             location = f"./media/group/"
             local_path = await message.reply_to_message.download(location, progress=progress)
-            await text.edit_text("📤 Uploading to Telegraph...")
+            await text.edit_text("📤 Telegrapha yüklənir...")
             upload_path = upload_file(local_path) 
-            await text.edit_text(f"**🌐 | Telegraph Link**:\n\n<code>https://telegra.ph{upload_path[0]}</code>")     
+            await text.edit_text(f"**🌐 | Telegraph Linki**:\n\n<code>https://telegra.ph{upload_path[0]}</code>")     
             os.remove(local_path) 
         except Exception as e:
-            await text.edit_text(f"**❌ | File upload failed**\n\n<i>**Reason**: {e}</i>")
+            await text.edit_text(f"**❌ | Fayl yükləmə uğursuz oldu**\n\n<i>**Səbəb**: {e}</i>")
             os.remove(local_path) 
             return         
     except Exception:
