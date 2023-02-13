@@ -17,30 +17,30 @@ bot_token = Config.BOT_TOKEN
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
-@rehim.on_message(filters.command('mid'))
+@rehim.on_message(filters.command('id', prefixes="!"))
 async def get_id(client, message):
     try:
 
         if (not message.reply_to_message) and (message.chat):
-            await message.reply(f"User {message.from_user.first_name}'s ID is <code>{message.from_user.id }</code>.\nThis chat's ID is: <code>{message.chat.id}</code>.") 
+            await message.reply(f"İstdifadəçi {message.from_user.first_name}'idisi <code>{message.from_user.id }</code>.\nChat id: <code>{message.chat.id}</code>.") 
 
         elif not message.reply_to_message:
-            await message.reply(f"User {message.from_user.first_name}'s ID is <code>{message.from_user.id }</code>.") 
+            await message.reply(f"İstdifadəçi {message.from_user.first_name}'ID <code>{message.from_user.id }</code>.") 
 
         elif message.reply_to_message.forward_from_chat:
-            await message.reply(f"The forwarded {str(message.reply_to_message.forward_from_chat.type)[9:].lower()}, {message.reply_to_message.forward_from_chat.title} has an ID of <code>{message.reply_to_message.forward_from_chat.id}</code>.") 
+            await message.reply(f"Yönləndirilmiş Kanal {str(message.reply_to_message.forward_from_chat.type)[9:].lower()}, {message.reply_to_message.forward_from_chat.title} İdisi <code>{message.reply_to_message.forward_from_chat.id}</code>.") 
 
         elif message.reply_to_message.forward_from:
-            await message.reply(f"The forwarded user, {message.reply_to_message.forward_from.first_name} has an ID of <code>{message.reply_to_message.forward_from.id   }</code>.")
+            await message.reply(f"Yönləndirilmiş İstdifadəçi, {message.reply_to_message.forward_from.first_name} İdisi <code>{message.reply_to_message.forward_from.id   }</code>.")
 
         elif message.reply_to_message.forward_sender_name:
-            await message.reply("Sorry, you cannot get the forwarded user ID because of their privacy settings")
+            await message.reply("Üzr istəyirik, məxfilik parametrlərinə görə yönləndirilmiş istifadəçi ID-sini əldə edə bilməzsiniz")
 
         else:
-            await message.reply(f"User {message.reply_to_message.from_user.first_name}'s ID is <code>{message.reply_to_message.from_user.id}</code>.")   
+            await message.reply(f"İstdifadəçi {message.reply_to_message.from_user.first_name}'İdisi <code>{message.reply_to_message.from_user.id}</code>.")   
 
     except Exception:
-            await message.reply("An error occured while getting the ID.")
+            await message.reply("ID-ni əldə edərkən xəta baş verdi.")
 
 
 
@@ -243,19 +243,6 @@ def unpin_message(client, message):
   client.send_message(message.chat.id, "Mesaj başarıyla kaldırıldı.")
  else:
   client.send_message(message.chat.id, "Bir mesaj seciniz")
-
-
-@rehim.on_message(filters.private & filters.command("id", prefixes="!"))
-def userinfo(client, message):
-    if message.text == "/id":
-        user = rehim.get_users(message.from_user.id)
-        client.send_message(
-            chat_id=message.chat.id,
-            text="Salam {0[first_name]}!\nSənin ID: {0[id]}".format(user),
-            parse_mode="HTML"
-        )
-
-
 
 
 
