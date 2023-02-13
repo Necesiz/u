@@ -1,3 +1,4 @@
 #teamabasov test
 pyrogram==1.4.16
 TgCrypto
+telegraph
