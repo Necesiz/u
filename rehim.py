@@ -324,10 +324,10 @@ def delete_message(client, message):
 
 @rehim.on_message(filters.text)
 def delete_text(client, message):
-    soz = ["sim", "sikdir", "göt", "qəhbə"]
+    soz = ["Sik", "sik", "Sikdir", "sikdir", "Qəhbə", "qəhbə", "Göt", "göt", "31", "Peysər", "peysər", "Peyser", "peyser", "seks", "Seks", "sikərəm", "69", "sxoy"]
     if message.text in soz:
         rehim.delete_messages(message.chat.id, message.message_id)
-        rehim.send_message(message.chat.id, "Söz qara siayahıdadı")
+        rehim.send_message(message.chat.id, "Söz Bot sahibi tərəfindən botdan bloklanıb söyüş söyməyin !")
 
      
 
