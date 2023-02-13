@@ -15,6 +15,9 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
+@rehim.on_message(filters.command('salam'))
+def send_voice(client, message):
+    rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACJg1j6hzo4r2ZWfnHhM6h1TFVKMjGbwACcAMAAtUEBVKM8iMEgl-FfR4E', caption="SALAM ALEYKUMMM")
 
 
 
