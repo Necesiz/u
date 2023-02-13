@@ -63,14 +63,14 @@ def on_undelete(client, query):
 
 
 
-@rehim.on_message(filters.command('salam'))
+@rehim.on_message(filters.command('salam', prefixes="!")))
 def send_voice(client, message):
     rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACJg1j6hzo4r2ZWfnHhM6h1TFVKMjGbwACcAMAAtUEBVKM8iMEgl-FfR4E', caption="SALAM ALEYKUMMM")
 
 
 
 
-@rehim.on_message(filters.command("zer"))
+@rehim.on_message(filters.command("zer", prefixes="!")))
 def send_dice(client, message):
     result = random.randint(1, 6)
     dice = str(result)
@@ -78,7 +78,7 @@ def send_dice(client, message):
         client.send_message(message.chat.id, f"{message.from_user.first_name} sanırım {dice} 🎲 geldi!", parse_mode="html")
 
 
-@rehim.on_message(filters.command('list'))
+@rehim.on_message(filters.command('list', prefixes="!")))
 def chat_members(client, message):
     members = client.get_chat_members(message.chat.id)
 
@@ -111,7 +111,7 @@ async def welcome(client, message):
 
 
 
-@rehim.on_message(filters.command(["promote"]))
+@rehim.on_message(filters.command(["promote"], prefixes="!")))
 def promote_member(client, message):
     if len(message.command) == 2:
         member_id = message.command[1]
@@ -124,7 +124,7 @@ def promote_member(client, message):
 
 
 
-@rehim.on_message(filters.command("unpinall"))
+@rehim.on_message(filters.command("unpinall", prefixes="!")))
 def unpin_all_chat_messages(client, message):
     chat_id = message.chat.id
     client.unpin_all_chat_messages(chat_id)
@@ -132,18 +132,18 @@ def unpin_all_chat_messages(client, message):
 
 
 
-@rehim.on_message(filters.command('aye'))
+@rehim.on_message(filters.command('aye', prefixes="!")))
 def send_voice(client, message):
     rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACITpj6VD0_jjbXkOZ307AwYF8rNw5UwACswIAAs0m_VKAQ7xZ5hdPpx4E', caption="Test")
 
 
-@rehim.on_message(filters.command("rehim"))
+@rehim.on_message(filters.command("rehim", prefixes="!")))
 async def hello(client, message): 
     await message.reply("NEDI EEEEEEEEEE!")
 
 
 
-@rehim.on_message(filters.command("botlist"))
+@rehim.on_message(filters.command("botlist", prefixes="!")))
 def botlist(client, message):
     bots = [     # List of Bots
         {
@@ -169,7 +169,7 @@ def botlist(client, message):
 
 
 
-@rehim.on_message(filters.command('pin')) 
+@rehim.on_message(filters.command('pin', prefixes="!"))) 
 def pin_message(client, message): 
     if not message.reply_to_message: 
         message.reply("Lütfen bir mesaj yanıtlayarak pinleme yapın!") 
@@ -181,7 +181,7 @@ def pin_message(client, message):
 
 
 
-@rehim.on_message(filters.command("unpin"))
+@rehim.on_message(filters.command("unpin", prefixes="!")))
 def unpin_message(client, message):
  reply_to = message.reply_to_message
  
@@ -192,7 +192,7 @@ def unpin_message(client, message):
   client.send_message(message.chat.id, "Bir mesaj seciniz")
 
 
-@rehim.on_message(filters.private & filters.command("id"))
+@rehim.on_message(filters.private & filters.command("id", prefixes="!")))
 def userinfo(client, message):
     if message.text == "/id":
         user = rehim.get_users(message.from_user.id)
@@ -206,7 +206,7 @@ def userinfo(client, message):
 
 
 
-@rehim.on_message(filters.command('info'))
+@rehim.on_message(filters.command('info', prefixes="!")))
 def user_info(client, message):
     if message.reply_to_message:
         user = message.reply_to_message.from_user
@@ -231,7 +231,7 @@ def user_info(client, message):
 
 
 
-@rehim.on_message(filters.command("ses"))
+@rehim.on_message(filters.command("ses", prefixes="!")))
 def get_voice(client, message):
     if message.audio:
         message.download_media(file_name="voice.ogg")
@@ -244,7 +244,7 @@ def get_voice(client, message):
 
 
 
-@rehim.on_message(filters.command(["sil"]))
+@rehim.on_message(filters.command(["sil"], prefixes="!")))
 def delete_message(client, message):
     # silinecek mesajın ID'si
     message_to_delete = message.reply_to_message.message_id
