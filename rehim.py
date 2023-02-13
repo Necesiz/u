@@ -2,6 +2,9 @@ import pyrogram
 import random
 from pyrogram import Client, filters
 from pyrogram import Client, emoji, filters
+from pyrogram import Client, filters, InlineKeyboardMarkup, InlineKeyboardButton
+
+
 from Config import Config
 
 api_id = Config.API_ID
@@ -12,6 +15,39 @@ bot_token = Config.BOT_TOKEN
 
 #-#-#-# Pyrogram Başlanğıc #-#-#-#
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
+
+
+
+
+@rehim.on_message(Filters.command("sill"))
+def text_delete(client, message):
+    # İlgili mesajı almak
+    reply_msg = message.reply_to_message
+
+    # Mesajı güncelleme
+    if reply_msg:
+        message.edit("Mesaj silindi!",
+            reply_to_message_id=reply_msg.message_id,
+            reply_markup=InlineKeyboardMarkup([[
+                InlineKeyboardButton("Mesaj Geri Al",
+                                    callback_data="undo_delete")
+            ]]))
+        # Mesajı silme
+        reply_msg.delete()
+
+
+@rehim.on_callback_query("undo_delete")
+def on_undelete(client, query):
+    # İlgili mesajı almak
+    reply_msg = query.message.reply_to_message
+
+    # Mesaj geri alma
+    reply_msg.restore()
+
+    # Mesajı güncelleme
+    query.message.edit("Mesaj geri alındı!",
+            reply_to_message_id=reply_msg.message_id)
+
 
 
 
