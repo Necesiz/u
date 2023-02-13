@@ -17,7 +17,7 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
-@rehim.on_message(Filters.command("sill"))
+@rehim.on_message(filters.command("sill"))
 def text_delete(client, message):
     # İlgili mesajı almak
     reply_msg = message.reply_to_message
