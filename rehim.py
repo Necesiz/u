@@ -19,13 +19,13 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
-@rehim.on_message(filters.command("zer")) 
+@rehim.on_message(filters.command("zer"))
 def send_dice(client, message):
-    if message.text == "/dice": #Kullanıcıdan /dice komutu alınıyorsa
-        dice_num = random.randint(1, 6) #Dört için 1-6 arasında bir sayı seçiyoruz
-        msg = "Atılan zarlar {} oldu!".format(dice_num)
-        message.reply(msg) #Kullanıcıya sonuç mesajı gönderiyoruz.
-      
+    result = random.randint(1, 6)
+    dice = str(result)
+    if message.chat.type in ["group", "supergroup"]:
+        client.send_message(message.chat.id, f"{message.from_user.first_name} sanırım {dice} geldi!", parse_mode="html")
+
 
 @rehim.on_message(filters.command('list'))
 def chat_members(client, message):
