@@ -323,11 +323,13 @@ def delete_message(client, message):
 
 
 @rehim.on_message(filters.text)
-def text_delete(client, message):
+def delete_text(client, message):
     soz = ['sim','sikdir','göt','qəhbə']
     if message.text in soz:
-        rehim.delete_messages(message.chat.id, message_ids=message.message_id)
+        rehim.delete_messages(message.chat.id, message.message_id)
+        rehim.send_message(message.chat.id, "Söz qara siayahıdadı")
 
+     
 
 
 
