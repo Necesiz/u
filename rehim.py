@@ -17,7 +17,18 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
+@rehim.on_message(filters.command("purgeall", prefixes="!"))
+def purgeall(client, message):
+    ChatID = message.chat.id
 
+    MessagesList = client.get_history(ChatID)  # Gets the history
+
+    # Delete all messages
+    if MessagesList is not None:
+        # Process messages in batches of 100
+        for batch in MessagesList:
+            client.delete_messages(ChatID, batch)
+            client.send_message(ChatID, "Successfully purged the chat!")
 
 
 @rehim.on_message(filters.command("purge", prefixes="!"))
