@@ -2,7 +2,7 @@ import pyrogram
 import random
 from pyrogram import Client, filters
 from pyrogram import Client, emoji, filters
-from pyrogram.types import (ReplyKeyboardMarkup,  InlineKeyboardMarkup, InlineKeyboardButton)
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery 
 from Config import Config
 
 api_id = Config.API_ID
