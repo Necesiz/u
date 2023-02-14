@@ -18,7 +18,22 @@ bot_token = Config.BOT_TOKEN
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
+@rehim.on_message(filters.command("shib"))
+def ship(client, message):
+    # Get the users to "ship"
+    user_a = message.reply_to_message.from_user
+    user_b = message.mentions[0]
 
+    # Build the string with the Love
+    ship_str = "{} & {}".format(
+        user_a.id, user_a.first_name, user_b.id, user_b.first_name)
+
+    # Send the message with the users
+    client.send_message(
+        chat_id=message.chat.id,
+        text="🚢 {} are perfect for each other!".format(ship_str),
+        parse_mode="html"
+    )
 
 
 @rehim.on_message(filters.command("shipp"))
