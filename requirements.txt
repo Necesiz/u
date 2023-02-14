@@ -2,3 +2,4 @@
 pyrogram==1.4.16
 TgCrypto
 telegraph
+requests==2.26.0
