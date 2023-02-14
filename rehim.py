@@ -51,7 +51,7 @@ async def run_cmd(cmd: str) -> Tuple[str, str, int, int]:
 
 # Downloader for tiktok
 @rehim.on_message(filters.regex(pattern='.*http.*') & filters.private)
-async def _tiktok(bot, update):
+async def _tiktok(client, update):
   url = update.text
   session = requests.Session()
   resp = session.head(url, allow_redirects=True)
@@ -61,7 +61,7 @@ async def _tiktok(bot, update):
 
 # Callbacks
 @rehim.on_callback_query()
-async def _callbacks(bot, cb: CallbackQuery):
+async def _callbacks(client, cb: CallbackQuery):
   if cb.data == 'nowm':
     dirs = downloads.format(uuid.uuid4().hex)
     os.makedirs(dirs)
@@ -83,7 +83,7 @@ async def _callbacks(bot, cb: CallbackQuery):
     resp = session.head(link, allow_redirects=True)
     r = requests.get(resp.url, allow_redirects=True)
     open(f'{ttid}.mp4', 'wb').write(r.content)
-    await bot.send_video(update.chat.id, f'{ttid}.mp4',)
+    await client.send_video(update.chat.id, f'{ttid}.mp4',)
     shutil.rmtree(dirs)
   elif cb.data == 'wm':
     dirs = downloads.format(uuid.uuid4().hex)
@@ -131,7 +131,7 @@ async def _callbacks(bot, cb: CallbackQuery):
     open(f'{ttid}.mp4', 'wb').write(r.content)
     cmd = f'ffmpeg -i "{ttid}.mp4" -vn -ar 44100 -ac 2 -ab 192 -f mp3 "{ttid}.mp3"'
     await run_cmd(cmd)
-    await bot.send_audio(update.chat.id, f'{ttid}.mp3',)
+    await client.send_audio(update.chat.id, f'{ttid}.mp3',)
     shutil.rmtree(dirs)
 
 
