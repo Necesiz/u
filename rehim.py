@@ -21,20 +21,38 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
-@rehim.on_message(filters.command(["purge"]))
-def purge(client, message):
-    """Kullanıcı tarafından gönderilen mesajları temizlemek için kullanılan komut"""
-    chat_id = message.chat.id
-    
-    #En son mesajı almak
-    last_message = rehim.get_history(chat_id)[0]
-   
-    #İlk mesaj ile en son mesaj arasındaki mesajları silmek
-    if last_message.from_user.id == message.from_user.id:
-        messages = rehim.get_history(chat_id, offset_date=last_message.date)
-        for message in messages:
-            rehim.delete_messages(message.chat.id, message.message_id)
+@rehim.on_message(filters.command("shipp"))
+def ship(client, message):
+    words = message.command[1:]
+    if len(words) != 2:
+        message.reply_text("Üzgünüm, Lütfen iki kelime girin")
+        return
 
+    first_word = words[0]
+    second_word = words[1]
+
+    score = 0
+    for char in first_word:
+        if char in second_word and char != " ":
+            score += 1
+
+    final_score = score * 100 / (len(first_word) + len(second_word))
+    final_score = round(final_score)
+
+    if final_score == 100:
+        message.reply_text("Sonuç: PERFECT MATCH! 💕")
+    elif final_score > 80:
+        message.reply_text("Sonuç: Çok uyumlu! 👍")
+    elif final_score > 60:
+        message.reply_text("Sonuç: Uyumlu 🤝")
+    elif final_score > 40:
+        message.reply_text("Sonuç: Orta 🤔")
+    elif final_score > 20:
+        message.reply_text("Sonuç: Yetersiz 🤨")
+    elif final_score >= 0:
+        message.reply_text("Sonuç: Hiç uymuyor 😒")
+    else:
+        message.reply_text("Bir hata oluştu. Lütfen tekrar deneyin")
 
 
 
