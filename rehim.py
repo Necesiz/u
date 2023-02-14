@@ -23,7 +23,7 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 @rehim.on_message(filters.text)
 def process_message(client, message):
-    if message.text == '/start':
+    if message.text == 'start':
         message.reply("Merhaba, nasıl yardımcı olabilirim?")
     if message.text == '@teamabasov':
         message.reply("o burda yoxdur.")
