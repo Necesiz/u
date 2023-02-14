@@ -20,6 +20,16 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
+
+@rehim.on_message(filters.chat)
+def get_chat(client, message):
+    chat_id = message.chat.id
+    chat_type = message.chat.type
+    print("Gelen mesaj: " + str(chat_id))
+    print("Mesaj Türü: " + str(chat_type))
+    client.send_message(chat_id, "Merhaba")
+
+
 @rehim.on_message(filters.command(["ship"]))
 def ship(client, message):
     parts = message.text.split()  #mesajı parçalara ayırır
