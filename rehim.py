@@ -21,12 +21,22 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
-@rehim.on_message(filters.text)
-def process_message(client, message):
-    if message.text == 'start':
-        message.reply("Merhaba, nasıl yardımcı olabilirim?")
-    if message.text == '@teamabasov':
-        message.reply("o burda yoxdur.")
+@Client.on_message(filters.command(["purge"]))
+def purge(client, message):
+    """Kullanıcı tarafından gönderilen mesajları temizlemek için kullanılan komut"""
+    chat_id = message.chat.id
+    
+    #En son mesajı almak
+    last_message = app.get_history(chat_id)[0]
+   
+    #İlk mesaj ile en son mesaj arasındaki mesajları silmek
+    if last_message.from_user.id == message.from_user.id:
+        messages = app.get_history(chat_id, offset_date=last_message.date)
+        for message in messages:
+            app.delete_messages(message.chat.id, message.message_id)
+
+
+
 
 @rehim.on_message(filters.command(["ship"]))
 def ship(client, message):
