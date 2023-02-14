@@ -19,18 +19,19 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
+
 @rehim.on_message(filters.command("ship"))
 def ship(client, message):
-    destin1 = message.command[1]
-    destin2 = message.command[2]
-    
-    # Generate romance values
-    romance1 = random.randint(0, 100)
-    romance2 = random.randint(0, 100)
-    total_romance = romance1 + romance2
-    
-    # Create a beautiful message
-    message = f"💑 __Ship result:__ {destin1} and {destin2}\n\n{destin1}: 
+    if message.text == "/ship":
+        # Alıcının kullanıcı adı
+        recipient = message.reply_to_message("username") 
+
+        # Gönderici ve alıcı bağlar
+        client.send_message(
+            chat_id=message.chat.id,
+            text="💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 \n\n  {} ile  {} arasında bir bağ var! \n💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖".format(message.from_user.first_name, recipient.from_user.first_name)
+        )
+
 
 @rehim.on_message(filters.command('tlink'))
 async def get_link_group(client, message):
