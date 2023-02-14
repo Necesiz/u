@@ -19,7 +19,7 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 @rehim.on_message(filters.command("shib"))
-def ship(client, message):
+def shib(client, message):
     # Get the users to "ship"
     user_a = message.reply_to_message.from_user
     user_b = message.mentions[0]
