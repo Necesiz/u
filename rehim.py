@@ -30,7 +30,7 @@ def ship(client, message):
     total_romance = romance1 + romance2
     
     # Create a beautiful message
-    msg = f"💑 __Ship result:__ {destin1} and {destin2}\n\n{destin1}: 
+    message = f"💑 __Ship result:__ {destin1} and {destin2}\n\n{destin1}: 
 
 @rehim.on_message(filters.command('tlink'))
 async def get_link_group(client, message):
