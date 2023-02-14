@@ -18,6 +18,10 @@ bot_token = Config.BOT_TOKEN
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
+rehim.on_message(filters.command)
+def command_handler(client, message):
+    message.reply("Tanımadığım bir komut gördüm.")
+
 
 @rehim.on_message(filters.command('tlink'))
 async def get_link_group(client, message):
