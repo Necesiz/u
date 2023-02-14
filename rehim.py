@@ -18,10 +18,19 @@ bot_token = Config.BOT_TOKEN
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
-rehim.on_message(filters.command)
-def command_handler(client, message):
-    message.reply("Tanımadığım bir komut gördüm.")
 
+@rehim.on_message(filters.command("ship"))
+def ship(client, message):
+    destin1 = message.command[1]
+    destin2 = message.command[2]
+    
+    # Generate romance values
+    romance1 = random.randint(0, 100)
+    romance2 = random.randint(0, 100)
+    total_romance = romance1 + romance2
+    
+    # Create a beautiful message
+    msg = f"💑 __Ship result:__ {destin1} and {destin2}\n\n{destin1}: 
 
 @rehim.on_message(filters.command('tlink'))
 async def get_link_group(client, message):
