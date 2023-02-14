@@ -20,17 +20,22 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
-@rehim.on_message(filters.command("ship"))
+@rehim.on_message(filters.command(["ship"]))
 def ship(client, message):
-    if message.text == "/ship":
-        # Alıcının kullanıcı adı
-        recipient = message.reply_to_message("username") 
+    parts = message.text.split()  #mesajı parçalara ayırır
 
-        # Gönderici ve alıcı bağlar
+    if len(parts) == 1:  #fonksiyonu çağıran komutun argümanları olup olmadığını kontrol eder
         client.send_message(
-            chat_id=message.chat.id,
-            text="💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 \n\n  {} ile  {} arasında bir bağ var! \n💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖 💖".format(message.from_user.first_name, recipient.from_user.first_name)
-        )
+            chat_id=message.chat.id, 
+            text="Kullanım:\n/ship  \nYazılan isimleri bir arada gösterir")  #geçersiz argümanları belirtir
+        return
+    
+    name1 = parts[1]  #argümanları alır
+    name2 = parts[2]
+ 
+    client.send_message(  #mesaj gönderir
+        chat_id=message.chat.id,
+        text=name1 + " ♥ " + name2 )
 
 
 @rehim.on_message(filters.command('tlink'))
