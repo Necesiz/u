@@ -29,7 +29,7 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
  
 @rehim.on_message(filters.command("adminlist")) 
 def adminlist(client, message): 
-    admins = app.get_chat_members(message.chat.id, filter="administrators", limit=200) 
+    admins = rehim.get_chat_members(message.chat.id, filter="administrators", limit=200) 
     admin_list = [adm.user.first_name for adm in admins] 
     
     client.send_message( 
