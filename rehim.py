@@ -26,7 +26,21 @@ bot_token = Config.BOT_TOKEN
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
-
+@rühim.on_message(filters.command(['start']))
+def start(client, message):
+    darkprince = f'👋 Salam @{message.from_user.username}\n\n [REHİM](https://telegra.ph/file/174f2550624a02d8002aa.jpg)\n I\'m Mən @teamabasov'ın test botuyam üzgünəm sənə kömək edənməyəcəm:'
+    message.reply_text(
+        text=darkprince, 
+        quote=False,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton('Owner', url='https://t.me/teamabasov'),
+                    InlineKeyboardButton('SUPPORT', url='https://t.me/teamabasofcom')
+                ]
+            ]
+        )
+    )
 
  
 @rehim.on_message(filters.command('adminlist', prefixes='/'))
@@ -309,10 +323,6 @@ def unpin_all_chat_messages(client, message):
 def send_voice(client, message):
     rehim.send_voice(message.chat.id, voice='AwACAgQAAx0Cb5j5qAACITpj6VD0_jjbXkOZ307AwYF8rNw5UwACswIAAs0m_VKAQ7xZ5hdPpx4E', caption="Test")
 
-
-@rehim.on_message(filters.command("rehim", prefixes="!"))
-async def hello(client, message): 
-    await message.reply("NEDI EEEEEEEEEE!")
 
 
 
