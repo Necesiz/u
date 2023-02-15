@@ -61,7 +61,7 @@ REPLY_MESSAGE_BUTTONS = [
 @rehim.on_message(filters.command('test'))
 def test(client, message):
     text = REPLY_MESSAGE
-    reply_markup = InlineKeyboardMarkup(REPLY_MESSAGE_BUTTONS, one_time_keyboard=True, resize_keyboard=True)
+    reply_markup = ReplyKeyboardMarkup(REPLY_MESSAGE_BUTTONS, one_time_keyboard=True, resize_keyboard=True)
     message.reply(
         text=text,
         reply_markup=reply_markup
