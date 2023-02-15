@@ -25,18 +25,20 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
  
+@rehim.on_message(filters.command('adminlist', prefixes='/'))
+def admin_list(app, message):
+    admins = rehim.get_chat_administrators(chat_id=message.chat.id)
 
-@app.on_message(filters.group & filters.admin_status)
-def admin_list(client, message):
-    admins = client.get_chat_members(message.chat.id, "administrators")
+    msgString = ""
+    for i in range(len(admins)):
+        user_name = admins[i].user.first_name
+        if admins[i].user.last_name is not None:
+            user_name += " " + admins[i].user.last_name
+        msgString += "{}) {} \n".format(i+1, user_name)
+    
+    message.reply_text(msgString)
 
-    if len(admins) > 0:
-        text = "Admin List:\n\n"
 
-        for admin in admins:
-            text += f"• {admin.user.first_name} {admin.user.last_name}\n"
-
-        message.reply_text(text, parse_mode="html")
 
 @rehim.on_message(filters.command("shib"))
 def shib(client, message):
