@@ -24,86 +24,20 @@ bot_token = Config.BOT_TOKEN
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
-@rehim.on_message(filters.command(['admin']))
-def admin(client, message):
-    cevaplanan_mesaj = message.reply_to_message
-    if cevaplanan_mesaj is None:
-        kekik = message.reply("Yönetici Listesini Çıkartıyorum..")
-    else:
-        kekik = message.reply("Yönetici Listesini Çıkartıyorum..", reply_to_message_id=cevaplanan_mesaj.message_id)
-    
-    sohbetTuru = message.chat.type
-    if sohbetTuru != "private":
-        kurucu = ""
-        adminler = ""
-        
-        for yonetici in client.get_chat_members(message.chat.id, filter="administrators"):
-            if not yonetici.user.is_bot:
-                if yonetici.status == "creator":
-                    if yonetici.user.username: kurucu += f"👑 -> @{yonetici.user.username}\n\n"
-                    else: kurucu += f"👑 -> [{yonetici.user.first_name}](tg://user?id={yonetici.user.id})\n\n"
-                        
-                if yonetici.status == "administrator":
-                    if yonetici.user.username: adminler += f" ⛑ -> @{yonetici.user.username}\n"
-                    else: adminler += f" ⛑ -> [{yonetici.user.first_name}](tg://user?id={yonetici.user.id})\n"
-                    
-        kekik.edit(f'**Yönetici Listesi**:\n{kurucu}{adminler}', parse_mode="Markdown", disable_web_page_preview=True)
 
+@rehim.on_message(filters.command("adminlist"))
+def adminlist(client, message):
+    list_of_admins = []
+    
+    for m in app.iter_chat_members(message.chat.id):
+        if (m.status == "administrator" or m.status == "creator"):
+            list_of_admins.append(m.user.first_name)
 
-@rehim.on_message(filters.command(['bot']))
-def bot(client, message):
-    cevaplanan_mesaj = message.reply_to_message
-    if cevaplanan_mesaj is None:
-        kekik = message.reply("Bot Listesini Çıkartıyorum..")
-    else:
-        kekik = message.reply("Bot Listesini Çıkartıyorum..", reply_to_message_id=cevaplanan_mesaj.message_id)
+    client.send_message(
+        chat_id=message.chat.id, 
+         text="List of Admins:\n" + "\n".join(list_of_admins)
+    )
 
-    sohbetTuru = message.chat.type
-    if sohbetTuru != "private":
-        botlar = ""
-
-        for bot in client.get_chat_members(message.chat.id, filter="bots"):
-            botlar += f" 🤖 -> @{bot.user.username}\n"
-
-        kekik.edit(f'**Bot Listesi**:\n{botlar}', parse_mode="Markdown", disable_web_page_preview=True)
-
-
-@rehim.on_message(filters.command(['silik']))
-def silik(client, message):
-    cevaplanan_mesaj = message.reply_to_message
-    if cevaplanan_mesaj is None:
-        kekik = message.reply("Silinmiş Hesapları Sayıyorum..")
-    else:
-        kekik = message.reply("Silinmiş Hesapları Sayıyorum..", reply_to_message_id=cevaplanan_mesaj.message_id)
-
-    sohbetTuru = message.chat.type
-    if sohbetTuru != "private":
-
-        sayac = 0
-        for kisi in client.iter_chat_members(message.chat.id):
-            if kisi.user.is_deleted:
-                sayac += 1
-
-        kekik.edit(f'__Silik Üye Sayısı__ : `{sayac}`', disable_web_page_preview=True)
-
-
-@rehim.on_message(filters.command(['ha']))
-def hayalet(client, message):
-    cevaplanan_mesaj = message.reply_to_message
-    if cevaplanan_mesaj is None:
-        kekik = message.reply("Hayalet Hesapları Sayıyorum..")
-    else:
-        kekik = message.reply("Hayalet Hesapları Sayıyorum..", reply_to_message_id=cevaplanan_mesaj.message_id)
-
-    sohbetTuru = message.chat.type
-    if sohbetTuru != "private":
-
-        sayac = 0
-        for kisi in client.iter_chat_members(message.chat.id):
-            if kisi.user.status in ("long_time_ago", "within_month"):
-                sayac += 1
-
-        kekik.edit(f'__Hayalet üye sayısı__ : `{sayac}`', disable_web_page_preview=True)
 
 
 @rehim.on_message(filters.command("shib"))
