@@ -17,7 +17,7 @@ from Config import Config
 api_id = Config.API_ID
 api_hash = Config.API_HASH
 bot_token = Config.BOT_TOKEN
-downloads = './downloads/{}/'
+
 
 
 #-#-#-# Pyrogram Başlanğıc #-#-#-#
