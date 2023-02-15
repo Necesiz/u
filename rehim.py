@@ -27,33 +27,6 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
-PHOTO_LINK = [
- "https://telegra.ph/file/174f2550624a02d8002aa.jpg",
- "https://telegra.ph/file/04c962ac66b5b18f502b3.jpg"
- ]
-
-
-@rehim.on_message(filters.command("start")) 
-async def start_message(client, message)
-    button = [[
-      InlineKeyboardButton("ƏMRLƏRİM", callback_data="start")
-      ]]
-    await messages.reply_photo(
-        photo=random.choice(PHOTO_LINK),
-        text="Salam {message.from_user.mention}   Xoş gördüm",
-        reply_markup=InlineKeyboardMarkup(buttons)
-    )
-
-
-
-@rehim.on_callback_query()
-async def callback(client, message: CallbackQuery)
-    if message.data == "start":
-        await message.message.edit(
-            text=" salam {msg.from_user.mention}  test"
-        )
-
-
 
  
 @rehim.on_message(filters.command('adminlist', prefixes='/'))
