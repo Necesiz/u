@@ -2,7 +2,7 @@ import pyrogram
 import random
 from pyrogram import Client, filters
 from pyrogram import Client, emoji, filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery 
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, Message, CallbackQuery 
 from pyrogram.types import Message
 import os
 from telegraph import upload_file
