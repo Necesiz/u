@@ -34,7 +34,7 @@ PHOTO_LINK = [
 
 
 @rehim.on_message(filters.command("start")) 
-async def start_message(bot, message)
+async def start_message(client, message)
     button = [[
       InlineKeyboardButton("ƏMRLƏRİM", callback_data="start")
       ]]
@@ -47,8 +47,8 @@ async def start_message(bot, message)
 
 
 @rehim.on_callback_query()
-async def callback(bot, msg: CallbackQuery)
-    if msg.data == "start":
+async def callback(client, message: CallbackQuery)
+    if message.data == "start":
         await message.message.edit(
             text=" salam {msg.from_user.mention}  test"
         )
