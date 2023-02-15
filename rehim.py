@@ -25,19 +25,19 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 @rehim.on_message(filters.command("log") & filters.user(5134595693)) # bura oz idni yaz
-async def logger(client, msj):
+async def logger(client, message):
     # ayuyes
-    chat_id = msj.chat.id
-    reply = msj.reply_to_message
+    chat_id = message.chat.id
+    reply = message.reply_to_message
     if reply:
         replyid = reply.id
-        await client.delete_messages(chat_id, msj.id)
+        await client.delete_messages(chat_id, message.id)
         await client.forward_messages(
             chat_id="-1001872296360",
-            from_chat_id=msj.chat.id, # bura log qrupunun IDsini yaz
+            from_chat_id=message.chat.id, # bura log qrupunun IDsini yaz
             message_ids=replyid
         )
-        await client.send_message(chat_id, f"{msj.from_user.mention} mesaj uğurla log qrupuna göndərildi.")
+        await client.send_message(chat_id, f"{message.from_user.mention} mesaj uğurla log qrupuna göndərildi.")
     else:
         await client.send_message(chat_id, f"reply elemelisen")
 
