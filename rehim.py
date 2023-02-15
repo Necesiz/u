@@ -67,7 +67,7 @@ def test(client, message):
         reply_markup=reply_markup
     )
 
-rehim.on_message(filters.regex("salam"))
+@rehim.on_message(filters.regex("salam"))
 def reply_to_salam(client, message):
     rehim.send_message(message.chat.id, "test salam")
 
