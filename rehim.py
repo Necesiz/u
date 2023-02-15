@@ -12,6 +12,8 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 import json, requests, os, shlex, asyncio, uuid, shutil
 from typing import Tuple
+
+
 from Config import Config
 
 api_id = Config.API_ID
@@ -22,6 +24,35 @@ bot_token = Config.BOT_TOKEN
 
 #-#-#-# Pyrogram Başlanğıc #-#-#-#
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
+
+
+
+PHOTO_LINK = [
+ "https://telegra.ph/file/174f2550624a02d8002aa.jpg",
+ "https://telegra.ph/file/04c962ac66b5b18f502b3.jpg"
+ ]
+
+
+@rehim.on_message(filters.command("start")) 
+async def start_message(bot, message)
+    button = [[
+      InlineKeyboardButton("ƏMRLƏRİM", callback_data="start")
+      ]]
+    await messages.reply_photo(
+        photo=random.choice(PHOTO_LINK),
+        text="Salam {message.from_user.mention}   Xoş gördüm",
+        reply_markup=InlineKeyboardMarkup(buttons)
+    )
+
+
+
+@rehim.on_callback_query()
+async def callback(bot, msg: CallbackQuery)
+    if msg.data == "start":
+        await message.message.edit(
+            text=" salam {msg.from_user.mention}  test"
+        )
+
 
 
  
