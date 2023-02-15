@@ -21,25 +21,50 @@ api_hash = Config.API_HASH
 bot_token = Config.BOT_TOKEN
 
 
+START_MESSAGE = "Salam necəsən"
+START_MESSAGE_BUTTONS = [
+    [
+        InlineKeyboardButton('SUPPORT', url='https://t.me/teamabasofcom'),
+        InlineKeyboardButton('YOXLAMA', url='https://t.me/teamabasof')
+    ],
+    [
+        InlineKeyboardButton('SAHİB', url='https://t.me/teamabasov'),
+        InlineKeyboardButton('YOXLAMA2', url='https://t.me/teamabasofffffffff')
+    ]
+]
+
+
+
 
 #-#-#-# Pyrogram Başlanğıc #-#-#-#
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
-@rühim.on_message(filters.command(['start']))
+@rehim.on_message(filters.command("start") & filters.private)
 def start(client, message):
-    darkprince = f'👋 Salam @{message.from_user.username}\n\n [REHİM](https://telegra.ph/file/174f2550624a02d8002aa.jpg)\n I\'m Mən @teamabasov'ın test botuyam üzgünəm sənə kömək edənməyəcəm:'
-    message.reply_text(
-        text=darkprince, 
-        quote=False,
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton('Owner', url='https://t.me/teamabasov'),
-                    InlineKeyboardButton('SUPPORT', url='https://t.me/teamabasofcom')
-                ]
-            ]
-        )
+    text = START_MESSAGE
+    reply_markup = InlineKeyboardMarkup(START_MESSAGE_BUTTONS)
+    message.reply(
+        text=text,
+        reply_markup=reply_markup,
+        disable_web_page_preview=True
+    )
+
+REPLY_MESSAGE = "BUTTONA BAS"
+
+REPLY_MESSAGE_BUTTONS = [
+    [
+        ("Salam")
+    ]
+]
+
+@rehim.on_message(filters.command('test'))
+def test(client, message):
+    text = REPLY_MESSAGE
+    reply_markup = InlineKeyboardMarkup(REPLY_MESSAGE_BUTTONS, one_time_keyboard=True, resize_keyboard=True)
+    message.reply(
+        text=text,
+        reply_markup=reply_markup
     )
 
  
