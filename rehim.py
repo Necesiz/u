@@ -54,7 +54,7 @@ REPLY_MESSAGE = "BUTTONA BAS"
 
 REPLY_MESSAGE_BUTTONS = [
     [
-        ("Salam")
+        ("salam")
     ]
 ]
 
@@ -66,6 +66,12 @@ def test(client, message):
         text=text,
         reply_markup=reply_markup
     )
+
+rehim.on_message(filters.regex("salam"))
+def reply_to_salam(client, message):
+    rehim.send_message(message.chat.id, "test salam")
+
+
 
  
 @rehim.on_message(filters.command('adminlist', prefixes='/'))
