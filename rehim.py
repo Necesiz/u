@@ -24,19 +24,19 @@ bot_token = Config.BOT_TOKEN
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
+ 
 
-@rehim.on_message(filters.command("adminlist"))
-def adminlist(client, message):
-    list_of_admins = []
-    
-    for m in app.iter_chat_members(message.chat.id):
-        if (m.status == "administrator" or m.status == "creator"):
-            list_of_admins.append(m.user.first_name)
-
-    client.send_message(
-        chat_id=message.chat.id, 
-         text="List of Admins:\n" + "\n".join(list_of_admins)
-    )
+ 
+@rehim.on_message(filters.command("adminlist")) 
+def adminlist(client, message): 
+    admins = app.get_chat_members(message.chat.id, filter="administrators", limit=200) 
+    admin_list = [adm.user.first_name for adm in admins] 
+    
+    client.send_message( 
+        chat_id=message.chat.id, 
+        text='Admin List\n' + "\n".join(admin_list) 
+    ) 
+ 
 
 
 
