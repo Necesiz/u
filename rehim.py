@@ -26,18 +26,23 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
  
 
- 
-@rehim.on_message(filters.command("adminlist")) 
-def adminlist(client, message): 
-    admins = rehim.get_chat_members(message.chat.id, filter="administrators", limit=200) 
-    admin_list = [adm.user.first_name for adm in admins] 
-    
-    client.send_message( 
-        chat_id=message.chat.id, 
-        text='Admin List\n' + "\n".join(admin_list) 
-    ) 
- 
+@rehim.on_message(filters.command('adminlist'))
+def adminlist(client, message):
+  if message.chat.type == 'private':
+    return
 
+  admins = []
+
+  for member in client.iter_chat_members(message.chat.id):
+    if member.status in ('administrator', 'creator'):
+      admins.append(f"[{member.user.first_name}](tg://user?id={member.user.id})")
+
+  admins_str = '\n'.join(admins) or 'Yönetici yok'
+
+  message.reply_text(
+    text=f"{message.chat.title} grubu için yöneticiler:\n\n{admins_str}",
+    parse_mode="markdown"
+  )
 
 
 @rehim.on_message(filters.command("shib"))
