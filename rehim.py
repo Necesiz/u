@@ -21,6 +21,21 @@ api_hash = Config.API_HASH
 bot_token = Config.BOT_TOKEN
 
 
+REHİM_MESSAGE = "Salam necəsən"
+REHİM_MESSAGE_BUTTONS = [
+    [
+        InlineKeyboardButton('ƏMR', callback_data="ƏMR"),
+        InlineKeyboardButton('YOXLAMA', url='https://t.me/teamabasof')
+    ],
+    [
+        InlineKeyboardButton('SAHİB', url='https://t.me/teamabasov'),
+        InlineKeyboardButton('YOXLAMA2', url='https://t.me/teamabasofffffffff')
+    ]
+]
+
+
+
+
 START_MESSAGE = "Salam necəsən"
 START_MESSAGE_BUTTONS = [
     [
@@ -38,6 +53,14 @@ START_MESSAGE_BUTTONS = [
 
 #-#-#-# Pyrogram Başlanğıc #-#-#-#
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
+
+
+
+@rehim.on_message(filters.command("rehim") & filters.private)
+def rehim(client, message):
+    text = REHİM_MESSAGE
+    reply_markup = InlineKeyboardMarkup(REHİM_MESSAGE_BUTTONS)
+
 
 
 @rehim.on_message(filters.command("start") & filters.private)
