@@ -52,6 +52,22 @@ def start(client, message):
         reply_markup = InlineKeyboardMarkup(REHİM_MESSAGE_BUTTONS)
     )
 
+@rehim.on_callback_query()
+def Callback_query(Clinet, CallbackQuery):
+    if CallbackQuery.data== "EMR":
+
+        SOZ_TEXT = "ƏMRLƏRİM YOXDUR"
+
+        SOZ_BUTTON = [
+            [
+                InlineKeyboardButton("GERİ", callback_data="start")
+            ]
+        ]
+
+        CallbackQuery.edit_message_text(
+            SOZ_TEXT,
+            reply_markup = InlineKeyboardMarkup(SOZ_BUTTON)
+
 
 
 REPLY_MESSAGE = "BUTTONA BAS"
