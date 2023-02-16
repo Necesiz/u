@@ -53,7 +53,7 @@ def start(client, message):
     )
 
 @rehim.on_callback_query()
-def Callback_query(Clinet, CallbackQuery):
+def cllback_query(Clinet, CallbackQuery):
     if CallbackQuery.data== "EMR":
 
         SOZ_TEXT = "ƏMRLƏRİM YOXDUR"
