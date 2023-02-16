@@ -67,6 +67,9 @@ def cllback_query(Clinet, CallbackQuery):
         CallbackQuery.edit_message_text(
             SOZ_TEXT,
             reply_markup = InlineKeyboardMarkup(SOZ_BUTTON)
+        )
+
+
 
 
 
