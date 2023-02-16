@@ -60,7 +60,7 @@ def cllback_query(Clinet, CallbackQuery):
 
         SOZ_BUTTON = [
             [
-                InlineKeyboardButton("GERİ", callback_data="start")
+                InlineKeyboardButton("GERİ", callback_data="dstart")
             ]
         ]
 
@@ -68,6 +68,13 @@ def cllback_query(Clinet, CallbackQuery):
             SOZ_TEXT,
             reply_markup = InlineKeyboardMarkup(SOZ_BUTTON)
         )
+
+    elif CallbackQuery.data == "dstart":
+        CallbackQuery.edit_message_text(
+            REHİM_MESSAGE,
+            reply_markup = InlineKeyboardMarkup(REHİM_MESSAGE_BUTTONS) 
+        )
+
 
 
 
