@@ -54,7 +54,7 @@ REPLY_MESSAGE = "BUTTONA BAS"
 
 REPLY_MESSAGE_BUTTONS = [
     [
-        ("help")
+        ("help"),
         ("helpp")
     ]
 ]
