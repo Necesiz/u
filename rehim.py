@@ -21,18 +21,6 @@ api_hash = Config.API_HASH
 bot_token = Config.BOT_TOKEN
 
 
-REHİM_MESSAGE = "Salam necəsən"
-REHİM_MESSAGE_BUTTONS = [
-    [
-        InlineKeyboardButton('ƏMR', callback_data="EMR"),
-        InlineKeyboardButton('YOXLAMA', url='https://t.me/teamabasof')
-    ],
-    [
-        InlineKeyboardButton('SAHİB', url='https://t.me/teamabasov'),
-        InlineKeyboardButton('YOXLAMA2', url='https://t.me/teamabasofffffffff')
-    ]
-]
-
 
 
 
@@ -56,12 +44,6 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
-@rehim.on_message(filters.command("alive") & filters.private)
-def rehim(client, message):
-    message.reply(
-        text = REHİM_MESSAGE
-        reply_markup = InlineKeyboardMarkup(REHİM_MESSAGE_BUTTONS)
-    )
 
 
 @rehim.on_message(filters.command("start") & filters.private)
@@ -513,6 +495,27 @@ def delete_text(client, message):
 @rehim.on_message(filters.voice)
 def anything(client, message):
     message.reply(message.voice.file_id)
+
+
+REHİM_MESSAGE = "Salam necəsən"
+REHİM_MESSAGE_BUTTONS = [
+    [
+        InlineKeyboardButton('ƏMR', callback_data="EMR"),
+        InlineKeyboardButton('YOXLAMA', url='https://t.me/teamabasof')
+    ],
+    [
+        InlineKeyboardButton('SAHİB', url='https://t.me/teamabasov'),
+        InlineKeyboardButton('YOXLAMA2', url='https://t.me/teamabasofffffffff')
+    ]
+]
+
+
+@rehim.on_message(filters.command("alive") & filters.private)
+def alive(client, message):
+    message.reply(
+        text = REHİM_MESSAGE,
+        reply_markup = InlineKeyboardMarkup(REHİM_MESSAGE_BUTTONS)
+    )
 
 
 
