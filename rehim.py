@@ -28,11 +28,11 @@ REHİM_MESSAGE = "{message.from_user.mention} Salam"
 REHİM_MESSAGE_BUTTONS = [
     [
         InlineKeyboardButton('ƏMRLƏR1', callback_data="EMR"),
-        InlineKeyboardButton('ƏMRLƏR2', callback_data="dhelp"))
+        InlineKeyboardButton('ƏMRLƏR2', callback_data="dhelp")
     ],
     [
-        InlineKeyboardButton('ƏMRLƏR3', callback_data="thelp")),
-        InlineKeyboardButton('ƏMRLƏR4', callback_data="shelp"))
+        InlineKeyboardButton('ƏMRLƏR3', callback_data="thelp"),
+        InlineKeyboardButton('ƏMRLƏR4', callback_data="shelp")
     ]
 ]
 
