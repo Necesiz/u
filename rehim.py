@@ -24,7 +24,7 @@ bot_token = Config.BOT_TOKEN
 
 
 
-REHİM_MESSAGE = "Salam necəsən"
+REHİM_MESSAGE = f"{message.from_user.mention} Salam"
 REHİM_MESSAGE_BUTTONS = [
     [
         InlineKeyboardButton('ƏMR', callback_data="EMR"),
@@ -75,48 +75,6 @@ def cllback_query(Clinet, CallbackQuery):
             reply_markup = InlineKeyboardMarkup(REHİM_MESSAGE_BUTTONS) 
         )
 
-
-
-
-
-
-REPLY_MESSAGE = "BUTTONA BAS"
-
-REPLY_MESSAGE_BUTTONS = [
-    [
-        ("help"),
-        ("helpp")
-    ],
-    [
-        ("desdek"),
-        ("desdekk")
-    ]
-]
-
-@rehim.on_message(filters.command('test'))
-def test(client, message):
-    text = REPLY_MESSAGE
-    reply_markup = ReplyKeyboardMarkup(REPLY_MESSAGE_BUTTONS, one_time_keyboard=True, resize_keyboard=True)
-    message.reply(
-        text=text,
-        reply_markup=reply_markup
-    )
-
-@rehim.on_message(filters.regex("help"))
-def reply_to_help(client, message):
-    rehim.send_message(message.chat.id, "test salam")
-
-@rehim.on_message(filters.regex("helpp"))
-def reply_to_helpp(client, message):
-    rehim.send_message(message.chat.id, "test helpp")
-
-@rehim.on_message(filters.regex("desdek"))
-def reply_to_desdek(client, message):
-    rehim.send_message(message.chat.id, "test helpp")
-
-@rehim.on_message(filters.regex("desdekk"))
-def reply_to_desdekk(client, message):
-    rehim.send_message(message.chat.id, "test helpp")
 
  
 @rehim.on_message(filters.command('adminlist', prefixes='/'))
