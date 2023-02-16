@@ -24,7 +24,7 @@ bot_token = Config.BOT_TOKEN
 
 
 
-REHİM_MESSAGE = f"{message.from_user.mention} Salam"
+REHİM_MESSAGE = "{message.from_user.mention} Salam"
 REHİM_MESSAGE_BUTTONS = [
     [
         InlineKeyboardButton('ƏMR', callback_data="EMR"),
