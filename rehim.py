@@ -24,7 +24,7 @@ bot_token = Config.BOT_TOKEN
 REHİM_MESSAGE = "Salam necəsən"
 REHİM_MESSAGE_BUTTONS = [
     [
-        InlineKeyboardButton('ƏMR', callback_data="ƏMR"),
+        InlineKeyboardButton('ƏMR', callback_data="EMR"),
         InlineKeyboardButton('YOXLAMA', url='https://t.me/teamabasof')
     ],
     [
@@ -58,9 +58,10 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 @rehim.on_message(filters.command("rehim") & filters.private)
 def rehim(client, message):
-    text = REHİM_MESSAGE
-    reply_markup = InlineKeyboardMarkup(REHİM_MESSAGE_BUTTONS)
-
+    message.reply(
+        text = REHİM_MESSAGE
+        reply_markup = InlineKeyboardMarkup(REHİM_MESSAGE_BUTTONS)
+    )
 
 
 @rehim.on_message(filters.command("start") & filters.private)
