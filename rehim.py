@@ -27,12 +27,12 @@ bot_token = Config.BOT_TOKEN
 REHİM_MESSAGE = "{message.from_user.mention} Salam"
 REHİM_MESSAGE_BUTTONS = [
     [
-        InlineKeyboardButton('ƏMR', callback_data="EMR"),
-        InlineKeyboardButton('YOXLAMA', url='https://t.me/teamabasof')
+        InlineKeyboardButton('ƏMRLƏR1', callback_data="EMR"),
+        InlineKeyboardButton('ƏMRLƏR2', callback_data="dhelp"))
     ],
     [
-        InlineKeyboardButton('SAHİB', url='https://t.me/teamabasov'),
-        InlineKeyboardButton('YOXLAMA2', url='https://t.me/teamabasofffffffff')
+        InlineKeyboardButton('ƏMRLƏR3', callback_data="thelp")),
+        InlineKeyboardButton('ƏMRLƏR4', callback_data="shelp"))
     ]
 ]
 
@@ -76,7 +76,60 @@ def cllback_query(Clinet, CallbackQuery):
         )
 
 
- 
+@rehim.on_callback_query()
+def cllback_query(Clinet, CallbackQuery):
+    if CallbackQuery.data== "thelp":
+
+        SOZ_TEXT = "ƏMRLƏRİM YOXDUR"
+
+        SOZ_BUTTON = [
+            [
+                InlineKeyboardButton("GERİ", callback_data="dstart")
+            ]
+        ]
+
+        CallbackQuery.edit_message_text(
+            SOZ_TEXT,
+            reply_markup = InlineKeyboardMarkup(SOZ_BUTTON)
+        )
+
+
+@rehim.on_callback_query()
+def cllback_query(Clinet, CallbackQuery):
+    if CallbackQuery.data== "dhelp":
+
+        SOZ_TEXT = "ƏMRLƏRİM YOXDUR"
+
+        SOZ_BUTTON = [
+            [
+                InlineKeyboardButton("GERİ", callback_data="dstart")
+            ]
+        ]
+
+        CallbackQuery.edit_message_text(
+            SOZ_TEXT,
+            reply_markup = InlineKeyboardMarkup(SOZ_BUTTON)
+        )
+
+
+@rehim.on_callback_query()
+def cllback_query(Clinet, CallbackQuery):
+    if CallbackQuery.data== "shelp":
+
+        SOZ_TEXT = "ƏMRLƏRİM YOXDUR"
+
+        SOZ_BUTTON = [
+            [
+                InlineKeyboardButton("GERİ", callback_data="dstart")
+            ]
+        ]
+
+        CallbackQuery.edit_message_text(
+            SOZ_TEXT,
+            reply_markup = InlineKeyboardMarkup(SOZ_BUTTON)
+        )
+
+
 @rehim.on_message(filters.command('adminlist', prefixes='/'))
 def admin_list(app, message):
     admins = rehim.get_chat_administrators(chat_id=message.chat.id)
