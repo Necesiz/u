@@ -93,11 +93,6 @@ def cllback_query(Clinet, CallbackQuery):
             reply_markup = InlineKeyboardMarkup(SOZ_BUTTON)
         )
 
-    elif CallbackQuery.data == "dstart":
-        CallbackQuery.edit_message_text(
-            REHİM_MESSAGE,
-            reply_markup = InlineKeyboardMarkup(REHİM_MESSAGE_BUTTONS) 
-        )
 
 
 @rehim.on_callback_query()
@@ -118,12 +113,6 @@ def cllback_query(Clinet, CallbackQuery):
         )
 
 
-    elif CallbackQuery.data == "dstart":
-        CallbackQuery.edit_message_text(
-            REHİM_MESSAGE,
-            reply_markup = InlineKeyboardMarkup(REHİM_MESSAGE_BUTTONS) 
-        )
-
 
 @rehim.on_callback_query()
 def cllback_query(Clinet, CallbackQuery):
@@ -140,12 +129,6 @@ def cllback_query(Clinet, CallbackQuery):
         CallbackQuery.edit_message_text(
             SOZ_TEXT,
             reply_markup = InlineKeyboardMarkup(SOZ_BUTTON)
-        )
-
-    elif CallbackQuery.data == "dstart":
-        CallbackQuery.edit_message_text(
-            REHİM_MESSAGE,
-            reply_markup = InlineKeyboardMarkup(REHİM_MESSAGE_BUTTONS) 
         )
 
 @rehim.on_message(filters.command('adminlist', prefixes='/'))
