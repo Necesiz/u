@@ -56,6 +56,10 @@ REPLY_MESSAGE_BUTTONS = [
     [
         ("help"),
         ("helpp")
+    ],
+    [
+        ("desdek"),
+        ("desdekk")
     ]
 ]
 
@@ -76,6 +80,13 @@ def reply_to_help(client, message):
 def reply_to_helpp(client, message):
     rehim.send_message(message.chat.id, "test helpp")
 
+@rehim.on_message(filters.regex("desdek"))
+def reply_to_desdek(client, message):
+    rehim.send_message(message.chat.id, "test helpp")
+
+@rehim.on_message(filters.regex("desdekk"))
+def reply_to_desdekk(client, message):
+    rehim.send_message(message.chat.id, "test helpp")
 
  
 @rehim.on_message(filters.command('adminlist', prefixes='/'))
