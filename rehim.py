@@ -72,7 +72,7 @@ def test(client, message):
 def reply_to_help(client, message):
     rehim.send_message(message.chat.id, "test salam")
 
-rehim.on_message(filters.regex("helpp"))
+@rehim.on_message(filters.regex("helpp"))
 def reply_to_helpp(client, message):
     rehim.send_message(message.chat.id, "test helpp")
 
