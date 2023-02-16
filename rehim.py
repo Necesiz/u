@@ -12,49 +12,6 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 import json, requests, os, shlex, asyncio, uuid, shutil
 from typing import Tuple
-from pyrogram.types import Message
-from io import BytesIO
-from aiohttp import ClientSession
-
-
-
-aiohttpsession = ClientSession()
-
-
-async def get_http_status_code(url: str) -> int:
-    async with aiohttpsession.head(url) as resp:
-        return resp.status
-    
-
-async def make_carbon(code):
-    url = "https://carbonara.vercel.rehim/api/cook"
-    async with aiohttpsession.post(url, json={"code": code}) as resp:
-        image = BytesIO(await resp.read())
-    image.name = "carbon.png"
-    return image
-
-@rehim.on_message(filters.command("carbon")) #auye
-async def carbon_func(client, message):
-    reply = msg.reply_to_message
-    if reply:
-        m = await msg.reply_text("️🛎 Carbonu hazırlayıram...")
-        carbon = await make_carbon(msg.reply_to_message.text)
-        await m.edit("🎉 Artıq hazırdır! Göndərirəm.")
-        await client.send_document(msg.chat.id, carbon, caption=f"[OpenAI](https://t.me/openaimgbot) tərəfindən {msg.from_user.mention} üçün yaradıldı. 👻")
-        await m.delete()
-        carbon.close()
-    else:
-        try:
-            text = msg.text.split(" ", 1)[1]
-            m = await msg.reply_text("️🛎 Carbonu hazırlayıram...")
-            carbon = await make_carbon(text)
-            await m.edit("🎉 Artıq hazırdır! Göndərirəm.")
-            await client.send_document(msg.chat.id, carbon, caption=f"[OpenAI](https://t.me/openaimgbot) tərəfindən {msg.from_user.mention} üçün yaradıldı. 👻")
-            await m.delete()
-            carbon.close()
-        except IndexError:
-            await msg.reply_text("️🛎 Mətn daxil etmədin...")
-
 
 from Config import Config
 
