@@ -24,10 +24,10 @@ bot_token = Config.BOT_TOKEN
 
 
 
-START_MESSAGE = "Salam necəsən"
-START_MESSAGE_BUTTONS = [
+REHİM_MESSAGE = "Salam necəsən"
+REHİM_MESSAGE_BUTTONS = [
     [
-        InlineKeyboardButton('SUPPORT', url='https://t.me/teamabasofcom'),
+        InlineKeyboardButton('ƏMR', callback_data="EMR"),
         InlineKeyboardButton('YOXLAMA', url='https://t.me/teamabasof')
     ],
     [
@@ -35,6 +35,14 @@ START_MESSAGE_BUTTONS = [
         InlineKeyboardButton('YOXLAMA2', url='https://t.me/teamabasofffffffff')
     ]
 ]
+
+
+@rehim.on_message(filters.command("start") & filters.private)
+def start(client, message):
+    message.reply(
+        text = REHİM_MESSAGE,
+        reply_markup = InlineKeyboardMarkup(REHİM_MESSAGE_BUTTONS)
+    )
 
 
 
@@ -46,14 +54,11 @@ rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 
-@rehim.on_message(filters.command("start") & filters.private)
-def start(client, message):
-    text = START_MESSAGE
-    reply_markup = InlineKeyboardMarkup(START_MESSAGE_BUTTONS)
+@rehim.on_message(filters.command("alive") & filters.private)
+def rehim(client, message):
     message.reply(
-        text=text,
-        reply_markup=reply_markup,
-        disable_web_page_preview=True
+        text = REHİM_MESSAGE
+        reply_markup = InlineKeyboardMarkup(REHİM_MESSAGE_BUTTONS)
     )
 
 REPLY_MESSAGE = "BUTTONA BAS"
@@ -496,26 +501,6 @@ def delete_text(client, message):
 def anything(client, message):
     message.reply(message.voice.file_id)
 
-
-REHİM_MESSAGE = "Salam necəsən"
-REHİM_MESSAGE_BUTTONS = [
-    [
-        InlineKeyboardButton('ƏMR', callback_data="EMR"),
-        InlineKeyboardButton('YOXLAMA', url='https://t.me/teamabasof')
-    ],
-    [
-        InlineKeyboardButton('SAHİB', url='https://t.me/teamabasov'),
-        InlineKeyboardButton('YOXLAMA2', url='https://t.me/teamabasofffffffff')
-    ]
-]
-
-
-@rehim.on_message(filters.command("alive") & filters.private)
-def alive(client, message):
-    message.reply(
-        text = REHİM_MESSAGE,
-        reply_markup = InlineKeyboardMarkup(REHİM_MESSAGE_BUTTONS)
-    )
 
 
 
