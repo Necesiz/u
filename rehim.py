@@ -37,12 +37,6 @@ REHİM_MESSAGE_BUTTONS = [
 ]
 
 
-@rehim.on_message(filters.command("start") & filters.private)
-def start(client, message):
-    message.reply(
-        text = REHİM_MESSAGE,
-        reply_markup = InlineKeyboardMarkup(REHİM_MESSAGE_BUTTONS)
-    )
 
 
 
@@ -51,15 +45,14 @@ def start(client, message):
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
-
-
-
-@rehim.on_message(filters.command("alive") & filters.private)
-def rehim(client, message):
+@rehim.on_message(filters.command("start") & filters.private)
+def start(client, message):
     message.reply(
-        text = REHİM_MESSAGE
+        text = REHİM_MESSAGE,
         reply_markup = InlineKeyboardMarkup(REHİM_MESSAGE_BUTTONS)
     )
+
+
 
 REPLY_MESSAGE = "BUTTONA BAS"
 
