@@ -50,23 +50,6 @@ def start(client, message):
         disable_web_page_preview=True
     )
 
-REPLY_MESSAGE = "BUTTONA BAS"
-
-REPLY_MESSAGE_BUTTONS = [
-    [
-        ("emr")
-    ]
-]
-
-@rehim.on_message(filters.command('test'))
-def test(client, message):
-    text = REPLY_MESSAGE
-    reply_markup = ReplyKeyboardMarkup(REPLY_MESSAGE_BUTTONS, one_time_keyboard=True, resize_keyboard=True)
-    message.reply(
-        text=text,
-        reply_markup=reply_markup
-    )
-
 
 
  
@@ -472,6 +455,23 @@ def anything(client, message):
     message.reply(message.voice.file_id)
 
 
+
+REPLY_MESSAGE = "BUTTONA BAS"
+
+REPLY_MESSAGE_BUTTONS = [
+    [
+        ("emr")
+    ]
+]
+
+@rehim.on_message(filters.command('test'))
+def test(client, message):
+    text = REPLY_MESSAGE
+    reply_markup = ReplyKeyboardMarkup(REPLY_MESSAGE_BUTTONS, one_time_keyboard=True, resize_keyboard=True)
+    message.reply(
+        text=text,
+        reply_markup=reply_markup
+    )
 
 @rehim.on_message(filters.regex("emr"))
 def reply_to_emr(client, message):
