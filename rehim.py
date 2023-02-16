@@ -55,6 +55,7 @@ REPLY_MESSAGE = "BUTTONA BAS"
 REPLY_MESSAGE_BUTTONS = [
     [
         ("help")
+        ("helpp")
     ]
 ]
 
@@ -70,6 +71,10 @@ def test(client, message):
 @rehim.on_message(filters.regex("help"))
 def reply_to_help(client, message):
     rehim.send_message(message.chat.id, "test salam")
+
+rehim.on_message(filters.regex("helpp"))
+def reply_to_help(client, message):
+    rehim.send_message(message.chat.id, "test helpp")
 
 
  
