@@ -539,7 +539,7 @@ def anything(client, message):
 
 #TELETHON SETRİ
 
-abasov = TelegramClient('abasov', API_ID, API_HASH).start(bot_token=bot_token)
+abasov = TelegramClient('abasov', api_id, api_hash).start(bot_token=bot_token)
 
 @abasov.on(events.ChatAction)
 async def handler(event):
