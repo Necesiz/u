@@ -1,6 +1,5 @@
 from telethon import TelegramClient
 from telethon import events
-İmport random 
 
 #pyrogram
 
@@ -540,23 +539,28 @@ def anything(client, message):
 
 #TELETHON SETRİ
 
-abasov = TelegramClient('abasov', api_id, api_hash).start(bot_token=bot_token)
+abasov = TelegramClient('abasov', API_ID, API_HASH).start(bot_token=bot_token)
 
-
-@abasov.on(events.NewMessage(pattern='@teamabasov'))
-@abasov.on(events.NewMessage(pattern='@AnonyumAz'))
-@edalet.on(events.NewMessage(pattern='Rehim'))
-@abasov.on(events.NewMessage(pattern='Rəhim'))
+@abasov.on(events.ChatAction)
 async def handler(event):
-    await event.reply(random.choice(sahib))
+    if event.user_joined:
+        await event.reply(random.choice(userjoin))
 
 
+@abasov.on(events.ChatAction)
+async def handler(event):
+    if event.user_left:
+        await event.reply("Əla Birdə gəlmə")
 
-sahib = (
-    "Az tağ elə sahibimi",
+userjoin = (
+
+    "Xoş gəldin mesajı 1",
+    "Xoş gəldin mesajı 2",
+    "Xoş gəldin mesajı 3",
+    "Xoş gəldin mesajı 4",
+    "Xoş gəldin mesajı 5",
     "",
 )
-
 
 
 
