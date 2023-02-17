@@ -1,3 +1,9 @@
+from telethon import TelegramClient
+from telethon import events
+İmport random 
+
+#pyrogram
+
 import pyrogram
 import random
 from pyrogram import Client, filters
@@ -532,6 +538,29 @@ def anything(client, message):
     message.reply(message.voice.file_id)
 
 
+#TELETHON SETRİ
+
+abasov = TelegramClient('abasov', api_id, api_hash).start(bot_token=bot_token)
 
 
+@abasov.on(events.NewMessage(pattern='@teamabasov'))
+@abasov.on(events.NewMessage(pattern='@AnonyumAz'))
+@edalet.on(events.NewMessage(pattern='Rehim'))
+@abasov.on(events.NewMessage(pattern='Rəhim'))
+async def handler(event):
+    await event.reply(random.choice(sahib))
+
+
+
+sahib = (
+    "Az tağ elə sahibimi",
+    "",
+)
+
+
+
+
+
+print(">> Bot işləyir <<")
 rehim.run()
+abasov.run_until_disconnected()
