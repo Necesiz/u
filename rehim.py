@@ -550,15 +550,11 @@ async def handler(event):
 @abasov.on(events.ChatAction)
 async def handler(event):
     if event.user_left:
-        await event.reply("Əla Birdə gəlmə")
+        await event.reply("Davay gelme day")
 
 userjoin = (
 
-    "Xoş gəldin mesajı 1",
-    "Xoş gəldin mesajı 2",
-    "Xoş gəldin mesajı 3",
-    "Xoş gəldin mesajı 4",
-    "Xoş gəldin mesajı 5",
+    "Xoş gəlmisininiz",
     "",
 )
 
