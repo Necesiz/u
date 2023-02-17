@@ -1,5 +1,6 @@
 #teamabasov test
 pyrogram==2.0.97
+telethon
 TgCrypto
 telegraph
 requests==2.26.0
