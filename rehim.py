@@ -49,17 +49,11 @@ REHİM_MESSAGE_BUTTONS = [
 rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
+@rehim.on_message(filters.private & filters.sticker)
+async def stickers(_, message):
+       await message.reply(f"Your Requested Sticker's ID is   * `{message.sticker.file_id}` *", quote=True)
+   
 
-@rehim.on_message(filters.command(["purge"]))
-def purge(client, message):
-    if not message.reply_to_message:
-        message.reply_text("Lütfen silinmesini istediğiniz mesajı yanıtlayın.")
-        return
-        
-    reply_message = message.reply_to_message
-    for _ in range(reply_message.message_id + 1, message.message_id):
-        client.delete_messages(message.chat.id, _)
-    message.reply_text("Mesajlar başarıyla silindi.")
 
 
 @rehim.on_message(filters.command("start") & filters.private)
