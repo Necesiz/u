@@ -17,6 +17,11 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 import json, requests, os, shlex, asyncio, uuid, shutil
 from typing import Tuple
+from pyrogram import Client, filters, emoji
+from pyrogram.types import Message, Chat, InlineKeyboardMarkup, InlineKeyboardButton, ChatPermissions
+import sys
+import os
+import time
 
 from Config import Config
 
@@ -28,119 +33,108 @@ bot_token = Config.BOT_TOKEN
 
 
 
-REHİM_MESSAGE = "{message.from_user.mention} Salam"
-REHİM_MESSAGE_BUTTONS = [
-    [
-        InlineKeyboardButton('ƏMRLƏR1', callback_data="EMR"),
-        InlineKeyboardButton('ƏMRLƏR2', callback_data="dhelp")
-    ],
-    [
-        InlineKeyboardButton('ƏMRLƏR3', callback_data="thelp"),
-        InlineKeyboardButton('ƏMRLƏR4', callback_data="shelp")
-    ]
-]
+
+MENTION = "[{}](tg://user?id={})"
+MESSAGE = "Salam! {}, Əyləncə Dolu Qrupumuza Xoş Gəldin🥳!Qaydalara riaət etdikcə səndə favori userlərimizdən biri olacaqsan🤩!Əminəmki Nümunəvi Userlərdən biri olacaqsan!🥰"
+
+DUR = False
+SORGU = None
+WSORGU = None
+WDUR = False
+
+GRUP = []
 
 
 
+def btag():
+	BUTTON=[[InlineKeyboardButton(text="👨🏻‍💻Sahibim", url="https://t.me/Teamabasov")]]
+	BUTTON=[[InlineKeyboardButton(text="Yeniliklər Kanalı📣", url="https://t.me/teamabasofcom")]]
+	return InlineKeyboardMarkup(BUTTON)
 
 
 
-#-#-#-# Pyrogram Başlanğıc #-#-#-#
-rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
+@rehim.on_message(
+	filters.command(["admin", "all"])
+	& filters.private
+)
+async def priw(client, message):
+	await message.reply_text("Hmm burada 2miz olduğumuz üçün və 2 mizdə online olduğumuz üçün bu əmri qruplarda işlət!🤠")
 
 
-@rehim.on_message(filters.private & filters.sticker)
-async def stickers(_, message):
-       await message.reply(f"Your Requested Sticker's ID is   * `{message.sticker.file_id}` *", quote=True)
-   
+@rehim.on_message(
+	filters.command("all")
+	& filters.group
+	)
+async def tag(client: rehim, message: Message):
+	global DUR
+	global SORGU
+	msg = " ".join(message.command[1:])
+	chat = message.chat
+	async for mem in rehim.iter_chat_members(chat_id=chat.id, filter="administrators"):
+		if message.from_user.id == mem.user.id:
+			await message.reply_text(f"{message.from_user.mention} Tag Prosesini Başlatdı! Hərkəsi Tag Edirəm Boss!⚡️",
+				reply_markup=btag()
+				)
+			time.sleep(1)
+			SORGU = True
+			async for member in rehim.iter_chat_members(chat_id=chat.id, filter="all"):
+				if DUR:
+					DUR=False
+					SORGU = None
+					break
+				time.sleep(1)
+				await rehim.send_message(chat_id=chat.id, text=f"{member.user.mention} {msg}")
+				time.sleep(1.5)
+		if message.from_user.id != mem.user.id:
+			pass
+		
+@rehim.on_message(
+	filters.command("admin")
+	& filters.group
+	)
+async def ta(client: rehim, message: Message):
+	global DUR
+	global SORGU
+	msg = " ".join(message.command[1:])
+	chat = message.chat
+	async for mem in rehim.iter_chat_members(chat_id=chat.id, filter="administrators"):
+		if message.from_user.id == mem.user.id:
+			await message.reply_text(f"{message.from_user.mention} Adminləri tag etməyimi istədi⚡️ Adminləri Tag Edirəm Boss!🥳",
+				reply_markup=btag()
+				)
+			time.sleep(1)
+			SORGU = True
+			async for member in rehim.iter_chat_members(chat_id=chat.id, filter="administrators"):
+				if DUR:
+					DUR=False
+					SORGU = None
+					break
+				time.sleep(1)
+				await rehim.send_message(chat_id=chat.id, text=f"{member.user.mention} {msg}")
+				time.sleep(1.5)
+		if message.from_user.id != mem.user.id:
+			pass
 
 
+		
+@rehim.on_message(
+	filters.group
+	& filters.command("cancel")
+)
+async def stop(client: rehim, message: Message):
+	global DUR
+	chat = message.chat
+	async for mem in rehim.iter_chat_members(chat_id=chat.id, filter="administrators"):
+		if message.from_user.id == mem.user.id:
+			if SORGU == None:
+				await message.reply_text("Aktiv bir all prosesi yoxdur😕👍🏻")
+				return
 
-@rehim.on_message(filters.command("start") & filters.private)
-def start(client, message):
-    message.reply(
-        text = REHİM_MESSAGE,
-        reply_markup = InlineKeyboardMarkup(REHİM_MESSAGE_BUTTONS)
-    )
+			DUR = True
+			await message.reply_text(f"{message.from_user.mention} Tag prosesini dayandırdı❌ Tamam heçkəsi tag etmirəm😒")	
+		if message.from_user.id != mem.user.id:
+			pass
 
-@rehim.on_callback_query()
-def cllback_query(Clinet, CallbackQuery):
-    if CallbackQuery.data== "EMR":
-
-        SOZ_TEXT = "ƏMRLƏRİM YOXDUR"
-
-        SOZ_BUTTON = [
-            [
-                InlineKeyboardButton("GERİ", callback_data="dstart")
-            ]
-        ]
-
-        CallbackQuery.edit_message_text(
-            SOZ_TEXT,
-            reply_markup = InlineKeyboardMarkup(SOZ_BUTTON)
-        )
-
-
-@rehim.on_callback_query()
-def cllback_query(Clinet, CallbackQuery):
-    if CallbackQuery.data== "thelp":
-
-        SOZ_TEXT = "ƏMRLƏRİM YOXDUR"
-
-        SOZ_BUTTON = [
-            [
-                InlineKeyboardButton("GERİ", callback_data="dstart")
-            ]
-        ]
-
-        CallbackQuery.edit_message_text(
-            SOZ_TEXT,
-            reply_markup = InlineKeyboardMarkup(SOZ_BUTTON)
-        )
-
-
-
-@rehim.on_callback_query()
-def cllback_query(Clinet, CallbackQuery):
-    if CallbackQuery.data== "dhelp":
-
-        SOZ_TEXT = "ƏMRLƏRİM YOXDUR"
-
-        SOZ_BUTTON = [
-            [
-                InlineKeyboardButton("GERİ", callback_data="dstart")
-            ]
-        ]
-
-        CallbackQuery.edit_message_text(
-            SOZ_TEXT,
-            reply_markup = InlineKeyboardMarkup(SOZ_BUTTON)
-        )
-
-
-
-@rehim.on_callback_query()
-def cllback_query(Clinet, CallbackQuery):
-    if CallbackQuery.data== "shelp":
-
-        SOZ_TEXT = "ƏMRLƏRİM YOXDUR"
-
-        SOZ_BUTTON = [
-            [
-                InlineKeyboardButton("GERİ", callback_data="dstart")
-            ]
-        ]
-
-        CallbackQuery.edit_message_text(
-            SOZ_TEXT,
-            reply_markup = InlineKeyboardMarkup(SOZ_BUTTON)
-        )
-  
-    elif CallbackQuery.data == "dstart":
-        CallbackQuery.edit_message_text(
-            REHİM_MESSAGE,
-            reply_markup = InlineKeyboardMarkup(REHİM_MESSAGE_BUTTONS) 
-        )
 
 @rehim.on_message(filters.command('adminlist', prefixes='/'))
 def admin_list(app, message):
