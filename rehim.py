@@ -31,7 +31,7 @@ bot_token = Config.BOT_TOKEN
 
 
 
-
+rehim = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 
 
 MENTION = "[{}](tg://user?id={})"
