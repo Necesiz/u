@@ -3,4 +3,4 @@ pyrogram==1.4.16
 telethon
 TgCrypto
 telegraph
-requests==2.26.0
+requests
