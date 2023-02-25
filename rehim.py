@@ -55,18 +55,23 @@ def btag():
 
 
 
-@rehim.on_message(filters.command("tagss"))
-def tag_handler(client, message):
-    # Etiketleri yakala
-    tags = message.text.split("#")[1:]
+@rehim.on_message()
+def tagBot(client, message):
+    # Belirtilen etiketi al
+    tags = message.text.split(" ")
     
-    # Etiketleri düzenle
-    tags = [tag.strip() for tag in tags] 
-    formatted_tags = ", ".join(f"#{tag}" for tag in tags) 
-    
-    # İletiyi güncelle
-    message.edit(f"{message.text}\n\n{formatted_tags}") 
+    # Tag'i tespit et
+    if "#" in tags[0]:
+        tag = tags[0]
+        
+        # Kullanıcı bilgilerini kaydet
+        file.write(message.from_user.username + f' used {tag}\n')
+        
+        # Etiketi kullanan mesaja cevap ver
+        message.reply(f"{message.from_user.username}, {tag} kullandın!")
 
+# dosyayı kapat
+file.close()
 
 
 @rehim.on_message(
