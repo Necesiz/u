@@ -57,10 +57,10 @@ def btag():
 @rehim.on_message(filters.command("ids"))
 async def _id(_, message: Message):
     msg = message.reply_to_message or message
-    out_str = f"👥 **Chat ID** : `{(msg.forward_from_chat or msg.chat).id}`\n"
-    out_str += f"💬 **Message ID** : `{msg.forward_from_message_id or msg.message_id}`\n"
+    out_str = f"👥 **Söhbət ID** : `{(msg.forward_from_chat or msg.chat).id}`\n"
+    out_str += f"💬 **Mesaj ID** : `{msg.forward_from_message_id or msg.message_id}`\n"
     if msg.from_user:
-        out_str += f"🙋‍♂️ **From User ID** : `{msg.from_user.id}`\n"
+        out_str += f"🙋‍♂️ **İstdifadəçi ID** : `{msg.from_user.id}`\n"
     file_id, file_unique_id = None, None
     if msg.audio:
         type_ = "audio"
@@ -95,9 +95,9 @@ async def _id(_, message: Message):
         file_id = msg.video.file_id
         file_unique_id = msg.video.file_unique_id
     if (file_id and file_unique_id) is not None:
-        out_str += f"● **Type:** `{type_}`\n"
-        out_str += f"📄 **File ID:** `{file_id}`\n"
-        out_str += f"📄 **File UNIQUE ID:** `{file_unique_id}`"
+        out_str += f"● **Növ:** `{type_}`\n"
+        out_str += f"📄 **Fayıl ID:** `{file_id}`\n"
+        out_str += f"📄 **Fayil UNİKAL ID:** `{file_unique_id}`"
     await message.reply(out_str)
 
 
