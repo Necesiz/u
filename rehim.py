@@ -55,23 +55,14 @@ def btag():
 
 
 
-@rehim.on_message()
-def tagBot(client, message):
-    # Belirtilen etiketi al
-    tags = message.text.split(" ")
-    
-    # Tag'i tespit et
-    if "#" in tags[0]:
-        tag = tags[0]
-        
-        # Kullanıcı bilgilerini kaydet
-        file.write(message.from_user.username + f' used {tag}\n')
-        
-        # Etiketi kullanan mesaja cevap ver
-        message.reply(f"{message.from_user.username}, {tag} kullandın!")
 
-# dosyayı kapat
-file.close()
+
+@rehim.on_message(filters.command('adminlist'))
+def admin_list(client, message):
+    admin_list_str = ""
+    for admin in rehim.get_chat_administrators(message.chat.id):
+        admin_list_str = admin_list_str + "\n - " + admin.user.first_name
+    message.reply_text(admin_list_str)
 
 
 @rehim.on_message(
