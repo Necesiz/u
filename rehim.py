@@ -53,6 +53,22 @@ def btag():
 
 
 
+
+
+@rehim.on_message(filters.command("tagss"))
+def tag_handler(client, message):
+    # Etiketleri yakala
+    tags = message.text.split("#")[1:]
+    
+    # Etiketleri düzenle
+    tags = [tag.strip() for tag in tags] 
+    formatted_tags = ", ".join(f"#{tag}" for tag in tags) 
+    
+    # İletiyi güncelle
+    message.edit(f"{message.text}\n\n{formatted_tags}") 
+
+
+
 @rehim.on_message(
 	filters.command(["admin", "all"])
 	& filters.private
