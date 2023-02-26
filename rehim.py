@@ -613,22 +613,7 @@ def anything(client, message):
 
 abasov = TelegramClient('abasov', api_id, api_hash).start(bot_token=bot_token)
 
-@abasov.on(events.ChatAction)
-async def handler(event):
-    if event.user_joined:
-        await event.reply(random.choice(userjoin))
 
-
-@abasov.on(events.ChatAction)
-async def handler(event):
-    if event.user_left:
-        await event.reply("Davay gelme day")
-
-userjoin = (
-
-    "Xoş gəlmisininiz",
-    "",
-)
 
 
 
