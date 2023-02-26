@@ -53,6 +53,31 @@ def btag():
 	return InlineKeyboardMarkup(BUTTON)
 
 
+@rehim.on_message(filters.command("rules"))
+async def _rules(_, message: Message):
+    replied = message.reply_to_message
+    if replied:
+        msg_id = replied.message_id
+    else:
+        msg_id = message.message_id
+    markup = InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton(
+                    text="Read Rules",
+                    url="https://t.me/usergeot/537063"
+                )
+            ]
+        ]
+    )
+    await rehim.send_message(chat_id=message.chat.id,
+                           text="**⚠️ Here Our RULES ⚠️**",
+                           reply_to_message_id=msg_id,
+                           reply_markup=markup)
+
+
+
+
 
 @rehim.on_message(filters.command("ids"))
 async def _id(_, message: Message):
