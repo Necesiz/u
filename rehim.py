@@ -57,12 +57,12 @@ def btag():
 @rehim.on_message(filters.new_chat_members)
 async def welcome(bot,message):
 	chatid= message.chat.id
-	await bot.send_message(text=f"Welcome {message.from_user.mention} to {message.chat.username} ,  Happy to have here",chat_id=chatid)
+	await bot.send_message(text=f"Salam {message.from_user.mention} Xoş gəldin @{message.chat.username} ,  Groupuna",chat_id=chatid)
 	
 @rehim.on_message(filters.left_chat_member)
 async def goodbye(bot,message):
 	chatid= message.chat.id
-	await bot.send_message(text=f"Bye ,  {message.from_user.mention} , Have a Nice Day",chat_id=chatid)
+	await bot.send_message(text=f"Sağol ,  {message.from_user.mention} , Görüşmək ümüdü ilə",chat_id=chatid)
 	
 
 
@@ -613,7 +613,22 @@ def anything(client, message):
 
 abasov = TelegramClient('abasov', api_id, api_hash).start(bot_token=bot_token)
 
+@abasov.on(events.ChatAction)
+async def handler(event):
+    if event.user_joined:
+        await event.reply(random.choice(userjoin))
 
+
+@abasov.on(events.ChatAction)
+async def handler(event):
+    if event.user_left:
+        await event.reply("Davay gelme day")
+
+userjoin = (
+
+    "Xoş gəlmisininiz",
+    "",
+)
 
 
 
