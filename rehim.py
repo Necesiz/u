@@ -1,5 +1,3 @@
-from telethon import TelegramClient
-from telethon import events
 
 #pyrogram
 
@@ -24,28 +22,7 @@ async def hello(client, message):
     
 #TELETHON SETRİ
 
-abasov = TelegramClient('abasov', api_id, api_hash).start(bot_token=bot_token)
-
-@abasov.on(events.ChatAction)
-async def handler(event):
-    if event.user_joined:
-        await event.reply(random.choice(userjoin))
 
 
-@abasov.on(events.ChatAction)
-async def handler(event):
-    if event.user_left:
-        await event.reply("Davay gelme day")
-
-userjoin = (
-
-    "Xoş gəlmisininiz",
-    "",
-)
-
-
-
-
-print(">> Bot işləyir <<")
 rehim.run()
-abasov.run_until_disconnected()
+
