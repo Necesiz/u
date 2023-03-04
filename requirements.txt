@@ -1,3 +1,3 @@
 #teamabasov test
-pyrogram==2.0.97
+pyrogram
 TgCrypto
